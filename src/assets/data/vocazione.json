@@ -1,0 +1,23 @@
+{
+  "header": {
+    "backgroundImage": "vocazioni.jpg",
+    "title": "VocazionI",
+    "caption": null,
+    "brandImage": null
+  },
+  "sections": [
+    {
+      "title": "Cammino vocazionale",
+      "caption": "Vuoi camminare con noi?",
+      "articles": [
+        "Se desideri scoprire chi sei tu e per chi sei tu, abbi il coraggio di farti guardare dall’Amore per imparare l’arte di amare.",
+        "Se volessi essere accompagnato spiritualmente o vivere dei tempi di silenzio e preghiera, SCRIVICI",
+        "Clicca qui per andare al sito vocazionale...(www.vocazione.altervista.org)"
+      ],
+      "image": {
+        "url": "../assets/blabla.png",
+        "align": "left"
+      }
+    }
+  ]
+}

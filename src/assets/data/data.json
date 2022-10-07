@@ -1,0 +1,205 @@
+{
+  "chi-siamo": {
+    "header": {
+      "backgroundImage": "chiSiamo.jpg",
+      "title": "Missionari e Missionarie della via",
+      "caption": "Caritas - Veritas",
+      "brandImage": "logo.png"
+    },
+    "main": {
+      "title": "Pace e bene, benvenuto!",
+      "caption": "Siamo una piccola comunità fratelli e sorelle riuniti da Cristo per vivere il suo Vangelo nella semplicità, povertà e nella gioia fraterna. \nSiamo nati in una zona rurale di Lamezia Terme, un luogo semplice: la nostra Betlemme.",
+      "strings": [
+        "Desideriamo rispondere all'appello di Gesù e seguirlo, sempre in cammino:",
+        "Dire che Gesù è Via significa per noi vivere\nuna sequela sempre in cammino.\nIn questo camminare la grazia\ndell’incontro con i fratelli e le sorelle,\nci ha salvati dall’essere\ndei pellegrini erranti,\nha attestato l’orientamento della nostra vita\nalla sequela di Gesù nella Chiesa,\naffermando la centralità della strada\ncome luogo dell’incontro e del camminare con l’altro."
+      ],
+      "image": {
+        "url": "fotoHome2.jpg",
+        "align": "right"
+      }
+    },
+    "sections": [
+      {
+        "title": "L'intuizione spirituale!",
+        "caption": null,
+        "strings": [
+          "L’intuizione spirituale è quella di riproporre la vita dei primi missionari del Vangelo, rinvigorendo nel popolo di Dio lo spirito delle\nprime comunità cristiane, vivendo la Via come luogo della presenza di Cristo.",
+          "I passi di Gesù per noi si sono rivelati sulla strada,\nperciò dire che Gesù è Via significa per noi\nattestare non solo l’orientamento della nostra vita e la sua sequela\nma anche la centralità della strada,\nnon solo come spazio fisico\nma come luogo dell’incontro con l’altro\ne del camminare con l’altro."
+        ],
+        "image": {
+          "url": "fotoHome3.jpg",
+          "align": "right"
+        }
+      },
+      {
+        "title": "La nostra vita",
+        "caption": "Fratelli e sorelle vivono la stessa regola ma in abitazioni distinte. Condividono alcuni momenti di preghiera, di vita comune e di missione.\nLa loro giornata è riassunta dal motto: pregare, lavorare ed evangelizzare.",
+        "strings": [
+          "Lo stile di vita mendicante ci permette di essere in\ncomunione con gli ultimi e di non dimenticare che Dio stesso è il mendicante di amore che ci cerca incessantemente.\nCi impegniamo a considerarci ultimi e a non considerare nulla come nostra proprietà.\nPerciò viviamo senza circolo di denaro per vivere il Vangelo nella sua radicalità e bellezza.\nDesideriamo, inoltre, intessere un’autentica vita fraterna, insieme per santificarci e santificare,\nall’insegna dell’amore elevato che ci insegna Cristo,\ndel quale siamo sempre discepoli”."
+        ],
+        "image": {
+          "url": "fotoHome4.jpg",
+          "align": "left"
+        }
+      }
+    ]
+  },
+  "vocazione": {
+    "header": {
+      "backgroundImage": "vocazioni.jpg",
+      "title": "VocazionI",
+      "caption": null,
+      "brandImage": null
+    },
+    "main": {
+      "title": "Cammino vocazionale",
+      "caption": "Vuoi camminare con noi?",
+      "strings": [
+        "Se desideri scoprire chi sei tu e per chi sei tu, abbi il coraggio di farti guardare dall’Amore per imparare l’arte di amare.",
+        "Se volessi essere accompagnato spiritualmente o vivere dei tempi di silenzio e preghiera, SCRIVICI",
+        "Clicca qui per andare al sito vocazionale...(www.vocazione.altervista.org)"
+      ],
+      "image": {
+        "url": "fotoHome2.jpg",
+        "align": "right"
+      }
+    },
+    "sections": null
+  },
+  "attivita": {
+    "header": {
+      "backgroundImage": "attivita.jpg",
+      "title": "Attività e missioni",
+      "caption": null,
+      "brandImage": null
+    },
+    "groups": [
+      {
+        "title": "S. Chiara",
+        "sections": [
+          {
+            "title": null,
+            "caption": null,
+            "articles": [
+              "Se vuoi vivere dei momenti di preghiera con noi... A Lamezia Terme:",
+              "SANTA MESSA Domenica ore 11:00 e ore 18:00",
+              "ADORAZIONE EUCARISTICA Venerdì 21:00",
+              "CATECHESI Ogni ultima domenica del mese dopo la messa",
+              "CONFESSIONI Sabato e domenica dalle ore 16:00 (Per confessarsi in altri momenti si suggerisce di richiedere preventivamente un appuntamento contattando i missionari)"
+            ],
+            "image": null
+          },
+          {
+            "title": "Domenica di fraternità",
+            "caption": null,
+            "articles": [
+              "L’ultima domenica di ogni mese, momento di spiritualità e fraternità aperto a tutti, che termina con il pranzo vissuto insieme.",
+              "Se fossi interessato, SCRIVICI"
+            ],
+            "image": {
+              "url": "../assets/domenicaDiFraternità.png",
+              "align": "left"
+            }
+          },
+          {
+            "title": "Cammino Giovani (18-30)",
+            "caption": null,
+            "articles": [
+              "14 incontri, due lunedì al mese, a partire dalle 20:30, per conoscere meglio se stessi e il buon Dio...",
+              "Se fossi interessato, SCRIVICI"
+            ],
+            "image": {
+              "url": "../assets/camminoGiovani.png",
+              "align": "right"
+            }
+          },
+          {
+            "title": "Corso per gli sposi",
+            "caption": null,
+            "articles": [
+              "Si tratta di un prezioso corso per le coppie di sposi.\nCinque incontri, una domenica al mese, da maggio e\ngiugno, per rivitalizzare e costruire al meglio il rapporto di\ncoppia.",
+              "Se fossi interessato, SCRIVICI"
+            ],
+            "image": {
+              "url": "../assets/corsoSposi.png",
+              "align": "left"
+            }
+          }
+        ]
+      },
+      {
+        "title": "S. Maria dell'anima",
+        "sections": [
+          {
+            "title": "RITIRO E S. MESSA",
+            "caption": null,
+            "articles": [
+              "Ogni seconda domenica del mese",
+              "Ritrovo e catechesi: 15.30",
+              "S. Messa: ore 18",
+              "Confessioni prima della S. Messa."
+            ],
+            "image": {
+              "url": "../assets/blabla.png",
+              "align": "left"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "approfondimenti": {
+    "header": {
+      "backgroundImage": "approfondimenti.jpg",
+      "title": "Approfondimenti",
+      "caption": null,
+      "brandImage": null
+    },
+    "sections": [
+      {
+        "title": "Breve storia della comunità",
+        "caption": null,
+        "articles": [
+          "La storia della comunità è partita dal cuore di Dio e dalla libera risposta di tre giovani provenienti\nda diverse parti d’Italia, che sentendo di consacrarsi a Dio, si ritrovarono a vivere una missione\ncomune: fra Faustino, fra Umile e suor Chiara. Con l’entusiasmo e la semplicità di voler vivere il\nVangelo, si imbattono in una prima esperienza di vita evangelica, sentendo che lo Spirito Santo\nfaceva crescere in loro un forte desiderio di missionarietà contemplativa, un grande amore per la\nVerità e per una radicale povertà. Dopo essersi confrontati con l’allora Vescovo di Lamezia Terme,\nmons. Luigi Antonio Cantafora, che seguiva questo loro desiderio, offrirono un pellegrinaggio per\ncomprendere meglio la loro vocazione, percorrendo a piedi e senza nulla – come i primi discepoli\ndel Signore – vari santuari mariani dell’Europa. Ivi, per grazia di Dio, sentirono forte nel cuore il\nrichiamo missionario a donare la loro vita per testimoniare che Dio si è proclamato Verità, proprio\nquella verità che il cuore dell’uomo cerca incessantemente: la verità dell’Amore.",
+          "Iniziarono così, in una Chiesa semi-abbandonata, sita in un terreno deserto alla periferia di\nLamezia Terme, a vivere una vita semplice da missionari poveri e itineranti, avendo come unica\nregola il Vangelo, mettendosi sotto la protezione della Madonna della Via, fiore del Carmelo e di\nSan Giuseppe suo sposo, patroni e protettori della loro vita. Il percorso intrapreso proseguì non\nsolo con la loro consacrazione religiosa (con il loro semplice abito religioso color terra, per\nricordare l’umiltà di Dio che spogliò sé stesso prendendo la nostra natura umana), ma ricevettero\nanche l’approvazione da parte della Chiesa; inoltre i due fratelli divennero sacerdoti.",
+          "Da questi “semini” sono nate due piccole comunità divenute un Istituto religioso con due rami:\nquello dei fratelli e quello delle sorelle che, ispirandosi alla vita della prima comunità cristiana di\nGerusalemme\n(“quelli della Via” – At 9,2\n), vivono la grazia della consacrazione religiosa modellata\nsullo stile dei missionari apostolici, evangelizzatori poveri e itineranti.",
+          "Proprio questa aperta accoglienza ha suscitato “un’onda di amore” che ha coinvolto tante persone\nche vengono a pregare, a lavorare insieme a noi o semplicemente a trovare un po’ di ristoro, di\naccoglienza, di rispetto e di pace. Per grazia di Dio la chiesa di S. Chiara, luogo nativo della\ncomunità, è così diventata un’oasi di pace con Dio e fra gli uomini.",
+          "Da qui è nato il movimento laicale con le sue comunità mistiche ed evangelizzatrici, unite dalla\nParola e dalla presenza di Cristo. I consacrati sono testimonianza della chiamata radicale alla\nsequela di Gesù, e accompagnano e supportano il cammino delle comunità dei laici"
+        ],
+        "image": {
+          "url": "../assets/blabla.png",
+          "align": "left"
+        }
+      },
+      {
+        "title": "Lo stile di vita",
+        "caption": null,
+        "articles": [
+          "Le nostre giornate sono scandite dalla preghiera, dal lavoro manuale (con il quale provvediamo ai\nnostri bisogni e siamo in contatto con la creazione), dalla formazione umana e spirituale (fondata\nsulla Parola di Dio e sull’insegnamento della Chiesa) e dall’annuncio di Gesù, uscendo per la\nstrade. Dediti alla nuova evangelizzazione nelle sue svariate forme (catechesi, predicazioni,\nmissioni popolari e parrocchiali...), viaggiamo anche di totale provvidenza (cf Lc 10,3-\n9), facendo pellegrinaggi a piedi e in autostop.",
+          "Cerchiamo di vivere una povertà radicale, così da poter testimoniare che è Cristo il nostro tutto.\nInoltre per mezzo della povertà abbiamo la possibilità di incontrare la gente nella quotidianità.\nIl nostro stile di vita mendicante ci permette di essere in comunione con gli ultimi e di non\ndimenticare che Dio stesso è il mendicante di amore che ci cerca incessantemente. Ci impegniamo\nperciò a considerarci ultimi e a non considerare nulla come nostra proprietà o dominio, perciò\nviviamo senza circolo di denaro, per vivere il Vangelo nella sua radicalità e bellezza"
+        ],
+        "image": {
+          "url": "../assets/blabla.png",
+          "align": "right"
+        }
+      },
+      {
+        "title": "l'intuizione spirituale",
+        "caption": null,
+        "articles": [
+          "L’intuizione spirituale è quella di riproporre la vita dei primi missionari del Vangelo, rinvigorendo\nnel popolo di Dio lo spirito delle prime comunità cristiane, proclamando e testimoniando che:Gesù è VIA, VERITA’ e VITA!",
+          "Non si tratta semplicemente di ripetere qualcosa del passato, ma di rinvigorire nell’oggi la\ntestimonianza cristiana, vivendo la Via come luogo della presenza di Cristo.\nPerciò ci impegniamo in modo specifico a creare comunità cristiane, centrate sulla Parola di Dio,\nben fondante sull’insegnamento della Chiesa e con l’impegno specifico di essere missionarie.",
+          "Oltre ai voti di obbedienza, povertà e castità, che designano la vita totalmente donata, il carisma\nrichiede un quarto voto particolare, cioè quello di conformazione a Cristo Verità nella Carità (cf Gv\n18,37).",
+          "A tale ispirazione è di esempio l’esperienza dei santi Pietro e Paolo per l’amore alla chiesa e lo zelo\nmissionario; di San Francesco d’Assisi che riprodusse la vita povera ed itinerante dei primi\ndiscepoli del Signore; e l’esempio di Santa Teresa di Lisieux, capace di tracciare la “piccola via” per\nseguire il Signore con semplicità e amore confidente anche nelle più piccole cose"
+        ],
+        "image": {
+          "url": "../assets/blabla.png",
+          "align": "right"
+        }
+      }
+    ]
+  },
+  "contatti": {
+
+  }
+}

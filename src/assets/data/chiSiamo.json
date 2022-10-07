@@ -1,0 +1,45 @@
+{
+  "header": {
+    "backgroundImage": "chiSiamo.jpg",
+    "title": "Missionari e Missionarie della via",
+    "caption": "Caritas - Veritas",
+    "brandImage": "logo.png"
+  },
+  "main": {
+    "title": "Pace e bene, benvenuto!",
+    "caption": "Siamo una piccola comunità fratelli e sorelle riuniti da Cristo per vivere il suo Vangelo nella semplicità, povertà e nella gioia fraterna. \nSiamo nati in una zona rurale di Lamezia Terme, un luogo semplice: la nostra Betlemme.",
+    "strings": [
+      "Desideriamo rispondere all'appello di Gesù e seguirlo, sempre in cammino:",
+      "Dire che Gesù è Via significa per noi vivere\nuna sequela sempre in cammino.\nIn questo camminare la grazia\ndell’incontro con i fratelli e le sorelle,\nci ha salvati dall’essere\ndei pellegrini erranti,\nha attestato l’orientamento della nostra vita\nalla sequela di Gesù nella Chiesa,\naffermando la centralità della strada\ncome luogo dell’incontro e del camminare con l’altro."
+    ],
+    "image": {
+      "url": "fotoHome2.jpg",
+      "align": "right"
+    }
+  },
+  "sections": [
+    {
+      "title": "L'intuizione spirituale!",
+      "caption": null,
+      "strings": [
+        "L’intuizione spirituale è quella di riproporre la vita dei primi missionari del Vangelo, rinvigorendo nel popolo di Dio lo spirito delle\nprime comunità cristiane, vivendo la Via come luogo della presenza di Cristo.",
+        "I passi di Gesù per noi si sono rivelati sulla strada,\nperciò dire che Gesù è Via significa per noi\nattestare non solo l’orientamento della nostra vita e la sua sequela\nma anche la centralità della strada,\nnon solo come spazio fisico\nma come luogo dell’incontro con l’altro\ne del camminare con l’altro."
+      ],
+      "image": {
+        "url": "fotoHome3.jpg",
+        "align": "right"
+      }
+    },
+    {
+      "title": "La nostra vita",
+      "caption": "Fratelli e sorelle vivono la stessa regola ma in abitazioni distinte. Condividono alcuni momenti di preghiera, di vita comune e di missione.\nLa loro giornata è riassunta dal motto: pregare, lavorare ed evangelizzare.",
+      "strings": [
+        "Lo stile di vita mendicante ci permette di essere in\ncomunione con gli ultimi e di non dimenticare che Dio stesso è il mendicante di amore che ci cerca incessantemente.\nCi impegniamo a considerarci ultimi e a non considerare nulla come nostra proprietà.\nPerciò viviamo senza circolo di denaro per vivere il Vangelo nella sua radicalità e bellezza.\nDesideriamo, inoltre, intessere un’autentica vita fraterna, insieme per santificarci e santificare,\nall’insegna dell’amore elevato che ci insegna Cristo,\ndel quale siamo sempre discepoli”."
+      ],
+      "image": {
+        "url": "fotoHome4.jpg",
+        "align": "left"
+      }
+    }
+  ]
+}
