@@ -22,7 +22,7 @@ export default {
 
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bubbler+One&family=Montserrat&family=Questrial&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bubbler+One&family=Montserrat&family=Questrial&family=Playfair+Display&family=Old+Standard+TT&display=swap');
 body{
   width: 100%;
   height: 100%;

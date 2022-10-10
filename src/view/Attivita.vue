@@ -46,6 +46,7 @@ export default {
     attivitaPage() {
       return this.$store.getters['page/attivita'];
     },
+
   },
   methods: {
     async loadPage(page) {

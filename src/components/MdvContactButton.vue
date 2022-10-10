@@ -25,7 +25,7 @@ export default {
 }
 .card-header{
   border: 0;
-  background: #e6deca;
+  background: rgb(40, 29, 2, 0.9);
   color: #fff;
   font-size: 3rem;
   text-align: center;

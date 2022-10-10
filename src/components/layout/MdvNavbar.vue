@@ -1,48 +1,53 @@
 <template>
-  <nav v-if="show" class="navbar fixed-top navbar-expand-lg" :class="{changeColor: scrollPosition > 250}">
+  <nav v-if="show" class="navbar fixed-top navbar-expand-lg" :class="{changeColor: scrollPosition > 50}">
     <div class="container">
       <!-- Logo image -->
       <a class="navbar-brand" href="#">
         <img src="../../assets/logo-small.png" alt="logo" class="img-fluid"/>
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
       </button>
 
-      <!-- Navigation menu -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <router-link class="nav-link hover-underline-animation" to="/">CHI SIAMO</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link hover-underline-animation" to="/vocazione">VOCAZIONE</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link hover-underline-animation" to="/attivita">ATTIVITA</router-link>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link hover-underline-animation" href="https://blogdeipiccolidellavia.blogspot.com/">BLOG</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link hover-underline-animation" href="https://www.cristianidistrada.net">FRATERNITA LAICALE</a>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link hover-underline-animation" to="/contatti">CONTATTI</router-link>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              ALTRO
-            </a>
-            <!-- Here's the magic. Add the .animate and .slideIn classes to your .dropdown-menu and you're all set! -->
-            <div class="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA">CANALE YOUTUBE</a>
-              <router-link class="dropdown-item" to="/prega-con-noi">PREGA CON NOI </router-link>
-              <router-link class="dropdown-item" to="/approfondimenti">APPROFONDIMENTI </router-link>
-            </div>
-          </li>
-        </ul>
+      <!-- Navigation with Offcanvas menu -->
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarNav" aria-labelledby="DrawerBar">
+        <div class="offcanvas-header">
+          <i class="fas fa-times fa-lg close-icon ms-auto" data-bs-dismiss="offcanvas"></i>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item" data-bs-dismiss="offcanvas">
+              <router-link class="nav-link hover-underline-animation" to="/">CHI SIAMO</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link hover-underline-animation" to="/vocazione">VOCAZIONE</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link hover-underline-animation" to="/attivita">ATTIVITA</router-link>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link hover-underline-animation" href="https://blogdeipiccolidellavia.blogspot.com/">BLOG</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link hover-underline-animation" href="https://www.cristianidistrada.net">FRATERNITA LAICALE</a>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link hover-underline-animation" to="/contatti">CONTATTI</router-link>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ALTRO
+              </a>
+              <!-- Here's the magic. Add the .animate and .slideIn classes to your .dropdown-menu and you're all set! -->
+              <div class="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA">CANALE YOUTUBE</a>
+                <router-link class="dropdown-item" to="/prega-con-noi">PREGA CON NOI </router-link>
+                <router-link class="dropdown-item" to="/approfondimenti">APPROFONDIMENTI </router-link>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
@@ -137,6 +142,39 @@ nav {
 
 .dropdown-item:hover{
   background-color: white;
+}
+
+.navbar-toggler > i{
+  color: #c3ac7d !important;
+  font-size: 2rem;
+  border-color: transparent;
+}
+.navbar-toggler > i:focus, .navbar-toggler > i:active, .navbar-toggler > i:hover {
+  box-shadow: none;
+  color: #c5c1b9 !important;
+}
+
+.close-icon {
+  color: #c3ac7d;
+  cursor: pointer;
+}
+.close-icon:hover {
+  color: #c5c1b9;
+}
+
+.navbar-toggler{
+  border-radius: 0;
+  border-color: transparent;
+}
+
+.navbar-toggler:focus {
+  text-decoration: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.offcanvas {
+  background: rgb(40, 29, 2, 0.9);
 }
 
 @media (min-width: 768px) {

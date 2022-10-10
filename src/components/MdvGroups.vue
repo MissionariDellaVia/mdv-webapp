@@ -33,7 +33,7 @@ export default {
 
 .nav-link {
   font-family: 'Bubbler One', sans-serif;
-  background: #59411a !important;
+  background: rgb(40, 29, 2, 0.9) !important;
   color: #fff !important;
   font-size: 2rem;
   border-radius: 0 !important;
@@ -44,10 +44,10 @@ export default {
   -moz-transition: all .2s;
   -o-transition: all .2s;
   transition: all .2s;
-  transition-timing-function: ease-in-out;
-  -moz-transition-timing-function: ease-in-out;
-  -webkit-transition-timing-function: ease-in-out;
-  -o-transition-timing-function: ease-in-out;
+  transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -webkit-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
 
 }
 .nav-link.active, .nav-link:hover, .nav-link:focus, .nav-link:active  {

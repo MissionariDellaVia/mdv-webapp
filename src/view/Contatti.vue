@@ -124,25 +124,21 @@ export default {
 </script>
 
 <style scoped>
-.mapouter{
-  position:relative;
-  text-align:right;
-  height:400px;
-  width:450px;
-}
-.gmap_canvas {
-  overflow:hidden;
-  background:none!important;
-  height:400px;
-  /*width:450px;*/
-}
 .card {
   border: 0;
 }
 .card-header{
-  font-family: 'Bubbler One', sans-serif;
+  font-family: 'Playfair Display', sans-serif;
+  color: #fff;
   border: 0;
-  background: #e6deca;
+  background: rgb(40, 29, 2, 0.9);
 }
-
+a {
+  text-decoration: none;
+  color: #8c681c;
+  margin-bottom: 1.2rem;
+}
+a:hover, a:focus {
+  color: #59411a;
+}
 </style>

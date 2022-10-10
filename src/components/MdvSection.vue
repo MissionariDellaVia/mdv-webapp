@@ -3,7 +3,7 @@
     <div class="col-md-6 col-sm-12" :class="{'order-last' : align === 'right'}">
       <div class="card">
         <div class="card-header">
-          <div class="fs-2">{{ title }}</div>
+          <div class="fs-3">{{ title }}</div>
         </div>
         <div class="card-body">
           <div class="row my-4">
@@ -37,13 +37,14 @@ export default {
   border: 0;
 }
 .card-header{
-  font-family: 'Bubbler One', sans-serif;
+  font-family: 'Playfair Display', sans-serif;
+  color: #fff;
   border: 0;
-  background: #e6deca;
+  background: rgb(40, 29, 2, 0.9);
 }
 p {
-  font-family: 'Playfair Display', sans-serif;
-  font-size: larger;
+  font-family: 'Old Standard TT', sans-serif;
+  font-size: 1.2rem;
 }
 h4 {
   font-family: 'Playfair Display', sans-serif;

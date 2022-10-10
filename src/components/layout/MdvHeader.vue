@@ -5,7 +5,7 @@
       <div class="row h-100 align-items-center">
         <div class="col-12 text-center">
           <img v-if="brand"  src="../../assets/logo.png" class="mt-5" alt="logoHome"/>
-          <h1 class="font-weight-light text-uppercase">{{ title }}</h1>
+          <h1 class="main-title text-uppercase">{{ title }}</h1>
           <p v-if="caption" class="lead headerSection">{{ caption }}</p>
         </div>
       </div>
@@ -33,6 +33,16 @@ export default {
 </script>
 
 <style scoped>
+
+@media (max-width: 430px) {
+  .main-title {
+    font-size: 3rem !important;
+  }
+  img {
+    width: 3rem !important;
+  }
+}
+
 .md-bg {
   font-family: 'Bubbler One', sans-serif;
   height: 55vh;
@@ -56,7 +66,7 @@ img {
   width: 4.5rem;
 }
 
-h1 {
+.main-title {
   font-size: 4rem;
 }
 

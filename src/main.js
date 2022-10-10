@@ -11,13 +11,19 @@ import BaseSpinner from './components/ui/BaseSpinner'
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap';
 
+// Markdown
+import Markdown from 'vue3-markdown-it';
+
 // Css
 import 'animate.css';
+import "/node_modules/flag-icons/css/flag-icons.min.css";
+import 'highlight.js/styles/monokai.css';
 
 const app = createApp(App)
 app.use(router);
 app.use(store);
 app.use(autoAnimatePlugin);
+app.use(Markdown);
 
 app.config.globalProperties.$util = utilityFunction;
 
