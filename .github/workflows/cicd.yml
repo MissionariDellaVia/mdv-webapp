@@ -30,11 +30,11 @@ jobs:
 
       # Runs install and build
       - run: npm install
+      - run: npm run deploy
 
       # Deploy
-      - name: Deploy 🚀
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16.x'
-      - run: npm run deploy
+#      - name: Deploy 🚀
+#      - uses: actions/setup-node@v3
+#        with:
+#          node-version: '16.x'
 
