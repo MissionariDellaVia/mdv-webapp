@@ -20,8 +20,6 @@
 
       <!-- Article Section -->
       <MdvGroups :groups="attivitaPage.groups"/>
-
-
     </div>
   </section>
 </template>
