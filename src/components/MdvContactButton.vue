@@ -17,7 +17,7 @@ export default {
 
 <style scoped>
 .card {
-  font-family: 'Bubbler One', sans-serif;
+  font-family: 'Playfair Display', sans-serif;
   border: 0;
   width: 21rem;
   transition: all 0.2s ease;
@@ -31,7 +31,7 @@ export default {
   text-align: center;
 }
 .card-body {
-  font-size: large;
+  font-size: medium;
   height: 12rem;
   text-align: center;
 }

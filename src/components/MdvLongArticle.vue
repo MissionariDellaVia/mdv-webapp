@@ -1,14 +1,14 @@
 <template>
 <div class="card">
   <div v-if="title" class="card-header">
-    <div v-show="'right' === align" class="text-start fs-3">{{ title }}</div>
-    <div v-show="'left' === align" class="text-end fs-3">{{ title }}</div>
+    <div v-show="'right' === align" class="text-md-start fs-3">{{ title }}</div>
+    <div v-show="'left' === align" class="text-md-end fs-3">{{ title }}</div>
   </div>
   <div class="card-body">
     <div v-if="imageUrl" class="row my-4">
-      <div class="col col-sm-12">
-        <img v-show="'right' === align" :src=helper.getImgUrl(imageUrl) class="float-end ps-3 img-fluid" alt="imageUrl">
-        <img v-show="'left' === align" :src=helper.getImgUrl(imageUrl) class="float-start pe-3 img-fluid" alt="imageUrl">
+      <div class="col col-sm-12 clearfix">
+        <img v-show="'right' === align" :src=helper.getImgUrl(imageUrl) class="float-md-end float-sm-none ps-3 img-fluid" alt="imageUrl">
+        <img v-show="'left' === align" :src=helper.getImgUrl(imageUrl) class="float-md-start float-sm-none pe-3 img-fluid" alt="imageUrl">
         <p class="text-start" v-for="(text, index) in texts" v-bind:key="index" >
           <Markdown :source="text"></Markdown>
         </p>
@@ -57,5 +57,16 @@ p {
 img {
   max-width: 30rem;
   margin: auto;
+}
+
+@media only screen and (max-width: 480px) {
+  img {
+    max-width: 20rem;
+    padding: 0 !important;
+    margin-bottom: 1rem;
+  }
+  .card-header {
+    text-align: center;
+  }
 }
 </style>

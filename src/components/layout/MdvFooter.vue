@@ -200,9 +200,9 @@ ul.social-network li {
 .fi {
   font-size: larger;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
 }
 .fi:hover {
-  transform: scale(1.2);
+  transform: scale(1.4);
 }
 </style>

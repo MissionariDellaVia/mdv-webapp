@@ -107,6 +107,10 @@
         </div>
       </div>
 
+      <div class="row my-4">
+        <MdvForm title="Manda qui la tua richiesta di informazioni o di preghiera"></MdvForm>
+      </div>
+
 
     </div>
   </section>
@@ -116,10 +120,11 @@
 import MDHeader from "@/components/layout/MdvHeader";
 import MdvContactoButton from "@/components/MdvContactButton";
 import BaseMap from "@/components/ui/BaseMap";
+import MdvForm from "@/components/MdvForm";
 
 export default {
   name: "HomePage",
-  components: {BaseMap, MDHeader, MdvContactoButton}
+  components: {MdvForm, BaseMap, MDHeader, MdvContactoButton}
 }
 </script>
 
