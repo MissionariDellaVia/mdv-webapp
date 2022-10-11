@@ -32,13 +32,13 @@ jobs:
 
       # Runs install and build
       - name: Install packages
-      - run: npm install
+        run: npm install
 #      - name: Set Creds
 #        run: |
 #          git config user.name "GitHub Actions Bot"
 #          git config user.email "<>"
-#      - name: Deploy 🚀
-      - run: npm run deploy
+      - name: Deploy 🚀
+        run: npm run deploy
       # Deploy
 #      - name: Deploy 🚀
 #      - uses: actions/setup-node@v3
