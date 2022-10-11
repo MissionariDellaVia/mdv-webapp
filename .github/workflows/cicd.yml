@@ -30,12 +30,6 @@ jobs:
 
       # Runs install and build
       - run: npm install
-      - run: npm run build
-
       # Deploy
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: dist
+      - run: npm run deploy
