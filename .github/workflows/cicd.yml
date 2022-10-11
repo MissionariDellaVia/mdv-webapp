@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: cicd-develop
 
 # Controls when the workflow will run
 on:
@@ -30,6 +30,11 @@ jobs:
 
       # Runs install and build
       - run: npm install
+
       # Deploy
       - name: Deploy 🚀
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
       - run: npm run deploy
+
