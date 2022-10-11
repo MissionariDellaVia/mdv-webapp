@@ -135,11 +135,11 @@ nav {
 }
 
 .dropdown-menu {
-  background: #c3ac7d;
+  background: rgb(40, 29, 2, 0.9);
 }
 
 .dropdown-item:hover{
-  background-color: white;
+  background-color: transparent;
 }
 
 .navbar-toggler > i{
