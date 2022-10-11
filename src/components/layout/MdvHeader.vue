@@ -34,7 +34,7 @@ export default {
 
 <style scoped>
 
-@media (max-width: 430px) {
+@media only screen and (max-width: 480px) {
   .main-title {
     font-size: 3rem !important;
   }

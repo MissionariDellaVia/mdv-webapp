@@ -1,7 +1,7 @@
 <template>
 <div class="card">
   <div v-if="title" class="card-header">
-    <div class="text-end fs-3">{{ title }}</div>
+    <div class="text--md-end fs-3">{{ title }}</div>
   </div>
   <div class="card-body">
     <div v-if="imageUrl" class="row my-4">
@@ -57,5 +57,15 @@ p {
 img {
   max-width: 22rem;
   margin: auto;
+}
+@media only screen and (max-width: 480px) {
+  img {
+    max-width: 20rem;
+    padding: 0 !important;
+    margin-bottom: 1rem;
+  }
+  .card-header {
+    text-align: center;
+  }
 }
 </style>

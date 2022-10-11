@@ -17,22 +17,16 @@
           <h4 class="caption"> {{ vocazionePage.main.caption }} </h4>
         </div>
       </div>
-      <div class="row text-center my-5">
+      <div class="row text-center gy-4 my-5">
         <div class="col-md-6 col-sm-12" :class="{'order-last' : vocazionePage.main.image.align === 'right'}">
           <img :src=helper.getImgUrl(vocazionePage.main.image.url) class="img-fluid" :alt="vocazionePage.main.image.url"/>
         </div>
         <div class="col-md-6 col-sm-12 px-5 text-start">
-          <p v-for="(text, index) in vocazionePage.main.strings" v-bind:key="index">{{ text }}</p>
+          <p v-for="(text, index) in vocazionePage.main.strings" v-bind:key="index">
+            <Markdown :source="text" class="md"></Markdown>
+          </p>
         </div>
       </div>
-
-      <!-- Article Section -->
-      <MdvSection v-for="(section, index) in vocazionePage.sections" v-bind:key="index"
-                  :title="section.title"
-                  :align="section.image.align"
-                  :image="section.image.url"
-                  :articles="section.strings"
-      />
 
     </div>
   </section>
@@ -40,11 +34,11 @@
 
 <script>
 import MDHeader from "@/components/layout/MdvHeader";
-import MdvSection from "@/components/MdvSection";
+import Markdown from 'vue3-markdown-it';
 
 export default {
   name: "VocazioniPage",
-  components: {MdvSection, MDHeader},
+  components: { MDHeader, Markdown},
   created() {
     this.loadPage("vocazione");
   },
@@ -75,15 +69,26 @@ export default {
 
 <style scoped>
 .main-title {
-  font-family: 'Bubbler One', sans-serif;
-  font-size: 3.5rem;
+  font-family: 'Playfair Display', sans-serif;
+  font-weight: 400 !important;
+  font-size: 2.8rem;
 }
 .caption {
   font-family: 'Playfair Display', serif;
+  line-height: 1.75;
   font-style: italic;
 }
 p {
-  font-family: 'Playfair Display', sans-serif;
-  font-size: larger;
+  font-family: 'Old Standard TT', sans-serif;
+  font-size: 1.2rem;
 }
+a {
+  text-decoration: none;
+  color: #8c681c !important;
+  margin-bottom: 1.2rem;
+}
+.md a:hover, .md a:focus {
+  color: #59411a;
+}
+
 </style>

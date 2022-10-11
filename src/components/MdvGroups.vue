@@ -56,4 +56,11 @@ export default {
 .nav-link:hover {
   background: #c3ac7d !important;
 }
+
+@media only screen and (max-width: 480px) {
+  .nav-pills .nav-link {
+    height: 6.5rem;
+  }
+}
+
 </style>

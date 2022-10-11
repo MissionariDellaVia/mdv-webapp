@@ -22,25 +22,25 @@ const routes = [
     // },
     {
         path: '/vocazione',
-        name: 'Vocazione',
+        name: 'VocazioniPage',
         component: Vocazione,
         meta: { requiresAuth: true }
     },
     {
         path: '/attivita',
-        name: 'Attivita',
+        name: 'AttivitaPage',
         component: Attivita,
         meta: { requiresAuth: true }
     },
     {
         path: '/contatti',
-        name: 'Contatti',
+        name: 'ContattiPage',
         component: Contatti,
         meta: { requiresAuth: true }
     },
     {
         path: '/approfondimenti',
-        name: 'Approfondimenti',
+        name: 'ApprofondimentiPage',
         component: Approfondimenti,
         meta: { requiresAuth: true }
     },

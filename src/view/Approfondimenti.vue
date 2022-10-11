@@ -28,7 +28,7 @@ import MDHeader from "@/components/layout/MdvHeader";
 import MdvLongArticle from "@/components/MdvLongArticle";
 
 export default {
-  name: "MdvApprofondimenti",
+  name: "ApprofondimentiPage",
   components: {MdvLongArticle, MDHeader},
   created() {
     this.loadPage("approfondimenti");

@@ -123,7 +123,7 @@ import BaseMap from "@/components/ui/BaseMap";
 import MdvForm from "@/components/MdvForm";
 
 export default {
-  name: "HomePage",
+  name: "ContattiPage",
   components: {MdvForm, BaseMap, MDHeader, MdvContactoButton}
 }
 </script>

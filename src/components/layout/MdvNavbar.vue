@@ -175,7 +175,7 @@ nav {
   background: rgb(40, 29, 2, 0.9);
 }
 
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .animate {
     animation-duration: 0.3s;
     -webkit-animation-duration: 0.3s;
