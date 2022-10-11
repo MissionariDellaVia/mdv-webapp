@@ -27,10 +27,10 @@
               <router-link class="nav-link hover-underline-animation" to="/attivita">ATTIVITA</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link hover-underline-animation" href="https://blogdeipiccolidellavia.blogspot.com/">BLOG</a>
+              <a class="nav-link hover-underline-animation" target="_blank" href="https://blogdeipiccolidellavia.blogspot.com/">BLOG</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link hover-underline-animation" href="https://www.cristianidistrada.net">FRATERNITA LAICALE</a>
+              <a class="nav-link hover-underline-animation" target="_blank" href="https://www.cristianidistrada.net">FRATERNITA LAICALE</a>
             </li>
             <li class="nav-item">
               <router-link class="nav-link hover-underline-animation" to="/contatti">CONTATTI</router-link>
@@ -40,7 +40,7 @@
                 ALTRO
               </a>
               <div class="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA">CANALE YOUTUBE</a>
+                <a class="dropdown-item" target="_blank" href="https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA">CANALE YOUTUBE</a>
                 <router-link class="dropdown-item" to="/approfondimenti">APPROFONDIMENTI </router-link>
               </div>
             </li>
