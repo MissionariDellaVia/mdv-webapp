@@ -25,6 +25,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      - uses: fregante/setup-git-user@v1
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
@@ -32,12 +33,12 @@ jobs:
       # Runs install and build
       - name: Install packages
       - run: npm install
-      - name: Set Creds
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
-      - name: Deploy 🚀
-        run: npm run deploy
+#      - name: Set Creds
+#        run: |
+#          git config user.name "GitHub Actions Bot"
+#          git config user.email "<>"
+#      - name: Deploy 🚀
+      - run: npm run deploy
       # Deploy
 #      - name: Deploy 🚀
 #      - uses: actions/setup-node@v3
