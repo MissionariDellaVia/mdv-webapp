@@ -39,10 +39,8 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 ALTRO
               </a>
-              <!-- Here's the magic. Add the .animate and .slideIn classes to your .dropdown-menu and you're all set! -->
               <div class="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA">CANALE YOUTUBE</a>
-                <router-link class="dropdown-item" to="/prega-con-noi">PREGA CON NOI </router-link>
                 <router-link class="dropdown-item" to="/approfondimenti">APPROFONDIMENTI </router-link>
               </div>
             </li>

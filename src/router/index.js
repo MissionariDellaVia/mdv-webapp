@@ -5,7 +5,7 @@ import Home from '../view/Home';
 import Vocazione from '../view/Vocazione';
 import Attivita from '../view/Attivita';
 import Contatti from '../view/Contatti';
-import PregaConNoi from '../view/PregaConNoi';
+import Approfondimenti from '../view/Approfondimenti';
 
 const routes = [
     {
@@ -39,9 +39,9 @@ const routes = [
         meta: { requiresAuth: true }
     },
     {
-        path: '/prega-con-noi',
-        name: 'PregaConNoi',
-        component: PregaConNoi,
+        path: '/approfondimenti',
+        name: 'Approfondimenti',
+        component: Approfondimenti,
         meta: { requiresAuth: true }
     },
     { path: '/:notFound(.*)', component: Home }

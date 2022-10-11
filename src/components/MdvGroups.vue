@@ -3,7 +3,7 @@
 
     <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
       <li v-for="(group, index) in groups" v-bind:key="index" class="nav-item" role="presentation">
-        <div class="nav-link" :class="index === 0 ? 'active' : ''" :id=" 'pills-' + group.key + '-tab'" data-bs-toggle="pill" :data-bs-target="'#' + group.key" role="tab" aria-controls="pills-home" aria-selected="true">
+        <div class="nav-link fs-2" :class="index === 0 ? 'active' : ''" :id=" 'pills-' + group.key + '-tab'" data-bs-toggle="pill" :data-bs-target="'#' + group.key" role="tab" aria-controls="pills-home" aria-selected="true">
           {{ group.title }}</div>
       </li>
     </ul>
@@ -32,10 +32,9 @@ export default {
 <style scoped>
 
 .nav-link {
-  font-family: 'Bubbler One', sans-serif;
+  font-family: 'Playfair Display', sans-serif;
   background: rgb(40, 29, 2, 0.9) !important;
   color: #fff !important;
-  font-size: 2rem;
   border-radius: 0 !important;
   border-color: #fff !important;
   box-shadow: none !important;

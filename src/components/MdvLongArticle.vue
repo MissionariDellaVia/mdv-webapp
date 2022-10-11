@@ -1,15 +1,15 @@
 <template>
 <div class="card">
   <div v-if="title" class="card-header">
-    <div class="text-end fs-3">{{ title }}</div>
+    <div v-show="'right' === align" class="text-start fs-3">{{ title }}</div>
+    <div v-show="'left' === align" class="text-end fs-3">{{ title }}</div>
   </div>
   <div class="card-body">
     <div v-if="imageUrl" class="row my-4">
-      <div class="col col-md-4 col-sm-12 " :class="{'order-last text-end' : 'right' === align}">
-        <img :src=helper.getImgUrl(imageUrl) class="img-fluid" alt="imageUrl">
-      </div>
-      <div class="col col-md-8 col-sm-12 align-self-start" :class="'right' === align ? 'text-start' : 'text-end'">
-        <p v-for="(text, index) in texts" v-bind:key="index" >
+      <div class="col col-sm-12">
+        <img v-show="'right' === align" :src=helper.getImgUrl(imageUrl) class="float-end ps-3 img-fluid" alt="imageUrl">
+        <img v-show="'left' === align" :src=helper.getImgUrl(imageUrl) class="float-start pe-3 img-fluid" alt="imageUrl">
+        <p class="text-start" v-for="(text, index) in texts" v-bind:key="index" >
           <Markdown :source="text"></Markdown>
         </p>
       </div>
@@ -29,7 +29,7 @@
 import Markdown from 'vue3-markdown-it';
 
 export default {
-  name: "MdvArticle",
+  name: "MdvLongArticle",
   components: {Markdown},
   props: ['title', 'texts', 'align', 'imageUrl'],
   data(){
@@ -55,7 +55,7 @@ p {
   font-size: 1.3rem;
 }
 img {
-  max-width: 22rem;
+  max-width: 30rem;
   margin: auto;
 }
 </style>
