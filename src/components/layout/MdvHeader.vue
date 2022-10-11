@@ -3,8 +3,12 @@
   <header class="md-bg" :style="inlineStyle">
     <div class="container h-100">
       <div class="row h-100 align-items-center">
-        <div class="col-12 text-center">
-          <img v-if="brand"  src="../../assets/logo.png" class="mt-5" alt="logoHome"/>
+        <div v-if="brand" class="col-12 text-center">
+          <img src="../../assets/logo.png" class="mt-5" alt="logoHome"/>
+          <h1 class="main-title with-brand text-uppercase">{{ title }}</h1>
+          <p v-if="caption" class="lead headerSection">{{ caption }}</p>
+        </div>
+        <div v-else class="col-12 text-center">
           <h1 class="main-title text-uppercase">{{ title }}</h1>
           <p v-if="caption" class="lead headerSection">{{ caption }}</p>
         </div>
@@ -38,8 +42,15 @@ export default {
   .main-title {
     font-size: 3rem !important;
   }
+  .with-brand {
+    font-size: 2.4rem !important;
+  }
+  .lead.headerSection {
+    font-size: 1.5rem !important;
+  }
   img {
-    width: 3rem !important;
+    width: 2rem !important;
+    margin-bottom: 1rem;
   }
 }
 
