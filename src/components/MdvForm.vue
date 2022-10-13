@@ -119,7 +119,7 @@ export default {
 
 .card-header {
   font-family: 'Playfair Display', sans-serif;
-  color: #000000;
+  color: #ffffff;
   border: 0;
   background: rgb(40, 29, 2, 0.9);
 }
