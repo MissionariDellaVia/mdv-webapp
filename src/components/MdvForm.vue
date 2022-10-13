@@ -4,7 +4,7 @@
       <div class="text-center fs-3">{{ title }}</div>
     </div>
     <div class="card-body my-3">
-      <form class="mx-auto">
+      <form class="mx-auto" @submit.prevent="submitForm">
         <div class="row mb-3">
           <div class="col">
             <div class="form-floating">
@@ -52,20 +52,31 @@ export default {
     }
   },
   methods: {
-    submitForm() {
-      // if (!this.formIsValid) {
-      //     this.showToast();
-      //     return;
-      // }
-
+    async submitForm() {
       const formData = {
-        name: this.name,
-        lastName: this.lastName,
-        email: this.email,
-        password: this.password
+        nome: this.name,
+        cognome: this.lastName,
+        mail: this.email,
+        message: this.textArea,
+        to: "missionaridellavia.lamezia@gmail.com"
       };
 
-      this.$emit('register-data', formData);
+      const response = await fetch(
+          `https://vocazione.altervista.org/api/SendMail.php`,
+          {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          }
+      );
+      const responseData = await response.json();
+
+      if (!response.ok) {
+        console.log('Errore inserimento' + responseData.message)
+      }
     },
   }
 
@@ -79,7 +90,7 @@ export default {
 
 .card-header {
   font-family: 'Playfair Display', sans-serif;
-  color: #fff;
+  color: #000000;
   border: 0;
   background: rgb(40, 29, 2, 0.9);
 }
