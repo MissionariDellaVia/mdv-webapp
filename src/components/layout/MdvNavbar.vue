@@ -16,24 +16,24 @@
           <i class="fas fa-times fa-lg close-icon ms-auto" data-bs-dismiss="offcanvas"></i>
         </div>
         <div class="offcanvas-body">
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav ms-auto text-uppercase">
             <li class="nav-item" data-bs-dismiss="offcanvas">
-              <router-link class="nav-link hover-underline-animation" to="/">CHI SIAMO</router-link>
+              <router-link class="nav-link hover-underline-animation" to="/">chi siamo</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link hover-underline-animation" to="/vocazione">VOCAZIONE</router-link>
+              <router-link class="nav-link hover-underline-animation" to="/vocazione">vocazione</router-link>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link hover-underline-animation" to="/attivita">ATTIVITA</router-link>
+              <router-link class="nav-link hover-underline-animation" to="/attivita">attività</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link hover-underline-animation" target="_blank" href="https://blogdeipiccolidellavia.blogspot.com/">BLOG</a>
+              <a class="nav-link hover-underline-animation" target="_blank" href="https://blogdeipiccolidellavia.blogspot.com/">blog</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link hover-underline-animation" target="_blank" href="https://www.cristianidistrada.net">FRATERNITA LAICALE</a>
+              <a class="nav-link hover-underline-animation" target="_blank" href="https://www.cristianidistrada.net">fraternità laicale</a>
             </li>
             <li class="nav-item">
-              <router-link class="nav-link hover-underline-animation" to="/contatti">CONTATTI</router-link>
+              <router-link class="nav-link hover-underline-animation" to="/contatti">contatti</router-link>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,6 +42,7 @@
               <div class="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" target="_blank" href="https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA">CANALE YOUTUBE</a>
                 <router-link class="dropdown-item" to="/approfondimenti">APPROFONDIMENTI </router-link>
+                <router-link class="dropdown-item" to="/prega-con-noi">PREGA CON NOI </router-link>
               </div>
             </li>
           </ul>

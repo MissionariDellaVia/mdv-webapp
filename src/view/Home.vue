@@ -7,30 +7,34 @@
       <base-spinner></base-spinner>
     </div>
     <div v-else class="container mb-5">
+
       <main>
         <div class="row text-center my-5">
           <img src="../assets/img/hr.png" alt="hr" class="hr-img">
           <div class="col-12 px-5">
             <h1 class="main-title my-4"> {{ chiSiamoPage.main.title }} </h1>
-            <h4 class="caption"> {{ chiSiamoPage.main.caption }} </h4>
+            <h4 v-if="chiSiamoPage.main.caption" class="caption"> {{ chiSiamoPage.main.caption }} </h4>
           </div>
         </div>
-        <div class="row text-center my-5">
+        <div v-if="chiSiamoPage.main.strings" class="row text-center my-5">
           <div class="col-md-12 col-sm-12 px-5">
             <p v-for="(text, index) in chiSiamoPage.main.strings" v-bind:key="index">{{ text }}</p>
           </div>
-          <!--        <div class="col-md-6 col-sm-12">-->
-          <!--          <img :src=helper.getImgUrl(chiSiamoPage.main.image.url) class="img-fluid" alt="fotoHome2"/>-->
-          <!--        </div>-->
         </div>
       </main>
 
-      <MdvSection v-for="(section, index) in chiSiamoPage.sections" v-bind:key="index"
-          :title="section.title"
-          :align="section.image.align"
-          :image="section.image.url"
-          :articles="section.strings"
-      />
+<!--      <MdvSection v-for="(section, index) in chiSiamoPage.sections" v-bind:key="index"-->
+<!--          :title="section.title"-->
+<!--          :align="section.image.align"-->
+<!--          :image="section.image.url"-->
+<!--          :articles="section.strings"-->
+<!--      />-->
+      <MdvArticle v-for="(section, index) in chiSiamoPage.sections" v-bind:key="index"
+                  :image-url="section.image ? section.image.url : null"
+                  :align="section.image ? section.image.align : null"
+                  :title="section.title"
+                  :texts="section.strings"/>
+
     </div>
 
     <section class="blog-shadow py-5">
@@ -54,33 +58,18 @@
       </div>
     </section>
 
-    <section class="bg-prega-con-noi">
-      <div class="container py-5">
-        <div class="row my-5">
-          <div class="col-sm-12 text-center">
-            <h1 class="main-title mb-4">Prega con noi</h1>
-            <p class="caption fs-4">Per pregare con noi, puoi scaricare l’app gratuita <strong>“Missionari della Via”</strong> con il commento al Vangelo del giorno, disponibile sia su Play Store che su App Store.<br><br>
-              Oppure puoi richiedere la versione cartacea <strong>“La Via del Vangelo”</strong> (se fossi interessato, SCRIVICI).<br><br>
-              Se volessi pregare il Rosario meditato, puoi richiedere il libro <strong>“La Via di Maria”</strong> oppure le due versioni tascabili (se
-              fossi interessato, SCRIVICI).<br><br>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </section>
 </template>
 
 <script>
 import MDHeader from "@/components/layout/MdvHeader";
 import configurationPage from '@/assets/data/chiSiamo.json';
-import MdvSection from "@/components/MdvSection";
+import MdvArticle from "@/components/MdvArticle";
 import MdvBlogCard from "@/components/MdvBlogCard";
 
 export default {
   name: "HomePage",
-  components: { MdvSection, MDHeader, MdvBlogCard},
+  components: { MdvArticle, MDHeader, MdvBlogCard},
   created () {
     this.loadPage("chi-siamo");
     this.loadBlogPosts(3);

@@ -61,7 +61,7 @@ export default {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.35);
+  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.50);
   margin-bottom: 3%;
   color: whitesmoke;
 }

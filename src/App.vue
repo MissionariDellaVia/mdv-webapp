@@ -26,7 +26,11 @@ export default {
 html, body {
   overflow-x:hidden !important;
 }
-
+.markdown-mdv blockquote{
+  color: #8c681c !important;
+  font-style: italic;
+  /*text-align: center;*/
+}
 .scale-enter-active,
 .scale-leave-active {
   transition: all 0.2s ease;

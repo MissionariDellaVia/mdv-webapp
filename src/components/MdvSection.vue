@@ -8,7 +8,9 @@
         <div class="card-body">
           <div class="row my-4">
             <div class="col align-self-start">
-              <p class="text-start" v-for="(text, index) in articles" v-bind:key="index"> {{ text }}</p>
+              <p class="text-start" v-for="(text, index) in articles" v-bind:key="index">
+                <Markdown :source="text" :html="true"></Markdown>
+              </p>
             </div>
           </div>
         </div>
@@ -21,8 +23,11 @@
 </template>
 
 <script>
+import Markdown from 'vue3-markdown-it';
+
 export default {
   name: "MdvSection",
+  components: {Markdown},
   props: ['title', 'caption', 'articles', 'image', 'align'],
   data(){
     return {

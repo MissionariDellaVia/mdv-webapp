@@ -12,6 +12,7 @@ export default {
             attivita: data["attivita"],
             vocazione: data["vocazione"],
             approfondimenti: data["approfondimenti"],
+            pregaConNoi: data["prega-con-noi"],
         };
     },
     mutations,

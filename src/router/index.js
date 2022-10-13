@@ -1,11 +1,12 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 // import store from '../store/index.js';
 
-import Home from '../view/Home';
-import Vocazione from '../view/Vocazione';
-import Attivita from '../view/Attivita';
-import Contatti from '../view/Contatti';
-import Approfondimenti from '../view/Approfondimenti';
+import Home from '@/view/Home';
+import Vocazione from '@/view/Vocazione';
+import Attivita from '@/view/Attivita';
+import Contatti from '@/view/Contatti';
+import Approfondimenti from '@/view/Approfondimenti';
+import PregaPerNoi from '@/view/PregaPerNoi';
 
 const routes = [
     {
@@ -42,6 +43,12 @@ const routes = [
         path: '/approfondimenti',
         name: 'ApprofondimentiPage',
         component: Approfondimenti,
+        meta: { requiresAuth: true }
+    },
+    {
+        path: '/prega-con-noi',
+        name: 'PregaPerNoiPage',
+        component: PregaPerNoi,
         meta: { requiresAuth: true }
     },
     { path: '/:notFound(.*)', component: Home }

@@ -11,4 +11,7 @@ export default {
     approfondimenti(state) {
         return state.approfondimenti;
     },
+    pregaConNoi(state) {
+        return state.pregaConNoi;
+    },
 }

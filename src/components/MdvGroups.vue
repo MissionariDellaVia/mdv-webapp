@@ -9,7 +9,7 @@
     </ul>
     <div class="tab-content" id="pills-tabContent">
         <div v-for="(group, index) in groups" v-bind:key="index" class="tab-pane fade" :class="index === 0 ? 'show active' : ''" :id="group.key" >
-          <MdvArticle v-for="(section, index) in group.sections" v-bind:key="index"
+          <MdvArticle v-for="(section, index) in group.sections" v-bind:key="index" small="true"
                       :image-url="section.image ? section.image.url : null"
                       :align="section.image ? section.image.align : null"
                       :title="section.title"

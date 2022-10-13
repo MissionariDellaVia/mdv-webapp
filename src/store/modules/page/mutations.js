@@ -18,6 +18,10 @@ export default {
                 console.log('set approfondimenti page');
                 state.approfondimenti = payload.data;
                 break;
+            case 'prega-con-noi':
+                console.log('set prega-con-noi page');
+                state.pregaConNoi = payload.data;
+                break;
             default:
                 console.log(`Sorry, we are out of ${payload.data}.`);
                 break;

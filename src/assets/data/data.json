@@ -8,23 +8,30 @@
     },
     "main": {
       "title": "Pace e bene, benvenuto!",
-      "caption": "Siamo una piccola comunità fratelli e sorelle riuniti da Cristo per vivere il suo Vangelo nella semplicità, povertà e nella gioia fraterna. \nSiamo nati in una zona rurale di Lamezia Terme, un luogo semplice: la nostra Betlemme.",
-      "strings": [
-        "Desideriamo rispondere all'appello di Gesù e seguirlo, sempre in cammino:",
-        "Dire che Gesù è Via significa per noi vivere\nuna sequela sempre in cammino.\nIn questo camminare la grazia\ndell’incontro con i fratelli e le sorelle,\nci ha salvati dall’essere\ndei pellegrini erranti,\nha attestato l’orientamento della nostra vita\nalla sequela di Gesù nella Chiesa,\naffermando la centralità della strada\ncome luogo dell’incontro e del camminare con l’altro."
-      ],
-      "image": {
-        "url": "fotoHome2.jpg",
-        "align": "right"
-      }
+      "caption": null,
+      "strings": null,
+      "image": null
     },
     "sections": [
+      {
+        "title": "Chi siamo",
+        "caption": null,
+        "strings": [
+          "Siamo una piccola comunità fratelli e sorelle riuniti da Cristo per vivere il suo Vangelo nella semplicità, povertà e nella gioia fraterna. Siamo nati in una zona rurale di Lamezia Terme, un luogo semplice: la nostra Betlemme.",
+          "Desideriamo rispondere all'appello di Gesù e seguirlo, sempre in cammino:",
+          ">“Dire che Gesù è Via significa per noi vivere<br> una sequela sempre in cammino.<br> In questo camminare la grazia<br> dell’incontro con i fratelli e le sorelle,<br> ci ha salvati dall’essere<br> dei pellegrini erranti,<br> ha attestato l’orientamento della nostra vita<br> alla sequela di Gesù nella Chiesa,<br> affermando la centralità della strada<br> come luogo dell’incontro e del camminare con l’altro”.*"
+        ],
+        "image": {
+          "url": "fotoHome2.jpg",
+          "align": "right"
+        }
+      },
       {
         "title": "L'intuizione spirituale!",
         "caption": null,
         "strings": [
           "L’intuizione spirituale è quella di riproporre la vita dei primi missionari del Vangelo, rinvigorendo nel popolo di Dio lo spirito delle\nprime comunità cristiane, vivendo la Via come luogo della presenza di Cristo.",
-          "I passi di Gesù per noi si sono rivelati sulla strada,\nperciò dire che Gesù è Via significa per noi\nattestare non solo l’orientamento della nostra vita e la sua sequela\nma anche la centralità della strada,\nnon solo come spazio fisico\nma come luogo dell’incontro con l’altro\ne del camminare con l’altro."
+          ">I passi di Gesù per noi si sono rivelati sulla strada,<br>perciò dire che Gesù è Via significa per noi<br>attestare non solo l’orientamento della nostra vita e la sua sequela<br>ma anche la centralità della strada,<br>non solo come spazio fisico<br>ma come luogo dell’incontro con l’altro<br>e del camminare con l’altro.*"
         ],
         "image": {
           "url": "fotoHome3.jpg",
@@ -35,7 +42,8 @@
         "title": "La nostra vita",
         "caption": "Fratelli e sorelle vivono la stessa regola ma in abitazioni distinte. Condividono alcuni momenti di preghiera, di vita comune e di missione.\nLa loro giornata è riassunta dal motto: pregare, lavorare ed evangelizzare.",
         "strings": [
-          "Lo stile di vita mendicante ci permette di essere in\ncomunione con gli ultimi e di non dimenticare che Dio stesso è il mendicante di amore che ci cerca incessantemente.\nCi impegniamo a considerarci ultimi e a non considerare nulla come nostra proprietà.\nPerciò viviamo senza circolo di denaro per vivere il Vangelo nella sua radicalità e bellezza.\nDesideriamo, inoltre, intessere un’autentica vita fraterna, insieme per santificarci e santificare,\nall’insegna dell’amore elevato che ci insegna Cristo,\ndel quale siamo sempre discepoli”."
+          "Fratelli e sorelle vivono la stessa regola ma in abitazioni distinte. Condividono alcuni momenti di preghiera, di vita comune e di missione. La loro giornata è riassunta dal motto: *pregare, lavorare ed evangelizzare.*",
+          ">Lo stile di vita mendicante ci permette di essere in<br>comunione con gli ultimi e di non dimenticare che Dio stesso è il mendicante di amore che ci cerca incessantemente.<br>Ci impegniamo a considerarci ultimi e a non considerare nulla come nostra proprietà.<br>Perciò viviamo senza circolo di denaro per vivere il Vangelo nella sua radicalità e bellezza.<br>Desideriamo, inoltre, intessere un’autentica vita fraterna, insieme per santificarci e santificare,<br>all’insegna dell’amore elevato che ci insegna Cristo,<br>del quale siamo sempre discepoli”."
         ],
         "image": {
           "url": "fotoHome4.jpg",
@@ -57,11 +65,11 @@
       "strings": [
         "Se desideri scoprire chi sei tu e per chi sei tu, abbi il coraggio di farti guardare dall’Amore per imparare l’arte di amare.",
         "Se volessi essere accompagnato spiritualmente o vivere dei tempi di silenzio e preghiera, SCRIVICI",
-        "Clicca qui per andare al sito vocazionale...(www.vocazione.altervista.org)"
+        "[Clicca qui per andare al sito vocazionale...](https://www.vocazione.altervista.org)"
       ],
       "image": {
-        "url": "fotoHome2.jpg",
-        "align": "right"
+        "url": "vocazioni-1.jpg",
+        "align": "left"
       }
     },
     "sections": null
@@ -69,82 +77,88 @@
   "attivita": {
     "header": {
       "backgroundImage": "attivita.jpg",
-      "title": "Attività e missioni",
-      "caption": null,
-      "brandImage": null
+      "title": "Attività e missioni"
+    },
+    "main": {
+      "title": null,
+      "caption": "A seguire, trovi le attivita’ in corso nella chiesa di S. Chiara a Lamezia Terme e nella chiesa di S. Maria dell’Anima a Napoli",
+      "strings":null,
+      "image": null
     },
     "groups": [
       {
-        "title": "S. Chiara",
         "sections": [
           {
-            "title": null,
-            "caption": null,
             "articles": [
               "Se vuoi vivere dei momenti di preghiera con noi... A Lamezia Terme:",
-              "SANTA MESSA Domenica ore 11:00 e ore 18:00",
-              "ADORAZIONE EUCARISTICA Venerdì 21:00",
-              "CATECHESI Ogni ultima domenica del mese dopo la messa",
-              "CONFESSIONI Sabato e domenica dalle ore 16:00 (Per confessarsi in altri momenti si suggerisce di richiedere preventivamente un appuntamento contattando i missionari)"
-            ],
-            "image": null
+              "**SANTA MESSA** Domenica ore 11:00 e ore 18:00",
+              "**ADORAZIONE EUCARISTICA** Venerdì 21:00",
+              "**CATECHESI** Ogni ultima domenica del mese dopo la messa",
+              "**CONFESSIONI** Sabato e domenica dalle ore 16:00 (Per confessarsi in altri momenti si suggerisce di richiedere preventivamente un appuntamento contattando i missionari)"
+            ]
           },
           {
-            "title": "Domenica di fraternità",
-            "caption": null,
+            "articles": [
+              "Ogni venerdì sera alle ore 21:00, un'ora di adorazione eucaristica, vissuta secondo la nostra spiritualità"
+            ],
+            "image": {
+              "align": "right",
+              "url": "adorazioneEucaristica.jpg"
+            },
+            "title": "Adorazione Eucaristica"
+          },
+          {
             "articles": [
               "L’ultima domenica di ogni mese, momento di spiritualità e fraternità aperto a tutti, che termina con il pranzo vissuto insieme.",
-              "Se fossi interessato, SCRIVICI"
+              "Se fossi interessato, **SCRIVICI**"
             ],
             "image": {
-              "url": "../assets/domenicaDiFraternità.png",
-              "align": "left"
-            }
+              "align": "left",
+              "url": "fraternità.jpg"
+            },
+            "title": "Domenica di fraternità"
           },
           {
-            "title": "Cammino Giovani (18-30)",
-            "caption": null,
             "articles": [
               "14 incontri, due lunedì al mese, a partire dalle 20:30, per conoscere meglio se stessi e il buon Dio...",
-              "Se fossi interessato, SCRIVICI"
+              "Se fossi interessato, **SCRIVICI**"
             ],
             "image": {
-              "url": "../assets/camminoGiovani.png",
-              "align": "right"
-            }
+              "align": "right",
+              "url": "camminoGiovani.jpg"
+            },
+            "title": "Cammino Giovani (18-30)"
           },
           {
-            "title": "Corso per gli sposi",
-            "caption": null,
             "articles": [
               "Si tratta di un prezioso corso per le coppie di sposi.\nCinque incontri, una domenica al mese, da maggio e\ngiugno, per rivitalizzare e costruire al meglio il rapporto di\ncoppia.",
-              "Se fossi interessato, SCRIVICI"
+              "Se fossi interessato, **SCRIVICI**"
             ],
             "image": {
-              "url": "../assets/corsoSposi.png",
-              "align": "left"
-            }
+              "align": "left",
+              "url": "corsoSposi.jpg"
+            },
+            "title": "Corso per gli sposi"
           }
-        ]
+        ],
+        "title": "S. Chiara",
+        "key": "s-chiara"
       },
       {
-        "title": "S. Maria dell'anima",
         "sections": [
           {
-            "title": "RITIRO E S. MESSA",
-            "caption": null,
             "articles": [
               "Ogni seconda domenica del mese",
               "Ritrovo e catechesi: 15.30",
               "S. Messa: ore 18",
               "Confessioni prima della S. Messa."
             ],
-            "image": {
-              "url": "../assets/blabla.png",
-              "align": "left"
-            }
+            "image": null,
+            "title": "RITIRO E S. MESSA"
           }
-        ]
+        ],
+        "title": "S. Maria dell'anima",
+        "key": "s-maria-dell-anima"
       }
     ]
   },
@@ -167,7 +181,7 @@
           "Da qui è nato il movimento laicale con le sue comunità mistiche ed evangelizzatrici, unite dalla\nParola e dalla presenza di Cristo. I consacrati sono testimonianza della chiamata radicale alla\nsequela di Gesù, e accompagnano e supportano il cammino delle comunità dei laici"
         ],
         "image": {
-          "url": "../assets/blabla.png",
+          "url": "approfondimenti-1.jpg",
           "align": "left"
         }
       },
@@ -179,7 +193,7 @@
           "Cerchiamo di vivere una povertà radicale, così da poter testimoniare che è Cristo il nostro tutto.\nInoltre per mezzo della povertà abbiamo la possibilità di incontrare la gente nella quotidianità.\nIl nostro stile di vita mendicante ci permette di essere in comunione con gli ultimi e di non\ndimenticare che Dio stesso è il mendicante di amore che ci cerca incessantemente. Ci impegniamo\nperciò a considerarci ultimi e a non considerare nulla come nostra proprietà o dominio, perciò\nviviamo senza circolo di denaro, per vivere il Vangelo nella sua radicalità e bellezza"
         ],
         "image": {
-          "url": "../assets/blabla.png",
+          "url": "approfondimenti-2.jpg",
           "align": "right"
         }
       },
@@ -193,13 +207,37 @@
           "A tale ispirazione è di esempio l’esperienza dei santi Pietro e Paolo per l’amore alla chiesa e lo zelo\nmissionario; di San Francesco d’Assisi che riprodusse la vita povera ed itinerante dei primi\ndiscepoli del Signore; e l’esempio di Santa Teresa di Lisieux, capace di tracciare la “piccola via” per\nseguire il Signore con semplicità e amore confidente anche nelle più piccole cose"
         ],
         "image": {
-          "url": "../assets/blabla.png",
-          "align": "right"
+          "url": "approfondimenti-3.jpg",
+          "align": "left"
         }
       }
     ]
   },
-  "contatti": {
-
+  "prega-con-noi": {
+    "header": {
+      "backgroundImage": "pregaConNoi.jpg",
+      "title": "Prega con noi",
+      "caption": null,
+      "brandImage": null
+    },
+    "main": {
+      "title": "Pace e bene, benvenuto!",
+      "caption": "Per pregare con noi, puoi scaricare l’app gratuita “Missionari della Via” con il commento al Vangelo del giorno, disponibile sia su Play Store che su App Store.",
+      "strings": [
+        "Puoi anche richiedere la versione cartacea “La Via del Vangelo” (se fossi interessato, SCRIVICI)",
+        "Se volessi pregare il Rosario meditato, puoi richiedere il libro “La Via di Maria” oppure le due versioni tascabili (se\nfossi interessato, SCRIVICI)",
+        "Per seguire i nostri video, clicca qui per andare al canale youtube."
+      ],
+      "images": [
+        {
+          "url": "viaDiMaria.jpg",
+          "alt": "viaDiMaria"
+        },
+        {
+          "url": "viaDelVangelo.jpg",
+          "alt": "viaDelVangelo"
+        }
+      ]
+    }
   }
 }
