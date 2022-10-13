@@ -6,6 +6,7 @@ import store from './store/index.js';
 
 import App from './App.vue';
 import BaseSpinner from './components/ui/BaseSpinner'
+import BaseToast from './components/ui/BaseToast'
 
 // Bootstrap Style
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -28,5 +29,6 @@ app.use(Markdown);
 app.config.globalProperties.$util = utilityFunction;
 
 app.component('base-spinner', BaseSpinner);
+app.component('base-toast', BaseToast);
 
 app.mount('#app');

@@ -1,5 +1,10 @@
 <template>
   <div class="card">
+
+    <base-toast :show="!!toast.val" :type="toast.type">
+      {{ toast.message }}
+    </base-toast>
+
     <div v-if="title" class="card-header">
       <div class="text-center fs-3">{{ title }}</div>
     </div>
@@ -44,7 +49,11 @@ export default {
   props: ['title'],
   data() {
     return {
-      toast: false,
+      toast: {
+        val: false,
+        message: '',
+        type: 'danger'
+      },
       name: '',
       lastName: '',
       email: '',
@@ -52,6 +61,22 @@ export default {
     }
   },
   methods: {
+    showToast(message, isSuccess = false) {
+      this.toast.val = true;
+      this.toast.message = message;
+
+      if (isSuccess) {
+        this.toast.type = 'success';
+        setTimeout(() => {
+          this.toast.val = false;
+        }, 1500);
+      } else {
+        this.toast.type = 'danger';
+        setTimeout(() => {
+          this.toast.val = false
+        }, 3000);
+      }
+    },
     async submitForm() {
       const formData = {
         nome: this.name,
@@ -76,7 +101,11 @@ export default {
 
       if (!response.ok) {
         console.log('Errore inserimento' + responseData.message)
+        this.showToast("errore nell'invio della richiesta!", false)
+      } else {
+        this.showToast("richiesta inviata", true)
       }
+
     },
   }
 
