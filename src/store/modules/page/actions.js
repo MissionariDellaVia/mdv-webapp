@@ -1,8 +1,8 @@
 export default {
     async loadPage(context, page) {
-        console.log("BEGIN: action -> page/loadPage");
+        console.debug("BEGIN: action -> page/loadPage");
         const response = await fetch(
-            `https://mdv-webapp-default-rtdb.europe-west1.firebasedatabase.app/pages/${page}.json`
+            `${process.env.VUE_APP_API_BASE_URL}/${page}.json`
         );
         const responseData = await response.json();
         if (!response.ok) {

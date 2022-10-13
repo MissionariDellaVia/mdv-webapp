@@ -1,11 +1,10 @@
 export default {
     async loadBlogPost(context, postNumber) {
-        const apiKey = "AIzaSyBtWN-ncyuf_mLjJLBPzlIrP2sfSUVbxLM";
         const blogId = "3352192114497284671";
         const fetchImages = true;
 
         const response = await fetch(
-            `https://www.googleapis.com/blogger/v3/blogs/${blogId}/posts?key=${apiKey}&maxResults=${postNumber}&orderBy=published&fetchImages=${fetchImages}`
+            `${process.env.VUE_APP_API_BLOG_BASE_URL}/blogs/${blogId}/posts?key=${process.env.VUE_APP_BLOG_API_KEY}&maxResults=${postNumber}&orderBy=published&fetchImages=${fetchImages}`
         );
         const responseData = await response.json();
         if (!response.ok) {
