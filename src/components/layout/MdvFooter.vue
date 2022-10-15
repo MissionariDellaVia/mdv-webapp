@@ -5,8 +5,9 @@
       <div class="row">
         <div class="col-md-12 text-center">
           <span class="fi fi-it"></span>
-          <span class="fi fi-gb mx-3"></span>
-          <span class="fi fi-fr"></span>
+          <span class="fi fi-gb ms-3"></span>
+          <span class="fi fi-es ms-3"></span>
+          <span class="fi fi-pt ms-3"></span>
         </div>
       </div>
 
