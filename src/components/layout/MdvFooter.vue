@@ -13,19 +13,19 @@
       <div class="row mx-auto my-4">
         <div class="col-sm-4 hoverable">
           <h5 class="text-center">Blog</h5>
-          <a href="https://blogdeipiccolidellavia.blogspot.com/"><img class="img-fluid"
+          <a target="_blank" href="https://blogdeipiccolidellavia.blogspot.com/"><img class="img-fluid"
                                                                       :src="helper.getImgUrl('footer-blog.jpg')"
                                                                       alt="blog"/></a>
         </div>
         <div class="col-sm-4 mt-2 mb-2 hoverable">
           <h5 class="text-center">Fraternità Laicale</h5>
-          <a href="http://www.cristianidistrada.net/">
+          <a target="_blank" href="http://www.cristianidistrada.net/">
             <img class="img-fluid" :src="helper.getImgUrl('footer-comunita.jpg')" alt="comunita"/>
           </a>
         </div>
         <div class="col-sm-4 hoverable">
           <h5 class="text-center">Vocazione</h5>
-          <a href="https://www.vocazione.altervista.org/"><img class="img-fluid"
+          <a target="_blank" href="https://www.vocazione.altervista.org/"><img class="img-fluid"
                                                             :src="helper.getImgUrl('footer-vocazione.jpg')"
                                                             alt="missionari"/></a>
         </div>
