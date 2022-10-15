@@ -24,7 +24,7 @@
           </a>
         </div>
         <div class="col-sm-4 hoverable">
-          <h5 class="text-center">Vocazione</h5>
+          <h5 class="text-center">Sito Vocazionale</h5>
           <a target="_blank" href="https://www.vocazione.altervista.org/"><img class="img-fluid"
                                                             :src="helper.getImgUrl('footer-vocazione.jpg')"
                                                             alt="missionari"/></a>
