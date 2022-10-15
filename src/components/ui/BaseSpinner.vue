@@ -1,6 +1,6 @@
 <template>
   <teleport to="body" >
-      <div v-if="show" class="position-absolute start-50 top-50">
+      <div v-if="show" class="position-absolute top-50 start-50 translate-middle">
         <div class="ping"></div>
       </div>
   </teleport>
@@ -15,7 +15,7 @@ export default {
   },
   watch:{
     $route (to, from){
-      console.log('to: ' + to.path + ' - from: ' + from.path)
+      console.debug('to: ' + to.path + ' - from: ' + from.path)
       this.show = false;
       this.setShow();
     }

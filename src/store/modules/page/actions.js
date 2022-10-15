@@ -2,7 +2,7 @@ export default {
     async loadPage(context, page) {
         console.debug("BEGIN: action -> page/loadPage");
         const response = await fetch(
-            `${process.env.VUE_APP_API_BASE_URL}/${page}.json`
+            `${process.env.VUE_APP_FIREBASE_DATABASE_URL}/pages/${page}.json`
         );
         const responseData = await response.json();
         if (!response.ok) {

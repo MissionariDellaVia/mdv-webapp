@@ -25,7 +25,7 @@
         </div>
         <div class="col-sm-4 hoverable">
           <h5 class="text-center">Vocazione</h5>
-          <a href="http://www.missionaridellavia.net/"><img class="img-fluid"
+          <a href="https://www.vocazione.altervista.org/"><img class="img-fluid"
                                                             :src="helper.getImgUrl('footer-vocazione.jpg')"
                                                             alt="missionari"/></a>
         </div>
@@ -70,7 +70,7 @@ export default {
   },
   watch: {
     $route(to, from) {
-      console.log('to: ' + to.path + ' - from: ' + from.path)
+      console.debug('to: ' + to.path + ' - from: ' + from.path)
       this.show = false;
       this.setShow();
     }

@@ -15,7 +15,7 @@
         <div class="row text-center my-5">
           <div class="col-12 px-5">
             <h1 class="main-title my-4"> {{ pregaConNoiPage.main.title }} </h1>
-            <h4 v-if="pregaConNoiPage.main.caption" class="caption"> {{ pregaConNoiPage.main.caption }} </h4>
+            <h4 v-if="pregaConNoiPage.main.caption" class="caption"> <Markdown :source="pregaConNoiPage.main.caption" :html="true" class="markdown-mdv"></Markdown></h4>
           </div>
         </div>
         <div v-if="pregaConNoiPage.main.strings" class="row text-center my-5">

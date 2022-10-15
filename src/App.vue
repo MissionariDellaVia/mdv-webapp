@@ -1,11 +1,11 @@
 <template>
-  <MdvNavbar/>
+  <MdvNavbar v-show="!$route.meta.reservedArea"/>
   <router-view v-slot="{ Component }">
     <transition name="scale" mode="out-in">
       <component :is="Component" />
     </transition>
-  </router-view>
-  <MdvFooter/>
+  </router-view >
+  <MdvFooter v-show="!$route.meta.reservedArea" />
 </template>
 
 <script>
@@ -16,10 +16,24 @@ export default {
   name: 'App',
   components: {
     MdvNavbar,MdvFooter
+  },
+  computed: {
+    didAutoLogout() {
+      return this.$store.getters.didAutoLogout;
+    }
+  },
+  created() {
+    this.$store.dispatch('tryLogin');
+  },
+  watch: {
+    didAutoLogout(curValue, oldValue) {
+      if (curValue && curValue !== oldValue) {
+        this.$router.replace('/auth');
+      }
+    }
   }
 }
 </script>
-
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bubbler+One&family=Montserrat&family=Questrial&family=Playfair+Display&family=Old+Standard+TT&display=swap');
@@ -31,6 +45,14 @@ html, body {
   font-style: italic;
   /*text-align: center;*/
 }
+.markdown-mdv a {
+  text-decoration: none;
+  color: #8c681c;
+}
+.markdown-mdv a:hover, .markdown-mdv a:focus {
+  color: #59411a;
+}
+
 .scale-enter-active,
 .scale-leave-active {
   transition: all 0.2s ease;

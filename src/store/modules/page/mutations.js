@@ -2,28 +2,27 @@ export default {
     setPage(state, payload) {
         switch (payload.page) {
             case 'chi-siamo':
-                console.log('set chi-siamo page');
-                console.log('chi-siamo -> ' + + JSON.stringify(payload.data));
+                console.debug('set chi-siamo page');
                 state.chiSiamo = payload.data;
                 break;
             case 'attivita':
-                console.log('set attivita page');
+                console.debug('set attivita page');
                 state.attivita = payload.data;
                 break;
             case 'vocazione':
-                console.log('set vocazione page');
+                console.debug('set vocazione page');
                 state.vocazione = payload.data;
                 break;
             case 'approfondimenti':
-                console.log('set approfondimenti page');
+                console.debug('set approfondimenti page');
                 state.approfondimenti = payload.data;
                 break;
             case 'prega-con-noi':
-                console.log('set prega-con-noi page');
+                console.debug('set prega-con-noi page');
                 state.pregaConNoi = payload.data;
                 break;
             default:
-                console.log(`Sorry, we are out of ${payload.data}.`);
+                console.debug(`Sorry, we are out of ${payload.data}.`);
                 break;
         }
     }
