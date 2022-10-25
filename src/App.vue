@@ -24,9 +24,11 @@ export default {
   },
   created() {
     this.$store.dispatch('tryLogin');
-    if (!window.localStorage.getItem('lang'))
+    if (window.localStorage.getItem('lang')) {
+      console.debug( "current lang: " + window.localStorage.getItem('lang'));
+    } else {
       window.localStorage.setItem('lang', ''+navigator.language);
-    console.debug( "current lang: " + window.localStorage.getItem('lang'));
+    }
   },
   watch: {
     didAutoLogout(curValue, oldValue) {
