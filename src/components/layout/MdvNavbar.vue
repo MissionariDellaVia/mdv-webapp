@@ -60,14 +60,26 @@ export default {
       setTimeout(() => {
         this.show = true;
       }, 300);
-    }
+    },
+    async changeLang() {
+      try {
+        this.$store.dispatch('page/changeLang', {lang: navigator.language, route: this.currentRouteName});
+        this.scrollToTop();
+      } catch (error) {
+        // this.showToast(error.message || 'Errore caricamento pagina!');
+      }
+    },
   },
   computed: {
     navbarLinks() {
+      if (this.$store.getters['page/navbar'] == null)
+        this.changeLang()
       console.log(this.$store.getters['page/navbar'])
       return this.$store.getters['page/navbar'].filter(item => item.type === 'link');
     },
     navbarDropdowns() {
+      if (this.$store.getters['page/navbar'] == null)
+        this.changeLang()
       return this.$store.getters['page/navbar'].filter(item => item.type === 'dropdown');
     }
   },
