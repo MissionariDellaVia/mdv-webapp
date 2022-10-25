@@ -17,7 +17,7 @@ export default {
         console.debug("BEGIN: action -> page/changeLang");
         console.debug("lang:" + payload.lang + ", page:" + payload.route);
 
-        window.localStorage.setItem('lang', payload.lang);
+        window.localStorage.setItem('lang', ''+payload.lang);
         context.commit('setNavbar', payload.lang);
 
         await context.dispatch('loadPage', payload.route);

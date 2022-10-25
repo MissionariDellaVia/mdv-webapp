@@ -25,7 +25,7 @@ export default {
   created() {
     this.$store.dispatch('tryLogin');
     if (!window.localStorage.getItem('lang'))
-      window.localStorage.setItem('lang', navigator.language);
+      window.localStorage.setItem('lang', ''+navigator.language);
     console.debug( "current lang: " + window.localStorage.getItem('lang'));
   },
   watch: {
