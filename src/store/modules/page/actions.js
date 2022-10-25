@@ -1,7 +1,7 @@
 export default {
     async loadPage(context, page) {
         console.debug("BEGIN: action -> page/loadPage");
-        let lang = localStorage.getItem("lang");
+        let lang = window.localStorage.getItem("lang");
         const response = await fetch(
             `${process.env.VUE_APP_FIREBASE_DATABASE_URL}/pages/${lang}/${page}.json`
         );
@@ -17,7 +17,7 @@ export default {
         console.debug("BEGIN: action -> page/changeLang");
         console.debug("lang:" + payload.lang + ", page:" + payload.route);
 
-        localStorage.setItem('lang', payload.lang);
+        window.localStorage.setItem('lang', payload.lang);
         context.commit('setNavbar', payload.lang);
 
         await context.dispatch('loadPage', payload.route);
