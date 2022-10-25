@@ -116,7 +116,7 @@ export default {
 
 <style scoped>
 .hr-img {
-  width: 30%;
+  width: 15rem;
   margin: auto;
 }
 .main-title {

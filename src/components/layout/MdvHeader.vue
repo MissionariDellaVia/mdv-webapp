@@ -4,7 +4,7 @@
     <div class="container h-100">
       <div class="row h-100 align-items-center">
         <div v-if="brand" class="col-12 text-center">
-          <img src="../../assets/logo.png" class="mt-5" alt="logoHome"/>
+<!--          <img src="../../assets/logo.png" class="mt-5" alt="logoHome"/>-->
           <h1 class="main-title with-brand text-uppercase">{{ title }}</h1>
           <p v-if="caption" class="lead headerSection">{{ caption }}</p>
         </div>

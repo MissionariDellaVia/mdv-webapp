@@ -6,7 +6,7 @@
   </div>
   <div class="card-body">
     <div v-if="imageUrl" class="row my-4">
-      <div class="col col-sm-12" :class="imgArticleClass.imgCssClass">
+      <div class="col col-sm-12 text-center" :class="imgArticleClass.imgCssClass">
         <img :src=helper.getImgUrl(imageUrl) class="img-fluid" :class="{'small-img' : small}" alt="imageUrl">
       </div>
       <div class="col col-sm-12 text-start" :class="imgArticleClass.textCssClass" >
