@@ -24,6 +24,7 @@ import 'animate.css';
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import 'highlight.js/styles/monokai.css';
 
+window.localStorage.setItem('lang', ''+navigator.language);
 
 const app = createApp(App)
 app.use(router);
