@@ -14,13 +14,13 @@
           <div class="col">
             <div class="form-floating">
               <input type="text" class="form-control" v-model="name" id="name" placeholder="Mario">
-              <label for="floatingInput">Nome</label>
+              <label for="floatingInput">{{ nameField }}</label>
             </div>
           </div>
           <div class="col">
             <div class="form-floating">
               <input type="text" class="form-control" v-model="lastName" id="lastName" placeholder="Rossi">
-              <label for="floatingInput">Cognome</label>
+              <label for="floatingInput">{{ lastNameField }}</label>
             </div>
           </div>
         </div>
@@ -31,11 +31,11 @@
         <div class="form-floating  mb-3">
           <textarea class="form-control" v-model="textArea" id="textArea" placeholder="inserire una richiesta"
                     rows="4"></textarea>
-          <label for="floatingInput">Richiesta</label>
+          <label for="floatingInput">{{ textField }}</label>
         </div>
         <div class="row mb-3">
           <div class="col-12 text-center">
-            <button type="submit" class="btn btn-contact"> Invia Richiesta</button>
+            <button type="submit" class="btn btn-contact"> {{ buttonName }}</button>
           </div>
         </div>
       </form>
@@ -46,7 +46,7 @@
 <script>
 export default {
   name: "MdvForm",
-  props: ['title'],
+  props: ['title', 'nameField', 'lastNameField', 'textField', 'buttonName' ],
   data() {
     return {
       toast: {

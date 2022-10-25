@@ -1,8 +1,9 @@
 export default {
     async loadPage(context, page) {
         console.debug("BEGIN: action -> page/loadPage");
+        let lang = localStorage.getItem("lang");
         const response = await fetch(
-            `${process.env.VUE_APP_FIREBASE_DATABASE_URL}/pages/${page}.json`
+            `${process.env.VUE_APP_FIREBASE_DATABASE_URL}/pages/${lang}/${page}.json`
         );
         const responseData = await response.json();
         if (!response.ok) {
@@ -11,5 +12,14 @@ export default {
         }
 
         context.commit('setPage', { data: responseData, page: page});
+    },
+    async changeLang(context, payload) {
+        console.debug("BEGIN: action -> page/changeLang");
+        console.debug("lang:" + payload.lang + ", page:" + payload.route);
+
+        localStorage.setItem('lang', payload.lang);
+        context.commit('setNavbar', payload.lang);
+
+        await context.dispatch('loadPage', payload.route);
     }
 }

@@ -1,18 +1,20 @@
 <template>
   <section>
-    <MDHeader image="contatti.jpg" title="Contatti"/>
+    <MDHeader :image="contattiPage.header.backgroundImage"
+              :title="contattiPage.header.title"/>
+
     <div class="container">
 
-      <div class="row my-4">
+      <div v-for="(place, index) in contattiPage.places" v-bind:key="index" class="row my-4" >
         <div class="col-sm-12">
           <div class="card">
             <div class="card-header">
-              <div class="text-center fs-2">Lamezia Terme (CZ)</div>
+              <div class="text-center fs-2">{{ place.title }}</div>
             </div>
             <div class="card-body">
               <div class="row my-4">
                 <div class="col col-lg-12 align-self-start">
-                  <BaseMap :lat="38.932440" :lng="16.335970"></BaseMap>
+                  <BaseMap :lat="place.lat" :lng="place.lng"></BaseMap>
                 </div>
               </div>
               <div class="row my-4">
@@ -22,9 +24,9 @@
                       <i class="fa-solid fa-location-dot"></i>
                     </template>
                     <template v-slot:body>
-                      <p class="fw-bold">Chiesa di S. Chiara</p>
-                      <p>Via Gen. F. Scalzo 7</p>
-                      <p>88046 Lamezia Terme (CZ)</p>
+                      <p v-for="(addr, index) in place.address" v-bind:key="index">
+                        <Markdown :source="addr"></Markdown>
+                      </p>
                     </template>
                   </MdvContactoButton>
                 </div>
@@ -35,7 +37,7 @@
                     </template>
                     <template v-slot:body>
                       <p class="fw-bold"></p>
-                      <p><strong>Telefono:</strong><br><a href="tel:0968453462">0968.453462</a></p>
+                      <p><Markdown :source="place.phone.title"></Markdown><a :href="`tel:${place.phone.number}`" >{{ place.phone.number }}</a></p>
                     </template>
                   </MdvContactoButton>
                 </div>
@@ -45,59 +47,10 @@
                       <i class="fa-regular fa-envelope"></i>
                     </template>
                     <template v-slot:body>
-                      <p><strong>Frati:</strong><br><a href="mailto:missionaridellavia.lamezia@gmail.com">missionaridellavia.lamezia@gmail.com</a></p>
-                      <p><strong>Suore:</strong><br><a href="mailto:missionariedellavia.lamezia@gmail.com">missionariedellavia.lamezia@gmail.com</a></p>
-                    </template>
-                  </MdvContactoButton>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-12">
-          <div class="card">
-            <div class="card-header">
-              <div class="text-center fs-2">Napoli</div>
-            </div>
-            <div class="card-body">
-              <div class="row my-4">
-                <div class="col col-lg-12 align-self-start">
-                  <BaseMap :lat="40.838620" :lng="14.237410"></BaseMap>
-                </div>
-              </div>
-              <div class="row my-4">
-                <div class="col col-lg-4">
-                  <MdvContactoButton>
-                    <template v-slot:card-header>
-                      <i class="fa-solid fa-location-dot"></i>
-                    </template>
-                    <template v-slot:body>
-                      <p class="fw-bold">Chiesa di S. Maria dell’Anima</p>
-                      <p>Via del Parco Regina Margherita 26</p>
-                      <p>80121 Napoli</p>
-                    </template>
-                  </MdvContactoButton>
-                </div>
-                <div class="col col-lg-4">
-                  <MdvContactoButton>
-                    <template v-slot:card-header>
-                      <i class="fa-solid fa-phone"></i>
-                    </template>
-                    <template v-slot:body>
-                      <p class="fw-bold"></p>
-                      <p><strong>Telefono:</strong><br><a href="tel:0813792864">081.3792864</a></p>
-                    </template>
-                  </MdvContactoButton>
-                </div>
-                <div class="col col-lg-4">
-                  <MdvContactoButton>
-                    <template v-slot:card-header>
-                      <i class="fa-regular fa-envelope"></i>
-                    </template>
-                    <template v-slot:body>
-                      <p><strong>Frati:</strong><br><a href="mailto:missionaridellavia.napoli@gmail.com">missionaridellavia.napoli@gmail.com</a></p>
-                      <p><strong>Suore:</strong><br><a href="mailto:missionariedellavia.napoli@gmail.com">missionariedellavia.napoli@gmail.com</a></p>
+                      <p v-for="(email, index) in place.emails" v-bind:key="index">
+                        <Markdown :source="email.title"></Markdown>
+                        <a :href="`mailto:${email.email}`">{{ email.email }}</a>
+                      </p>
                     </template>
                   </MdvContactoButton>
                 </div>
@@ -108,7 +61,12 @@
       </div>
 
       <div class="row my-4">
-        <MdvForm title="Manda qui la tua richiesta di informazioni o di preghiera"></MdvForm>
+        <MdvForm :title="contattiPage.form.title"
+                 :button-name="contattiPage.form.buttonName"
+                 :name-field="contattiPage.form.nameField"
+                 :last-name-field="contattiPage.form.lastNameField"
+                 :text-field="contattiPage.form.messageField"
+        />
       </div>
 
 
@@ -121,10 +79,37 @@ import MDHeader from "@/components/layout/MdvHeader";
 import MdvContactoButton from "@/components/MdvContactButton";
 import BaseMap from "@/components/ui/BaseMap";
 import MdvForm from "@/components/MdvForm";
+import Markdown from 'vue3-markdown-it';
 
 export default {
   name: "ContattiPage",
-  components: {MdvForm, BaseMap, MDHeader, MdvContactoButton}
+  components: {MdvForm, BaseMap, MDHeader, MdvContactoButton, Markdown},
+  created() {
+    this.loadPage("contatti");
+  },
+  data() {
+    return {
+      helper: this.$util,
+      isLoading: false,
+    };
+  },
+  computed: {
+    contattiPage() {
+      return this.$store.getters['page/contatti'];
+    },
+  },
+  methods: {
+    async loadPage(page) {
+      this.isLoading = true;
+      try {
+        await this.$store.dispatch('page/loadPage', page);
+      } catch (error) {
+        // this.showToast(error.message || 'Errore caricamento pagina!');
+      }
+      this.isLoading = false;
+    },
+  }
+
 }
 </script>
 

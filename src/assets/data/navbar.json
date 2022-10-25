@@ -1,0 +1,282 @@
+{
+  "en": [
+    {
+      "type": "link",
+      "title": "who we are",
+      "to": "/"
+    },
+    {
+      "type": "link",
+      "title": "vocation",
+      "to": "/vocazione"
+    },
+    {
+      "type": "link",
+      "title": "activities",
+      "to": "/attivita"
+    },
+    {
+      "type": "link",
+      "title": "blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "lay fraternity",
+      "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "contacts",
+      "to": "/contatti"
+    },
+    {
+      "type": "dropdown",
+      "title": "other",
+      "links": [
+        {
+          "type": "link",
+          "title": "Youtube channel",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "insights",
+          "to": "/approfondimenti"
+        },
+        {
+          "type": "link",
+          "title": "pray with us",
+          "to": "/prega-con-noi"
+        }
+      ]
+    }
+  ],
+  "es": [
+    {
+      "type": "link",
+      "title": "quienes somos",
+      "to": "/"
+    },
+    {
+      "type": "link",
+      "title": "vocación",
+      "to": "/vocazione"
+    },
+    {
+      "type": "link",
+      "title": "actividades",
+      "to": "/attivita"
+    },
+    {
+      "type": "link",
+      "title": "blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "fraternidad laica",
+      "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "contactos",
+      "to": "/contatti"
+    },
+    {
+      "type": "dropdown",
+      "title": "otro",
+      "links": [
+        {
+          "type": "link",
+          "title": "canal de Youtube",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "perspectivas",
+          "to": "/approfondimenti"
+        },
+        {
+          "type": "link",
+          "title": "reza con nosotros",
+          "to": "/prega-con-noi"
+        }
+      ]
+    }
+  ],
+  "pt": [
+    {
+      "type": "link",
+      "title": "quem nós somos",
+      "to": "/"
+    },
+    {
+      "type": "link",
+      "title": "vocação",
+      "to": "/vocazione"
+    },
+    {
+      "type": "link",
+      "title": "Atividades",
+      "to": "/attivita"
+    },
+    {
+      "type": "link",
+      "title": "blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "fraternidade leiga",
+      "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Contatos",
+      "to": "/contatti"
+    },
+    {
+      "type": "dropdown",
+      "title": "outro",
+      "links": [
+        {
+          "type": "link",
+          "title": "canal do Youtube",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "percepções",
+          "to": "/approfondimenti"
+        },
+        {
+          "type": "link",
+          "title": "reze conosco",
+          "to": "/prega-con-noi"
+        }
+      ]
+    }
+  ],
+  "it": [
+    {
+      "type": "link",
+      "title": "chi siamo",
+      "to": "/"
+    },
+    {
+      "type": "link",
+      "title": "vocazione",
+      "to": "/vocazione"
+    },
+    {
+      "type": "link",
+      "title": "attività",
+      "to": "/attivita"
+    },
+    {
+      "type": "link",
+      "title": "blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "fraternità laicale",
+      "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "contatti",
+      "to": "/contatti"
+    },
+    {
+      "type": "dropdown",
+      "title": "altro",
+      "links": [
+        {
+          "type": "link",
+          "title": "canale youtube",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "approfondimenti",
+          "to": "/approfondimenti"
+        },
+        {
+          "type": "link",
+          "title": "prega con noi",
+          "to": "/prega-con-noi"
+        }
+      ]
+    }
+  ],
+  "pl": [
+    {
+      "type": "link",
+      "title": "kim jesteśmy",
+      "to": "/"
+    },
+    {
+      "type": "link",
+      "title": "powołanie",
+      "to": "/vocazione"
+    },
+    {
+      "type": "link",
+      "title": "zajęcia",
+      "to": "/attivita"
+    },
+    {
+      "type": "link",
+      "title": "blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "świeckie braterstwo",
+      "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Łączność",
+      "to": "/contatti"
+    },
+    {
+      "type": "dropdown",
+      "title": "inny",
+      "links": [
+        {
+          "type": "link",
+          "title": "kanał Youtube",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "spostrzeżenia",
+          "to": "/approfondimenti"
+        },
+        {
+          "type": "link",
+          "title": "módlcie się z nami",
+          "to": "/prega-con-noi"
+        }
+      ]
+    }
+  ]
+}

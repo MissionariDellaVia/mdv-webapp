@@ -63,7 +63,6 @@
 
 <script>
 import MDHeader from "@/components/layout/MdvHeader";
-import configurationPage from '@/assets/data/chiSiamo.json';
 import MdvArticle from "@/components/MdvArticle";
 import MdvBlogCard from "@/components/MdvBlogCard";
 
@@ -87,9 +86,6 @@ export default {
     lastBlogPosts() {
       return this.$store.getters['blog/posts'];
     },
-    title() {
-      return configurationPage.header.title;
-    }
   },
   methods: {
     async loadPage(page) {

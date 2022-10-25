@@ -24,6 +24,9 @@ export default {
   },
   created() {
     this.$store.dispatch('tryLogin');
+    if (!localStorage.getItem('lang'))
+      localStorage.setItem('lang', navigator.language);
+    console.debug( "current lang: " + localStorage.getItem('lang'));
   },
   watch: {
     didAutoLogout(curValue, oldValue) {

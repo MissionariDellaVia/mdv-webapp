@@ -13,49 +13,49 @@ import Dashboard from '@/view/Dashboard';
 const routes = [
     {
         path: '/',
-        name: 'Home',
+        name: 'chi-siamo',
         component: Home,
         // meta: { requiresUnauth: true }
     },
     {
         path: '/auth',
-        name: 'Auth',
+        name: 'auth',
         component: Auth,
         meta: { requiresUnauth: true, reservedArea: true }
     },
     {
         path: '/vocazione',
-        name: 'VocazioniPage',
+        name: 'vocazione',
         component: Vocazione,
         // meta: { requiresAuth: true }
     },
     {
         path: '/attivita',
-        name: 'AttivitaPage',
+        name: 'attivita',
         component: Attivita,
         // meta: { requiresAuth: true }
     },
     {
         path: '/contatti',
-        name: 'ContattiPage',
+        name: 'contatti',
         component: Contatti,
         // meta: { requiresAuth: true }
     },
     {
         path: '/approfondimenti',
-        name: 'ApprofondimentiPage',
+        name: 'approfondimenti',
         component: Approfondimenti,
         // meta: { requiresAuth: true }
     },
     {
         path: '/prega-con-noi',
-        name: 'PregaPerNoiPage',
+        name: 'prega-con-noi',
         component: PregaPerNoi,
         meta: {  }
     },
     {
         path: '/reserved-area/mdv-admin/dashboard',
-        name: 'DashboardPage',
+        name: 'dashboard',
         component: Dashboard,
         meta: { requiresAuth: true, reservedArea: true }
     },

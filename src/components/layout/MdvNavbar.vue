@@ -17,34 +17,25 @@
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav ms-auto text-uppercase">
-            <li class="nav-item" data-bs-dismiss="offcanvas">
-              <router-link class="nav-link hover-underline-animation" to="/">chi siamo</router-link>
+
+            <li v-for="(item, index) in navbarLinks" v-bind:key="index" data-bs-dismiss="offcanvas" class="nav-item">
+              <a v-if="item.external" target="_blank" :href="`${item.to}`" class="nav-link hover-underline-animation">{{ item.title }}</a>
+              <router-link v-else class="nav-link hover-underline-animation" :to="`${item.to}`">{{ item.title }}</router-link>
             </li>
-            <li class="nav-item">
-              <router-link class="nav-link hover-underline-animation" to="/vocazione">vocazione</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link hover-underline-animation" to="/attivita">attività</router-link>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link hover-underline-animation" target="_blank" href="https://blogdeipiccolidellavia.blogspot.com/">blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link hover-underline-animation" target="_blank" href="https://www.cristianidistrada.net">fraternità laicale</a>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link hover-underline-animation" to="/contatti">contatti</router-link>
-            </li>
-            <li class="nav-item dropdown">
+
+            <li v-for="(dropdown, index) in navbarDropdowns" v-bind:key="index"  class="nav-item dropdown">
+
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                ALTRO
+                {{ dropdown.title }}
               </a>
               <div class="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" target="_blank" href="https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA">CANALE YOUTUBE</a>
-                <router-link class="dropdown-item" to="/approfondimenti">APPROFONDIMENTI </router-link>
-                <router-link class="dropdown-item" to="/prega-con-noi">PREGA CON NOI </router-link>
+                <div v-for="(dropdownItem, index) in dropdown.links" v-bind:key="index">
+                  <a v-if="dropdownItem.external" target="_blank" :href="`${dropdownItem.to}`" class="dropdown-item">{{ dropdownItem.title }}</a>
+                  <router-link v-else class="dropdown-item" :to="`${dropdownItem.to}`">{{ dropdownItem.title }}</router-link>
+                </div>
               </div>
             </li>
+
           </ul>
         </div>
       </div>
@@ -69,6 +60,15 @@ export default {
       setTimeout(() => {
         this.show = true;
       }, 300);
+    }
+  },
+  computed: {
+    navbarLinks() {
+      console.log(this.$store.getters['page/navbar'])
+      return this.$store.getters['page/navbar'].filter(item => item.type === 'link');
+    },
+    navbarDropdowns() {
+      return this.$store.getters['page/navbar'].filter(item => item.type === 'dropdown');
     }
   },
   watch:{

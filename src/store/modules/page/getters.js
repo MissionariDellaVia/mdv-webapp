@@ -14,4 +14,10 @@ export default {
     pregaConNoi(state) {
         return state.pregaConNoi;
     },
+    contatti(state) {
+        return state.contatti;
+    },
+    navbar(state) {
+        return state.navbar;
+    },
 }

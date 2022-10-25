@@ -4,10 +4,10 @@
 
       <div class="row">
         <div class="col-md-12 text-center">
-          <span class="fi fi-it"></span>
-          <span class="fi fi-gb ms-3"></span>
-          <span class="fi fi-es ms-3"></span>
-          <span class="fi fi-pt ms-3"></span>
+          <span class="fi fi-it" @click="changeLang('it')"></span>
+          <span class="fi fi-gb ms-3" @click="changeLang('en')"></span>
+          <span class="fi fi-es ms-3" @click="changeLang('es')"></span>
+          <span class="fi fi-pl ms-3" @click="changeLang('pl')"></span>
         </div>
       </div>
 
@@ -67,6 +67,12 @@ export default {
     return {
       helper: this.$util,
       show: false,
+      isLoading: false
+    }
+  },
+  computed: {
+    currentRouteName() {
+      return this.$route.name;
     }
   },
   watch: {
@@ -81,7 +87,22 @@ export default {
       setTimeout(() => {
         this.show = true;
       }, 300);
-    }
+    },
+    scrollToTop() {
+      window.scrollTo(0,0);
+    },
+    async changeLang(lang) {
+      this.isLoading = true;
+      try {
+        console.debug("change from " + localStorage.getItem('lang') + " to " + lang);
+        console.debug("current route " + this.currentRouteName);
+        this.$store.dispatch('page/changeLang', {lang: lang, route: this.currentRouteName});
+        this.scrollToTop();
+      } catch (error) {
+        // this.showToast(error.message || 'Errore caricamento pagina!');
+      }
+      this.isLoading = false
+    },
   },
   created() {
     this.setShow();
