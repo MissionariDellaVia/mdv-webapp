@@ -27,7 +27,7 @@ export default {
     if (localStorage.getItem('lang')) {
       console.debug( "current lang: " + localStorage.getItem('lang'));
     } else {
-      localStorage.setItem('lang', ''+navigator.language.slice(0,2));
+      localStorage.setItem('lang', ''+navigator.language.substring(0, 2));
     }
   },
   watch: {
