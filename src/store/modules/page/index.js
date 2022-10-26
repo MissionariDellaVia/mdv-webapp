@@ -10,7 +10,7 @@ export default {
     namespaced: true,
     state() {
         return {
-            navbar: navbar[localStorage.getItem('lang') ? localStorage.getItem('lang') : navigator.language],
+            navbar: navbar[localStorage.getItem('lang') == null ? localStorage.getItem('lang') : navigator.language.slice(0,2)],
             chiSiamo: data["chi-siamo"],
             attivita: data["attivita"],
             vocazione: data["vocazione"],
