@@ -24,10 +24,10 @@ export default {
   },
   created() {
     this.$store.dispatch('tryLogin');
-    if (window.localStorage.getItem('lang')) {
+    if (localStorage.getItem('lang')) {
       console.debug( "current lang: " + window.localStorage.getItem('lang'));
     } else {
-      window.localStorage.setItem('lang', ''+navigator.language);
+      localStorage.setItem('lang', ''+navigator.language.slice(0,2));
     }
   },
   watch: {
