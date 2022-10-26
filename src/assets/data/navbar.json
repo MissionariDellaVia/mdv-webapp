@@ -223,6 +223,62 @@
       ]
     }
   ],
+  "fr": [
+    {
+      "type": "link",
+      "title": "À propos de nous",
+      "to": "/"
+    },
+    {
+      "type": "link",
+      "title": "VOCATION",
+      "to": "/vocazione"
+    },
+    {
+      "type": "link",
+      "title": "ACTIVITÉS",
+      "to": "/attivita"
+    },
+    {
+      "type": "link",
+      "title": "blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "FRATERNITÉ LAÏQUE",
+      "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "CONTACTS",
+      "to": "/contatti"
+    },
+    {
+      "type": "dropdown",
+      "title": "AUTRE",
+      "links": [
+        {
+          "type": "link",
+          "title": "Chaîne YouTube",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "EN SAVOIR PLUS",
+          "to": "/approfondimenti"
+        },
+        {
+          "type": "link",
+          "title": "Priez avec nous",
+          "to": "/prega-con-noi"
+        }
+      ]
+    }
+  ],
   "pl": [
     {
       "type": "link",
