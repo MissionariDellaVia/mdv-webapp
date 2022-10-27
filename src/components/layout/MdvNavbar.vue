@@ -64,7 +64,6 @@ export default {
   },
   computed: {
     navbarLinks() {
-      console.debug(this.$store.getters['page/navbar'])
       return this.$store.getters['page/navbar'].filter(item => item.type === 'link');
     },
     navbarDropdowns() {

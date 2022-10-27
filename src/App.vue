@@ -42,7 +42,7 @@ export default {
         console.debug( "lang found in storage: " + localStorage.getItem('lang'));
 
         if (currentLang.length > 2) {
-          currentLang = currentLang.substring(0,2);
+          currentLang = currentLang.substring(0,2).toLowerCase();
           localStorage.setItem('lang', currentLang);
           console.debug( "normalized lang in storage: " + currentLang);
         }
