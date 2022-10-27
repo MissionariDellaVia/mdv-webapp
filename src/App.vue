@@ -12,6 +12,8 @@
 import MdvNavbar from "@/components/layout/MdvNavbar";
 import MdvFooter from "@/components/layout/MdvFooter";
 
+const supportedLang = ['it', 'en', 'pl', 'es', 'fr']
+
 export default {
   name: 'App',
   components: {
@@ -24,17 +26,45 @@ export default {
   },
   created() {
     this.$store.dispatch('tryLogin');
-    if (localStorage.getItem('lang')) {
-      console.debug( "current lang: " + localStorage.getItem('lang'));
-    } else {
-      localStorage.setItem('lang', ''+navigator.language.substring(0, 2));
-    }
+    this.checkAndSetLang();
   },
   watch: {
     didAutoLogout(curValue, oldValue) {
       if (curValue && curValue !== oldValue) {
         this.$router.replace('/auth');
       }
+    }
+  },
+  methods: {
+    checkAndSetLang() {
+      if (localStorage.getItem('lang')) {
+        let currentLang = localStorage.getItem('lang');
+        console.debug( "lang found in storage: " + localStorage.getItem('lang'));
+
+        if (currentLang.length > 2) {
+          currentLang = currentLang.substring(0,2);
+          localStorage.setItem('lang', currentLang);
+          console.debug( "normalized lang in storage: " + currentLang);
+        }
+
+        if (!supportedLang.includes(currentLang)) {
+          console.debug( "lang: " + currentLang + " is not supported, setting default web-app language");
+          localStorage.setItem('lang', 'it')
+          return;
+        }
+        return;
+      }
+
+      console.debug( "lang not found in storage, try to set locale: " + navigator.language);
+      let localLang = navigator.language.substring(0, 2);
+      if (supportedLang.includes(localLang)) {
+        console.debug( "lang: " + localLang + " is supported");
+        localStorage.setItem('lang', localLang)
+      } else {
+        console.debug( "lang: " + localLang + " is not supported, setting default web-app language");
+        localStorage.setItem('lang', 'it');
+      }
+
     }
   }
 }
