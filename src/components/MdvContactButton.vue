@@ -1,5 +1,5 @@
 <template>
-<div class="card shadow mx-auto">
+<div class="card shadow">
   <div class="card-header">
     <slot name="card-header"></slot>
   </div>
@@ -19,7 +19,8 @@ export default {
 .card {
   font-family: 'Playfair Display', sans-serif;
   border: 0;
-  width: 21rem;
+  width: 20rem;
+  margin: auto;
   transition: all 0.2s ease;
   transform: scale(0.9);
 }
