@@ -23,6 +23,7 @@ import Markdown from 'vue3-markdown-it';
 import 'animate.css';
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import 'highlight.js/styles/monokai.css';
+import 'vue3-carousel/dist/carousel.css';
 
 const app = createApp(App)
 app.use(router);

@@ -46,15 +46,34 @@
         </div>
 
         <div class="row my-4">
-          <div class="col-md-4 col-sm-12" v-for="post in lastBlogPosts" v-bind:key="post.id">
-            <MdvBlogCard :title="post.title"
-                         :image-url="post.images[0].url"
-                         :ref-link="post.url"
-                         :publish-date="parseDate(post.published)"
-            />
+<!--          <div class="col-md-4 col-sm-12" v-for="post in lastBlogPosts" v-bind:key="post.id">-->
+<!--            <MdvBlogCard :title="post.title"-->
+<!--                         :image-url="post.images[0].url"-->
+<!--                         :ref-link="post.url"-->
+<!--                         :publish-date="parseDate(post.published)"-->
+<!--            />-->
 
-          </div>
+<!--          </div>-->
+
+
+
         </div>
+
+        <Carousel :items-to-show="2.5" :wrap-around="true" >
+          <Slide v-for="post in lastBlogPosts" :key="post.id">
+            <div class="col-sm-12 ">
+              <MdvBlogCard :title="post.title"
+                           :image-url="post.images[0].url"
+                           :ref-link="post.url"
+                           :publish-date="parseDate(post.published)"
+              />
+            </div>
+          </Slide>
+          <template #addons>
+            <Navigation />
+          </template>
+        </Carousel>
+
       </div>
     </section>
 
@@ -65,13 +84,14 @@
 import MDHeader from "@/components/layout/MdvHeader";
 import MdvArticle from "@/components/MdvArticle";
 import MdvBlogCard from "@/components/MdvBlogCard";
+import { Carousel, Slide, Navigation } from 'vue3-carousel'
 
 export default {
   name: "HomePage",
-  components: { MdvArticle, MDHeader, MdvBlogCard},
+  components: { MdvArticle, MDHeader, MdvBlogCard, Carousel, Navigation, Slide},
   created () {
     this.loadPage("chi-siamo");
-    this.loadBlogPosts(3);
+    this.loadBlogPosts(10);
   },
   data() {
     return {
