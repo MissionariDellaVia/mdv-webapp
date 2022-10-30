@@ -18,7 +18,7 @@
     <div v-else class="row my-4">
       <div class="col col-sm-12 align-self-start">
         <p v-for="(text, index) in texts" v-bind:key="index" >
-          <Markdown :source="text"  :breaks="true"></Markdown>
+          <Markdown :source="text" :breaks="true"></Markdown>
         </p>
       </div>
     </div>
@@ -74,7 +74,7 @@ p {
 }
 @media only screen and (max-width: 480px) {
   img {
-    max-width: 20rem;
+    max-width: 15rem !important;
     padding: 0 !important;
     margin-bottom: 1rem;
   }

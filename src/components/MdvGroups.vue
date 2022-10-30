@@ -2,13 +2,13 @@
   <div class="container">
 
     <div class="nav nav-pills mb-3 text-center" id="pills-tab" role="tablist">
-      <div class="nav-item col-12 mb-2" role="presentation">
+      <div class="nav-item shadow-sm col-12 mb-2" role="presentation">
         <div class="nav-link fs-2 active main-group" :id=" 'pills-' + mainGroup.key + '-tab'" data-bs-toggle="pill" :data-bs-target="'#' + mainGroup.key" role="tab" aria-controls="pills-home" aria-selected="true"
              @click="tabLog(mainGroup.key)">
           {{ mainGroup.title }}</div>
       </div>
       <div v-for="(group, index) in subGroups" v-bind:key="index" class="nav-item col-6 p-1" role="presentation">
-        <div class="nav-link fs-4  " :id=" 'pills-' + group.key + '-tab'" data-bs-toggle="pill" :data-bs-target="'#' + group.key" role="tab" aria-controls="pills-home" aria-selected="true"
+        <div class="nav-link fs-4 subgroup" :id=" 'pills-' + group.key + '-tab'" data-bs-toggle="pill" :data-bs-target="'#' + group.key" role="tab" aria-controls="pills-home" aria-selected="true"
              @click="tabLog(group.key)">
           {{ group.title }}</div>
       </div>
@@ -89,8 +89,9 @@ export default {
 }
 
 @media only screen and (max-width: 480px) {
-  .nav-pills .nav-link {
-    height: 6.5rem;
+  .subgroup {
+    height: 8rem;
+    font-size: 1.1rem !important;
   }
 }
 
