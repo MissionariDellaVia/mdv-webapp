@@ -104,22 +104,33 @@
               "title": "Corso per gli sposi"
             }
           ],
-          "title": "S. Chiara"
+          "title": "Rettoria di Santa Chiara"
         },
         {
           "key": "s-maria-dell-anima",
           "sections": [
             {
               "articles": [
-                "Se vuoi vivere dei momenti di preghiera con noi... A Napoli:",
-                "Ogni seconda domenica del mese",
-                "Ritrovo e catechesi: 15.30",
+                "Ogni mese incontro di spiritualità (17 novembre, 11 dicembre, 8 gennaio, 12 febbraio, 12 marzo, 16 aprile, 14 maggio, 11 giugno):",
+                "Catechesi: 16:00",
                 "S. Messa: ore 18",
                 "Confessioni prima della S. Messa."
               ]
             }
           ],
-          "title": "S. Maria dell'anima"
+          "title": "Chiesa di S. Maria dell’Anima (NA)"
+        },
+        {
+          "key": "capuccini-e-blatta",
+          "sections": [
+            {
+              "articles": [
+                "Ritiro d’Avvento per la parrocchia “Madonna di Loreto”: domenica 27 novembre alle ore 16. A seguire, alle ore 18, S. Messa.",
+                "Ritiro d’Avvento per la parrocchia “San Giuseppe Lavoratore”: domenica 19 marzo 2023 alle ore 16. A seguire, alle ore 18, S. Messa."
+              ]
+            }
+          ],
+          "title": "Zona “Cappuccini e Blatta” (Chivasso - TO)"
         }
       ],
       "header": {
@@ -127,7 +138,7 @@
         "title": "Attività e missioni"
       },
       "main": {
-        "caption": "A seguire, trovi le attivita’ in corso nella chiesa di S. Chiara a Lamezia Terme e nella chiesa di S. Maria dell’Anima a Napoli"
+        "caption": "A seguire, trovi le attività in corso nella chiesa di S. Chiara a Lamezia Terme, nella chiesa di S. Maria dell’Anima a Napoli e nella parrocchie di Chivasso “Madonna di Loreto” e “San Giuseppe lavoratore” (dove ci rendiamo presenti per incontri e accompagnamento spirituale). <br><br> (clicca sulla voce che ti interessa)"
       }
     },
     "chi-siamo": {
@@ -389,22 +400,33 @@
               "title": "Kurs dla nowożeńców"
             }
           ],
-          "title": "S. Chiara"
+          "title": "Rettoria di Santa Chiara"
         },
         {
           "key": "s-maria-dell-anima",
           "sections": [
             {
               "articles": [
-                "Jeśli chcesz przeżyć z nami chwile modlitwy... W Neapolu:",
-                "W każdą drugą niedzielę miesiąca",
-                "Spotkanie i katecheza: 15.30",
+                "Comiesięczne spotkanie duchowości (17 listopada, 11 grudnia, 8 stycznia, 12 lutego, 12 marca, 16 kwietnia, 14 maja, 11 czerwca):",
+                "Katecheza: 16:00",
                 "Św. Msza św.: 18:00",
                 "Spowiedź przed Mszą Świętą."
               ]
             }
           ],
-          "title": "S. Maria dell'anima"
+          "title": "Chiesa di S. Maria dell’Anima (NA)"
+        },
+        {
+          "key": "capuccini-e-blatta",
+          "sections": [
+            {
+              "articles": [
+                "Rekolekcje adwentowe dla parafii „Madonna di Loreto”: niedziela 27 listopada o godz.",
+                "Rekolekcje adwentowe dla parafii „San Giuseppe Lavoratore”: niedziela 19 marca 2023 o godz."
+              ]
+            }
+          ],
+          "title": "Zona “Cappuccini e Blatta” (Chivasso - TO)"
         }
       ],
       "header": {
@@ -675,22 +697,33 @@
               "title": "Curso para parejas casadas"
             }
           ],
-          "title": "S. Chiara"
+          "title": "Rettoria di Santa Chiara"
         },
         {
           "key": "s-maria-dell-anima",
           "sections": [
             {
               "articles": [
-                "Si quieres vivir momentos de oración con nosotros... En Nápoles:",
-                "Cada segundo domingo del mes",
-                "Encuentro y catequesis: 15:30 h",
+                "Reunión de espiritualidad cada mes (17 de noviembre, 11 de diciembre, 8 de enero, 12 de febrero, 12 de marzo, 16 de abril, 14 de mayo, 11 de junio):",
+                "Catequesis: 16:00",
                 "S. Misa: 18.00 h",
                 "Confesiones antes de la Santa Misa."
               ]
             }
           ],
-          "title": "S. Maria dell'anima"
+          "title": "Chiesa di S. Maria dell’Anima (NA)"
+        },
+        {
+          "key": "capuccini-e-blatta",
+          "sections": [
+            {
+              "articles": [
+                "Retiro de Adviento de la parroquia  Madonna di Loreto : domingo 27 de noviembre a las 16.00 h. A continuación, a las 18.00 h, Santa Misa.",
+                "Retiro de Adviento para la parroquia de ;San Giuseppe Lavoratore;: domingo 19 de marzo de 2023 a las 16.00 h. A continuación, a las 18.00 h, Santa Misa."
+              ]
+            }
+          ],
+          "title": "Zona “Cappuccini e Blatta” (Chivasso - TO)"
         }
       ],
       "header": {
@@ -962,22 +995,33 @@
               "title": "Course for spouses"
             }
           ],
-          "title": "S. Chiara"
+          "title": "Rettoria di Santa Chiara"
         },
         {
           "key": "s-maria-dell-anima",
           "sections": [
             {
               "articles": [
-                "If you want to experience moments of prayer with us ... In Naples:",
-                "Every second Sunday of the month",
-                "Meeting and catechesis: 3.30 pm",
+                "Every month spirituality meeting (November 17, December 11, January 8, February 12, March 12,\nApril 16, May 14, June 11):",
+                "Catechesis: 16:00",
                 "Holy Mass: 6 pm",
                 "Confessions before the Holy Mass"
               ]
             }
           ],
-          "title": "S. Maria dell'anima"
+          "title": "Chiesa di S. Maria dell’Anima (NA)"
+        },
+        {
+          "key": "capuccini-e-blatta",
+          "sections": [
+            {
+              "articles": [
+                "Advent retreat for the &quot;Madonna di Loreto&quot; parish: Sunday 27 November at 4 pm. Following, at 6 pm, Holy Mass.",
+                "Advent retreat for the parish of &quot;San Giuseppe Lavoratore&quot;: Sunday 19 March 2023 at 4 pm. Afterwards, at 6 pm, Holy Mass."
+              ]
+            }
+          ],
+          "title": "Zona “Cappuccini e Blatta” (Chivasso - TO)"
         }
       ],
       "header": {
@@ -985,7 +1029,7 @@
         "title": "Activities and missions"
       },
       "main": {
-        "caption": "Below, you will find the current activities in the church of S. Chiara in Lamezia Terme and in the church of S. Maria dell’Anima in Naples"
+        "caption": "Below, you will find the activities in progress in the church of S. Chiara in Lamezia Terme,<br>>in the church of S. Maria dell’Anima in Naples and in the parishes of Chivasso &quot;Madonna di\nLoreto&quot; and &quot;San Giuseppe Lavoratore&quot; (where we are present for meetings and spiritual accompaniment). <br><br> (click on the item you are interested in)"
       }
     },
     "chi-siamo": {
@@ -1533,22 +1577,33 @@
               "title": "Cours pour jeunes mariés"
             }
           ],
-          "title": "S. Chiara"
+          "title": "Rettoria di Santa Chiara"
         },
         {
           "key": "s-maria-dell-anima",
           "sections": [
             {
               "articles": [
-                "Si vous voulez vivre des moments de prière avec nous.... A Naples",
-                "Chaque deuxième dimanche du mois",
-                "Rencontre et catéchèse : 15:30",
+                "Rencontre mensuelle de spiritualité (17 novembre, 11 décembre, 8 janvier, 12 février, 12 mars, 16 avril, 14 mai, 11 juin) :",
+                "Catéchèse : 16:00",
                 "S. Messe : 18:00.",
                 "Confessions avant la Sainte Messe."
               ]
             }
           ],
-          "title": "S. Maria dell'anima"
+          "title": "Chiesa di S. Maria dell’Anima (NA)"
+        },
+        {
+          "key": "capuccini-e-blatta",
+          "sections": [
+            {
+              "articles": [
+                "Retraite de l'Avent pour la paroisse Madonna di Loreto: dimanche 27 novembre à 16h00, puis à 18h00, messe.",
+                "Retraite de l'Avent pour la paroisse San Giuseppe Lavoratore&quot;: dimanche 19 mars 2023 à 16h00. Ensuite, à 18h00, messe."
+              ]
+            }
+          ],
+          "title": "Zona “Cappuccini e Blatta” (Chivasso - TO)"
         }
       ],
       "header": {
@@ -1556,7 +1611,7 @@
         "title": "Activités et missions"
       },
       "main": {
-        "caption": "Vous trouverez ci-dessous les activités en cours dans l’église de S. Chiara à Lamezia Terme et dans\nl’église de S. Maria dell’Anima à Napoli."
+        "caption": "Ci-dessous, vous trouverez les activités en cours dans l&#39;église de S. Chiara à Lamezia Terme, <br> dans l&#39;église de S. Maria dell&#39;Anima à Naples et dans les paroisses de Chivasso &quot;Madonna di\nLoreto&quot; et &quot;San Giuseppe Lavoratore&quot; (où nous sommes présents pour des rencontres et un accompagnement spirituel). <br><br> (cliquez sur l&#39;article qui vous intéresse)"
       }
     },
     "chi-siamo": {

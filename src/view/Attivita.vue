@@ -14,7 +14,7 @@
       <div class="row text-center my-5">
         <div class="col-12 px-5">
           <h1 class="main-title my-2"> {{ attivitaPage.main.title }} </h1>
-          <h4 class="caption"> {{ attivitaPage.main.caption }} </h4>
+          <Markdown :source="attivitaPage.main.caption"  class="caption h4" :html="true"></Markdown>
         </div>
       </div>
 
@@ -27,10 +27,11 @@
 <script>
 import MDHeader from "@/components/layout/MdvHeader";
 import MdvGroups from "@/components/MdvGroups";
+import Markdown from 'vue3-markdown-it';
 
 export default {
   name: "AttivitaPage",
-  components: {MdvGroups, MDHeader},
+  components: {MdvGroups, MDHeader, Markdown},
   created() {
     this.loadPage("attivita");
   },

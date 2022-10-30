@@ -1,14 +1,27 @@
 <template>
   <div class="container">
 
-    <ul class="nav nav-pills nav-justified mb-3" id="pills-tab" role="tablist">
-      <li v-for="(group, index) in groups" v-bind:key="index" class="nav-item" role="presentation">
-        <div class="nav-link fs-2" :class="index === 0 ? 'active' : ''" :id=" 'pills-' + group.key + '-tab'" data-bs-toggle="pill" :data-bs-target="'#' + group.key" role="tab" aria-controls="pills-home" aria-selected="true">
+    <div class="nav nav-pills mb-3 text-center" id="pills-tab" role="tablist">
+      <div class="nav-item col-12 mb-2" role="presentation">
+        <div class="nav-link fs-2 active main-group" :id=" 'pills-' + mainGroup.key + '-tab'" data-bs-toggle="pill" :data-bs-target="'#' + mainGroup.key" role="tab" aria-controls="pills-home" aria-selected="true"
+             @click="tabLog(mainGroup.key)">
+          {{ mainGroup.title }}</div>
+      </div>
+      <div v-for="(group, index) in subGroups" v-bind:key="index" class="nav-item col-6 p-1" role="presentation">
+        <div class="nav-link fs-4  " :id=" 'pills-' + group.key + '-tab'" data-bs-toggle="pill" :data-bs-target="'#' + group.key" role="tab" aria-controls="pills-home" aria-selected="true"
+             @click="tabLog(group.key)">
           {{ group.title }}</div>
-      </li>
-    </ul>
+      </div>
+    </div>
     <div class="tab-content" id="pills-tabContent">
-        <div v-for="(group, index) in groups" v-bind:key="index" class="tab-pane fade" :class="index === 0 ? 'show active' : ''" :id="group.key" >
+        <div class="tab-pane fade show active" :id="mainGroup.key"  @click="articleLog(mainGroup.key)">
+          <MdvArticle v-for="(section, index) in mainGroup.sections" v-bind:key="index" small="true"
+                      :image-url="section.image ? section.image.url : null"
+                      :align="section.image ? section.image.align : null"
+                      :title="section.title"
+                      :texts="section.articles"/>
+        </div>
+        <div v-for="(group, index) in subGroups" v-bind:key="index" class="tab-pane fade" :id="group.key" >
           <MdvArticle v-for="(section, index) in group.sections" v-bind:key="index" small="true"
                       :image-url="section.image ? section.image.url : null"
                       :align="section.image ? section.image.align : null"
@@ -25,7 +38,25 @@ import MdvArticle from "@/components/MdvArticle";
 export default {
   name: "MdvGroups",
   components: {MdvArticle},
-  props: ['groups']
+  props: {
+    groups: Array
+  },
+  computed: {
+    mainGroup() {
+      return this.groups[0];
+    },
+    subGroups() {
+      return this.groups.slice(1);
+    }
+  },
+  methods: {
+    articleLog(string) {
+      console.log("from article " + string);
+    },
+    tabLog(string) {
+      console.log("from tab" + string);
+    }
+  }
 }
 </script>
 
@@ -61,6 +92,10 @@ export default {
   .nav-pills .nav-link {
     height: 6.5rem;
   }
+}
+
+.main-group {
+  min-width: 100% !important;
 }
 
 </style>
