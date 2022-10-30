@@ -59,9 +59,9 @@
 
         </div>
 
-        <Carousel :items-to-show="2.5" :wrap-around="true" >
+        <Carousel :settings="settings" :breakpoints="breakpoints" :wrap-around="true" >
           <Slide v-for="post in lastBlogPosts" :key="post.id">
-            <div class="col-sm-12 ">
+            <div class="carousel__item ">
               <MdvBlogCard :title="post.title"
                            :image-url="post.images[0].url"
                            :ref-link="post.url"
@@ -97,6 +97,25 @@ export default {
     return {
       helper: this.$util,
       isLoading: false,
+      // carousel settings
+      settings: {
+        itemsToShow: 1,
+        snapAlign: 'center',
+      },
+      // breakpoints are mobile first
+      // any settings not specified will fallback to the carousel settings
+      breakpoints: {
+        // 700px and up
+        700: {
+          itemsToShow: 2.5,
+          snapAlign: 'center',
+        },
+        // 1024 and up
+        1024: {
+          itemsToShow: 3.5,
+          snapAlign: 'start',
+        }
+      }
     };
   },
   computed: {
