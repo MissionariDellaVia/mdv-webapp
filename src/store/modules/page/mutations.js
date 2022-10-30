@@ -1,4 +1,5 @@
 import navbar from '@/assets/data/navbar.json'
+import footer from '@/assets/data/footer.json'
 
 export default {
     setPage(state, payload) {
@@ -57,6 +58,34 @@ export default {
             default:
                 console.debug('set it lang');
                 state.navbar = navbar.it;
+                break;
+        }
+    },
+    setFooter(state, lang) {
+        switch (lang) {
+            case 'it':
+                console.debug('set it lang');
+                state.footer = footer.it;
+                break;
+            case 'en':
+                console.debug('set en lang');
+                state.footer = footer.en;
+                break;
+            case 'pl':
+                console.debug('set pl lang');
+                state.footer = footer.pl;
+                break;
+            case 'pt':
+                console.debug('set pt lang');
+                state.footer = footer.pt;
+                break;
+            case 'es':
+                console.debug('set es lang');
+                state.footer = footer.es;
+                break;
+            default:
+                console.debug('set it lang');
+                state.footer = footer.it;
                 break;
         }
     }

@@ -19,6 +19,7 @@ export default {
 
         localStorage.setItem('lang', ''+payload.lang);
         context.commit('setNavbar', payload.lang);
+        context.commit('setFooter', payload.lang);
 
         await context.dispatch('loadPage', payload.route);
     }

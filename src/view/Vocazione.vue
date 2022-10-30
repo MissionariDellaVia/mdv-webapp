@@ -23,7 +23,7 @@
         </div>
         <div class="col-md-6 col-sm-12 px-5 text-start">
           <p v-for="(text, index) in vocazionePage.main.strings" v-bind:key="index">
-            <Markdown :source="text" class="markdown-mdv"></Markdown>
+            <Markdown :source="text" :html="true" class="markdown-mdv"></Markdown>
           </p>
         </div>
       </div>
@@ -63,7 +63,8 @@ export default {
       }
       this.isLoading = false;
     },
-  }
+  },
+
 }
 </script>
 

@@ -1,0 +1,104 @@
+{
+  "en": [
+    {
+      "title": "Blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com",
+      "image": "footer-blog.jpg"
+    },
+    {
+      "title": "Lay fraternity",
+      "to": "https://www.cristianidistrada.net",
+      "image": "footer-comunita.jpg"
+    },
+    {
+      "title": "Vocation Site",
+      "to": "https://www.vocazione.altervista.org/",
+      "image": "footer-vocazione.jpg"
+    }
+  ],
+  "es": [
+    {
+      "title": "Blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com",
+      "image": "footer-blog.jpg"
+    },
+    {
+      "title": "Fraternidad Laica",
+      "to": "https://www.cristianidistrada.net",
+      "image": "footer-comunita.jpg"
+    },
+    {
+      "title": "Sitio Vocacional",
+      "to": "https://www.vocazione.altervista.org/",
+      "image": "footer-vocazione.jpg"
+    }
+  ],
+  "pt": [
+    {
+      "title": "Blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com",
+      "image": "footer-blog.jpg"
+    },
+    {
+      "title": "Fraternità Laicale",
+      "to": "https://www.cristianidistrada.net",
+      "image": "footer-comunita.jpg"
+    },
+    {
+      "title": "Sito Vocazionale",
+      "to": "https://www.vocazione.altervista.org/",
+      "image": "footer-vocazione.jpg"
+    }
+  ],
+  "it": [
+    {
+      "title": "Blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com",
+      "image": "footer-blog.jpg"
+    },
+    {
+      "title": "Fraternità Laicale",
+      "to": "https://www.cristianidistrada.net",
+      "image": "footer-comunita.jpg"
+    },
+    {
+      "title": "Sito Vocazionale",
+      "to": "https://www.vocazione.altervista.org/",
+      "image": "footer-vocazione.jpg"
+    }
+  ],
+  "fr": [
+    {
+      "title": "Blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com",
+      "image": "footer-blog.jpg"
+    },
+    {
+      "title": "Fraternité laïque",
+      "to": "https://www.cristianidistrada.net",
+      "image": "footer-comunita.jpg"
+    },
+    {
+      "title": "Site de vocation",
+      "to": "https://www.vocazione.altervista.org/",
+      "image": "footer-vocazione.jpg"
+    }
+  ],
+  "pl": [
+    {
+      "title": "Blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com",
+      "image": "footer-blog.jpg"
+    },
+    {
+      "title": "Swieckie Braterstwo",
+      "to": "https://www.cristianidistrada.net",
+      "image": "footer-comunita.jpg"
+    },
+    {
+      "title": "Strona Powołaniowa",
+      "to": "https://www.vocazione.altervista.org/",
+      "image": "footer-vocazione.jpg"
+    }
+  ]
+}

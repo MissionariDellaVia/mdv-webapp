@@ -37,7 +37,7 @@
                     </template>
                     <template v-slot:body>
                       <p class="fw-bold"></p>
-                      <p><Markdown :source="place.phone.title"></Markdown><a :href="`tel:${place.phone.number}`" >{{ place.phone.number }}</a></p>
+                      <p><Markdown :source="place.phone.title"></Markdown><a :href="`tel:0039${place.phone.number}`" >{{ place.phone.number }}</a></p>
                     </template>
                   </MdvContactoButton>
                 </div>

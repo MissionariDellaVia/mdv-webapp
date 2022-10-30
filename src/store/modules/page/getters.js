@@ -20,4 +20,7 @@ export default {
     navbar(state) {
         return state.navbar;
     },
+    footer(state) {
+        return state.footer;
+    },
 }

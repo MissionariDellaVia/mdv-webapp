@@ -12,32 +12,20 @@
         </div>
       </div>
 
-      <div class="row mx-auto my-4">
-        <div class="col-sm-4 hoverable">
-          <h5 class="text-center">Blog</h5>
-          <a target="_blank" href="https://blogdeipiccolidellavia.blogspot.com/"><img class="img-fluid"
-                                                                      :src="helper.getImgUrl('footer-blog.jpg')"
-                                                                      alt="blog"/></a>
-        </div>
-        <div class="col-sm-4 mt-2 mb-2 hoverable">
-          <h5 class="text-center">Fraternità Laicale</h5>
-          <a target="_blank" href="http://www.cristianidistrada.net/">
-            <img class="img-fluid" :src="helper.getImgUrl('footer-comunita.jpg')" alt="comunita"/>
+      <div class="row mx-auto my-5 gy-3">
+        <div v-for="(footer, index) in footerList" v-bind:key="index" class="col-sm-4 hoverable">
+          <h5 class="text-center">{{ footer.title }}</h5>
+          <a target="_blank" :href="`${footer.to}`">
+            <img class="img-fluid" :src="helper.getImgUrl(`${footer.image}`)" :alt="footer.image"/>
           </a>
-        </div>
-        <div class="col-sm-4 hoverable">
-          <h5 class="text-center">Sito Vocazionale</h5>
-          <a target="_blank" href="https://www.vocazione.altervista.org/"><img class="img-fluid"
-                                                            :src="helper.getImgUrl('footer-vocazione.jpg')"
-                                                            alt="missionari"/></a>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <p class="text-center">Puoi seguirci anche su:</p>
-        </div>
-      </div>
+<!--      <div class="row">-->
+<!--        <div class="col-md-12">-->
+<!--          <p class="text-center">Puoi seguirci anche su:</p>-->
+<!--        </div>-->
+<!--      </div>-->
       <div class="row mb-4 text-center">
         <ul class="list-inline social-network social-circle">
           <li><a target="_blank" rel="noopener noreferrer"
@@ -74,7 +62,10 @@ export default {
   computed: {
     currentRouteName() {
       return this.$route.name;
-    }
+    },
+    footerList() {
+      return this.$store.getters['page/footer'];
+    },
   },
   watch: {
     $route(to, from) {
