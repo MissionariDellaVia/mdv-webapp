@@ -55,6 +55,10 @@ export default {
                 console.debug('set es lang');
                 state.navbar = navbar.es;
                 break;
+            case 'fr':
+                console.debug('set fr lang');
+                state.navbar = navbar.fr;
+                break;
             default:
                 console.debug('set it lang');
                 state.navbar = navbar.it;
@@ -82,6 +86,10 @@ export default {
             case 'es':
                 console.debug('set es lang');
                 state.footer = footer.es;
+                break;
+            case 'fr':
+                console.debug('set fr lang');
+                state.footer = footer.fr;
                 break;
             default:
                 console.debug('set it lang');
