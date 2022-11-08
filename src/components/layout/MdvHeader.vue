@@ -61,9 +61,9 @@ export default {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.50);
+  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.30);
   margin-bottom: 3%;
-  color: whitesmoke;
+  color: #FFFFFF;
 }
 
 .lead.headerSection {
