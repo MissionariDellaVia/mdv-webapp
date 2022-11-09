@@ -155,6 +155,9 @@ nav {
 .close-icon {
   color: #c3ac7d;
   cursor: pointer;
+  margin-right: 0.2rem;
+  margin-top: 0.5rem;
+  font-size: 2rem;
 }
 .close-icon:hover {
   color: #c5c1b9;
