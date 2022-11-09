@@ -1,6 +1,6 @@
 <template>
   <div class="row my-5 gy-2 text-center">
-    <div class="col-md-6 col-sm-12" :class="{'order-last' : align === 'right'}">
+    <div class="col-md-6 col-sm-12" :class="{'order-md-last' : align === 'right'}">
       <div class="card">
         <div class="card-header">
           <div class="fs-3">{{ title }}</div>

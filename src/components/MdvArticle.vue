@@ -43,7 +43,7 @@ export default {
       let imgCssClass = this.small ? "col-md-4 " : "col-md-6 ";
       let textCssClass = this.small ? "col-md-8 " : "col-md-6 ";
 
-      imgCssClass += 'right' === this.align ? "order-last text-end" : "";
+      imgCssClass += 'right' === this.align ? "order-md-last text-end" : "";
 
       return {
         "imgCssClass" : imgCssClass,
@@ -74,9 +74,9 @@ p {
 }
 @media only screen and (max-width: 480px) {
   img {
-    max-width: 15rem !important;
+    max-width: 19rem !important;
     padding: 0 !important;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem !important;
   }
   .card-header {
     text-align: center;
