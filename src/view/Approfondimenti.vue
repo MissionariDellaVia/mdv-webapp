@@ -1,23 +1,23 @@
 <template>
   <section>
-    <MDHeader :image="approfondimentiPage.header.backgroundImage"
-              :title="approfondimentiPage.header.title"
-              :caption="approfondimentiPage.header.caption"/>
 
     <div v-if="isLoading">
       <base-spinner></base-spinner>
     </div>
+    <div v-else >
+      <MDHeader :image="approfondimentiPage.header.backgroundImage"
+                :title="approfondimentiPage.header.title"
+                :caption="approfondimentiPage.header.caption"/>
 
-    <div v-else class="container">
-
-      <!-- Article Section -->
-      <MdvLongArticle v-for="(section, index) in approfondimentiPage.sections" v-bind:key="index"
-                  :title="section.title"
-                  :align="section.image.align"
-                  :imageUrl="section.image.url"
-                  :texts="section.articles"
-      />
-
+      <div class="container">
+        <!-- Article Section -->
+        <MdvLongArticle v-for="(section, index) in approfondimentiPage.sections" v-bind:key="index"
+                        :title="section.title"
+                        :align="section.image.align"
+                        :imageUrl="section.image.url"
+                        :texts="section.articles"
+        />
+      </div>
     </div>
 
   </section>

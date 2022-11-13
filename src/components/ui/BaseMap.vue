@@ -11,8 +11,8 @@ import {shallowRef, onMounted, onUnmounted, markRaw} from 'vue';
 export default {
   name: "BaseMap",
   props: {
-    lat: Number,
-    lng: Number,
+    lat: String,
+    lng: String,
   },
   setup(props) {
     const mapContainer = shallowRef(null);

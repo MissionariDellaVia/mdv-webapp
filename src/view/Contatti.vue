@@ -1,75 +1,80 @@
 <template>
   <section>
-    <MDHeader :image="contattiPage.header.backgroundImage"
-              :title="contattiPage.header.title"/>
+    <div v-if="isLoading">
+      <base-spinner></base-spinner>
+    </div>
+    <div v-else>
+      <MDHeader :image="contattiPage.header.backgroundImage"
+                :title="contattiPage.header.title"/>
 
-    <div class="container">
+      <div class="container">
 
-      <div v-for="(place, index) in contattiPage.places" v-bind:key="index" class="row my-4" >
-        <div class="col-sm-12">
-          <div class="card">
-            <div class="card-header">
-              <div class="text-center fs-2">{{ place.title }}</div>
-            </div>
-            <div class="card-body">
-              <div class="row my-4">
-                <div class="col col-lg-12 align-self-start">
-                  <BaseMap :lat="place.lat" :lng="place.lng"></BaseMap>
-                </div>
+        <div v-for="(place, index) in contattiPage.places" v-bind:key="index" class="row my-4" >
+          <div class="col-sm-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="text-center fs-2">{{ place.title }}</div>
               </div>
-              <div class="row my-4">
-                <div class="col col-lg-4">
-                  <MdvContactoButton>
-                    <template v-slot:card-header>
-                      <i class="fa-solid fa-location-dot"></i>
-                    </template>
-                    <template v-slot:body>
-                      <p v-for="(addr, index) in place.address" v-bind:key="index">
-                        <Markdown :source="addr"></Markdown>
-                      </p>
-                    </template>
-                  </MdvContactoButton>
+              <div class="card-body">
+                <div class="row my-4">
+                  <div class="col col-lg-12 align-self-start">
+                    <BaseMap :lat="place.lat" :lng="place.lng"></BaseMap>
+                  </div>
                 </div>
-                <div class="col col-lg-4">
-                  <MdvContactoButton>
-                    <template v-slot:card-header>
-                      <i class="fa-solid fa-phone"></i>
-                    </template>
-                    <template v-slot:body>
-                      <p class="fw-bold"></p>
-                      <p><Markdown :source="place.phone.title"></Markdown><a :href="`tel:0039${place.phone.number}`" >{{ place.phone.number }}</a></p>
-                    </template>
-                  </MdvContactoButton>
-                </div>
-                <div class="col col-lg-4">
-                  <MdvContactoButton>
-                    <template v-slot:card-header>
-                      <i class="fa-regular fa-envelope"></i>
-                    </template>
-                    <template v-slot:body>
-                      <p v-for="(email, index) in place.emails" v-bind:key="index">
-                        <Markdown :source="email.title"></Markdown>
-                        <a :href="`mailto:${email.email}`">{{ email.email }}</a>
-                      </p>
-                    </template>
-                  </MdvContactoButton>
+                <div class="row my-4">
+                  <div class="col col-lg-4">
+                    <MdvContactoButton>
+                      <template v-slot:card-header>
+                        <i class="fa-solid fa-location-dot"></i>
+                      </template>
+                      <template v-slot:body>
+                        <p v-for="(addr, index) in place.address" v-bind:key="index">
+                          <Markdown :source="addr"></Markdown>
+                        </p>
+                      </template>
+                    </MdvContactoButton>
+                  </div>
+                  <div class="col col-lg-4">
+                    <MdvContactoButton>
+                      <template v-slot:card-header>
+                        <i class="fa-solid fa-phone"></i>
+                      </template>
+                      <template v-slot:body>
+                        <p class="fw-bold"></p>
+                        <p><Markdown :source="place.phone.title"></Markdown><a :href="`tel:0039${place.phone.number}`" >{{ place.phone.number }}</a></p>
+                      </template>
+                    </MdvContactoButton>
+                  </div>
+                  <div class="col col-lg-4">
+                    <MdvContactoButton>
+                      <template v-slot:card-header>
+                        <i class="fa-regular fa-envelope"></i>
+                      </template>
+                      <template v-slot:body>
+                        <p v-for="(email, index) in place.emails" v-bind:key="index">
+                          <Markdown :source="email.title"></Markdown>
+                          <a :href="`mailto:${email.email}`">{{ email.email }}</a>
+                        </p>
+                      </template>
+                    </MdvContactoButton>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <div class="row my-4">
+          <MdvForm :title="contattiPage.form.title"
+                   :button-name="contattiPage.form.buttonName"
+                   :name-field="contattiPage.form.nameField"
+                   :last-name-field="contattiPage.form.lastNameField"
+                   :text-field="contattiPage.form.messageField"
+          />
+        </div>
+
+
       </div>
-
-      <div class="row my-4">
-        <MdvForm :title="contattiPage.form.title"
-                 :button-name="contattiPage.form.buttonName"
-                 :name-field="contattiPage.form.nameField"
-                 :last-name-field="contattiPage.form.lastNameField"
-                 :text-field="contattiPage.form.messageField"
-        />
-      </div>
-
-
     </div>
   </section>
 </template>

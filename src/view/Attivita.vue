@@ -1,25 +1,28 @@
 <template>
   <section>
-    <MDHeader :image="attivitaPage.header.backgroundImage"
-              :title="attivitaPage.header.title"
-              :caption="attivitaPage.header.caption"/>
 
     <div v-if="isLoading">
       <base-spinner></base-spinner>
     </div>
+    <div v-else >
+      <MDHeader :image="attivitaPage.header.backgroundImage"
+                :title="attivitaPage.header.title"
+                :caption="attivitaPage.header.caption"/>
 
-    <div v-else class="container">
-
-      <!-- Main Section -->
-      <div class="row text-center my-5">
-        <div class="col-12 px-5">
-          <h1 class="main-title my-2"> {{ attivitaPage.main.title }} </h1>
-          <Markdown :source="attivitaPage.main.caption"  class="caption h4" :html="true"></Markdown>
+      <div class="container">
+        <!-- Main Section -->
+        <div class="row text-center my-5">
+          <div class="col-12 px-5">
+            <h1 class="main-title my-2"> {{ attivitaPage.main.title }} </h1>
+            <Markdown :source="attivitaPage.main.caption"  class="caption h4" :html="true"></Markdown>
+          </div>
         </div>
+
+        <!-- Article Section -->
+        <MdvGroups :groups="attivitaPage.groups"/>
+
       </div>
 
-      <!-- Article Section -->
-      <MdvGroups :groups="attivitaPage.groups"/>
     </div>
   </section>
 </template>

@@ -1,38 +1,39 @@
 <template>
   <section>
-    <MDHeader :image="pregaConNoiPage.header.backgroundImage"
-              :title="pregaConNoiPage.header.title"
-              :caption="pregaConNoiPage.header.caption"/>
-
     <div v-if="isLoading">
       <base-spinner></base-spinner>
     </div>
 
-    <div v-else class="container">
+    <div v-else >
+      <MDHeader :image="pregaConNoiPage.header.backgroundImage"
+                :title="pregaConNoiPage.header.title"
+                :caption="pregaConNoiPage.header.caption"/>
 
-      <!-- Main Section -->
-      <main>
-        <div class="row text-center my-5">
-          <div class="col-12 px-5">
-            <h1 class="main-title my-4"> {{ pregaConNoiPage.main.title }} </h1>
-            <h4 v-if="pregaConNoiPage.main.caption" class="caption"> <Markdown :source="pregaConNoiPage.main.caption" :html="true" class="markdown-mdv"></Markdown></h4>
+      <div class="container">
+        <!-- Main Section -->
+        <main>
+          <div class="row text-center my-5">
+            <div class="col-12 px-5">
+              <h1 class="main-title my-4"> {{ pregaConNoiPage.main.title }} </h1>
+              <h4 v-if="pregaConNoiPage.main.caption" class="caption"> <Markdown :source="pregaConNoiPage.main.caption" :html="true" class="markdown-mdv"></Markdown></h4>
+            </div>
+          </div>
+          <div v-if="pregaConNoiPage.main.strings" class="row text-center my-5">
+            <div class="col-md-12 col-sm-12 px-5">
+              <p v-for="(text, index) in pregaConNoiPage.main.strings" v-bind:key="index">
+                <Markdown :source="text" :html="true" class="markdown-mdv"></Markdown>
+              </p>
+            </div>
+          </div>
+        </main>
+
+        <div class="row text-center gy-4 my-5">
+          <div v-for="(image, index) in pregaConNoiPage.main.images" v-bind:key="index" class="col-md-6 col-sm-12" >
+            <img :src=helper.getImgUrl(image.url) class="img-fluid" :alt="image.alt"/>
           </div>
         </div>
-        <div v-if="pregaConNoiPage.main.strings" class="row text-center my-5">
-          <div class="col-md-12 col-sm-12 px-5">
-            <p v-for="(text, index) in pregaConNoiPage.main.strings" v-bind:key="index">
-              <Markdown :source="text" :html="true" class="markdown-mdv"></Markdown>
-            </p>
-          </div>
-        </div>
-      </main>
 
-      <div class="row text-center gy-4 my-5">
-        <div v-for="(image, index) in pregaConNoiPage.main.images" v-bind:key="index" class="col-md-6 col-sm-12" >
-          <img :src=helper.getImgUrl(image.url) class="img-fluid" :alt="image.alt"/>
-        </div>
       </div>
-
     </div>
   </section>
 </template>

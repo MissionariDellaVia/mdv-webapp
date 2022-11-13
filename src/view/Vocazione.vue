@@ -1,30 +1,32 @@
 <template>
   <section>
-    <MDHeader :image="vocazionePage.header.backgroundImage"
-              :title="vocazionePage.header.title"
-              :caption="vocazionePage.header.caption"/>
 
     <div v-if="isLoading">
       <base-spinner></base-spinner>
     </div>
 
-    <div v-else class="container">
+    <div v-else >
+      <MDHeader :image="vocazionePage.header.backgroundImage"
+                :title="vocazionePage.header.title"
+                :caption="vocazionePage.header.caption"/>
 
-      <!-- Main Section -->
-      <div class="row text-center my-5">
-        <div class="col-12 px-5">
-          <h1 class="main-title my-2"> {{ vocazionePage.main.title }} </h1>
-          <h4 class="caption"> {{ vocazionePage.main.caption }} </h4>
+      <div class="container">
+        <!-- Main Section -->
+        <div class="row text-center my-5">
+          <div class="col-12 px-5">
+            <h1 class="main-title my-2"> {{ vocazionePage.main.title }} </h1>
+            <h4 class="caption"> {{ vocazionePage.main.caption }} </h4>
+          </div>
         </div>
-      </div>
-      <div class="row text-center gy-4 my-5">
-        <div class="col-md-6 col-sm-12" :class="{'order-last' : vocazionePage.main.image.align === 'right'}">
-          <img :src=helper.getImgUrl(vocazionePage.main.image.url) class="img-fluid" :alt="vocazionePage.main.image.url"/>
-        </div>
-        <div class="col-md-6 col-sm-12 px-5 text-start">
-          <p v-for="(text, index) in vocazionePage.main.strings" v-bind:key="index">
-            <Markdown :source="text" :html="true" class="markdown-mdv"></Markdown>
-          </p>
+        <div class="row text-center gy-4 my-5">
+          <div class="col-md-6 col-sm-12" :class="{'order-last' : vocazionePage.main.image.align === 'right'}">
+            <img :src=helper.getImgUrl(vocazionePage.main.image.url) class="img-fluid" :alt="vocazionePage.main.image.url"/>
+          </div>
+          <div class="col-md-6 col-sm-12 px-5 text-start">
+            <p v-for="(text, index) in vocazionePage.main.strings" v-bind:key="index">
+              <Markdown :source="text" :html="true" class="markdown-mdv"></Markdown>
+            </p>
+          </div>
         </div>
       </div>
 

@@ -1,40 +1,35 @@
 <template>
   <section>
-    <MDHeader :image="chiSiamoPage.header.backgroundImage" brand="true"
-              :title="chiSiamoPage.header.title"
-              :caption="chiSiamoPage.header.caption"/>
     <div v-if="isLoading">
       <base-spinner></base-spinner>
     </div>
-    <div v-else class="container mb-5">
+    <div v-else >
+      <MDHeader :image="chiSiamoPage.header.backgroundImage" brand="true"
+                :title="chiSiamoPage.header.title"
+                :caption="chiSiamoPage.header.caption"/>
 
-      <main>
-        <div class="row text-center my-5">
-          <img src="../assets/img/hr.png" alt="hr" class="hr-img">
-          <div class="col-12 px-5">
-            <h1 class="main-title my-4"> {{ chiSiamoPage.main.title }} </h1>
-            <h4 v-if="chiSiamoPage.main.caption" class="caption"> {{ chiSiamoPage.main.caption }} </h4>
+      <div class="container mb-5">
+        <main>
+          <div class="row text-center my-5">
+            <img src="../assets/img/hr.png" alt="hr" class="hr-img">
+            <div class="col-12 px-5">
+              <h1 class="main-title my-4"> {{ chiSiamoPage.main.title }} </h1>
+              <h4 v-if="chiSiamoPage.main.caption" class="caption"> {{ chiSiamoPage.main.caption }} </h4>
+            </div>
           </div>
-        </div>
-        <div v-if="chiSiamoPage.main.strings" class="row text-center my-5">
-          <div class="col-md-12 col-sm-12 px-5">
-            <p v-for="(text, index) in chiSiamoPage.main.strings" v-bind:key="index">{{ text }}</p>
+          <div v-if="chiSiamoPage.main.strings" class="row text-center my-5">
+            <div class="col-md-12 col-sm-12 px-5">
+              <p v-for="(text, index) in chiSiamoPage.main.strings" v-bind:key="index">{{ text }}</p>
+            </div>
           </div>
-        </div>
-      </main>
+        </main>
+        <MdvArticle v-for="(section, index) in chiSiamoPage.sections" v-bind:key="index"
+                    :image-url="section.image ? section.image.url : null"
+                    :align="section.image ? section.image.align : null"
+                    :title="section.title"
+                    :texts="section.strings"/>
 
-<!--      <MdvSection v-for="(section, index) in chiSiamoPage.sections" v-bind:key="index"-->
-<!--          :title="section.title"-->
-<!--          :align="section.image.align"-->
-<!--          :image="section.image.url"-->
-<!--          :articles="section.strings"-->
-<!--      />-->
-      <MdvArticle v-for="(section, index) in chiSiamoPage.sections" v-bind:key="index"
-                  :image-url="section.image ? section.image.url : null"
-                  :align="section.image ? section.image.align : null"
-                  :title="section.title"
-                  :texts="section.strings"/>
-
+      </div>
     </div>
 
     <section class="blog-shadow py-5">
