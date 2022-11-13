@@ -7,7 +7,14 @@
   <div class="card-body">
     <div v-if="imageUrl" class="row my-4">
       <div class="col col-sm-12 text-center" :class="imgArticleClass.imgCssClass">
-        <img :src=helper.getImgUrl(imageUrl) class="img-fluid" :class="{'small-img' : small}" alt="imageUrl">
+        <Carousel v-if="Array.isArray(imageUrl)" :autoplay="3000" :wrap-around="true" >
+          <Slide v-for="(img, index) in imageUrl" :key="index">
+            <div class="carousel__item ">
+              <img :src=helper.getImgUrl(img) class="img-fluid" :class="{'small-img' : small}" alt="imageUrl">
+            </div>
+          </Slide>
+        </Carousel>
+        <img v-else :src=helper.getImgUrl(imageUrl) class="img-fluid" :class="{'small-img' : small}" alt="imageUrl">
       </div>
       <div class="col col-sm-12 text-start" :class="imgArticleClass.textCssClass" >
         <p v-for="(text, index) in texts" v-bind:key="index" >
@@ -28,10 +35,11 @@
 
 <script>
 import Markdown from 'vue3-markdown-it';
+import { Carousel, Slide } from 'vue3-carousel'
 
 export default {
   name: "MdvArticle",
-  components: {Markdown},
+  components: {Markdown, Carousel, Slide},
   props: ['title', 'texts', 'align', 'imageUrl', 'small'],
   data(){
     return {
