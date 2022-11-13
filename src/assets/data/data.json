@@ -156,7 +156,7 @@
         {
           "image": {
             "align": "right",
-            "url": "fotoHome2.jpg"
+            "url": ["fotoHome2.jpg", "fotoHome5.jpg", "fotoHome6.jpg"]
           },
           "strings": [
             "We are a small religious community made by brothers and sisters gathered by Jesus to live his Gospel in simplicity, poverty and fraternal joy. We were born in a rural area of Lamezia Terme, a very simple and radical place: our Bethlehem.",
@@ -453,7 +453,7 @@
         {
           "image": {
             "align": "right",
-            "url": "fotoHome2.jpg"
+            "url": ["fotoHome2.jpg", "fotoHome5.jpg", "fotoHome6.jpg"]
           },
           "strings": [
             "Somos una pequeña comunidad de hermanos y hermanas reunidos por Cristo para vivir su Evangelio en la sencillez, la pobreza y la alegría fraterna. Nacimos en una zona rural de Lamezia Terme, un lugar muy simple: nuestro Belén",
@@ -750,7 +750,7 @@
         {
           "image": {
             "align": "right",
-            "url": "fotoHome2.jpg"
+            "url": ["fotoHome2.jpg", "fotoHome5.jpg", "fotoHome6.jpg"]
           },
           "strings": [
             "Nous sommes une petite communauté de frères et sœurs réunis par Jésus Christ pour vivre son\nÉvangile dans la simplicité, la pauvreté et la joie fraternelle. Nous sommes nés dans une zone rurale\nde Lamezia Terme, un lieu simple : notre Bethléem.",
@@ -1342,7 +1342,7 @@
         {
           "image": {
             "align": "right",
-            "url": "fotoHome2.jpg"
+            "url": ["fotoHome2.jpg", "fotoHome5.jpg", "fotoHome6.jpg"]
           },
           "strings": [
             "Jesteśmy małą wspólnotą braci i sióstr zgromadzonych przez Chrystusa, aby żyć Jego Ewangelią w prostocie , biedzie i  w braterskiej radości. Urodziliśmy się w wiejskim rejonie Lamezia Terme, miejsce proste: nasza Betlejem.",
@@ -1627,7 +1627,7 @@
         {
           "image": {
             "align": "right",
-            "url": "fotoHome2.jpg"
+            "url": ["fotoHome2.jpg", "fotoHome5.jpg", "fotoHome6.jpg"]
           },
           "strings": [
             "Siamo una piccola comunità fratelli e sorelle riuniti da Cristo per vivere il suo Vangelo nella semplicità, povertà e nella gioia fraterna. Siamo nati in una zona rurale di Lamezia Terme, un luogo semplice: la nostra Betlemme.",
