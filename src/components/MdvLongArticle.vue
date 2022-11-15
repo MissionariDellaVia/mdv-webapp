@@ -1,14 +1,23 @@
 <template>
 <div class="card">
   <div v-if="title" class="card-header">
-    <div v-show="'right' === align" class="text-md-start fs-3">{{ title }}</div>
-    <div v-show="'left' === align" class="text-md-end fs-3">{{ title }}</div>
+    <div class="text-center fs-3">{{ title }}</div>
   </div>
   <div class="card-body">
     <div v-if="imageUrl" class="row my-4">
       <div class="col col-sm-12 clearfix">
-        <img v-show="'right' === align" :src=helper.getImgUrl(imageUrl) class="float-md-end float-sm-none ps-3 img-fluid" alt="imageUrl">
-        <img v-show="'left' === align" :src=helper.getImgUrl(imageUrl) class="float-md-start float-sm-none pe-3 img-fluid" alt="imageUrl">
+        <Carousel v-if="Array.isArray(imageUrl)" :pauseAutoplayOnHover="true" :transition="500" :autoplay="3000" :wrap-around="true" :breakpoints="breakpoints" class="mb-3">
+          <Slide v-for="(img, index) in imageUrl" :key="index">
+            <div class="carousel__item">
+              <img :src=helper.getImgUrl(img) class="img-fluid" alt="imageUrl">
+            </div>
+          </Slide>
+          <template #addons>
+            <Navigation />
+            <Pagination />
+          </template>
+        </Carousel>
+        <img v-else :src=helper.getImgUrl(imageUrl) class="float-sm-none  img-fluid" :class="'right' === align ? 'float-md-start pe-3' : 'float-md-end ps-3'" alt="imageUrl">
         <p class="text-start" v-for="(text, index) in texts" v-bind:key="index" >
           <Markdown :source="text"></Markdown>
         </p>
@@ -27,14 +36,29 @@
 
 <script>
 import Markdown from 'vue3-markdown-it';
+import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 
 export default {
   name: "MdvLongArticle",
-  components: {Markdown},
+  components: {Markdown, Carousel, Slide, Navigation, Pagination},
   props: ['title', 'texts', 'align', 'imageUrl'],
   data(){
     return {
-      helper: this.$util
+      helper: this.$util,
+      breakpoints: {
+        // 700px and up
+        400: {
+          itemsToShow: 1,
+        },
+        // 1024 and up
+        1280: {
+          itemsToShow: 2.10,
+        },
+        // 1024 and up
+        1440: {
+          itemsToShow: 2.40,
+        }
+      }
     }
   },
 }
@@ -57,6 +81,35 @@ p {
 img {
   max-width: 30rem;
   margin: auto;
+}
+
+.carousel__slide {
+  padding: 1.4rem;
+}
+.carousel__track {
+  transform-style: preserve-3d;
+}
+.carousel__slide--sliding {
+  transition: 0.5s;
+}
+.carousel__slide {
+  opacity: 0.9;
+  transform: rotateY(-20deg) scale(0.8);
+}
+.carousel__slide--active ~ .carousel__slide {
+  transform: rotateY(20deg) scale(0.8);
+}
+.carousel__slide--prev {
+  opacity: 1;
+  transform: rotateY(-10deg) scale(0.85);
+}
+.carousel__slide--next {
+  opacity: 1;
+  transform: rotateY(10deg) scale(0.85);
+}
+.carousel__slide--active {
+  opacity: 1;
+  transform: rotateY(0) scale(1);
 }
 
 @media only screen and (max-width: 480px) {

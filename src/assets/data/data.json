@@ -16,7 +16,7 @@
           ],
           "image": {
             "align": "left",
-            "url": "approfondimenti-1.jpg"
+            "url": ["breveStoria1.jpg","breveStoria2.jpg","breveStoria3.jpg","breveStoria4.jpg","breveStoria5.jpg","breveStoria6.jpg","breveStoria7.jpg","breveStoria8.jpg","breveStoria9.jpg","breveStoria10.jpg"]
           },
           "title": "Short history of the Community"
         },
@@ -27,7 +27,7 @@
           ],
           "image": {
             "align": "right",
-            "url": "approfondimenti-2.jpg"
+            "url": ["sdv.jpg","sdv1.jpg","sdv2.jpg","sdv3.jpg","sdv4.jpg","sdv5.jpg","sdv6.jpg","sdv7.jpg","sdv8.jpg"]
           },
           "title": "Way of living"
         },
@@ -40,7 +40,7 @@
           ],
           "image": {
             "align": "left",
-            "url": "approfondimenti-3.jpg"
+            "url": ["carisma1.jpg","carisma2.jpg","carisma3.jpg","carisma4.jpg","carisma5.jpg","carisma6.jpg","carisma7.jpg","carisma8.jpg","carisma9.jpg"]
           },
           "title": "Spiritual intuition"
         }
@@ -156,7 +156,7 @@
         {
           "image": {
             "align": "right",
-            "url": ["fotoHome2.jpg", "fotoHome5.jpg", "fotoHome6.jpg"]
+            "url": "fotoHome2.jpg"
           },
           "strings": [
             "We are a small religious community made by brothers and sisters gathered by Jesus to live his Gospel in simplicity, poverty and fraternal joy. We were born in a rural area of Lamezia Terme, a very simple and radical place: our Bethlehem.",
@@ -314,7 +314,7 @@
           ],
           "image": {
             "align": "left",
-            "url": "approfondimenti-1.jpg"
+            "url": ["breveStoria1.jpg","breveStoria2.jpg","breveStoria3.jpg","breveStoria4.jpg","breveStoria5.jpg","breveStoria6.jpg","breveStoria7.jpg","breveStoria8.jpg","breveStoria9.jpg","breveStoria10.jpg"]
           },
           "title": "Una breve historia de la comunidad."
         },
@@ -325,7 +325,7 @@
           ],
           "image": {
             "align": "right",
-            "url": "approfondimenti-2.jpg"
+            "url": ["sdv.jpg","sdv1.jpg","sdv2.jpg","sdv3.jpg","sdv4.jpg","sdv5.jpg","sdv6.jpg","sdv7.jpg","sdv8.jpg"]
           },
           "title": "Estilo de vida"
         },
@@ -338,7 +338,7 @@
           ],
           "image": {
             "align": "left",
-            "url": "approfondimenti-3.jpg"
+            "url": ["carisma1.jpg","carisma2.jpg","carisma3.jpg","carisma4.jpg","carisma5.jpg","carisma6.jpg","carisma7.jpg","carisma8.jpg","carisma9.jpg"]
           },
           "title": "Intuición espiritual"
         }
@@ -453,7 +453,7 @@
         {
           "image": {
             "align": "right",
-            "url": ["fotoHome2.jpg", "fotoHome5.jpg", "fotoHome6.jpg"]
+            "url": "fotoHome2.jpg"
           },
           "strings": [
             "Somos una pequeña comunidad de hermanos y hermanas reunidos por Cristo para vivir su Evangelio en la sencillez, la pobreza y la alegría fraterna. Nacimos en una zona rural de Lamezia Terme, un lugar muy simple: nuestro Belén",
@@ -611,7 +611,7 @@
           ],
           "image": {
             "align": "left",
-            "url": "approfondimenti-1.jpg"
+            "url": ["breveStoria1.jpg","breveStoria2.jpg","breveStoria3.jpg","breveStoria4.jpg","breveStoria5.jpg","breveStoria6.jpg","breveStoria7.jpg","breveStoria8.jpg","breveStoria9.jpg","breveStoria10.jpg"]
           },
           "title": "Brève histoire de la Communauté"
         },
@@ -622,7 +622,7 @@
           ],
           "image": {
             "align": "right",
-            "url": "approfondimenti-2.jpg"
+            "url": ["sdv.jpg","sdv1.jpg","sdv2.jpg","sdv3.jpg","sdv4.jpg","sdv5.jpg","sdv6.jpg","sdv7.jpg","sdv8.jpg"]
           },
           "title": "Le style de vie"
         },
@@ -635,7 +635,7 @@
           ],
           "image": {
             "align": "left",
-            "url": "approfondimenti-3.jpg"
+            "url": ["carisma1.jpg","carisma2.jpg","carisma3.jpg","carisma4.jpg","carisma5.jpg","carisma6.jpg","carisma7.jpg","carisma8.jpg","carisma9.jpg"]
           },
           "title": "L’intuition spirituelle"
         }
@@ -750,7 +750,7 @@
         {
           "image": {
             "align": "right",
-            "url": ["fotoHome2.jpg", "fotoHome5.jpg", "fotoHome6.jpg"]
+            "url": "fotoHome2.jpg"
           },
           "strings": [
             "Nous sommes une petite communauté de frères et sœurs réunis par Jésus Christ pour vivre son\nÉvangile dans la simplicité, la pauvreté et la joie fraternelle. Nous sommes nés dans une zone rurale\nde Lamezia Terme, un lieu simple : notre Bethléem.",
@@ -907,33 +907,33 @@
           ],
           "image": {
             "align": "left",
-            "url": "approfondimenti-1.jpg"
+            "url": ["breveStoria1.jpg","breveStoria2.jpg","breveStoria3.jpg","breveStoria4.jpg","breveStoria5.jpg","breveStoria6.jpg","breveStoria7.jpg","breveStoria8.jpg","breveStoria9.jpg","breveStoria10.jpg"]
           },
           "title": "Breve storia della comunità"
         },
         {
           "articles": [
-            "Le nostre giornate sono scandite dalla preghiera, dal lavoro manuale (con il quale provvediamo ai\nnostri bisogni e siamo in contatto con la creazione), dalla formazione umana e spirituale (fondata\nsulla Parola di Dio e sull’insegnamento della Chiesa) e dall’annuncio di Gesù, uscendo per la\nstrade. Dediti alla nuova evangelizzazione nelle sue svariate forme (catechesi, predicazioni,\nmissioni popolari e parrocchiali...), viaggiamo anche di totale provvidenza (cf Lc 10,3-\n9), facendo pellegrinaggi a piedi e in autostop.",
+            "Le nostre giornate sono scandite dalla preghiera, dal lavoro manuale (con il quale provvediamo ai\nnostri bisogni e siamo in contatto con la creazione), dalla formazione umana e spirituale (fondata sulla Parola di Dio e sull’insegnamento della Chiesa) e dall’annuncio di Gesù, uscendo per la\nstrade. Dediti alla nuova evangelizzazione nelle sue svariate forme (catechesi, predicazioni,\nmissioni popolari e parrocchiali...), viaggiamo anche di totale provvidenza (cf Lc 10,3-\n9), facendo pellegrinaggi a piedi e in autostop.",
             "Cerchiamo di vivere una povertà radicale, così da poter testimoniare che è Cristo il nostro tutto.\nInoltre per mezzo della povertà abbiamo la possibilità di incontrare la gente nella quotidianità.\nIl nostro stile di vita mendicante ci permette di essere in comunione con gli ultimi e di non\ndimenticare che Dio stesso è il mendicante di amore che ci cerca incessantemente. Ci impegniamo\nperciò a considerarci ultimi e a non considerare nulla come nostra proprietà o dominio, perciò\nviviamo senza circolo di denaro, per vivere il Vangelo nella sua radicalità e bellezza"
           ],
           "image": {
             "align": "right",
-            "url": "approfondimenti-2.jpg"
+            "url": ["sdv.jpg","sdv1.jpg","sdv2.jpg","sdv3.jpg","sdv4.jpg","sdv5.jpg","sdv6.jpg","sdv7.jpg","sdv8.jpg"]
           },
           "title": "Lo stile di vita"
         },
         {
           "articles": [
-            "L’intuizione spirituale è quella di riproporre la vita dei primi missionari del Vangelo, rinvigorendo\nnel popolo di Dio lo spirito delle prime comunità cristiane, proclamando e testimoniando che:Gesù è VIA, VERITA’ e VITA!",
+            "Il carisma della Comunità è vivere nell'oggi la forma di vita dei primi discepoli del Signore, specie dei missionari apostolici, rinvigorendo nel popolo di Dio lo spirito delle prime comunità cristiane, proclamando e testimoniando che Gesù è VIA, VERITA’ e VITA!",
             "Non si tratta semplicemente di ripetere qualcosa del passato, ma di rinvigorire nell’oggi la\ntestimonianza cristiana, vivendo la Via come luogo della presenza di Cristo.\nPerciò ci impegniamo in modo specifico a creare comunità cristiane, centrate sulla Parola di Dio,\nben fondante sull’insegnamento della Chiesa e con l’impegno specifico di essere missionarie.",
             "Oltre ai voti di obbedienza, povertà e castità, che designano la vita totalmente donata, il carisma\nrichiede un quarto voto particolare, cioè quello di conformazione a Cristo Verità nella Carità (cf Gv\n18,37).",
             "A tale ispirazione è di esempio l’esperienza dei santi Pietro e Paolo per l’amore alla chiesa e lo zelo\nmissionario; di San Francesco d’Assisi che riprodusse la vita povera ed itinerante dei primi\ndiscepoli del Signore; e l’esempio di Santa Teresa di Lisieux, capace di tracciare la “piccola via” per\nseguire il Signore con semplicità e amore confidente anche nelle più piccole cose"
           ],
           "image": {
             "align": "left",
-            "url": "approfondimenti-3.jpg"
+            "url": ["carisma1.jpg","carisma2.jpg","carisma3.jpg","carisma4.jpg","carisma5.jpg","carisma6.jpg","carisma7.jpg","carisma8.jpg","carisma9.jpg"]
           },
-          "title": "l'intuizione spirituale"
+          "title": "Il carisma"
         }
       ]
     },
@@ -1046,7 +1046,7 @@
         {
           "image": {
             "align": "right",
-            "url": ["fotoHome2.jpg", "fotoHome5.jpg", "fotoHome6.jpg"]
+            "url": "fotoHome2.jpg"
           },
           "strings": [
             "Siamo una piccola comunità fratelli e sorelle riuniti da Cristo per vivere il suo Vangelo nella semplicità, povertà e nella gioia fraterna. Siamo nati in una zona rurale di Lamezia Terme, un luogo semplice: la nostra Betlemme.",
@@ -1074,7 +1074,8 @@
           },
           "strings": [
             "Fratelli e sorelle vivono la stessa regola ma in abitazioni distinte. Condividono alcuni momenti di preghiera, di vita comune e di missione. La loro giornata è riassunta dal motto: pregare, lavorare ed evangelizzare.",
-            ">Lo stile di vita mendicante ci permette di essere in<br>comunione con gli ultimi e di non dimenticare che Dio stesso è il mendicante di amore che ci cerca incessantemente.<br>Desideriamo, inoltre, intessere un’autentica vita fraterna, insieme per santificarci e santificare,<br>all’insegna dell’amore elevato che ci insegna Cristo,<br>del quale siamo sempre discepoli”."
+            ">Lo stile di vita mendicante ci permette di essere in<br>comunione con gli ultimi e di non dimenticare che Dio stesso è il mendicante di amore che ci cerca incessantemente.<br>Desideriamo, inoltre, intessere un’autentica vita fraterna, insieme per santificarci e santificare,<br>all’insegna dell’amore elevato che ci insegna Cristo,<br>del quale siamo sempre discepoli”.",
+            "Se volessi saperne di più, puoi visitare la pagina [approfondimenti](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti) "
           ],
           "title": "La nostra vita"
         }
@@ -1203,7 +1204,7 @@
           ],
           "image": {
             "align": "left",
-            "url": "approfondimenti-1.jpg"
+            "url": ["breveStoria1.jpg","breveStoria2.jpg","breveStoria3.jpg","breveStoria4.jpg","breveStoria5.jpg","breveStoria6.jpg","breveStoria7.jpg","breveStoria8.jpg","breveStoria9.jpg","breveStoria10.jpg"]
           },
           "title": "Krótka historia społeczności"
         },
@@ -1214,7 +1215,7 @@
           ],
           "image": {
             "align": "right",
-            "url": "approfondimenti-2.jpg"
+            "url": ["sdv.jpg","sdv1.jpg","sdv2.jpg","sdv3.jpg","sdv4.jpg","sdv5.jpg","sdv6.jpg","sdv7.jpg","sdv8.jpg"]
           },
           "title": "Styl życia"
         },
@@ -1227,7 +1228,7 @@
           ],
           "image": {
             "align": "left",
-            "url": "approfondimenti-3.jpg"
+            "url": ["carisma1.jpg","carisma2.jpg","carisma3.jpg","carisma4.jpg","carisma5.jpg","carisma6.jpg","carisma7.jpg","carisma8.jpg","carisma9.jpg"]
           },
           "title": "Intuicja duchowa"
         }
@@ -1342,7 +1343,7 @@
         {
           "image": {
             "align": "right",
-            "url": ["fotoHome2.jpg", "fotoHome5.jpg", "fotoHome6.jpg"]
+            "url": "fotoHome2.jpg"
           },
           "strings": [
             "Jesteśmy małą wspólnotą braci i sióstr zgromadzonych przez Chrystusa, aby żyć Jego Ewangelią w prostocie , biedzie i  w braterskiej radości. Urodziliśmy się w wiejskim rejonie Lamezia Terme, miejsce proste: nasza Betlejem.",
@@ -1499,7 +1500,7 @@
           ],
           "image": {
             "align": "left",
-            "url": "approfondimenti-1.jpg"
+            "url": ["breveStoria1.jpg","breveStoria2.jpg","breveStoria3.jpg","breveStoria4.jpg","breveStoria5.jpg","breveStoria6.jpg","breveStoria7.jpg","breveStoria8.jpg","breveStoria9.jpg","breveStoria10.jpg"]
           },
           "title": "Breve storia della comunità"
         },
@@ -1510,7 +1511,7 @@
           ],
           "image": {
             "align": "right",
-            "url": "approfondimenti-2.jpg"
+            "url": ["sdv.jpg","sdv1.jpg","sdv2.jpg","sdv3.jpg","sdv4.jpg","sdv5.jpg","sdv6.jpg","sdv7.jpg","sdv8.jpg"]
           },
           "title": "Lo stile di vita"
         },
@@ -1523,7 +1524,7 @@
           ],
           "image": {
             "align": "left",
-            "url": "approfondimenti-3.jpg"
+            "url": ["carisma1.jpg","carisma2.jpg","carisma3.jpg","carisma4.jpg","carisma5.jpg","carisma6.jpg","carisma7.jpg","carisma8.jpg","carisma9.jpg"]
           },
           "title": "l'intuizione spirituale"
         }
@@ -1627,7 +1628,7 @@
         {
           "image": {
             "align": "right",
-            "url": ["fotoHome2.jpg", "fotoHome5.jpg", "fotoHome6.jpg"]
+            "url": "fotoHome2.jpg"
           },
           "strings": [
             "Siamo una piccola comunità fratelli e sorelle riuniti da Cristo per vivere il suo Vangelo nella semplicità, povertà e nella gioia fraterna. Siamo nati in una zona rurale di Lamezia Terme, un luogo semplice: la nostra Betlemme.",
