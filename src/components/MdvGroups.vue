@@ -87,10 +87,13 @@ export default {
 .nav-link:hover {
   background: #c3ac7d !important;
 }
+.subgroup {
+  height: 6.5rem;
+}
 
 @media only screen and (max-width: 480px) {
   .subgroup {
-    height: 8rem;
+    height: 9rem;
     font-size: 1.1rem !important;
   }
 }
