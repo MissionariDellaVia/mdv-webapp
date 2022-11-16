@@ -7,6 +7,7 @@
           <span class="fi fi-it" @click="changeLang('it')"></span>
           <span class="fi fi-gb ms-3" @click="changeLang('en')"></span>
           <span class="fi fi-es ms-3" @click="changeLang('es')"></span>
+          <span class="fi fi-pt ms-3" @click="changeLang('pt')"></span>
           <span class="fi fi-fr ms-3" @click="changeLang('fr')"></span>
           <span class="fi fi-pl ms-3" @click="changeLang('pl')"></span>
         </div>

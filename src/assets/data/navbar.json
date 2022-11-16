@@ -100,7 +100,7 @@
         },
         {
           "type": "link",
-          "title": "perspectivas",
+          "title": "Más información",
           "to": "/approfondimenti"
         },
         {
@@ -156,12 +156,12 @@
         },
         {
           "type": "link",
-          "title": "percepções",
+          "title": "Aprofundamentos",
           "to": "/approfondimenti"
         },
         {
           "type": "link",
-          "title": "reze conosco",
+          "title": "Ore conosco",
           "to": "/prega-con-noi"
         }
       ]

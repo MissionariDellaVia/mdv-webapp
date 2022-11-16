@@ -126,8 +126,8 @@
           "sections": [
             {
               "articles": [
-                "Advent retreat for the &quot;Madonna di Loreto&quot; parish: Sunday 27 November at 4 pm. Following, at 6 pm, Holy Mass.",
-                "Advent retreat for the parish of &quot;San Giuseppe Lavoratore&quot;: Sunday 19 March 2023 at 4 pm. Afterwards, at 6 pm, Holy Mass."
+                "Advent retreat for the 'Madonna di Loreto' parish: Sunday 27 November at 4 pm. Following, at 6 pm, Holy Mass.",
+                "Advent retreat for the parish of 'San Giuseppe Lavoratore': Sunday 19 March 2023 at 4 pm. Afterwards, at 6 pm, Holy Mass."
               ]
             }
           ],
@@ -139,7 +139,7 @@
         "title": "Activities and missions"
       },
       "main": {
-        "caption": "Below, you will find the activities in progress in the church of S. Chiara in Lamezia Terme,<br>>in the church of S. Maria dell’Anima in Naples and in the parishes of Chivasso &quot;Madonna di\nLoreto&quot; and &quot;San Giuseppe Lavoratore&quot; (where we are present for meetings and spiritual accompaniment). <br><br> (click on the item you are interested in)"
+        "caption": "Below, you will find the activities in progress in the church of S. Chiara in Lamezia Terme,<br>>in the church of S. Maria dell’Anima in Naples and in the parishes of Chivasso 'Madonna di\nLoreto' and 'San Giuseppe Lavoratore' (where we are present for meetings and spiritual accompaniment). <br><br> (click on the item you are interested in)"
       }
     },
     "chi-siamo": {
@@ -183,7 +183,8 @@
           },
           "strings": [
             "Brothers and sisters live the same rule of life but in separate houses. They share some moments of prayer, common life and mission. Their day is summed up by the motto: pray, work and evangelize.",
-            "> The beggar lifestyle gives us the possibility to be in communion with poor and afflicted people<br> and not to forget that God is the beggar of love who seeks us incessantly.<br>We also wish to weave an authentic fraternal life, under the huge source of love and holiness<br>that Christ teaches to all his disciples."
+            "> The beggar lifestyle gives us the possibility to be in communion with poor and afflicted people<br> and not to forget that God is the beggar of love who seeks us incessantly.<br>We also wish to weave an authentic fraternal life, under the huge source of love and holiness<br>that Christ teaches to all his disciples.",
+            "If you want to know more, go to the [insights](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti) "
           ],
           "title": "Our life"
         }
@@ -481,7 +482,8 @@
           },
           "strings": [
             "Los hermanos y hermanas viven la misma regla pero en casas separadas. Comparten algunos momentos de oración, vida común y misión. Su jornada se puede resumir en el lema: orar, trabajar y evangelizar.",
-            ">El estilo de vida del mendigo nos permite estar en comunión con los últimos y no olvidar que Dios<br>mismo es el mendigo de amor que nos busca incesantemente.<br>Deseamos también tejer una auténtica vida fraterna, juntos para santificar bajo el amor elevado<br>que Cristo nos enseña,<br>de lo que siempre somos discípulos."
+            ">El estilo de vida del mendigo nos permite estar en comunión con los últimos y no olvidar que Dios<br>mismo es el mendigo de amor que nos busca incesantemente.<br>Deseamos también tejer una auténtica vida fraterna, juntos para santificar bajo el amor elevado<br>que Cristo nos enseña,<br>de lo que siempre somos discípulos.",
+            "Si quieres saber más haz, [clic aquí](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti) "
           ],
           "title": "Nuestra vida"
         }
@@ -721,7 +723,7 @@
             {
               "articles": [
                 "Retraite de l'Avent pour la paroisse Madonna di Loreto: dimanche 27 novembre à 16h00, puis à 18h00, messe.",
-                "Retraite de l'Avent pour la paroisse San Giuseppe Lavoratore&quot;: dimanche 19 mars 2023 à 16h00. Ensuite, à 18h00, messe."
+                "Retraite de l'Avent pour la paroisse San Giuseppe Lavoratore': dimanche 19 mars 2023 à 16h00. Ensuite, à 18h00, messe."
               ]
             }
           ],
@@ -733,7 +735,7 @@
         "title": "Activités et missions"
       },
       "main": {
-        "caption": "Ci-dessous, vous trouverez les activités en cours dans l&#39;église de S. Chiara à Lamezia Terme, <br> dans l&#39;église de S. Maria dell&#39;Anima à Naples et dans les paroisses de Chivasso &quot;Madonna di\nLoreto&quot; et &quot;San Giuseppe Lavoratore&quot; (où nous sommes présents pour des rencontres et un accompagnement spirituel). <br><br> (cliquez sur l&#39;article qui vous intéresse)"
+        "caption": "Ci-dessous, vous trouverez les activités en cours dans l&#39;église de S. Chiara à Lamezia Terme, <br> dans l&#39;église de S. Maria dell&#39;Anima à Naples et dans les paroisses de Chivasso 'Madonna di\nLoreto' et 'San Giuseppe Lavoratore' (où nous sommes présents pour des rencontres et un accompagnement spirituel). <br><br> (cliquez sur l&#39;article qui vous intéresse)"
       }
     },
     "chi-siamo": {
@@ -777,7 +779,8 @@
           },
           "strings": [
             "Les frères et sœurs vivent selon la même règle mais dans des maisons séparées. Ils partagent des\nmoments de prière, de vie commune et de mission. Leur journée est résumée par la devise : prier,\ntravailler et évangéliser.",
-            ">Le mode de vie de mendiant nous permet d’être en communion avec les derniers et de ne pas\noublier que Dieu lui-même est le mendiant de l’amour qui nous cherche sans cesse.<br>Nous souhaitons également tisser une authentique vie fraternelle, ensemble pour nous sanctifier et\nsanctifier,<br>sous la bannière de l’amour élevé que le Christ nous enseigne,<br>dont nous sommes toujours les disciples”."
+            ">Le mode de vie de mendiant nous permet d’être en communion avec les derniers et de ne pas\noublier que Dieu lui-même est le mendiant de l’amour qui nous cherche sans cesse.<br>Nous souhaitons également tisser une authentique vie fraternelle, ensemble pour nous sanctifier et\nsanctifier,<br>sous la bannière de l’amour élevé que le Christ nous enseigne,<br>dont nous sommes toujours les disciples”.",
+            "Si vous voulez en savoir plus, [cliquez ici](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti) "
           ],
           "title": "Notre vie"
         }
@@ -1075,7 +1078,7 @@
           "strings": [
             "Fratelli e sorelle vivono la stessa regola ma in abitazioni distinte. Condividono alcuni momenti di preghiera, di vita comune e di missione. La loro giornata è riassunta dal motto: pregare, lavorare ed evangelizzare.",
             ">Lo stile di vita mendicante ci permette di essere in<br>comunione con gli ultimi e di non dimenticare che Dio stesso è il mendicante di amore che ci cerca incessantemente.<br>Desideriamo, inoltre, intessere un’autentica vita fraterna, insieme per santificarci e santificare,<br>all’insegna dell’amore elevato che ci insegna Cristo,<br>del quale siamo sempre discepoli”.",
-            "Se volessi saperne di più, puoi visitare la pagina [approfondimenti](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti) "
+            "Se volessi saperne di più, vai sul [approfondimenti](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti) "
           ],
           "title": "La nostra vita"
         }
@@ -1370,7 +1373,8 @@
           },
           "strings": [
             "Bracia i siostry żyją na tej samej zasadzie, ale w oddzielnych domach. Dzielą się kilkoma chwilami: modlitwa, wspólne życie i misja. Ich dzień podsumowuje motto: módlcie się, pracujcie i nawracajcie.",
-            ">Żebraczy styl życia pozwala nam być w jedności z najmniejszymi Żebraczy styl życia pozwala nam być w jedności z najmniejszymi,<br>razem uświęcać pod sztandarem wzniosłej miłości,<br>której uczy nas Chrystus, którego zawsze jesteśmy uczniami."
+            ">Żebraczy styl życia pozwala nam być w jedności z najmniejszymi Żebraczy styl życia pozwala nam być w jedności z najmniejszymi,<br>razem uświęcać pod sztandarem wzniosłej miłości,<br>której uczy nas Chrystus, którego zawsze jesteśmy uczniami.",
+            "Jeśli chcesz dowiedzieć się więcej, [kliknij tutaj](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti) "
           ],
           "title": "Nasze życie"
         }
@@ -1487,46 +1491,46 @@
     "approfondimenti": {
       "header": {
         "backgroundImage": "approfondimenti.jpg",
-        "title": "Approfondimenti"
+        "title": "Más información"
       },
       "sections": [
         {
           "articles": [
-            "La storia della comunità è partita dal cuore di Dio e dalla libera risposta di tre giovani provenienti\nda diverse parti d’Italia, che sentendo di consacrarsi a Dio, si ritrovarono a vivere una missione\ncomune: fra Faustino, fra Umile e suor Chiara. Con l’entusiasmo e la semplicità di voler vivere il\nVangelo, si imbattono in una prima esperienza di vita evangelica, sentendo che lo Spirito Santo\nfaceva crescere in loro un forte desiderio di missionarietà contemplativa, un grande amore per la\nVerità e per una radicale povertà. Dopo essersi confrontati con l’allora Vescovo di Lamezia Terme,\nmons. Luigi Antonio Cantafora, che seguiva questo loro desiderio, offrirono un pellegrinaggio per\ncomprendere meglio la loro vocazione, percorrendo a piedi e senza nulla – come i primi discepoli\ndel Signore – vari santuari mariani dell’Europa. Ivi, per grazia di Dio, sentirono forte nel cuore il\nrichiamo missionario a donare la loro vita per testimoniare che Dio si è proclamato Verità, proprio\nquella verità che il cuore dell’uomo cerca incessantemente: la verità dell’Amore.",
-            "Iniziarono così, in una Chiesa semi-abbandonata, sita in un terreno deserto alla periferia di\nLamezia Terme, a vivere una vita semplice da missionari poveri e itineranti, avendo come unica\nregola il Vangelo, mettendosi sotto la protezione della Madonna della Via, fiore del Carmelo e di\nSan Giuseppe suo sposo, patroni e protettori della loro vita. Il percorso intrapreso proseguì non\nsolo con la loro consacrazione religiosa (con il loro semplice abito religioso color terra, per\nricordare l’umiltà di Dio che spogliò sé stesso prendendo la nostra natura umana), ma ricevettero\nanche l’approvazione da parte della Chiesa; inoltre i due fratelli divennero sacerdoti.",
-            "Da questi “semini” sono nate due piccole comunità divenute un Istituto religioso con due rami:\nquello dei fratelli e quello delle sorelle che, ispirandosi alla vita della prima comunità cristiana di\nGerusalemme\n(“quelli della Via” – At 9,2\n), vivono la grazia della consacrazione religiosa modellata\nsullo stile dei missionari apostolici, evangelizzatori poveri e itineranti.",
-            "Proprio questa aperta accoglienza ha suscitato “un’onda di amore” che ha coinvolto tante persone\nche vengono a pregare, a lavorare insieme a noi o semplicemente a trovare un po’ di ristoro, di\naccoglienza, di rispetto e di pace. Per grazia di Dio la chiesa di S. Chiara, luogo nativo della\ncomunità, è così diventata un’oasi di pace con Dio e fra gli uomini.",
-            "Da qui è nato il movimento laicale con le sue comunità mistiche ed evangelizzatrici, unite dalla\nParola e dalla presenza di Cristo. I consacrati sono testimonianza della chiamata radicale alla\nsequela di Gesù, e accompagnano e supportano il cammino delle comunità dei laici"
+            "A história da comunidade partiu do coração de Deus e da resposta livre de três jovens de diversas\npartes da Itália que, querendo se consagrar a Deus, começaram a viver uma missão comum: frei\nFaustino, frei Umile e soror Chiara. Com o entusiasmo e a simplicidade de querer viver o\nEvangelho, deparam-se com uma primeira experiência de vida evangélica, sentindo que o Espírito\nSanto fazia crescer neles um forte desejo de uma missão contemplativa, de um grande amor à\nVerdade e de uma pobreza radical. Depois de conversar com o então Bispo de Lamezia Terme,\nMons. Luigi Antonio Cantafora, que seguiu este desejo, ofereceram uma peregrinação para melhor\ncompreender a vocação, percorrendo a pé e sem nada - como os primeiros discípulos do Senhor -\nvários santuários marianos na Europa. Ali, pela graça de Deus, eles sentiram em seus corações um\nforte chamado missionário a dar a vida para testemunhar que Deus se proclamou Verdade, a mesma\nverdade que o coração do homem busca incessantemente: a verdade do Amor.",
+            "Assim começaram, em uma igreja semi-abandonada, localizada em uma terra deserta nos arredores\nde Lamezia Terme, a viver uma vida simples como missionários pobres e itinerantes, tendo o\nEvangelho como sua única regra, colocando-se sob a proteção de Nossa Senhora della Via, flor do\nCarmelo e São José seu esposo, patronos e protetores de suas vidas. O caminho percorrido\ncontinuou não só com a sua consagração religiosa (com a sua simples vestimenta religiosa cor de\nterra, para recordar a humildade de Deus que se despojou ao assumir a nossa natureza humana), mas\ntambém recebeu a aprovação da Igreja; além disso, os dois irmãos tornaram-se sacerdotes.",
+            "Destas 'semeaduras' nasceram duas pequenas comunidades que se tornaram um Instituto religioso\ncom dois ramos: o dos irmãos e o das irmãs que, inspirados na vida da primeira comunidade cristã\nde Jerusalém ('os do Caminho' - At 9 : 2), vivem a graça da consagração religiosa segundo o estilo\ndos missionários apostólicos, evangelizadores pobres e itinerantes.",
+            "Precisamente este acolhimento aberto suscitou 'uma onda de amor' que envolveu muitas pessoas\nque vêm rezar, trabalhar connosco ou simplesmente encontrar algum refrigério, acolhimento,\nrespeito e paz. Pela graça de Deus, a igreja de Santa Chiara, lugar natal da comunidade, tornou-se\nassim um oásis de paz com Deus e entre os homens.",
+            "Daqui nasceu o movimento leigo com suas comunidades místicas e evangelizadoras, unidas pela\nPalavra e pela presença de Cristo. As pessoas consagradas são testemunhas do chamado radical a\nseguir Jesus, e acompanham e apoiam o caminho das comunidades de leigos"
           ],
           "image": {
             "align": "left",
             "url": ["breveStoria1.jpg","breveStoria2.jpg","breveStoria3.jpg","breveStoria4.jpg","breveStoria5.jpg","breveStoria6.jpg","breveStoria7.jpg","breveStoria8.jpg","breveStoria9.jpg","breveStoria10.jpg"]
           },
-          "title": "Breve storia della comunità"
+          "title": "Breve história da Comunidade"
         },
         {
           "articles": [
-            "Le nostre giornate sono scandite dalla preghiera, dal lavoro manuale (con il quale provvediamo ai\nnostri bisogni e siamo in contatto con la creazione), dalla formazione umana e spirituale (fondata\nsulla Parola di Dio e sull’insegnamento della Chiesa) e dall’annuncio di Gesù, uscendo per la\nstrade. Dediti alla nuova evangelizzazione nelle sue svariate forme (catechesi, predicazioni,\nmissioni popolari e parrocchiali...), viaggiamo anche di totale provvidenza (cf Lc 10,3-\n9), facendo pellegrinaggi a piedi e in autostop.",
-            "Cerchiamo di vivere una povertà radicale, così da poter testimoniare che è Cristo il nostro tutto.\nInoltre per mezzo della povertà abbiamo la possibilità di incontrare la gente nella quotidianità.\nIl nostro stile di vita mendicante ci permette di essere in comunione con gli ultimi e di non\ndimenticare che Dio stesso è il mendicante di amore che ci cerca incessantemente. Ci impegniamo\nperciò a considerarci ultimi e a non considerare nulla come nostra proprietà o dominio, perciò\nviviamo senza circolo di denaro, per vivere il Vangelo nella sua radicalità e bellezza"
+            "Nossos dias são marcados pela oração, pelo trabalho manual (com o qual atendemos nossas\nnecessidades e estamos em contato com a criação), pela formação humana e espiritual (fundada na\nPalavra de Deus e nos ensinamentos da Igreja) e pelo anúncio de Jesus, indo para as ruas.\nDedicados à nova evangelização em suas diversas formas (catequese, pregação, missões populares e\nparoquiais...), também viajamos em total providência (cf. Lc 10, 3-9), fazendo peregrinações a pé e\nde carona.",
+            "Procuramos viver uma pobreza radical, para podermos testemunhar que Cristo é nosso tudo. Além\ndisso, através da pobreza temos a oportunidade de conhecer pessoas na vida cotidiana. Nosso estilo\nde vida de mendigo nos permite estar em comunhão com o mínimo e não esquecer que o próprio\nDeus é o mendigo de amor que nos procura incessantemente. Comprometemo-nos, portanto, a nos\nconsiderar por último e a não considerar nada como nossa propriedade ou domínio, portanto\nvivemos sem círculo de dinheiro, para viver o Evangelho em sua radicalidade e beleza."
           ],
           "image": {
             "align": "right",
             "url": ["sdv.jpg","sdv1.jpg","sdv2.jpg","sdv3.jpg","sdv4.jpg","sdv5.jpg","sdv6.jpg","sdv7.jpg","sdv8.jpg"]
           },
-          "title": "Lo stile di vita"
+          "title": "Estilo de vida"
         },
         {
           "articles": [
-            "L’intuizione spirituale è quella di riproporre la vita dei primi missionari del Vangelo, rinvigorendo\nnel popolo di Dio lo spirito delle prime comunità cristiane, proclamando e testimoniando che:Gesù è VIA, VERITA’ e VITA!",
-            "Non si tratta semplicemente di ripetere qualcosa del passato, ma di rinvigorire nell’oggi la\ntestimonianza cristiana, vivendo la Via come luogo della presenza di Cristo.\nPerciò ci impegniamo in modo specifico a creare comunità cristiane, centrate sulla Parola di Dio,\nben fondante sull’insegnamento della Chiesa e con l’impegno specifico di essere missionarie.",
-            "Oltre ai voti di obbedienza, povertà e castità, che designano la vita totalmente donata, il carisma\nrichiede un quarto voto particolare, cioè quello di conformazione a Cristo Verità nella Carità (cf Gv\n18,37).",
-            "A tale ispirazione è di esempio l’esperienza dei santi Pietro e Paolo per l’amore alla chiesa e lo zelo\nmissionario; di San Francesco d’Assisi che riprodusse la vita povera ed itinerante dei primi\ndiscepoli del Signore; e l’esempio di Santa Teresa di Lisieux, capace di tracciare la “piccola via” per\nseguire il Signore con semplicità e amore confidente anche nelle più piccole cose"
+            "Nosso carisma é viver hoje a forma de vida dos primeiros discípulos do Senhor, especialmente dos\nmissionários apostólicos, revigorando o espírito das primeiras comunidades cristãs no povo de\nDeus, proclamando e testemunhando que: Jesus é CAMINHO, VERDADE e VIDA!",
+            "Não se trata simplesmente de repetir algo do passado, mas de revigorar o testemunho cristão de\nhoje, vivendo o Caminho como lugar da presença de Cristo. Por isso, nos comprometemos\nespecificamente a criar comunidades cristãs, centradas na Palavra de Deus, bem fundamentadas no\nensinamento da Igreja e com o compromisso específico de ser missionárias.",
+            "Além dos votos de obediência, pobreza e castidade, que designam a vida totalmente doada, o\ncarisma exige um quarto voto particular, ou seja, o da conformação a Cristo Verdade na Caridade\n(cf. Jo 18,37).",
+            "Exemplo desta inspiração é a experiência dos Santos Pedro e Paulo por amor à Igreja e zelo\nmissionário; de São Francisco de Assis que reproduziu a vida pobre e itinerante dos primeiros\ndiscípulos do Senhor; e o exemplo de Santa Teresa de Lisieux, capaz de traçar o 'pequeno\ncaminho' para seguir o Senhor com simplicidade e amor confiante até nas coisas menores"
           ],
           "image": {
             "align": "left",
             "url": ["carisma1.jpg","carisma2.jpg","carisma3.jpg","carisma4.jpg","carisma5.jpg","carisma6.jpg","carisma7.jpg","carisma8.jpg","carisma9.jpg"]
           },
-          "title": "l'intuizione spirituale"
+          "title": "Carisma"
         }
       ]
     },
@@ -1537,81 +1541,93 @@
           "sections": [
             {
               "articles": [
-                "Se vuoi vivere dei momenti di preghiera con noi... A Lamezia Terme:",
-                "**SANTA MESSA** Domenica ore 11:00 e ore 18:00",
-                "**ADORAZIONE EUCARISTICA** Venerdì 21:00",
-                "**CATECHESI** Ogni ultima domenica del mese dopo la messa",
-                "**CONFESSIONI** Sabato e domenica dalle ore 16:00 (Per confessarsi in altri momenti si suggerisce di richiedere preventivamente un appuntamento contattando i missionari)"
+                "Se você quiser viver momentos de oração conosco... Em Lamezia Terme:",
+                "**SANTA MISSA** Domingo 11h e 18h",
+                "**ADORAÇÃO EUCARÍSTICA** Sexta-feira 21:00",
+                "**CATEQUESE** O último domingo de cada mês depois da missa",
+                "**CONFISSÕES** Sábado e Domingo a partir das 16:00 (Para se confessar em outros horários sugere- se solicitar agendamento prévio entrando em contato com os missionários)"
               ]
             },
             {
               "articles": [
-                "Ogni venerdì sera alle ore 21:00, un'ora di adorazione eucaristica, vissuta secondo la nostra spiritualità"
+                "Todas as sextas-feiras às 21h00, uma hora de adoração eucarística, vivida segundo a nossa espiritualidade"
               ],
               "image": {
                 "align": "right",
                 "url": "adorazioneEucaristica.jpg"
               },
-              "title": "Adorazione Eucaristica"
+              "title": "Adoração Eucarística"
             },
             {
               "articles": [
-                "L’ultima domenica di ogni mese, momento di spiritualità e fraternità aperto a tutti, che termina con il pranzo vissuto insieme.",
-                "Se fossi interessato, **SCRIVICI**"
+                "O último domingo de cada mês, um momento de espiritualidade e fraternidade aberto a todos, que termina com um almoço em conjunto.",
+                "Se você estiver interessado, **ESCREVA-NOS**"
               ],
               "image": {
                 "align": "left",
                 "url": "fraternita.jpg"
               },
-              "title": "Domenica di fraternità"
+              "title": "Domingo de fraternidade"
             },
             {
               "articles": [
-                "14 incontri, due lunedì al mese, a partire dalle 20:30, per conoscere meglio se stessi e il buon Dio...",
-                "Se fossi interessato, **SCRIVICI**"
+                "14 encontros, duas segundas-feiras por mês, a partir das 20h30, para conhecer melhor a si mesmo e ao bom Deus...",
+                "Se você estiver interessado, **ESCREVA-NOS**"
               ],
               "image": {
                 "align": "right",
                 "url": "camminoGiovani.jpg"
               },
-              "title": "Cammino Giovani (18-30)"
+              "title": "Caminho jovens (18-30)"
             },
             {
               "articles": [
-                "Si tratta di un prezioso corso per le coppie di sposi.\nCinque incontri, una domenica al mese, da maggio e\ngiugno, per rivitalizzare e costruire al meglio il rapporto di\ncoppia.",
-                "Se fossi interessato, **SCRIVICI**"
+                "É um curso muito valioso para casais. Cinco encontros, um domingo por mês, de maio a junho, para revitalizar e construir da melhor forma o relacionamento do casal.",
+                "Se você estiver interessado, **ESCREVA-NOS**"
               ],
               "image": {
                 "align": "left",
                 "url": "corsoSposi.jpg"
               },
-              "title": "Corso per gli sposi"
+              "title": "Curso para noivos"
             }
           ],
-          "title": "S. Chiara"
+          "title": "Igreja de S. Chiara"
         },
         {
           "key": "s-maria-dell-anima",
           "sections": [
             {
               "articles": [
-                "Ogni seconda domenica del mese",
-                "Ritrovo e catechesi: 15.30",
-                "S. Messa: ore 18",
-                "Confessioni prima della S. Messa."
-              ],
-              "title": "RITIRO E S. MESSA"
+                "Se você quiser viver momentos de oração conosco... Em Nápoles:",
+                "O segundo domingo de cada mês",
+                "Reunião e catequese: 15h30",
+                "S. Missa: 18h",
+                "Confissões antes da Santa Missa"
+              ]
             }
           ],
-          "title": "S. Maria dell'anima"
+          "title": "Igreja de S. Maria dell'Anima (NA)"
+        },
+        {
+          "key": "capuccini-e-blatta",
+          "sections": [
+            {
+              "articles": [
+                "Retiro de Advento para a paróquia “Madonna di Loreto”: domingo, 27 de novembro, às 15h30.",
+                "Retiro de Advento para a paróquia de “San Giuseppe o trabalhador”: domingo, 19 de março de 2023,\nàs 15h30."
+              ]
+            }
+          ],
+          "title": "Paróquias “Madonna di Loreto” e “San Giuseppe o trabalhador” em Chivasso (TO)"
         }
       ],
       "header": {
         "backgroundImage": "attivita.jpg",
-        "title": "Attività e missioni"
+        "title": "Atividades e missões"
       },
       "main": {
-        "caption": "A seguire, trovi le attivita’ in corso nella chiesa di S. Chiara a Lamezia Terme e nella chiesa di S. Maria dell’Anima a Napoli"
+        "caption": "Abaixo, você encontrará as atividades em andamento na igreja de S. Chiara em Lamezia Terme, <br>na igreja de S. Maria del'Anima em Nápoles<br> e nas paróquias “Madonna di Loreto” e “San Giuseppe lavoratore” em Chivasso (TO) <br>(onde, em colaboração com Dom Tonino, estamos presentes ao longo deste ano para encontros e acompanhamento espiritual). <br><br> (clique no item de seu interesse)"
       }
     },
     "chi-siamo": {
@@ -1631,11 +1647,11 @@
             "url": "fotoHome2.jpg"
           },
           "strings": [
-            "Siamo una piccola comunità fratelli e sorelle riuniti da Cristo per vivere il suo Vangelo nella semplicità, povertà e nella gioia fraterna. Siamo nati in una zona rurale di Lamezia Terme, un luogo semplice: la nostra Betlemme.",
-            "Desideriamo rispondere all'appello di Gesù e seguirlo, sempre in cammino:",
-            ">“Dire che Gesù è Via significa per noi vivere<br> una sequela sempre in cammino.<br> In questo camminare la grazia<br> dell’incontro con i fratelli e le sorelle,<br> ci ha salvati dall’essere dei pellegrini erranti,<br> ha attestato l’orientamento della nostra vita<br> alla sequela di Gesù nella Chiesa,<br> affermando la centralità della strada<br> come luogo dell’incontro e del camminare con l’altro”."
+            "Somos uma pequena comunidade de irmãos e irmãs reunidos por Cristo para viver seu evangelho\ncom simplicidade, pobreza e alegria fraterna. Nascemos numa zona rural de Lamezia Terme, um\nlugar simples: a nossa Belém.",
+            "Queremos responder ao chamado de Jesus e segui-lo, sempre a caminho:",
+            ">“Dizer que Jesus é o Caminho significa para nós viver<br> uma sequela sempre a caminho.<br> Neste caminhar a graça<br> do encontro com os irmãos e as irmãs,<br> nos salvou de sermos peregrinos errantes,<br> atestou a orientação da nossa vida<br> à sequela de Jesus na Igreja,<br> afirmando a centralidade da estrada<br> como lugar de encontro e do caminhar com o outro”."
           ],
-          "title": "Chi siamo"
+          "title": "Quem nós somos"
         },
         {
           "image": {
@@ -1643,83 +1659,83 @@
             "url": "fotoHome3.jpg"
           },
           "strings": [
-            "L’intuizione spirituale è quella di riproporre la vita dei primi missionari del Vangelo, rinvigorendo nel popolo di Dio lo spirito delle\nprime comunità cristiane, vivendo la Via come luogo della presenza di Cristo.",
-            ">I passi di Gesù per noi si sono rivelati sulla strada,<br>perciò dire che Gesù è Via significa per noi<br>attestare non solo l’orientamento della nostra vita<br> e la sua sequela<br>ma anche la centralità della strada,<br>non solo come spazio fisico<br>ma come luogo dell’incontro con l’altro<br>e del camminare con l’altro."
+            "A intuição espiritual é repropor a vida dos primeiros missionários do Evangelho, revigorando o\nespírito das primeiras comunidades cristãs no povo de Deus, vivendo o Caminho como lugar da\npresença de Cristo.",
+            ">Os passos de Jesus nos foram revelados no caminho,<br>portanto, dizer que Jesus é o Caminho significa para nós<br>atestar não só a orientação da nossa vida<br> e la sua sequela<br>e a sequela dele<br>mas também a centralidade da estrada,<br>não apenas como espaço físico<br>mas como lugar de encontro com o outro<br>e do caminhar com o outro."
           ],
-          "title": "L'intuizione spirituale"
+          "title": "A intuição espiritual"
         },
         {
-          "caption": "Fratelli e sorelle vivono la stessa regola ma in abitazioni distinte. Condividono alcuni momenti di preghiera, di vita comune e di missione.\nLa loro giornata è riassunta dal motto: pregare, lavorare ed evangelizzare.",
           "image": {
             "align": "right",
             "url": "fotoHome4.jpg"
           },
           "strings": [
-            "Fratelli e sorelle vivono la stessa regola ma in abitazioni distinte. Condividono alcuni momenti di preghiera, di vita comune e di missione. La loro giornata è riassunta dal motto: pregare, lavorare ed evangelizzare.",
-            ">Lo stile di vita mendicante ci permette di essere in<br>comunione con gli ultimi e di non dimenticare che Dio stesso è il mendicante di amore che ci cerca incessantemente.<br>Desideriamo, inoltre, intessere un’autentica vita fraterna, insieme per santificarci e santificare,<br>all’insegna dell’amore elevato che ci insegna Cristo,<br>del quale siamo sempre discepoli”."
+            "Irmãos e irmãs vivem a mesma regra, mas em lares separados. Eles compartilham alguns momentos\nde oração, vida comum e missão. O dia deles é resumido pelo lema: rezar, trabalhar e evangelizar.",
+            ">“O estilo de vida do mendigo nos permite estar em<br>comunhão com os últimos e não esquecer que o próprio Deus é o mendigo de amor que nos<br>procura incessantemente.<br>Desejamos também tecer uma autêntica vida fraterna, juntos para nos santificar e santificar,<br>sob a bandeira do amor elevado que Cristo nos ensina,<br>de que somos sempre discípulos”.",
+            "Se quiser saber mais, acesse as [mais informações](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti) "
           ],
-          "title": "La nostra vita"
+          "title": "A nossa vida"
         }
       ]
     },
     "contatti": {
       "form": {
-        "buttonName": "Invia Richiesta",
-        "lastNameField": "Cognome",
-        "messageField": "Richiesta",
-        "nameField": "Nome",
-        "title": "Manda qui la tua richiesta di informazioni o di preghiera"
+        "buttonName": "Enviar consulta",
+        "lastNameField": "Sobrenome",
+        "messageField": "Solicitar",
+        "nameField": "Primeiro nome",
+        "title": "Envie aqui seu pedido de informação ou oração"
       },
       "header": {
         "backgroundImage": "contatti.jpg",
-        "title": "Contatti"
+        "title": "Contatos"
       },
       "places": [
         {
           "address": [
-            "**Chiesa di S. Chiara**",
+            "**Igreja de S. Chiara**",
             "Via Gen. F. Scalzo 7",
             "88046 Lamezia Terme (CZ)"
           ],
           "emails": [
             {
               "email": "missionaridellavia.lamezia@gmail.com",
-              "title": "**Frati:**"
+              "title": "**Frades:**"
             },
             {
               "email": "missionariedellavia.lamezia@gmail.com",
-              "title": "**Suore:**"
+              "title": "**Freiras:**"
             }
           ],
           "lat": "38.932440",
           "lng": "16.335970",
           "phone": {
             "number": "0968453462",
-            "title": "**Telefono:**"
+            "title": "**Telefone:**"
           },
           "title": "Lamezia Terme (CZ)"
         },
         {
           "address": [
-            "**Chiesa di S. Maria dell’Anima**",
+            "**Igreja de S. Maria dell&#39;Anima**",
             "Via del Parco Regina Margherita 26",
             "80121 Napoli"
           ],
           "emails": [
             {
               "email": "missionaridellavia.napoli@gmail.com",
-              "title": "**Frati:**"
+              "title": "**Frades:**"
             },
             {
               "email": "missionariedellavia.napoli@gmail.com",
-              "title": "**Suore:**"
+              "title": "**Freiras:**"
             }
           ],
           "lat": "40.838620",
           "lng": "14.237410",
           "phone": {
             "number": "0813792864",
-            "title": "**Telefono:**"
+            "title": "**Telefone:**"
           },
           "title": "Napoli"
         }
@@ -1728,10 +1744,10 @@
     "prega-con-noi": {
       "header": {
         "backgroundImage": "pregaConNoi.jpg",
-        "title": "Prega con noi"
+        "title": "Orar conosco"
       },
       "main": {
-        "caption": "Per pregare con noi, puoi scaricare l’app gratuita “Missionari della Via” con il commento al Vangelo del giorno, disponibile sia su [Play Store](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjHnuGT5uD6AhUEXvEDHRZYBKMQFnoECAgQAQ&url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dnet.missionaridellavia.gospelway%26hl%3Dit%26gl%3DUS&usg=AOvVaw0AwFOH4PnvZNMT5V5b_eZP) che su [App Store](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjO3Kbn5eD6AhVnQ_EDHW4vD0sQFnoECBAQAQ&url=https%3A%2F%2Fapps.apple.com%2Fca%2Fapp%2Fmissionari-della-via%2Fid1602977439&usg=AOvVaw3LZma2iseyMXKIxBMVBr74).",
+        "caption": "Para rezar conosco, você pode baixar gratuitamente o aplicativo “Missionários do Caminho” com\no comentário sobre o Evangelho do dia, disponível tanto na [Play Store](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjHnuGT5uD6AhUEXvEDHRZYBKMQFnoECAgQAQ&url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dnet.missionaridellavia.gospelway%26hl%3Dit%26gl%3DUS&usg=AOvVaw0AwFOH4PnvZNMT5V5b_eZP) quanto na [App Store](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjO3Kbn5eD6AhVnQ_EDHW4vD0sQFnoECBAQAQ&url=https%3A%2F%2Fapps.apple.com%2Fca%2Fapp%2Fmissionari-della-via%2Fid1602977439&usg=AOvVaw3LZma2iseyMXKIxBMVBr74).",
         "images": [
           {
             "alt": "viaDiMaria",
@@ -1743,29 +1759,29 @@
           }
         ],
         "strings": [
-          "Puoi anche richiedere la versione cartacea “La Via del Vangelo”",
-          "Se volessi pregare il Rosario meditato, puoi richiedere il libro “La Via di Maria” oppure le due versioni tascabili ",
-          "Per seguire i nostri video, [clicca qui](https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA) per andare al canale youtube."
+          "Você também pode solicitar a versão em papel “O Caminho do Evangelho”",
+          "Se você quiser rezar o Terço meditado, pode solicitar o livro “La Via di Maria” ou as duas versões de bolso",
+          "Para acompanhar nossos vídeos, [clique aqui](https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA) para ir ao canal do youtube."
         ]
       }
     },
     "vocazione": {
       "header": {
         "backgroundImage": "vocazioni.jpg",
-        "title": "VocazionI"
+        "title": "Vocação"
       },
       "main": {
-        "caption": "Vuoi camminare con noi?",
+        "caption": "Quer caminhar conosco?",
         "image": {
           "align": "left",
           "url": "vocazioni-1.jpg"
         },
         "strings": [
-          "Se desideri scoprire chi sei tu e per chi sei tu, abbi il coraggio di farti guardare dall’Amore per imparare l’arte di amare.",
-          "Se volessi essere accompagnato spiritualmente o vivere dei tempi di silenzio e preghiera, SCRIVICI",
-          "[Clicca qui per andare al sito vocazionale...](https://www.vocazione.altervista.org)"
+          "Se você quiser descobrir quem você é e para quem você serve, tenha a coragem de deixar o Amor\nolhar para você para aprender a arte de amar.",
+          "Se você deseja ser acompanhado espiritualmente ou viver momentos de silêncio e oração, **ESCREVA-NOS**",
+          "[Clique aqui para acessar o site vocacional...](https://www.vocazione.altervista.org)"
         ],
-        "title": "Cammino vocazionale"
+        "title": "Caminho vocacional"
       }
     }
   }
