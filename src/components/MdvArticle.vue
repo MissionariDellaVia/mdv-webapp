@@ -25,7 +25,7 @@
     <div v-else class="row my-4">
       <div class="col col-sm-12 align-self-start">
         <p v-for="(text, index) in texts" v-bind:key="index" >
-          <Markdown :source="text" :breaks="true"></Markdown>
+          <Markdown :source="text" :breaks="true" class="markdown-mdv"></Markdown>
         </p>
       </div>
     </div>

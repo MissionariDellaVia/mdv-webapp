@@ -40,20 +40,6 @@
           </div>
         </div>
 
-        <div class="row my-4">
-<!--          <div class="col-md-4 col-sm-12" v-for="post in lastBlogPosts" v-bind:key="post.id">-->
-<!--            <MdvBlogCard :title="post.title"-->
-<!--                         :image-url="post.images[0].url"-->
-<!--                         :ref-link="post.url"-->
-<!--                         :publish-date="parseDate(post.published)"-->
-<!--            />-->
-
-<!--          </div>-->
-
-
-
-        </div>
-
         <Carousel :settings="settings" :breakpoints="breakpoints" :wrap-around="true" >
           <Slide v-for="post in lastBlogPosts" :key="post.id">
             <div class="carousel__item ">

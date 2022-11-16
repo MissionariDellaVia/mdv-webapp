@@ -87,7 +87,16 @@ html, body {
 .markdown-mdv a:hover, .markdown-mdv a:focus {
   color: #59411a;
 }
-
+.markdown-mdv em {
+  font-size: smaller;
+  color: rgba(40, 29, 2, 0.9);
+}
+.markdown-mdv em > a {
+  color: rgb(222, 148, 11) !important;
+}
+.markdown-mdv em > a:hover, .markdown-mdv em > a:focus {
+  color: rgb(140, 104, 28) !important;
+}
 .scale-enter-active,
 .scale-leave-active {
   transition: all 0.2s ease;
