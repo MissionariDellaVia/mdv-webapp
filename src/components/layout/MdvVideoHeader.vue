@@ -50,12 +50,19 @@ export default {
     margin-bottom: 1rem;
   }
 }
+@media only screen and (max-width: 1300px) {
+  .video-wrapper {
+    height: 100vh !important;
+  }
+
+}
+
 .video-wrapper {
   /* Telling our absolute positioned video to
   be relative to this element */
   position: relative;
 
-  height: 55vh;
+  height: 65vh;
   min-height: 40vh;
 
   /* Will not allow the video to overflow the
