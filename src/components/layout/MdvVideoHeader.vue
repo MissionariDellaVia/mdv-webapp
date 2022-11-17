@@ -36,7 +36,21 @@ export default {
 <style scoped>
 
 @media only screen and (max-width: 480px) {
+  .video-wrapper {
+    height: 40vh !important;
+  }
+  video {
+    /** Simulationg background-size: cover */
+    object-fit: cover !important;
+    height: 100%;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
   .main-title {
+    margin-top: 3rem;
     font-size: 3rem !important;
   }
   .with-brand {
@@ -50,7 +64,7 @@ export default {
     margin-bottom: 1rem;
   }
 }
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1300px) and (min-width: 480px) {
   .video-wrapper {
     height: 100vh !important;
   }
