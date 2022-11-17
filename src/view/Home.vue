@@ -4,7 +4,7 @@
       <base-spinner></base-spinner>
     </div>
     <div v-else >
-      <MDHeader :image="chiSiamoPage.header.backgroundImage" brand="true"
+      <MdvVideoHeader :image="chiSiamoPage.header.backgroundImage" brand="true"
                 :title="chiSiamoPage.header.title"
                 :caption="chiSiamoPage.header.caption"/>
 
@@ -62,14 +62,14 @@
 </template>
 
 <script>
-import MDHeader from "@/components/layout/MdvHeader";
+import MdvVideoHeader from "@/components/layout/MdvVideoHeader";
 import MdvArticle from "@/components/MdvArticle";
 import MdvBlogCard from "@/components/MdvBlogCard";
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
 
 export default {
   name: "HomePage",
-  components: { MdvArticle, MDHeader, MdvBlogCard, Carousel, Navigation, Slide},
+  components: { MdvArticle, MdvVideoHeader, MdvBlogCard, Carousel, Navigation, Slide},
   created () {
     this.loadPage("chi-siamo");
     this.loadBlogPosts(10);

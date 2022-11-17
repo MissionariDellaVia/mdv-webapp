@@ -16,7 +16,20 @@
           ],
           "image": {
             "align": "left",
-            "url": ["breveStoria1.jpg","breveStoria2.jpg","breveStoria3.jpg","breveStoria4.jpg","breveStoria5.jpg","breveStoria6.jpg","breveStoria7.jpg","breveStoria8.jpg","breveStoria9.jpg","breveStoria10.jpg","breveStoria13.jpg","breveStoria14.jpg" ]
+            "url": [
+              "breveStoria1.jpg",
+              "breveStoria2.jpg",
+              "breveStoria3.jpg",
+              "breveStoria4.jpg",
+              "breveStoria5.jpg",
+              "breveStoria6.jpg",
+              "breveStoria7.jpg",
+              "breveStoria8.jpg",
+              "breveStoria9.jpg",
+              "breveStoria10.jpg",
+              "breveStoria13.jpg",
+              "breveStoria14.jpg"
+            ]
           },
           "title": "Short history of the Community"
         },
@@ -27,22 +40,42 @@
           ],
           "image": {
             "align": "right",
-            "url": ["sdv.jpg","sdv1.jpg","sdv2.jpg","sdv3.jpg","sdv4.jpg","sdv5.jpg","sdv6.jpg","sdv7.jpg","sdv8.jpg"]
+            "url": [
+              "sdv.jpg",
+              "sdv1.jpg",
+              "sdv2.jpg",
+              "sdv3.jpg",
+              "sdv4.jpg",
+              "sdv5.jpg",
+              "sdv6.jpg",
+              "sdv7.jpg",
+              "sdv8.jpg"
+            ]
           },
           "title": "Way of living"
         },
         {
           "articles": [
-            "The spiritual intuition is to re-propose the life of the first missionaries of the Gospel, reinvigorating the spirit of the first Christian communities in the people of God, proclaiming and bearing witness that: Jesus is the WAY, TRUTH and LIFE!",
+            "The charism of the Community is to live today the form of life of the first disciples of the Lord, especially apostolic missionaries, reinvigorating the spirit of the first Christian communities in the people of God, proclaiming and testifying that Jesus is the WAY, TRUTH and LIFE!",
             "It is not simply a question of repeating something from the past, but of reinvigorating Christian witness today, living the Way as a place of Christ's presence. Therefore we are specifically committed to creating Christian communities, centered on the Word of God, well founded on the teaching of the Church and with the specific commitment of being missionaries.\n",
             "In addition to the vows of obedience, poverty and chastity, which designate a life totally given, the charism requires a fourth particular vow: that of conformation to Christ Truth in Charity (cf. Jn 18:37).",
             "Some example of these inspirations are the experience of Saints Peter and Paul with our love for the church and missionary zeal; St. Francis of Assisi who reproduced the poor and itinerant life of the first disciples of the Lord; Saint Therese of Lisieux, able to trace the \"little way\" to follow the Lord with simplicity and trusting love even in the smallest things"
           ],
           "image": {
             "align": "left",
-            "url": ["carisma1.jpg","carisma2.jpg","carisma3.jpg","carisma4.jpg","carisma5.jpg","carisma6.jpg","carisma7.jpg","carisma8.jpg","carisma9.jpg"]
+            "url": [
+              "carisma1.jpg",
+              "carisma2.jpg",
+              "carisma3.jpg",
+              "carisma4.jpg",
+              "carisma5.jpg",
+              "carisma6.jpg",
+              "carisma7.jpg",
+              "carisma8.jpg",
+              "carisma9.jpg"
+            ]
           },
-          "title": "Spiritual intuition"
+          "title": "The charisma"
         }
       ]
     },
@@ -315,7 +348,20 @@
           ],
           "image": {
             "align": "left",
-            "url": ["breveStoria1.jpg","breveStoria2.jpg","breveStoria3.jpg","breveStoria4.jpg","breveStoria5.jpg","breveStoria6.jpg","breveStoria7.jpg","breveStoria8.jpg","breveStoria9.jpg","breveStoria10.jpg","breveStoria13.jpg","breveStoria14.jpg" ]
+            "url": [
+              "breveStoria1.jpg",
+              "breveStoria2.jpg",
+              "breveStoria3.jpg",
+              "breveStoria4.jpg",
+              "breveStoria5.jpg",
+              "breveStoria6.jpg",
+              "breveStoria7.jpg",
+              "breveStoria8.jpg",
+              "breveStoria9.jpg",
+              "breveStoria10.jpg",
+              "breveStoria13.jpg",
+              "breveStoria14.jpg"
+            ]
           },
           "title": "Una breve historia de la comunidad."
         },
@@ -326,22 +372,42 @@
           ],
           "image": {
             "align": "right",
-            "url": ["sdv.jpg","sdv1.jpg","sdv2.jpg","sdv3.jpg","sdv4.jpg","sdv5.jpg","sdv6.jpg","sdv7.jpg","sdv8.jpg"]
+            "url": [
+              "sdv.jpg",
+              "sdv1.jpg",
+              "sdv2.jpg",
+              "sdv3.jpg",
+              "sdv4.jpg",
+              "sdv5.jpg",
+              "sdv6.jpg",
+              "sdv7.jpg",
+              "sdv8.jpg"
+            ]
           },
           "title": "Estilo de vida"
         },
         {
           "articles": [
-            "La intuición espiritual es volver a proponer la vida de los primeros misioneros del Evangelio, revitalizando el espíritu de las primeras comunidades cristianas en el pueblo de Dios, proclamando y testimoniando que: ¡Jesús es CAMINO, VERDAD y VIDA!\n",
+            "El carisma de la Comunidad es vivir hoy la forma de vida de los primeros discípulos del Señor, especialmente los misioneros apostólicos, revitalizando el espíritu de las primeras comunidades cristianas en el pueblo de Dios, proclamando y testimoniando que Jesús es CAMINO, VERDAD y ¡VIDA!",
             "No se trata simplemente de repetir algo del pasado, sino de revitalizar el testimonio cristiano hoy, viviendo el Camino como lugar de la presencia de Cristo. Por eso estamos específicamente comprometidos a crear comunidades cristianas, centradas en la Palabra de Dios, bien fundadas en la enseñanza de la Iglesia y con el compromiso específico de ser misioneros.",
             "Además de los votos de obediencia, pobreza y castidad, que designan la vida totalmente entregada, el carisma exige un cuarto voto particular, a saber, el de la conformación a Cristo Verdad en la Caridad (cf. Jn 18,37).",
             "Ejemplos de esta inspiración son la experiencia de san Pedro y san Pablo por su amor a la Iglesia y celo misionero; de San Francisco de Asís que reprodujo la vida pobre e itinerante de los primeros discípulos del Señor; santa Teresa de Lisieux, capaz de trazar el \"camino\" para seguir al Señor con sencillez y amor confiado hasta en las cosas más pequeñas"
           ],
           "image": {
             "align": "left",
-            "url": ["carisma1.jpg","carisma2.jpg","carisma3.jpg","carisma4.jpg","carisma5.jpg","carisma6.jpg","carisma7.jpg","carisma8.jpg","carisma9.jpg"]
+            "url": [
+              "carisma1.jpg",
+              "carisma2.jpg",
+              "carisma3.jpg",
+              "carisma4.jpg",
+              "carisma5.jpg",
+              "carisma6.jpg",
+              "carisma7.jpg",
+              "carisma8.jpg",
+              "carisma9.jpg"
+            ]
           },
-          "title": "Intuición espiritual"
+          "title": "El carisma"
         }
       ]
     },
@@ -613,7 +679,20 @@
           ],
           "image": {
             "align": "left",
-            "url": ["breveStoria1.jpg","breveStoria2.jpg","breveStoria3.jpg","breveStoria4.jpg","breveStoria5.jpg","breveStoria6.jpg","breveStoria7.jpg","breveStoria8.jpg","breveStoria9.jpg","breveStoria10.jpg","breveStoria13.jpg","breveStoria14.jpg" ]
+            "url": [
+              "breveStoria1.jpg",
+              "breveStoria2.jpg",
+              "breveStoria3.jpg",
+              "breveStoria4.jpg",
+              "breveStoria5.jpg",
+              "breveStoria6.jpg",
+              "breveStoria7.jpg",
+              "breveStoria8.jpg",
+              "breveStoria9.jpg",
+              "breveStoria10.jpg",
+              "breveStoria13.jpg",
+              "breveStoria14.jpg"
+            ]
           },
           "title": "Brève histoire de la Communauté"
         },
@@ -624,22 +703,42 @@
           ],
           "image": {
             "align": "right",
-            "url": ["sdv.jpg","sdv1.jpg","sdv2.jpg","sdv3.jpg","sdv4.jpg","sdv5.jpg","sdv6.jpg","sdv7.jpg","sdv8.jpg"]
+            "url": [
+              "sdv.jpg",
+              "sdv1.jpg",
+              "sdv2.jpg",
+              "sdv3.jpg",
+              "sdv4.jpg",
+              "sdv5.jpg",
+              "sdv6.jpg",
+              "sdv7.jpg",
+              "sdv8.jpg"
+            ]
           },
           "title": "Le style de vie"
         },
         {
           "articles": [
-            "L’intuition spirituelle est de reproposer la vie des premiers missionnaires de l’Évangile, en\nrevigorant dans le peuple de Dieu l’esprit des premières communautés chrétiennes, en proclamant et\nen témoignant que : Jésus est LE CHEMIN, LA VÉRITÉ et LA VIE !",
+            "Le charisme de la Communauté est de vivre aujourd'hui la forme de vie des premiers disciples du Seigneur, en particulier les missionnaires apostoliques, revigorant l'esprit des premières communautés chrétiennes dans le peuple de Dieu, proclamant et témoignant que Jésus est le CHEMIN, la VÉRITÉ et LA VIE!",
             "Il ne s’agit pas simplement de répéter quelque chose du passé, mais de revigorer le témoignage\nchrétien dans le monde d’aujourd’hui, en vivant le Chemin comme un lieu de présence du Christ.\nPar conséquent, nous nous engageons spécifiquement à créer des communautés chrétiennes,\ncentrées sur la Parole de Dieu, bien ancrées dans l’enseignement de l’Église et avec l’engagement\nspécifique d’être missionnaires.",
             "En plus des vœux d’obéissance, de pauvreté et de chasteté, qui désignent une vie totalement donnée,\nle charisme exige un quatrième vœu particulier, celui de se conformer au Christ Vérité dans la\nCharité (cf. Jn 18,37).",
             "Cette inspiration est illustrée par l’expérience des saints Pierre et Paul, pour leur amour de l’Église\net leur zèle missionnaire ; de saint François d’Assise, qui a reproduit la vie pauvre et itinérante des\npremiers disciples du Seigneur ; et de l’exemple de sainte Thérèse de Lisieux, capable de tracer le\n«petite chemin» pour suivre le Seigneur avec simplicité et amour confiant, même dans les plus\npetites choses."
           ],
           "image": {
             "align": "left",
-            "url": ["carisma1.jpg","carisma2.jpg","carisma3.jpg","carisma4.jpg","carisma5.jpg","carisma6.jpg","carisma7.jpg","carisma8.jpg","carisma9.jpg"]
+            "url": [
+              "carisma1.jpg",
+              "carisma2.jpg",
+              "carisma3.jpg",
+              "carisma4.jpg",
+              "carisma5.jpg",
+              "carisma6.jpg",
+              "carisma7.jpg",
+              "carisma8.jpg",
+              "carisma9.jpg"
+            ]
           },
-          "title": "L’intuition spirituelle"
+          "title": "Le charisme"
         }
       ]
     },
@@ -910,7 +1009,20 @@
           ],
           "image": {
             "align": "left",
-            "url": ["breveStoria1.jpg","breveStoria2.jpg","breveStoria3.jpg","breveStoria4.jpg","breveStoria5.jpg","breveStoria6.jpg","breveStoria7.jpg","breveStoria8.jpg","breveStoria9.jpg","breveStoria10.jpg","breveStoria13.jpg","breveStoria14.jpg" ]
+            "url": [
+              "breveStoria1.jpg",
+              "breveStoria2.jpg",
+              "breveStoria3.jpg",
+              "breveStoria4.jpg",
+              "breveStoria5.jpg",
+              "breveStoria6.jpg",
+              "breveStoria7.jpg",
+              "breveStoria8.jpg",
+              "breveStoria9.jpg",
+              "breveStoria10.jpg",
+              "breveStoria13.jpg",
+              "breveStoria14.jpg"
+            ]
           },
           "title": "Breve storia della comunità"
         },
@@ -921,7 +1033,17 @@
           ],
           "image": {
             "align": "right",
-            "url": ["sdv.jpg","sdv1.jpg","sdv2.jpg","sdv3.jpg","sdv4.jpg","sdv5.jpg","sdv6.jpg","sdv7.jpg","sdv8.jpg"]
+            "url": [
+              "sdv.jpg",
+              "sdv1.jpg",
+              "sdv2.jpg",
+              "sdv3.jpg",
+              "sdv4.jpg",
+              "sdv5.jpg",
+              "sdv6.jpg",
+              "sdv7.jpg",
+              "sdv8.jpg"
+            ]
           },
           "title": "Lo stile di vita"
         },
@@ -934,7 +1056,17 @@
           ],
           "image": {
             "align": "left",
-            "url": ["carisma1.jpg","carisma2.jpg","carisma3.jpg","carisma4.jpg","carisma5.jpg","carisma6.jpg","carisma7.jpg","carisma8.jpg","carisma9.jpg"]
+            "url": [
+              "carisma1.jpg",
+              "carisma2.jpg",
+              "carisma3.jpg",
+              "carisma4.jpg",
+              "carisma5.jpg",
+              "carisma6.jpg",
+              "carisma7.jpg",
+              "carisma8.jpg",
+              "carisma9.jpg"
+            ]
           },
           "title": "Il carisma"
         }
@@ -1078,7 +1210,7 @@
           "strings": [
             "Fratelli e sorelle vivono la stessa regola ma in abitazioni distinte. Condividono alcuni momenti di preghiera, di vita comune e di missione. La loro giornata è riassunta dal motto: pregare, lavorare ed evangelizzare.",
             ">Lo stile di vita mendicante ci permette di essere in<br>comunione con gli ultimi e di non dimenticare che Dio stesso è il mendicante di amore che ci cerca incessantemente.<br>Desideriamo, inoltre, intessere un’autentica vita fraterna, insieme per santificarci e santificare,<br>all’insegna dell’amore elevato che ci insegna Cristo,<br>del quale siamo sempre discepoli”.",
-            "Se volessi saperne di più, vai sul [approfondimenti](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti) "
+            "*Se volessi saperne di più, vai sul [approfondimenti](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti)*"
           ],
           "title": "La nostra vita"
         }
@@ -1207,7 +1339,20 @@
           ],
           "image": {
             "align": "left",
-            "url": ["breveStoria1.jpg","breveStoria2.jpg","breveStoria3.jpg","breveStoria4.jpg","breveStoria5.jpg","breveStoria6.jpg","breveStoria7.jpg","breveStoria8.jpg","breveStoria9.jpg","breveStoria10.jpg","breveStoria13.jpg","breveStoria14.jpg" ]
+            "url": [
+              "breveStoria1.jpg",
+              "breveStoria2.jpg",
+              "breveStoria3.jpg",
+              "breveStoria4.jpg",
+              "breveStoria5.jpg",
+              "breveStoria6.jpg",
+              "breveStoria7.jpg",
+              "breveStoria8.jpg",
+              "breveStoria9.jpg",
+              "breveStoria10.jpg",
+              "breveStoria13.jpg",
+              "breveStoria14.jpg"
+            ]
           },
           "title": "Krótka historia społeczności"
         },
@@ -1218,22 +1363,42 @@
           ],
           "image": {
             "align": "right",
-            "url": ["sdv.jpg","sdv1.jpg","sdv2.jpg","sdv3.jpg","sdv4.jpg","sdv5.jpg","sdv6.jpg","sdv7.jpg","sdv8.jpg"]
+            "url": [
+              "sdv.jpg",
+              "sdv1.jpg",
+              "sdv2.jpg",
+              "sdv3.jpg",
+              "sdv4.jpg",
+              "sdv5.jpg",
+              "sdv6.jpg",
+              "sdv7.jpg",
+              "sdv8.jpg"
+            ]
           },
           "title": "Styl życia"
         },
         {
           "articles": [
-            "Intuicja duchowa polega na ponownym zaproponowaniu życia pierwszych misjonarzy Ewangelii, ożywiającym w Ludu Bożym duch pierwszych wspólnot chrześcijańskich, głoszący i dający świadectwo że: Jezus jest DROGĄ, PRAWDĄ i ŻYCIEM!",
+            "Charyzmatem Wspólnoty jest przeżywanie dzisiaj formy życia pierwszych uczniów Pana, zwłaszcza misjonarzy apostolskich, ożywiającym w Ludu Bożym duch pierwszych wspólnot chrześcijańskich, głoszący i dający świadectwo że: Jezus jest DROGĄ, PRAWDĄ i ŻYCIEM!",
             "Nie chodzi po prostu o powtórzenie czegoś z przeszłości, ale o ożywienie tego\nŚwiadectwo chrześcijańskie, przeżywanie Drogi jako miejsca obecności Chrystusa. Dlatego jesteśmy zaangażowani\nkonkretnie po to, by tworzyć wspólnoty chrześcijańskie, skupione na Słowie Bożym, które ma solidne podstawy\nna nauczaniu Kościoła i ze szczególnym zobowiązaniem do bycia misjonarzami\n",
             "Oprócz ślubów posłuszeństwa, ubóstwa i czystości, które określają życie całkowicie oddane, charyzmat wymaga czwartego szczególnego ślubu, a mianowicie upodobnienia się do Prawdy Chrystusowej w Miłości (por.18.37).",
             "Przykładem tej inspiracji jest doświadczenie świętych Piotra i Pawła z miłości do Kościoła i gorliwości misjonarza; Św. Francesco d'Assisi, który odtwarza ubogie i wędrowne życie tego pierwszego ucznia Pana; i przykład św. Teresy z Lisieux, zdolnej do prześledzenia małą drogą iść za Panem z prostotą i ufną miłością nawet w pięciu małych rzeczach"
           ],
           "image": {
             "align": "left",
-            "url": ["carisma1.jpg","carisma2.jpg","carisma3.jpg","carisma4.jpg","carisma5.jpg","carisma6.jpg","carisma7.jpg","carisma8.jpg","carisma9.jpg"]
+            "url": [
+              "carisma1.jpg",
+              "carisma2.jpg",
+              "carisma3.jpg",
+              "carisma4.jpg",
+              "carisma5.jpg",
+              "carisma6.jpg",
+              "carisma7.jpg",
+              "carisma8.jpg",
+              "carisma9.jpg"
+            ]
           },
-          "title": "Intuicja duchowa"
+          "title": "Charyzma"
         }
       ]
     },
@@ -1504,7 +1669,20 @@
           ],
           "image": {
             "align": "left",
-            "url": ["breveStoria1.jpg","breveStoria2.jpg","breveStoria3.jpg","breveStoria4.jpg","breveStoria5.jpg","breveStoria6.jpg","breveStoria7.jpg","breveStoria8.jpg","breveStoria9.jpg","breveStoria10.jpg","breveStoria13.jpg","breveStoria14.jpg" ]
+            "url": [
+              "breveStoria1.jpg",
+              "breveStoria2.jpg",
+              "breveStoria3.jpg",
+              "breveStoria4.jpg",
+              "breveStoria5.jpg",
+              "breveStoria6.jpg",
+              "breveStoria7.jpg",
+              "breveStoria8.jpg",
+              "breveStoria9.jpg",
+              "breveStoria10.jpg",
+              "breveStoria13.jpg",
+              "breveStoria14.jpg"
+            ]
           },
           "title": "Breve história da Comunidade"
         },
@@ -1515,7 +1693,17 @@
           ],
           "image": {
             "align": "right",
-            "url": ["sdv.jpg","sdv1.jpg","sdv2.jpg","sdv3.jpg","sdv4.jpg","sdv5.jpg","sdv6.jpg","sdv7.jpg","sdv8.jpg"]
+            "url": [
+              "sdv.jpg",
+              "sdv1.jpg",
+              "sdv2.jpg",
+              "sdv3.jpg",
+              "sdv4.jpg",
+              "sdv5.jpg",
+              "sdv6.jpg",
+              "sdv7.jpg",
+              "sdv8.jpg"
+            ]
           },
           "title": "Estilo de vida"
         },
@@ -1528,7 +1716,17 @@
           ],
           "image": {
             "align": "left",
-            "url": ["carisma1.jpg","carisma2.jpg","carisma3.jpg","carisma4.jpg","carisma5.jpg","carisma6.jpg","carisma7.jpg","carisma8.jpg","carisma9.jpg"]
+            "url": [
+              "carisma1.jpg",
+              "carisma2.jpg",
+              "carisma3.jpg",
+              "carisma4.jpg",
+              "carisma5.jpg",
+              "carisma6.jpg",
+              "carisma7.jpg",
+              "carisma8.jpg",
+              "carisma9.jpg"
+            ]
           },
           "title": "Carisma"
         }
