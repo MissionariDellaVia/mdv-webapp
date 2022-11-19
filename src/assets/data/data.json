@@ -138,7 +138,7 @@
               "title": "Course for spouses"
             }
           ],
-          "title": "Rettoria di Santa Chiara"
+          "title": "Rettoria di Santa Chiara (CZ)"
         },
         {
           "key": "s-maria-dell-anima",
@@ -164,7 +164,7 @@
               ]
             }
           ],
-          "title": "Zona “Cappuccini e Blatta” (Chivasso - TO)"
+          "title": "Parrocchie Madonna di Loreto e San Giuseppe lavoratore (TO)"
         }
       ],
       "header": {
@@ -180,7 +180,7 @@
         "backgroundImage": "chiSiamo.jpg",
         "brandImage": "logo.png",
         "caption": "Caritas - Veritas",
-        "title": "Missionari e Missionarie della via"
+        "title": "Missionaries of the Way"
       },
       "main": {
         "title": "Peace and All Good!"
@@ -217,7 +217,7 @@
           "strings": [
             "Brothers and sisters live the same rule of life but in separate houses. They share some moments of prayer, common life and mission. Their day is summed up by the motto: pray, work and evangelize.",
             "> The beggar lifestyle gives us the possibility to be in communion with poor and afflicted people<br> and not to forget that God is the beggar of love who seeks us incessantly.<br>We also wish to weave an authentic fraternal life, under the huge source of love and holiness<br>that Christ teaches to all his disciples.",
-            "If you want to know more, go to the [insights](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti) "
+            "*If you want to know more, go to the [insights](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti)*"
           ],
           "title": "Our life"
         }
@@ -469,7 +469,7 @@
               "title": "Curso para parejas casadas"
             }
           ],
-          "title": "Rettoria di Santa Chiara"
+          "title": "Rettoria di Santa Chiara (CZ)"
         },
         {
           "key": "s-maria-dell-anima",
@@ -495,7 +495,7 @@
               ]
             }
           ],
-          "title": "Zona “Cappuccini e Blatta” (Chivasso - TO)"
+          "title": "Parrocchie Madonna di Loreto e San Giuseppe lavoratore (TO)"
         }
       ],
       "header": {
@@ -511,7 +511,7 @@
         "backgroundImage": "chiSiamo.jpg",
         "brandImage": "logo.png",
         "caption": "Caritas - Veritas",
-        "title": "Missionari e Missionarie della via"
+        "title": "Misioneros del Camino"
       },
       "main": {
         "title": "¡Paz y bien, bienvenidos!"
@@ -549,7 +549,7 @@
           "strings": [
             "Los hermanos y hermanas viven la misma regla pero en casas separadas. Comparten algunos momentos de oración, vida común y misión. Su jornada se puede resumir en el lema: orar, trabajar y evangelizar.",
             ">El estilo de vida del mendigo nos permite estar en comunión con los últimos y no olvidar que Dios<br>mismo es el mendigo de amor que nos busca incesantemente.<br>Deseamos también tejer una auténtica vida fraterna, juntos para santificar bajo el amor elevado<br>que Cristo nos enseña,<br>de lo que siempre somos discípulos.",
-            "Si quieres saber más haz, [clic aquí](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti) "
+            "*Si quieres saber más haz, [clic aquí](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti)*"
           ],
           "title": "Nuestra vida"
         }
@@ -800,7 +800,7 @@
               "title": "Cours pour jeunes mariés"
             }
           ],
-          "title": "Rettoria di Santa Chiara"
+          "title": "Rettoria di Santa Chiara (CZ)"
         },
         {
           "key": "s-maria-dell-anima",
@@ -826,7 +826,7 @@
               ]
             }
           ],
-          "title": "Zona “Cappuccini e Blatta” (Chivasso - TO)"
+          "title": "Parrocchie Madonna di Loreto e San Giuseppe lavoratore (TO)"
         }
       ],
       "header": {
@@ -842,7 +842,7 @@
         "backgroundImage": "chiSiamo.jpg",
         "brandImage": "logo.png",
         "caption": "Caritas - Veritas",
-        "title": "Missionari e Missionarie della via"
+        "title": "Missionnaires du Chemin"
       },
       "main": {
         "title": "Paix et bonheur!"
@@ -879,7 +879,7 @@
           "strings": [
             "Les frères et sœurs vivent selon la même règle mais dans des maisons séparées. Ils partagent des\nmoments de prière, de vie commune et de mission. Leur journée est résumée par la devise : prier,\ntravailler et évangéliser.",
             ">Le mode de vie de mendiant nous permet d’être en communion avec les derniers et de ne pas\noublier que Dieu lui-même est le mendiant de l’amour qui nous cherche sans cesse.<br>Nous souhaitons également tisser une authentique vie fraternelle, ensemble pour nous sanctifier et\nsanctifier,<br>sous la bannière de l’amour élevé que le Christ nous enseigne,<br>dont nous sommes toujours les disciples”.",
-            "Si vous voulez en savoir plus, [cliquez ici](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti) "
+            "*Si vous voulez en savoir plus, [cliquez ici](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti)*"
           ],
           "title": "Notre vie"
         }
@@ -1130,7 +1130,7 @@
               "title": "Corso per gli sposi"
             }
           ],
-          "title": "Rettoria di Santa Chiara"
+          "title": "Rettoria di Santa Chiara (CZ) (CZ) (CZ)"
         },
         {
           "key": "s-maria-dell-anima",
@@ -1156,7 +1156,7 @@
               ]
             }
           ],
-          "title": "Zona “Cappuccini e Blatta” (Chivasso - TO)"
+          "title": "Parrocchie Madonna di Loreto e San Giuseppe lavoratore (TO)"
         }
       ],
       "header": {
@@ -1175,7 +1175,7 @@
         "title": "Missionari e Missionarie della via"
       },
       "main": {
-        "title": "Pace e bene, benvenuto!"
+        "title": "Pace e bene!"
       },
       "sections": [
         {
@@ -1460,7 +1460,7 @@
               "title": "Kurs dla nowożeńców"
             }
           ],
-          "title": "Rettoria di Santa Chiara"
+          "title": "Rettoria di Santa Chiara (CZ) (CZ)"
         },
         {
           "key": "s-maria-dell-anima",
@@ -1486,7 +1486,7 @@
               ]
             }
           ],
-          "title": "Zona “Cappuccini e Blatta” (Chivasso - TO)"
+          "title": "Parrocchie Madonna di Loreto e San Giuseppe lavoratore (TO)"
         }
       ],
       "header": {
@@ -1502,7 +1502,7 @@
         "backgroundImage": "chiSiamo.jpg",
         "brandImage": "logo.png",
         "caption": "Caritas - Veritas",
-        "title": "Missionari e Missionarie della via"
+        "title": "Misjonarze Drogi"
       },
       "main": {
         "title": "Pokój i dobro, witamy!"
@@ -1539,7 +1539,7 @@
           "strings": [
             "Bracia i siostry żyją na tej samej zasadzie, ale w oddzielnych domach. Dzielą się kilkoma chwilami: modlitwa, wspólne życie i misja. Ich dzień podsumowuje motto: módlcie się, pracujcie i nawracajcie.",
             ">Żebraczy styl życia pozwala nam być w jedności z najmniejszymi Żebraczy styl życia pozwala nam być w jedności z najmniejszymi,<br>razem uświęcać pod sztandarem wzniosłej miłości,<br>której uczy nas Chrystus, którego zawsze jesteśmy uczniami.",
-            "Jeśli chcesz dowiedzieć się więcej, [kliknij tutaj](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti) "
+            "*Jeśli chcesz dowiedzieć się więcej, [kliknij tutaj](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti)*"
           ],
           "title": "Nasze życie"
         }
@@ -1833,7 +1833,7 @@
         "backgroundImage": "chiSiamo.jpg",
         "brandImage": "logo.png",
         "caption": "Caritas - Veritas",
-        "title": "Missionari e Missionarie della via"
+        "title": "Missionários do Caminho"
       },
       "main": {
         "title": "Pace e bene, benvenuto!"
@@ -1870,7 +1870,7 @@
           "strings": [
             "Irmãos e irmãs vivem a mesma regra, mas em lares separados. Eles compartilham alguns momentos\nde oração, vida comum e missão. O dia deles é resumido pelo lema: rezar, trabalhar e evangelizar.",
             ">“O estilo de vida do mendigo nos permite estar em<br>comunhão com os últimos e não esquecer que o próprio Deus é o mendigo de amor que nos<br>procura incessantemente.<br>Desejamos também tecer uma autêntica vida fraterna, juntos para nos santificar e santificar,<br>sob a bandeira do amor elevado que Cristo nos ensina,<br>de que somos sempre discípulos”.",
-            "Se quiser saber mais, acesse as [mais informações](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti) "
+            "*Se quiser saber mais, acesse as [mais informações](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti)*"
           ],
           "title": "A nossa vida"
         }

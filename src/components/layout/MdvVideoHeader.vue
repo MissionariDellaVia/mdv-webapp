@@ -2,7 +2,7 @@
 <!--  <header :class="'md-bg bg' + {rootImage}">-->
   <header class="video-wrapper">
     <video playsinline autoplay muted loop :poster="helper.getImgUrl('chiSiamo.jpg')">
-      <source :src="helper.getImgUrl('intro.mp4')" type="video/mp4">
+      <source :src="helper.getImgUrl('intro-1440.mp4')" type="video/mp4">
     </video>
     <!-- This will be positioned on top of our video background -->
     <div class="header">
@@ -40,7 +40,6 @@ export default {
     height: 40vh !important;
   }
   video {
-    /** Simulationg background-size: cover */
     object-fit: cover !important;
     height: 100%;
     width: 100%;
@@ -66,25 +65,15 @@ export default {
 }
 @media only screen and (max-width: 1300px) and (min-width: 480px) {
   .video-wrapper {
-    height: 100vh !important;
+    height: 45rem !important;
   }
 
 }
 
 .video-wrapper {
-  /* Telling our absolute positioned video to
-  be relative to this element */
   position: relative;
-
-  height: 65vh;
-  min-height: 40vh;
-
-  /* Will not allow the video to overflow the
-  container */
+  height: 45rem;
   overflow: hidden;
-
-  /* Centering the container's content vertically
-  and horizontally */
   text-align: center;
   display: flex;
   align-items: center;
@@ -100,7 +89,6 @@ export default {
   background: linear-gradient(180deg, rgba(28,24,10,0.7989262599571079) 0%, rgba(43,37,16,0) 32%);
 }
 video {
-  /** Simulationg background-size: cover */
   object-fit: cover;
   height: 100%;
   width: 100%;
