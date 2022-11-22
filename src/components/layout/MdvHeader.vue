@@ -39,6 +39,9 @@ export default {
 <style scoped>
 
 @media only screen and (max-width: 480px) {
+  .md-bg {
+    height: 100vh !important;
+  }
   .main-title {
     font-size: 3rem !important;
   }
@@ -56,8 +59,7 @@ export default {
 
 .md-bg {
   font-family: 'Bubbler One', sans-serif;
-  height: 55vh;
-  min-height: 40vh;
+  height: 45rem;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

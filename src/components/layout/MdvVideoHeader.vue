@@ -37,7 +37,7 @@ export default {
 
 @media only screen and (max-width: 480px) {
   .video-wrapper {
-    height: 40vh !important;
+    height: 100vh !important;
   }
   video {
     object-fit: cover !important;
