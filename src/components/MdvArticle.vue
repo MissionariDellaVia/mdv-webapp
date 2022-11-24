@@ -11,7 +11,7 @@
         <Carousel v-if="Array.isArray(imageUrl)" :pauseAutoplayOnHover="true" :transition="800" :autoplay="3000" :wrap-around="true" :breakpoints="breakpoints" class="mb-3" >
           <Slide v-for="(img, index) in imageUrl" :key="index">
             <div class="carousel__item ">
-              <img :src=helper.getImgUrl(img) @click="showImage(img)" class="carousel-preview-img" alt="imageUrl">
+              <img :src=helper.getImgUrl(img) @click="showImage(img)" class="shadow carousel-preview-img" alt="imageUrl">
             </div>
           </Slide>
           <template #addons>
