@@ -59,11 +59,11 @@ export default {
         },
         // 1024 and up
         1280: {
-          itemsToShow: 2.10,
+          itemsToShow: 2,
         },
         // 1024 and up
         1440: {
-          itemsToShow: 3.59,
+          itemsToShow: 3,
         }
       }
 
