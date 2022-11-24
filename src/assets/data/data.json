@@ -1084,7 +1084,14 @@
                 "**ADORAZIONE EUCARISTICA** Venerdì 21:00",
                 "**CATECHESI** Ogni ultima domenica del mese dopo la messa",
                 "**CONFESSIONI** Sabato e domenica dalle ore 16:00 (Per confessarsi in altri momenti si suggerisce di richiedere preventivamente un appuntamento contattando i missionari)"
-              ]
+              ],
+              "image": {
+                "url": [
+                  "1.jpg",
+                  "2.jpg",
+                  "3.jpg"
+                ]
+              }
             },
             {
               "articles": [
@@ -1151,8 +1158,8 @@
           "sections": [
             {
               "articles": [
-                "Ritiro d’Avvento per la parrocchia “Madonna di Loreto”: domenica 27 novembre alle ore 15.30.",
-                "Ritiro d’Avvento per la parrocchia “San Giuseppe Lavoratore”: domenica 19 marzo 2023 alle ore 15.30."
+                "Ritiro d’Avvento per le parrocchie: domenica 27 novembre 2022 alle ore 15.30 a San Giuseppe Lavoratore",
+                "Ritiro di Quaresima per le parrocchie: domenica 19 marzo 2023 alle ore 15.30 a San Giuseppe Lavoratore."
               ]
             }
           ],
@@ -1210,7 +1217,7 @@
           "strings": [
             "Fratelli e sorelle vivono la stessa regola ma in abitazioni distinte. Condividono alcuni momenti di preghiera, di vita comune e di missione. La loro giornata è riassunta dal motto: pregare, lavorare ed evangelizzare.",
             ">Lo stile di vita mendicante ci permette di essere in<br>comunione con gli ultimi e di non dimenticare che Dio stesso è il mendicante di amore che ci cerca incessantemente.<br>Desideriamo, inoltre, intessere un’autentica vita fraterna, insieme per santificarci e santificare,<br>all’insegna dell’amore elevato che ci insegna Cristo,<br>del quale siamo sempre discepoli”.",
-            "*Se volessi saperne di più, vai sul [approfondimenti](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti)*"
+            "*Se volessi saperne di più, vai agli [approfondimenti](https://missionaridellavia.github.io/mdv-webapp/#/approfondimenti)*"
           ],
           "title": "La nostra vita"
         }
