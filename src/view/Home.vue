@@ -40,7 +40,7 @@
           </div>
         </div>
 
-        <Carousel :settings="settings" :pauseAutoplayOnHover="true" :transition="1500" :autoplay="3000" :breakpoints="breakpoints" :wrap-around="true" >
+        <Carousel :settings="settings" :pauseAutoplayOnHover="true" :transition="800" :autoplay="4000" :breakpoints="breakpoints" :wrap-around="true" >
           <Slide v-for="post in lastBlogPosts" :key="post.id">
             <div class="carousel__item ">
               <MdvBlogCard :title="post.title"
