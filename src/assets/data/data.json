@@ -92,7 +92,13 @@
                 "**EUCHARISTIC ADORATION** Friday 9:00 pm",
                 "**CATECHESIS ** Every last Sunday of the month after the Holy Mass",
                 "**CONFESSIONS** Saturday and Sunday from 4 pm (to confess at other times it is suggested to request an appointment in advance by contacting the missionaries)"
-              ]
+              ],
+              "image": {
+                "url": [
+                  "1.jpg",
+                  "3.jpg"
+                ]
+              }
             },
             {
               "articles": [
@@ -423,7 +429,13 @@
                 "**ADORACIÓN EUCARÍSTICA** Viernes 21h",
                 "**CATEQUESIS** Cada último domingo del mes después de la Misa",
                 "**CONFESIONES** Sábado y Domingo a partir de las 16 h (Para confesarse en otros horarios se sugiere solicitar cita contactando a los misioneros)"
-              ]
+              ],
+              "image": {
+                "url": [
+                  "1.jpg",
+                  "3.jpg"
+                ]
+              }
             },
             {
               "articles": [
@@ -754,7 +766,13 @@
                 "**ADORATION EUCHARISTIQUE** Vendredi 21:00",
                 "**CATÉCHÈSE** Chaque dernier dimanche du mois après la messe",
                 "**CONFESSION** Les samedis et dimanches à partir de 16h00 (Pour les confessions à d’autres moments, il est suggéré de demander un rendez-vous à l’avance en contactant les missionnaires)."
-              ]
+              ],
+              "image": {
+                "url": [
+                  "1.jpg",
+                  "3.jpg"
+                ]
+              }
             },
             {
               "articles": [
@@ -1088,7 +1106,6 @@
               "image": {
                 "url": [
                   "1.jpg",
-                  "2.jpg",
                   "3.jpg"
                 ]
               }
@@ -1137,7 +1154,7 @@
               "title": "Corso per gli sposi"
             }
           ],
-          "title": "Rettoria di Santa Chiara (CZ) (CZ) (CZ)"
+          "title": "Rettoria di Santa Chiara (CZ) "
         },
         {
           "key": "s-maria-dell-anima",
@@ -1421,7 +1438,13 @@
                 "**ADORACJA EUCHARYSTYCZNA** Piątek 21:00",
                 "**KATECHEZA** W każdą ostatnią niedzielę miesiąca po mszy świętej",
                 "**SPOWIEDZI** Sobota i niedziela od godz. 16:00 (zeby się spowiadać w innym czasie zaleca się poprosić o spotkanie z wyprzedzeniem, kontaktując się z misjonarzami)"
-              ]
+              ],
+              "image": {
+                "url": [
+                  "1.jpg",
+                  "3.jpg"
+                ]
+              }
             },
             {
               "articles": [
@@ -1751,7 +1774,13 @@
                 "**ADORAÇÃO EUCARÍSTICA** Sexta-feira 21:00",
                 "**CATEQUESE** O último domingo de cada mês depois da missa",
                 "**CONFISSÕES** Sábado e Domingo a partir das 16:00 (Para se confessar em outros horários sugere- se solicitar agendamento prévio entrando em contato com os missionários)"
-              ]
+              ],
+              "image": {
+                "url": [
+                  "1.jpg",
+                  "3.jpg"
+                ]
+              }
             },
             {
               "articles": [
