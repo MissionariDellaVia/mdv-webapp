@@ -40,7 +40,7 @@
           </div>
         </div>
 
-        <Carousel :settings="settings" :breakpoints="breakpoints" :wrap-around="true" >
+        <Carousel :settings="settings" :pauseAutoplayOnHover="true" :transition="1500" :autoplay="3000" :breakpoints="breakpoints" :wrap-around="true" >
           <Slide v-for="post in lastBlogPosts" :key="post.id">
             <div class="carousel__item ">
               <MdvBlogCard :title="post.title"
@@ -93,8 +93,8 @@ export default {
         },
         // 1024 and up
         1024: {
-          itemsToShow: 3.5,
-          snapAlign: 'start',
+          itemsToShow: 3,
+          snapAlign: 'center',
         }
       }
     };
@@ -162,11 +162,33 @@ p {
   font-family: 'Playfair Display', sans-serif;
   color: rgb(40, 29, 2);
 }
-.bg-prega-con-noi{
-  background: url("../assets/img/default.jpg")  no-repeat center;
-  min-height: 40rem;
-  background-size: cover;
-  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.60);
-  color: whitesmoke;
+.carousel__slide {
+  padding: 1.4rem;
 }
+.carousel__track {
+  transform-style: preserve-3d;
+}
+.carousel__slide--sliding {
+  transition: 0.5s;
+}
+.carousel__slide {
+  opacity: 0.9;
+  transform: rotateY(-20deg) scale(0.8);
+}
+.carousel__slide--active ~ .carousel__slide {
+  transform: rotateY(20deg) scale(0.8);
+}
+.carousel__slide--prev {
+  opacity: 1;
+  transform: rotateY(-10deg) scale(0.85);
+}
+.carousel__slide--next {
+  opacity: 1;
+  transform: rotateY(10deg) scale(0.85);
+}
+.carousel__slide--active {
+  opacity: 1;
+  transform: rotateY(0) scale(1);
+}
+
 </style>
