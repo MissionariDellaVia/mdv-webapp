@@ -8,7 +8,8 @@ import Attivita from '@/view/Attivita';
 import Contatti from '@/view/Contatti';
 import Approfondimenti from '@/view/Approfondimenti';
 import PregaPerNoi from '@/view/PregaPerNoi';
-import Dashboard from '@/view/Dashboard';
+import Dashboard from '@/view/admin/Dashboard';
+import EditPage from "@/view/admin/EditPage";
 
 const routes = [
     {
@@ -57,6 +58,13 @@ const routes = [
         path: '/reserved-area/mdv-admin/dashboard',
         name: 'dashboard',
         component: Dashboard,
+        meta: { requiresAuth: true, reservedArea: true }
+    },
+    {
+        path: '/reserved-area/mdv-admin/dashboard/:page',
+        name: 'edit-page',
+        props: true,
+        component: EditPage,
         meta: { requiresAuth: true, reservedArea: true }
     },
     { path: '/:notFound(.*)', component: Home }

@@ -2,20 +2,17 @@
 <section>
     <form @submit.prevent="submitForm" class="mt-4 mb-2" >
         <div class="form-floating mb-3">
-            <input type="email" class="form-control shadow rounded" v-model="email" id="floatingInput" placeholder="name@example.com">
+            <input type="email" class="form-control shadow rounded-4" v-model="email" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">Email</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="password" class="form-control shadow rounded" v-model="password" id="floatingPassword" placeholder="Password">
+            <input type="password" class="form-control shadow rounded-4" v-model="password" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Password</label>
         </div>
         <div class="mx-auto text-center">
-          <button type="submit" class="action-button"> Entra </button>
+          <button type="submit" class="action-button rounded-5"> Entra </button>
         </div>
     </form>
-    <div class="text-center">
-        <router-link to="/" class="color3 small">Hai dimenticato la password?</router-link>
-    </div>
 </section>
 </template>
 
@@ -60,25 +57,22 @@ input:focus {
     color: rgb(40, 29, 2, 0.9) !important;
     border-color: transparent !important;
 }
-.small {
-    font-size: 0.70rem;
-}
 .action-button {
   color: #fff;
   padding: 0.7em 1.7em;
   border-color: transparent;
   font-size: 18px;
-  background-color: #59411a;
+  background-color: #8c681c;
   transition: all .1s;
   -webkit-box-shadow: 3px 4px 15px -5px #3f2a02;
   box-shadow: 3px 4px 15px -5px #3f2a02;
 }
 .action-button:hover {
-  background-color: #8c681c;
+  background-color: #eca61c;
   transform: scale(0.97);
 }
 .action-button:focus {
-  background-color: #8c681c;
+  background-color: #eca61c;
   transform: scale(0.93);
 }
 a {

@@ -1,10 +1,10 @@
 <template>
-  <button class="btn action-button rounded-4 text-uppercase"> {{ title }}</button>
+  <router-link class="btn action-button rounded-4 text-uppercase" :to="link"> {{ title }}</router-link>
 </template>
 
 <script>
 export default {
-  props: ['title']
+  props: ['title', "link"]
 }
 </script>
 
@@ -13,7 +13,7 @@ export default {
 .action-button {
   font-family: 'Bubbler One', sans-serif;
   color: #fff;
-  padding: 0.7em 1.7em;
+  padding: 1.7em 1.7em;
   border-color: transparent;
   font-size: 1.8rem;
   height: 10rem;

@@ -15,11 +15,12 @@ export default {
 
 <style scoped>
 .title {
-  font-family: 'Playfair Display', sans-serif;
-  color: #29140b;
+  font-family: 'Bubbler One', sans-serif;
+  font-size: 2.5rem;
+  color: #ffffff;
 }
 .card {
-  color: #29140b;
+  background-color: #3f2a02;
   width: 30rem;
   -webkit-border-radius: 1.563rem;
   -moz-border-radius: 1.563rem;

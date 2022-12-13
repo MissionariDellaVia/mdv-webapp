@@ -1,7 +1,9 @@
 <template>
   <div class="card position-absolute top-50 start-50 translate-middle shadow-lg">
+    <div class="card-header">
+      <h1 class="card-title text-center mt-2 text-uppercase">{{ title }}</h1>
+    </div>
     <div class="card-body mx-auto">
-      <h1 class="title text-center fs-1 my-4 text-uppercase">{{ title }}</h1>
       <slot></slot>
     </div>
   </div>
@@ -14,9 +16,10 @@ export default {
 </script>
 
 <style scoped>
-.title {
+.card-title {
   font-family: 'Bubbler One', sans-serif;
-  color: #655640;
+  color: rgba(248, 248, 248, 0.9);
+  font-size: 3rem;
 }
 .card {
   color: #29140b;
@@ -26,6 +29,13 @@ export default {
   -webkit-border-radius: 1.563rem;
   -moz-border-radius: 1.563rem;
   border-radius: 1.563rem;
+}
+
+.card-header {
+  border-color: transparent;
+  background-color: #64553f !important;
+  border-top-left-radius: 1.563rem !important;
+  border-top-right-radius: 1.563rem !important;
 }
 
 /* Small devices (landscape phones, 576px and up)*/
