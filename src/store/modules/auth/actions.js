@@ -25,6 +25,7 @@ export default {
         localStorage.setItem('tokenExpiration', response.user.stsTokenManager.expirationTime);
 
         console.log('email ' + response.user.email);
+        console.log('token ' + response.user.stsTokenManager.accessToken);
 
         timer = setTimeout(function() {
             context.dispatch('autoLogout');

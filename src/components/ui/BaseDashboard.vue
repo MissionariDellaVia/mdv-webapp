@@ -4,7 +4,9 @@
       <h1 class="card-title text-center mt-2 text-uppercase">{{ title }}</h1>
     </div>
     <div class="card-body mx-auto">
-      <slot></slot>
+      <div class="container">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -24,7 +26,7 @@ export default {
 .card {
   color: #29140b;
   background-color: #e1d9cb !important;
-  width: 80%;
+  width: 90%;
   /*min-height: 50vh;*/
   -webkit-border-radius: 1.563rem;
   -moz-border-radius: 1.563rem;
@@ -36,6 +38,9 @@ export default {
   background-color: #64553f !important;
   border-top-left-radius: 1.563rem !important;
   border-top-right-radius: 1.563rem !important;
+}
+.container {
+  max-height: 40rem;
 }
 
 /* Small devices (landscape phones, 576px and up)*/

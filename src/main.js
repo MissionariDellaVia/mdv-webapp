@@ -12,6 +12,7 @@ import BaseDashboard from "@/components/ui/BaseDashboard";
 import BaseButton from "@/components/ui/BaseButton";
 import BackButton from "@/components/ui/BackButton";
 import ImageDialog from "@/components/ui/ImageDialog";
+import BaseDialog from "@/components/ui/BaseDialog";
 
 // Bootstrap Style
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -41,5 +42,6 @@ app.component('base-dashboard', BaseDashboard);
 app.component('base-button', BaseButton);
 app.component('back-button', BackButton);
 app.component('image-dialog', ImageDialog);
+app.component('base-dialog', BaseDialog);
 
 app.mount('#app');

@@ -15,7 +15,7 @@ export default {
   color: #fff;
   padding: 1.7em 1.7em;
   border-color: transparent;
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   height: 10rem;
   width: 20rem;
   background-color: #655640;

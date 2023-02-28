@@ -96,5 +96,12 @@ export default {
                 state.footer = footer.it;
                 break;
         }
+    },
+    setArticles(state, payload) {
+        state.attivita
+            .groups[payload.groupIndex]
+            .sections[payload.sectionIndex]
+            .articles[payload.articleIndex] = payload.article;
     }
+
 }
