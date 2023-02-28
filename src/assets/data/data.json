@@ -88,7 +88,7 @@
               "articles": [
                 "If you want to experience moments of prayer with us ... In Lamezia Terme",
                 "Church of S. Chiara (Lamezia Terme)",
-                "**HOLY MASS** Sunday 11 am and 6 pm",
+                "**HOLY MASS** Sunday 6 pm",
                 "**EUCHARISTIC ADORATION** Friday 9:00 pm",
                 "**CATECHESIS ** Every last Sunday of the month after the Holy Mass",
                 "**CONFESSIONS** Saturday and Sunday from 4 pm (to confess at other times it is suggested to request an appointment in advance by contacting the missionaries)"
@@ -423,7 +423,7 @@
             {
               "articles": [
                 "Si quieres vivir momentos de oración con nosotros... En Lamezia Terme:",
-                "**SANTA MISA** Domingo 11h y 18h",
+                "**SANTA MISA** Domingo 18h",
                 "**ADORACIÓN EUCARÍSTICA** Viernes 21h",
                 "**CATEQUESIS** Cada último domingo del mes después de la Misa",
                 "**CONFESIONES** Sábado y Domingo a partir de las 16 h (Para confesarse en otros horarios se sugiere solicitar cita contactando a los misioneros)"
@@ -758,7 +758,7 @@
             {
               "articles": [
                 "Si vous voulez vivre des moments de prière avec nous... A Lamezia Terme:",
-                "**SAINTE MESSE** Dimanche 11:00 et 18:00.",
+                "**SAINTE MESSE** Dimanche 18:00.",
                 "**ADORATION EUCHARISTIQUE** Vendredi 21:00",
                 "**CATÉCHÈSE** Chaque dernier dimanche du mois après la messe",
                 "**CONFESSION** Les samedis et dimanches à partir de 16h00 (Pour les confessions à d’autres moments, il est suggéré de demander un rendez-vous à l’avance en contactant les missionnaires)."
@@ -1092,7 +1092,7 @@
             {
               "articles": [
                 "Se vuoi vivere dei momenti di preghiera con noi... A Lamezia Terme:",
-                "**SANTA MESSA** Domenica ore 11:00 e ore 18:00",
+                "**SANTA MESSA** Domenica ore 18:00",
                 "**ADORAZIONE EUCARISTICA** Venerdì 21:00",
                 "**CATECHESI** Ogni ultima domenica del mese dopo la messa",
                 "**CONFESSIONI** Sabato e domenica dalle ore 16:00 (Per confessarsi in altri momenti si suggerisce di richiedere preventivamente un appuntamento contattando i missionari)"
@@ -1291,6 +1291,30 @@
             "title": "**Telefono:**"
           },
           "title": "Napoli"
+        },
+        {
+          "address": [
+            "**Santuario di San Francesco di Paola**",
+            "Via S. Francesco",
+            "89844 Nicotera VV"
+          ],
+          "emails": [
+            {
+              "email": "missionaridellavia.vibo@gmail.com",
+              "title": "**Frati:**"
+            },
+            {
+              "email": "missionariedellavia.vibo@gmail.com",
+              "title": "**Suore:**"
+            }
+          ],
+          "lat": "38.552060",
+          "lng": "15.935450",
+          "phone": {
+            "number": "3773219994",
+            "title": "**Telefono:**"
+          },
+          "title": "Nicotera (VV)"
         }
       ]
     },
@@ -1425,7 +1449,7 @@
             {
               "articles": [
                 "Jeśli chcesz przeżyć z nami chwile modlitwy... W Lamezia Terme:",
-                "**MSZE ŚWIĘTE** niedziela 11:00 i 18:00",
+                "**MSZE ŚWIĘTE** niedziela 18:00",
                 "**ADORACJA EUCHARYSTYCZNA** Piątek 21:00",
                 "**KATECHEZA** W każdą ostatnią niedzielę miesiąca po mszy świętej",
                 "**SPOWIEDZI** Sobota i niedziela od godz. 16:00 (zeby się spowiadać w innym czasie zaleca się poprosić o spotkanie z wyprzedzeniem, kontaktując się z misjonarzami)"
@@ -1759,7 +1783,7 @@
             {
               "articles": [
                 "Se você quiser viver momentos de oração conosco... Em Lamezia Terme:",
-                "**SANTA MISSA** Domingo 11h e 18h",
+                "**SANTA MISSA** Domingo 18h",
                 "**ADORAÇÃO EUCARÍSTICA** Sexta-feira 21:00",
                 "**CATEQUESE** O último domingo de cada mês depois da missa",
                 "**CONFISSÕES** Sábado e Domingo a partir das 16:00 (Para se confessar em outros horários sugere- se solicitar agendamento prévio entrando em contato com os missionários)"
