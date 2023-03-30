@@ -95,7 +95,10 @@
               ],
               "image": {
                 "align": "left",
-                "url": "3.jpg"
+                "url": [
+                  "1.jpg",
+                  "2.jpg"
+                ]
               }
             },
             {
@@ -430,7 +433,10 @@
               ],
               "image": {
                 "align": "left",
-                "url": "3.jpg"
+                "url": [
+                  "1.jpg",
+                  "2.jpg"
+                ]
               }
             },
             {
@@ -765,7 +771,10 @@
               ],
               "image": {
                 "align": "left",
-                "url": "3.jpg"
+                "url": [
+                  "1.jpg",
+                  "2.jpg"
+                ]
               }
             },
             {
@@ -1099,7 +1108,10 @@
               ],
               "image": {
                 "align": "left",
-                "url": "3.jpg"
+                "url": [
+                  "1.jpg",
+                  "2.jpg"
+                ]
               }
             },
             {
@@ -1456,7 +1468,10 @@
               ],
               "image": {
                 "align": "left",
-                "url": "3.jpg"
+                "url": [
+                  "1.jpg",
+                  "2.jpg"
+                ]
               }
             },
             {
@@ -1790,7 +1805,10 @@
               ],
               "image": {
                 "align": "left",
-                "url": "3.jpg"
+                "url": [
+                  "1.jpg",
+                  "2.jpg"
+                ]
               }
             },
             {
