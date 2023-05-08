@@ -14,7 +14,7 @@
       </div>
 
       <div class="row mx-auto my-5 gy-3">
-        <div v-for="(footer, index) in footerList" v-bind:key="index" class="col-sm-4 hoverable">
+        <div v-for="(footer, index) in footerList" v-bind:key="index" class="col-sm-3 hoverable">
           <h5 class="text-center">{{ footer.title }}</h5>
           <a target="_blank" :href="`${footer.to}`">
             <img class="img-fluid" :src="helper.getImgUrl(`${footer.image}`)" :alt="footer.image"/>

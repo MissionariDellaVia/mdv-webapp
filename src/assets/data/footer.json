@@ -14,6 +14,11 @@
       "title": "Vocation Site",
       "to": "https://www.vocazione.altervista.org/",
       "image": "footer-vocazione.jpg"
+    },
+    {
+      "title": "The Gospel Way",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+      "image": "footer-gospel.jpg"
     }
   ],
   "es": [
@@ -31,6 +36,11 @@
       "title": "Sitio Vocacional",
       "to": "https://www.vocazione.altervista.org/",
       "image": "footer-vocazione.jpg"
+    },
+    {
+      "title": "La Vía del Evangelio",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+      "image": "footer-gospel.jpg"
     }
   ],
   "pt": [
@@ -48,6 +58,11 @@
       "title": "Local Vocacional",
       "to": "https://www.vocazione.altervista.org/",
       "image": "footer-vocazione.jpg"
+    },
+    {
+      "title": "A Via do Evangelho",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+      "image": "footer-gospel.jpg"
     }
   ],
   "it": [
@@ -65,6 +80,11 @@
       "title": "Sito Vocazionale",
       "to": "https://www.vocazione.altervista.org/",
       "image": "footer-vocazione.jpg"
+    },
+    {
+      "title": "La Via del Vangelo",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+      "image": "footer-gospel.jpg"
     }
   ],
   "fr": [
@@ -82,6 +102,11 @@
       "title": "Site de vocation",
       "to": "https://www.vocazione.altervista.org/",
       "image": "footer-vocazione.jpg"
+    },
+    {
+      "title": "La Voie de l'Évangile",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+      "image": "footer-gospel.jpg"
     }
   ],
   "pl": [
@@ -99,6 +124,11 @@
       "title": "Strona Powołaniowa",
       "to": "https://www.vocazione.altervista.org/",
       "image": "footer-vocazione.jpg"
+    },
+    {
+      "title": "Droga Ewangelii",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+      "image": "footer-gospel.jpg"
     }
   ]
 }
