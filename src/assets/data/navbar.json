@@ -44,6 +44,12 @@
         },
         {
           "type": "link",
+          "title": "Gospel Way",
+          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+          "external": true
+        },
+        {
+          "type": "link",
           "title": "insights",
           "to": "/approfondimenti"
         },
@@ -96,6 +102,12 @@
           "type": "link",
           "title": "canal de Youtube",
           "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "Calle del Evangelio",
+          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
           "external": true
         },
         {
@@ -156,6 +168,12 @@
         },
         {
           "type": "link",
+          "title": "Rua do Evangelho",
+          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+          "external": true
+        },
+        {
+          "type": "link",
           "title": "Aprofundamentos",
           "to": "/approfondimenti"
         },
@@ -208,6 +226,12 @@
           "type": "link",
           "title": "canale youtube",
           "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "Via del Vangelo",
+          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
           "external": true
         },
         {
@@ -268,6 +292,12 @@
         },
         {
           "type": "link",
+          "title": "Rue de l'Évangile",
+          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+          "external": true
+        },
+        {
+          "type": "link",
           "title": "EN SAVOIR PLUS",
           "to": "/approfondimenti"
         },
@@ -320,6 +350,12 @@
           "type": "link",
           "title": "kanał Youtube",
           "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "Ulica Ewangelii",
+          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
           "external": true
         },
         {

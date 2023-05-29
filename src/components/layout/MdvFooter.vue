@@ -116,11 +116,11 @@ footer {
 
 .hoverable {
   transition-duration: 0.2s;
-  transform: scale(0.8);
+  transform: scale(0.95);
 }
 
 .hoverable:hover {
-  transform: scale(1);
+  transform: scale(1.1);
   color: #c3ac7d;
 }
 
