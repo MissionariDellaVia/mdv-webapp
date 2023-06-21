@@ -47,7 +47,7 @@ module.exports = defineConfig({
   transpileDependencies: true,
   configureWebpack: {
     plugins: [
-      new SitemapPlugin({ base: 'https://www.missionaridellavia.net/#', paths })
+      new SitemapPlugin({ base: 'https://www.missionaridellavia.net', paths })
     ]
   },
 })
