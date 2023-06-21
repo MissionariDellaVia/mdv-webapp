@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import store from '@/store/index.js';
 
 import Home from '@/view/Home';
@@ -43,12 +43,6 @@ const routes = [
         // meta: { requiresAuth: true }
     },
     {
-        path: '/come-contattarci',
-        name: 'contatti',
-        component: Contatti,
-        // meta: { requiresAuth: true }
-    },
-    {
         path: '/approfondimenti',
         name: 'approfondimenti',
         component: Approfondimenti,
@@ -77,10 +71,9 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     routes,
     scrollBehavior() {
-        // always scroll to top
         return { top: 0 }
     },
 });
