@@ -67,7 +67,7 @@ const routes = [
         component: EditPage,
         meta: { requiresAuth: true, reservedArea: true }
     },
-    { path: '/:notFound(.*)', component: Home }
+    { path: '/:pathMatch(.*)*', component: Home }
 ]
 
 const router = createRouter({
