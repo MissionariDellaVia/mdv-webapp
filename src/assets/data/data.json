@@ -1157,10 +1157,7 @@
           "sections": [
             {
               "articles": [
-                "Ogni mese incontro di spiritualità (8 gennaio, 12 febbraio, 12 marzo, 16 aprile, 14 maggio, 11 giugno):",
-                "Catechesi: 16:00",
-                "S. Messa: ore 18",
-                "Confessioni prima della S. Messa."
+                "A breve vi aggiorneremo sulle attività del nuovo anno pastorale"
               ]
             }
           ],
@@ -1172,7 +1169,12 @@
             {
               "articles": [
                 "Ritiro di Quaresima per le parrocchie: domenica 19 marzo 2023 alle ore 15.30 a San Giuseppe Lavoratore."
-              ]
+              ],
+              "image": {
+                "url": [
+                  "1c.jpg"
+                ]
+              }
             }
           ],
           "title": "Parrocchie Madonna di Loreto e San Giuseppe lavoratore (TO)"
