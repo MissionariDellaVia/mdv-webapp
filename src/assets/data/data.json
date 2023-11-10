@@ -88,14 +88,13 @@
               "articles": [
                 "If you want to experience moments of prayer with us ... In Lamezia Terme",
                 "Church of S. Chiara (Lamezia Terme)",
-                "**HOLY MASS** Sunday 7 pm",
+                "**HOLY MASS** Sunday 6 pm",
                 "**CONFESSIONS** Saturday and Sunday from 4 pm (to confess at other times it is suggested to request an appointment in advance by contacting the missionaries)"
               ],
               "image": {
                 "url": [
                   "1.jpg",
-                  "2.jpg",
-                  "3.jpg"
+                  "2.jpg"
                 ]
               }
             },
@@ -150,26 +149,25 @@
           "sections": [
             {
               "articles": [
-                "Every month spirituality meeting (November 17, December 11, January 8, February 12, March 12,\nApril 16, May 14, June 11):",
-                "Catechesis: 16:00",
-                "Holy Mass: 6 pm",
-                "Confessions before the Holy Mass"
+                "**Holy Mass** Sunday, October 29 at 6:00 p.m.",
+                "**CATECHESIS** Sunday, October 29 from 5:00 p.m.",
+                "**CONFESSIONS** Sunday, October 29 from 4:30 p.m.",
+                "As we go along, we will notify you of upcoming dates of spiritual retreats."
               ]
             }
           ],
           "title": "Chiesa di S. Maria dell’Anima (NA)"
         },
         {
-          "key": "capuccini-e-blatta",
+          "key": "san-francesco-paola",
           "sections": [
             {
               "articles": [
-                "Advent retreat for the 'Madonna di Loreto' parish: Sunday 27 November at 4 pm. Following, at 6 pm, Holy Mass.",
-                "Advent retreat for the parish of 'San Giuseppe Lavoratore': Sunday 19 March 2023 at 4 pm. Afterwards, at 6 pm, Holy Mass."
-              ]
+                "**Holy Mass** Sunday 9 a.m.",
+                "**CONFESSIONS** Tuesday through Saturday from 9 a.m. to noon and 4 p.m. to 6 p.m. Sundays before and after Mass."              ]
             }
           ],
-          "title": "Parrocchie Madonna di Loreto e San Giuseppe lavoratore (TO)"
+          "title": "Santuario di San Francesco di Paola (VV)"
         }
       ],
       "header": {
@@ -424,14 +422,13 @@
             {
               "articles": [
                 "Si quieres vivir momentos de oración con nosotros... En Lamezia Terme:",
-                "**SANTA MISA** Domingo 19h",
+                "**SANTA MISA** Domingo 18:00",
                 "**CONFESIONES** Sábado y Domingo a partir de las 16 h (Para confesarse en otros horarios se sugiere solicitar cita contactando a los misioneros)"
               ],
               "image": {
                 "url": [
                   "1.jpg",
-                  "2.jpg",
-                  "3.jpg"
+                  "2.jpg"
                 ]
               }
             },
@@ -486,26 +483,25 @@
           "sections": [
             {
               "articles": [
-                "Reunión de espiritualidad cada mes (17 de noviembre, 11 de diciembre, 8 de enero, 12 de febrero, 12 de marzo, 16 de abril, 14 de mayo, 11 de junio):",
-                "Catequesis: 16:00",
-                "S. Misa: 18.00 h",
-                "Confesiones antes de la Santa Misa."
+                "**Santa Misa** Domingo 29 de octubre a las 18:00",
+                "**CATEQUESIS** Domingo 29 de octubre a partir de las 17:00",
+                "**CONFESIONES** Domingo 29 de octubre a partir de las 16:30",
+                "Os iremos informando de las próximas fechas de retiros espirituales"
               ]
             }
           ],
           "title": "Chiesa di S. Maria dell’Anima (NA)"
         },
         {
-          "key": "capuccini-e-blatta",
+          "key": "san-francesco-paola",
           "sections": [
             {
               "articles": [
-                "Retiro de Adviento de la parroquia  Madonna di Loreto : domingo 27 de noviembre a las 16.00 h. A continuación, a las 18.00 h, Santa Misa.",
-                "Retiro de Adviento para la parroquia de ;San Giuseppe Lavoratore;: domingo 19 de marzo de 2023 a las 16.00 h. A continuación, a las 18.00 h, Santa Misa."
-              ]
+                "**Santa Misa** Domingo 9:00",
+                "**CONFESIONES** de Martes a Sábado de 9:00 a 12:00 y de 16:00 a 18:00. Domingo antes y después de misa"              ]
             }
           ],
-          "title": "Parrocchie Madonna di Loreto e San Giuseppe lavoratore (TO)"
+          "title": "Santuario di San Francesco di Paola (VV)"
         }
       ],
       "header": {
@@ -760,14 +756,13 @@
             {
               "articles": [
                 "Si vous voulez vivre des moments de prière avec nous... A Lamezia Terme:",
-                "**SAINTE MESSE** Dimanche 19:00.",
+                "**SAINTE MESSE** Dimanche 18:00.",
                 "**CONFESSION** Les samedis et dimanches à partir de 16h00 (Pour les confessions à d’autres moments, il est suggéré de demander un rendez-vous à l’avance en contactant les missionnaires)."
               ],
               "image": {
                 "url": [
                   "1.jpg",
-                  "2.jpg",
-                  "3.jpg"
+                  "2.jpg"
                 ]
               }
             },
@@ -821,27 +816,27 @@
           "key": "s-maria-dell-anima",
           "sections": [
             {
-              "articles": [
-                "Rencontre mensuelle de spiritualité (17 novembre, 11 décembre, 8 janvier, 12 février, 12 mars, 16 avril, 14 mai, 11 juin) :",
-                "Catéchèse : 16:00",
-                "S. Messe : 18:00.",
-                "Confessions avant la Sainte Messe."
+              "articles" : [
+                "**MESSE SAINTE** dimanche 29 octobre à 18:00",
+                "**CATECHESIS** Dimanche 29 octobre à partir de 17:00",
+                "**CONFESSIONS** Dimanche 29 octobre à partir de 16:30",
+                "Nous vous informerons progressivement des prochaines dates de retraites spirituelles"
               ]
             }
           ],
           "title": "Chiesa di S. Maria dell’Anima (NA)"
         },
         {
-          "key": "capuccini-e-blatta",
+          "key": "san-francesco-paola",
           "sections": [
             {
               "articles": [
-                "Retraite de l'Avent pour la paroisse Madonna di Loreto: dimanche 27 novembre à 16h00, puis à 18h00, messe.",
-                "Retraite de l'Avent pour la paroisse San Giuseppe Lavoratore': dimanche 19 mars 2023 à 16h00. Ensuite, à 18h00, messe."
+                "**MESSE SAINTE** le dimanche à 9:00",
+                "**CONFESSIONS** Du mardi au samedi de 9:00 à 12:00 et de 16:00 à 18:00. Le dimanche avant et après la messe"
               ]
             }
           ],
-          "title": "Parrocchie Madonna di Loreto e San Giuseppe lavoratore (TO)"
+          "title": "Santuario di San Francesco di Paola (VV)"
         }
       ],
       "header": {
@@ -1095,20 +1090,19 @@
             {
               "articles": [
                 "Se vuoi vivere dei momenti di preghiera con noi... A Lamezia Terme:",
-                "**SANTA MESSA** Domenica ore 19:00 (all'aperto)",
+                "**SANTA MESSA** Domenica ore 18:00",
                 "**CONFESSIONI** Sabato e domenica dalle ore 16:00 (Per confessarsi in altri momenti si suggerisce di richiedere preventivamente un appuntamento contattando i missionari)"
               ],
               "image": {
                 "url": [
                   "1.jpg",
-                  "2.jpg",
-                  "3.jpg"
+                  "2.jpg"
                 ]
               }
             },
             {
               "articles": [
-                "Da ottobre a febbraio, ogni venerdì sera alle ore 21:00, un'ora di adorazione eucaristica, vissuta secondo la nostra spiritualità"
+                "Da ottobre a febbraio, ogni venerdì sera alle ore 21:00, un'ora di adorazione eucaristica, vissuta secondo la nostra spiritualità (da ottobre sino a febbraio)"
               ],
               "image": {
                 "align": "right",
@@ -1157,27 +1151,26 @@
           "sections": [
             {
               "articles": [
-                "A breve vi aggiorneremo sulle attività del nuovo anno pastorale"
+                "**SANTA MESSA** Domenica 29 ottobre alle ore 18:00",
+                "**CATECHESI** Domenica 29 ottobre dalle ore 17:00",
+                "**CONFESSIONI** Domenica 29 ottobre dalle ore 16:30",
+                "Man mano vi comunicheremo le prossime date dei ritiri spirituali"
               ]
             }
           ],
           "title": "Chiesa di S. Maria dell’Anima (NA)"
         },
         {
-          "key": "capuccini-e-blatta",
+          "key": "san-francesco-paola",
           "sections": [
             {
               "articles": [
-                "Ritiro di Quaresima per le parrocchie: domenica 19 marzo 2023 alle ore 15.30 a San Giuseppe Lavoratore."
-              ],
-              "image": {
-                "url": [
-                  "1c.jpg"
-                ]
-              }
+                "**SANTA MESSA** Domenica ore 9:00",
+                "**CONFESSIONI** dal Martedì al Sabato dalle 9 alle 12 e dalle 16 alle 18. Domenica prima e dopo la Messa"
+              ]
             }
           ],
-          "title": "Parrocchie Madonna di Loreto e San Giuseppe lavoratore (TO)"
+          "title": "Santuario di San Francesco di Paola (VV)"
         }
       ],
       "header": {
@@ -1461,8 +1454,7 @@
               "image": {
                 "url": [
                   "1.jpg",
-                  "2.jpg",
-                  "3.jpg"
+                  "2.jpg"
                 ]
               }
             },
@@ -1517,26 +1509,25 @@
           "sections": [
             {
               "articles": [
-                "Comiesięczne spotkanie duchowości (17 listopada, 11 grudnia, 8 stycznia, 12 lutego, 12 marca, 16 kwietnia, 14 maja, 11 czerwca):",
-                "Katecheza: 16:00",
-                "Św. Msza św.: 18:00",
-                "Spowiedź przed Mszą Świętą."
+                "**Msza Święta** Niedziela 29 października od 18:00",
+                "**KATECHEZA** Niedziela 29 października od 17:00",
+                "**KONFESJONAŁY** niedziela 29 października od 16:30",
+                "O kolejnych terminach rekolekcji będziemy sukcesywnie informować"
               ]
             }
           ],
           "title": "Chiesa di S. Maria dell’Anima (NA)"
         },
         {
-          "key": "capuccini-e-blatta",
+          "key": "san-francesco-paola",
           "sections": [
             {
               "articles": [
-                "Rekolekcje adwentowe dla parafii „Madonna di Loreto”: niedziela 27 listopada o godz.",
-                "Rekolekcje adwentowe dla parafii „San Giuseppe Lavoratore”: niedziela 19 marca 2023 o godz."
-              ]
+                "**Msza Święta** Niedziela 9 rano",
+                "**SPOWIEDŹ** od wtorku do soboty od 9.00 do 12.00 i od 16.00 do 18.00 w niedzielę przed i po Mszy św."              ]
             }
           ],
-          "title": "Parrocchie Madonna di Loreto e San Giuseppe lavoratore (TO)"
+          "title": "Santuario di San Francesco di Paola (VV)"
         }
       ],
       "header": {
@@ -1790,14 +1781,13 @@
             {
               "articles": [
                 "Se você quiser viver momentos de oração conosco... Em Lamezia Terme:",
-                "**SANTA MISSA** Domingo 19h",
+                "**SANTA MISSA** Domingo 18h",
                 "**CONFISSÕES** Sábado e Domingo a partir das 16:00 (Para se confessar em outros horários sugere- se solicitar agendamento prévio entrando em contato com os missionários)"
               ],
               "image": {
                 "url": [
                   "1.jpg",
-                  "2.jpg",
-                  "3.jpg"
+                  "2.jpg"
                 ]
               }
             },
@@ -1852,24 +1842,22 @@
           "sections": [
             {
               "articles": [
-                "Se você quiser viver momentos de oração conosco... Em Nápoles:",
-                "O segundo domingo de cada mês",
-                "Reunião e catequese: 15h30",
-                "S. Missa: 18h",
-                "Confissões antes da Santa Missa"
+                "**Santa Missa** Domingo, 29 de outubro, às 18:00",
+                "**CATECESE** Domingo, 29 de outubro, a partir das 17:00",
+                "**CONFISSÕES** Domingo, 29 de outubro, a partir das 16h30",
+                "Informar-vos-emos gradualmente das próximas datas dos retiros espirituais"
               ]
             }
           ],
           "title": "Igreja de S. Maria dell'Anima (NA)"
         },
         {
-          "key": "capuccini-e-blatta",
+          "key": "san-francesco-paola",
           "sections": [
             {
               "articles": [
-                "Retiro de Advento para a paróquia “Madonna di Loreto”: domingo, 27 de novembro, às 15h30.",
-                "Retiro de Advento para a paróquia de “San Giuseppe o trabalhador”: domingo, 19 de março de 2023,\nàs 15h30."
-              ]
+                "**Santa Missa** Domingo 9 horas da manhã",
+                "**CONFISSÕES** Terça-feira a sábado das 9 às 12 horas e das 16 às 18 horas Domingo antes e depois da missa"              ]
             }
           ],
           "title": "Paróquias “Madonna di Loreto” e “San Giuseppe o trabalhador” em Chivasso (TO)"

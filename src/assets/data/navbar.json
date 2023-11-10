@@ -23,8 +23,14 @@
     },
     {
       "type": "link",
-      "title": "lay fraternity",
+      "title": "Laity",
       "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Gospel Way",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
       "external": true
     },
     {
@@ -40,12 +46,6 @@
           "type": "link",
           "title": "Youtube channel",
           "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
-          "external": true
-        },
-        {
-          "type": "link",
-          "title": "Gospel Way",
-          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
           "external": true
         },
         {
@@ -85,7 +85,13 @@
     },
     {
       "type": "link",
-      "title": "fraternidad laica",
+      "title": "Calle del Evangelio",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Laicos",
       "to": "https://www.cristianidistrada.net",
       "external": true
     },
@@ -102,12 +108,6 @@
           "type": "link",
           "title": "canal de Youtube",
           "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
-          "external": true
-        },
-        {
-          "type": "link",
-          "title": "Calle del Evangelio",
-          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
           "external": true
         },
         {
@@ -147,8 +147,14 @@
     },
     {
       "type": "link",
-      "title": "fraternidade leiga",
+      "title": "Leigos",
       "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Rua do Evangelho",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
       "external": true
     },
     {
@@ -164,12 +170,6 @@
           "type": "link",
           "title": "canal do Youtube",
           "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
-          "external": true
-        },
-        {
-          "type": "link",
-          "title": "Rua do Evangelho",
-          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
           "external": true
         },
         {
@@ -209,8 +209,14 @@
     },
     {
       "type": "link",
-      "title": "fraternità laicale",
+      "title": "Laici",
       "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Via del Vangelo",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
       "external": true
     },
     {
@@ -218,6 +224,7 @@
       "title": "contatti",
       "to": "/contatti"
     },
+
     {
       "type": "dropdown",
       "title": "altro",
@@ -228,12 +235,7 @@
           "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
           "external": true
         },
-        {
-          "type": "link",
-          "title": "Via del Vangelo",
-          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
-          "external": true
-        },
+
         {
           "type": "link",
           "title": "approfondimenti",
@@ -271,8 +273,14 @@
     },
     {
       "type": "link",
-      "title": "FRATERNITÉ LAÏQUE",
+      "title": "Laïcs",
       "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Rue de l'Évangile",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
       "external": true
     },
     {
@@ -288,12 +296,6 @@
           "type": "link",
           "title": "Chaîne YouTube",
           "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
-          "external": true
-        },
-        {
-          "type": "link",
-          "title": "Rue de l'Évangile",
-          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
           "external": true
         },
         {
@@ -333,8 +335,14 @@
     },
     {
       "type": "link",
-      "title": "świeckie braterstwo",
+      "title": "świeccy",
       "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Ulica Ewangelii",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
       "external": true
     },
     {
@@ -350,12 +358,6 @@
           "type": "link",
           "title": "kanał Youtube",
           "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
-          "external": true
-        },
-        {
-          "type": "link",
-          "title": "Ulica Ewangelii",
-          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
           "external": true
         },
         {
