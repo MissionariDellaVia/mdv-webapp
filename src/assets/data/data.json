@@ -92,54 +92,8 @@
                 "**CONFESSIONS** Saturday and Sunday from 4 pm (to confess at other times it is suggested to request an appointment in advance by contacting the missionaries)"
               ],
               "image": {
-                "url": [
-                  "1.jpg",
-                  "2.jpg"
-                ]
+                "url": []
               }
-            },
-            {
-              "articles": [
-                "From October to February, every Friday evening at 9.00 pm, an hour of Eucharistic adoration, lived according to our spirituality"
-              ],
-              "image": {
-                "align": "right",
-                "url": "adorazioneEucaristica.jpg"
-              },
-              "title": "Eucharistic Adoration"
-            },
-            {
-              "articles": [
-                "The last Sunday of each month, a moment of spirituality and fraternity open to all, which ends with a lunch spent together.",
-                "If you are interested, **WRITE US**"
-              ],
-              "image": {
-                "align": "left",
-                "url": "fraternita.jpg"
-              },
-              "title": "Sunday of fraternity"
-            },
-            {
-              "articles": [
-                "14 meetings, two Mondays a month, starting at 8.30 pm, to get to know yourself and the good Lord better ..",
-                "If you are interested, **WRITE US**"
-              ],
-              "image": {
-                "align": "right",
-                "url": "camminoGiovani.jpg"
-              },
-              "title": "Path for young people (18-30)"
-            },
-            {
-              "articles": [
-                "A special and precious course for married couples. 5 meetings, one Sunday a month from May until June. The purpose is revitalize and building up a stronger couple relationship.",
-                "If you are interested, **WRITE US**"
-              ],
-              "image": {
-                "align": "left",
-                "url": "corsoSposi.jpg"
-              },
-              "title": "Course for spouses"
             }
           ],
           "title": "Rettoria di Santa Chiara (CZ)"
@@ -157,18 +111,6 @@
             }
           ],
           "title": "Chiesa di S. Maria dell’Anima (NA)"
-        },
-        {
-          "key": "san-francesco-paola",
-          "sections": [
-            {
-              "articles": [
-                "**Holy Mass** Sunday 9 a.m.",
-                "**CONFESSIONS** Tuesday through Saturday from 9 a.m. to noon and 4 p.m. to 6 p.m. Sundays before and after Mass."
-              ]
-            }
-          ],
-          "title": "Santuario di San Francesco di Paola (VV)"
         }
       ],
       "header": {
@@ -176,7 +118,8 @@
         "title": "Activities and missions"
       },
       "main": {
-        "caption": "Below, you will find the activities in progress in the church of S. Chiara in Lamezia Terme,<br>>in the church of S. Maria dell’Anima in Naples and in the parishes of Chivasso 'Madonna di\nLoreto' and 'San Giuseppe Lavoratore' (where we are present for meetings and spiritual accompaniment). <br><br> (click on the item you are interested in)"
+        "caption": "Below, you will find the activities in progress in the church of S. Chiara in Lamezia Terme and <br> in the church of S. Maria dell’Anima in Naples. <br><br> (click on the item that interests you)"
+
       }
     },
     "chi-siamo": {
@@ -422,59 +365,12 @@
           "sections": [
             {
               "articles": [
-                "Si quieres vivir momentos de oración con nosotros... En Lamezia Terme:",
                 "**SANTA MISA** Domingo 18:00",
-                "**CONFESIONES** Sábado y Domingo a partir de las 16 h (Para confesarse en otros horarios se sugiere solicitar cita contactando a los misioneros)"
+                "**CONFESIONES** Sábado y Domingo a partir de las 19 h (Para confesarse en otros horarios se sugiere solicitar cita contactando a los misioneros)"
               ],
               "image": {
-                "url": [
-                  "1.jpg",
-                  "2.jpg"
-                ]
+                "url": []
               }
-            },
-            {
-              "articles": [
-                "De Octubre a Febrero, todos los viernes por la tarde a las 21:00, una hora de adoración eucarística, vivida según nuestra espiritualidad"
-              ],
-              "image": {
-                "align": "right",
-                "url": "adorazioneEucaristica.jpg"
-              },
-              "title": "Adoración Eucarística"
-            },
-            {
-              "articles": [
-                "El último domingo de cada mes, vivimos juntos un momento de espiritualidad y fraternidad abierto a todos que se finaliza con un almuerzo compartido.",
-                "Si estás interesado, **ESCRIBENOS**"
-              ],
-              "image": {
-                "align": "left",
-                "url": "fraternita.jpg"
-              },
-              "title": "Domingo de fraternidad"
-            },
-            {
-              "articles": [
-                "14 encuentros, dos lunes al mes, a partir de las 20:30, para conocer mejor a ti mismo y al buen Dios...",
-                "Si estás interesado, **ESCRIBENOS**"
-              ],
-              "image": {
-                "align": "right",
-                "url": "camminoGiovani.jpg"
-              },
-              "title": "Camino para jóvenes (18-30)"
-            },
-            {
-              "articles": [
-                "Es un curso valioso para las parejas casadas. Cinco encuentros, un domingo al mes, de mayo a junio, para revitalizar y construir la relación de pareja de la mejor manera posible.",
-                "Si estás interesado, **ESCRIBENOS**"
-              ],
-              "image": {
-                "align": "left",
-                "url": "corsoSposi.jpg"
-              },
-              "title": "Curso para parejas casadas"
             }
           ],
           "title": "Rettoria di Santa Chiara (CZ)"
@@ -492,18 +388,6 @@
             }
           ],
           "title": "Chiesa di S. Maria dell’Anima (NA)"
-        },
-        {
-          "key": "san-francesco-paola",
-          "sections": [
-            {
-              "articles": [
-                "**Santa Misa** Domingo 9:00",
-                "**CONFESIONES** de Martes a Sábado de 9:00 a 12:00 y de 16:00 a 18:00. Domingo antes y después de misa"
-              ]
-            }
-          ],
-          "title": "Santuario di San Francesco di Paola (VV)"
         }
       ],
       "header": {
@@ -511,7 +395,7 @@
         "title": "Actividades y misiones"
       },
       "main": {
-        "caption": "A continuación, vas a encontrar todas las actividades en curso en la iglesia de S. Chiara en Lamezia Terme y en la iglesia de S. Maria dell'Anima en Nápoles"
+        "caption": "A continuación encontrará las actividades que se llevan a cabo en la iglesia de S. Chiara en Lamezia Terme y <br> en la iglesia de S. Maria dell'Anima en Nápoles. <br><br> (haga clic en el artículo que le interesa)"
       }
     },
     "chi-siamo": {
@@ -757,59 +641,12 @@
           "sections": [
             {
               "articles": [
-                "Si vous voulez vivre des moments de prière avec nous... A Lamezia Terme:",
-                "**SAINTE MESSE** Dimanche 18:00.",
-                "**CONFESSION** Les samedis et dimanches à partir de 16h00 (Pour les confessions à d’autres moments, il est suggéré de demander un rendez-vous à l’avance en contactant les missionnaires)."
+                "**SAINTE MESSE** Dimanche 19:00.",
+                "**CONFESSION** Les samedis et dimanches à partir de 19h00 (Pour les confessions à d’autres moments, il est suggéré de demander un rendez-vous à l’avance en contactant les missionnaires)."
               ],
               "image": {
-                "url": [
-                  "1.jpg",
-                  "2.jpg"
-                ]
+                "url": []
               }
-            },
-            {
-              "articles": [
-                "D'Octobre à Février, chaque vendredi soir à 21 heures, une heure d’adoration eucharistique, vécue selon notre spiritualité."
-              ],
-              "image": {
-                "align": "right",
-                "url": "adorazioneEucaristica.jpg"
-              },
-              "title": "Adoration eucharistique"
-            },
-            {
-              "articles": [
-                "Le dernier dimanche de chaque mois, un moment de spiritualité et de fraternité ouvert à tous, qui se termine par un déjeuner partagé ensemble.",
-                "Si vous êtes intéressé, **ÉCRIVEZ-NOUS**"
-              ],
-              "image": {
-                "align": "left",
-                "url": "fraternita.jpg"
-              },
-              "title": "Dimanche de la fraternité"
-            },
-            {
-              "articles": [
-                "14 réunions, deux lundi par mois, à partir de 20 h 30, pour mieux se connaître et mieux connaître le bon Dieu.",
-                "Si vous êtes intéressé, **ÉCRIVEZ-NOUS**"
-              ],
-              "image": {
-                "align": "right",
-                "url": "camminoGiovani.jpg"
-              },
-              "title": "Jeunes en chemin (18-30 ans)"
-            },
-            {
-              "articles": [
-                "Il s’agit d’un cours précieux pour les couples mariés. Cinq réunions, un dimanche par mois, de mai nà juin, pour revitaliser et construire au mieux la relation de couple.",
-                "Si vous êtes intéressé, **ÉCRIVEZ-NOUS**"
-              ],
-              "image": {
-                "align": "left",
-                "url": "corsoSposi.jpg"
-              },
-              "title": "Cours pour jeunes mariés"
             }
           ],
           "title": "Rettoria di Santa Chiara (CZ)"
@@ -827,18 +664,6 @@
             }
           ],
           "title": "Chiesa di S. Maria dell’Anima (NA)"
-        },
-        {
-          "key": "san-francesco-paola",
-          "sections": [
-            {
-              "articles": [
-                "**MESSE SAINTE** le dimanche à 9:00",
-                "**CONFESSIONS** Du mardi au samedi de 9:00 à 12:00 et de 16:00 à 18:00. Le dimanche avant et après la messe"
-              ]
-            }
-          ],
-          "title": "Santuario di San Francesco di Paola (VV)"
         }
       ],
       "header": {
@@ -846,7 +671,7 @@
         "title": "Activités et missions"
       },
       "main": {
-        "caption": "Ci-dessous, vous trouverez les activités en cours dans l&#39;église de S. Chiara à Lamezia Terme, <br> dans l&#39;église de S. Maria dell&#39;Anima à Naples et dans les paroisses de Chivasso 'Madonna di\nLoreto' et 'San Giuseppe Lavoratore' (où nous sommes présents pour des rencontres et un accompagnement spirituel). <br><br> (cliquez sur l&#39;article qui vous intéresse)"
+        "caption": "Ci-dessous, vous trouverez les activités en cours dans l'église de S. Chiara à Lamezia Terme et <br> dans l'église de S. Maria dell'Anima à Naples. <br><br> (cliquez sur l'article qui vous intéresse)"
       }
     },
     "chi-siamo": {
@@ -1091,60 +916,12 @@
           "sections": [
             {
               "articles": [
-                "Se vuoi vivere dei momenti di preghiera con noi... A Lamezia Terme:",
                 "**SANTA MESSA** Domenica ore 19:00",
                 "**CONFESSIONI** Sabato e domenica dalle ore 16:00 (Per confessarsi in altri momenti si suggerisce di richiedere preventivamente un appuntamento contattando i missionari)"
               ],
               "image": {
-                "url": [
-                  "1.jpg",
-                  "2.jpg",
-                  "3.png"
-                ]
+                "url": []
               }
-            },
-            {
-              "articles": [
-                "Da ottobre a febbraio, ogni venerdì sera alle ore 21:00, un'ora di adorazione eucaristica, vissuta secondo la nostra spiritualità (da ottobre sino a febbraio)"
-              ],
-              "image": {
-                "align": "right",
-                "url": "adorazioneEucaristica.jpg"
-              },
-              "title": "Adorazione Eucaristica"
-            },
-            {
-              "articles": [
-                "L’ultima domenica di ogni mese, momento di spiritualità e fraternità aperto a tutti, che termina con il pranzo vissuto insieme.",
-                "Se fossi interessato, **SCRIVICI**"
-              ],
-              "image": {
-                "align": "left",
-                "url": "fraternita.jpg"
-              },
-              "title": "Domenica di fraternità"
-            },
-            {
-              "articles": [
-                "14 incontri, due lunedì al mese, a partire dalle 20:30, per conoscere meglio se stessi e il buon Dio...",
-                "Se fossi interessato, **SCRIVICI**"
-              ],
-              "image": {
-                "align": "right",
-                "url": "camminoGiovani.jpg"
-              },
-              "title": "Cammino Giovani (18-30)"
-            },
-            {
-              "articles": [
-                "Si tratta di un prezioso corso per le coppie di sposi. Cinque incontri, una domenica al mese, da gennaio a maggio, per rivitalizzare e costruire al meglio il rapporto di coppia.",
-                "Se fossi interessato, **SCRIVICI**"
-              ],
-              "image": {
-                "align": "left",
-                "url": "corsoSposi.jpg"
-              },
-              "title": "Corso per gli sposi"
             }
           ],
           "title": "Rettoria di Santa Chiara (CZ) "
@@ -1154,26 +931,14 @@
           "sections": [
             {
               "articles": [
-                "**SANTA MESSA** Domenica 12 Maggio ore 19:00",
-                "**CATECHESI** Domenica 12 Maggio alle ore 17:30",
+                "**SANTA MESSA** data da definire",
+                "**CATECHESI** data da definire",
                 "**CONFESSIONI** prima e dopo la S. Messa",
                 "Man mano vi comunicheremo le prossime date dei ritiri spirituali"
               ]
             }
           ],
           "title": "Chiesa di S. Maria dell’Anima (NA)"
-        },
-        {
-          "key": "san-francesco-paola",
-          "sections": [
-            {
-              "articles": [
-                "**SANTA MESSA** Domenica ore 9:00",
-                "**CONFESSIONI** dal Martedì al Sabato dalle 9 alle 12 e dalle 16 alle 18. Domenica prima e dopo la Messa"
-              ]
-            }
-          ],
-          "title": "Santuario di San Francesco di Paola (VV)"
         }
       ],
       "header": {
@@ -1181,7 +946,7 @@
         "title": "Attività e missioni"
       },
       "main": {
-        "caption": "A seguire, trovi le attività in corso nella chiesa di S. Chiara a Lamezia Terme, <br>nella chiesa di S. Maria dell’Anima a Napoli<br> e nella parrocchie di Chivasso “Madonna di Loreto” e “San Giuseppe lavoratore” <br>(dove, in collaborazione con don Tonino, ci rendiamo presenti nell'arco di quest'anno per incontri e accompagnamento spirituale). <br><br> (clicca sulla voce che ti interessa)"
+        "caption": "A seguire, trovi le attività in corso nella chiesa di S. Chiara a Lamezia Terme e <br> nella chiesa di S. Maria dell’Anima a Napoli. <br><br> (clicca sulla voce che ti interessa)"
       }
     },
     "chi-siamo": {
@@ -1293,30 +1058,6 @@
             "title": "**Telefono:**"
           },
           "title": "Napoli"
-        },
-        {
-          "address": [
-            "**Santuario di San Francesco di Paola**",
-            "Via S. Francesco",
-            "89844 Nicotera VV"
-          ],
-          "emails": [
-            {
-              "email": "missionaridellavia.vibo@gmail.com",
-              "title": "**Frati:**"
-            },
-            {
-              "email": "missionariedellavia.vibo@gmail.com",
-              "title": "**Suore:**"
-            }
-          ],
-          "lat": "38.552060",
-          "lng": "15.935450",
-          "phone": {
-            "number": "3773219994",
-            "title": "**Telefono:**"
-          },
-          "title": "Nicotera (VV)"
         }
       ]
     },
@@ -1455,54 +1196,8 @@
                 "**SPOWIEDZI** Sobota i niedziela od godz. 16:00 (zeby się spowiadać w innym czasie zaleca się poprosić o spotkanie z wyprzedzeniem, kontaktując się z misjonarzami)"
               ],
               "image": {
-                "url": [
-                  "1.jpg",
-                  "2.jpg"
-                ]
+                "url": []
               }
-            },
-            {
-              "articles": [
-                "Od października do lutego, w każdy piątek wieczorem o godzinie 21:00, godzina adoracji eucharystycznej, przeżywana według naszych duchowośći"
-              ],
-              "image": {
-                "align": "right",
-                "url": "adorazioneEucaristica.jpg"
-              },
-              "title": "Adoracja eucharystyczna"
-            },
-            {
-              "articles": [
-                "Ostatnia niedziela każdego miesiąca, chwila duchowości i braterstwa otwartego dla wszystkich, kończąca się z obiadem razem.",
-                "Jeśli jesteś zainteresowany, **NAPISZ DO NAS**"
-              ],
-              "image": {
-                "align": "left",
-                "url": "fraternita.jpg"
-              },
-              "title": "Niedziela Bractwa"
-            },
-            {
-              "articles": [
-                "14 spotkań, dwa poniedziałki w miesiącu, od 20:30, aby lepiej poznać siebie i dobrego Pana…",
-                "Jeśli jesteś zainteresowany, **NAPISZ DO NAS**"
-              ],
-              "image": {
-                "align": "right",
-                "url": "camminoGiovani.jpg"
-              },
-              "title": "Droga młodych (18-30)"
-            },
-            {
-              "articles": [
-                "To cenny kurs dla par małżeńskich. Pięć spotkań, jedna niedziela w miesiącu, od\nmaja i czerwca, aby ożywić i zbudować związek małżeński  najlepszym i możliwym sposobem\n",
-                "Jeśli jesteś zainteresowany, **NAPISZ DO NAS**"
-              ],
-              "image": {
-                "align": "left",
-                "url": "corsoSposi.jpg"
-              },
-              "title": "Kurs dla nowożeńców"
             }
           ],
           "title": "Rettoria di Santa Chiara (CZ) (CZ)"
@@ -1520,18 +1215,6 @@
             }
           ],
           "title": "Chiesa di S. Maria dell’Anima (NA)"
-        },
-        {
-          "key": "san-francesco-paola",
-          "sections": [
-            {
-              "articles": [
-                "**Msza Święta** Niedziela 9 rano",
-                "**SPOWIEDŹ** od wtorku do soboty od 9.00 do 12.00 i od 16.00 do 18.00 w niedzielę przed i po Mszy św."
-              ]
-            }
-          ],
-          "title": "Santuario di San Francesco di Paola (VV)"
         }
       ],
       "header": {
@@ -1539,7 +1222,7 @@
         "title": "Zajęcia i misje"
       },
       "main": {
-        "caption": "Poniżej przedstawiamy działalność w toku, w kościele Św. Chiara w Lamezia Terme oraz w kościele św. Maria dell’Anima w Neapolu"
+        "caption": "Poniżej znajdziesz działania trwające w kościele S. Chiara w Lamezia Terme oraz <br> w kościele S. Maria dell'Anima w Neapolu. <br><br> (kliknij na interesujący Cię przedmiot)"
       }
     },
     "chi-siamo": {
@@ -1789,54 +1472,8 @@
                 "**CONFISSÕES** Sábado e Domingo a partir das 16:00 (Para se confessar em outros horários sugere- se solicitar agendamento prévio entrando em contato com os missionários)"
               ],
               "image": {
-                "url": [
-                  "1.jpg",
-                  "2.jpg"
-                ]
+                "url": []
               }
-            },
-            {
-              "articles": [
-                "De Outubro a Fevereiro, todas as sextas-feiras às 21h00, uma hora de adoração eucarística, vivida segundo a nossa espiritualidade"
-              ],
-              "image": {
-                "align": "right",
-                "url": "adorazioneEucaristica.jpg"
-              },
-              "title": "Adoração Eucarística"
-            },
-            {
-              "articles": [
-                "O último domingo de cada mês, um momento de espiritualidade e fraternidade aberto a todos, que termina com um almoço em conjunto.",
-                "Se você estiver interessado, **ESCREVA-NOS**"
-              ],
-              "image": {
-                "align": "left",
-                "url": "fraternita.jpg"
-              },
-              "title": "Domingo de fraternidade"
-            },
-            {
-              "articles": [
-                "14 encontros, duas segundas-feiras por mês, a partir das 20h30, para conhecer melhor a si mesmo e ao bom Deus...",
-                "Se você estiver interessado, **ESCREVA-NOS**"
-              ],
-              "image": {
-                "align": "right",
-                "url": "camminoGiovani.jpg"
-              },
-              "title": "Caminho jovens (18-30)"
-            },
-            {
-              "articles": [
-                "É um curso muito valioso para casais. Cinco encontros, um domingo por mês, de maio a junho, para revitalizar e construir da melhor forma o relacionamento do casal.",
-                "Se você estiver interessado, **ESCREVA-NOS**"
-              ],
-              "image": {
-                "align": "left",
-                "url": "corsoSposi.jpg"
-              },
-              "title": "Curso para noivos"
             }
           ],
           "title": "Igreja de S. Chiara"
@@ -1854,18 +1491,6 @@
             }
           ],
           "title": "Igreja de S. Maria dell'Anima (NA)"
-        },
-        {
-          "key": "san-francesco-paola",
-          "sections": [
-            {
-              "articles": [
-                "**Santa Missa** Domingo 9 horas da manhã",
-                "**CONFISSÕES** Terça-feira a sábado das 9 às 12 horas e das 16 às 18 horas Domingo antes e depois da missa"
-              ]
-            }
-          ],
-          "title": "Paróquias “Madonna di Loreto” e “San Giuseppe o trabalhador” em Chivasso (TO)"
         }
       ],
       "header": {
@@ -1873,7 +1498,7 @@
         "title": "Atividades e missões"
       },
       "main": {
-        "caption": "Abaixo, você encontrará as atividades em andamento na igreja de S. Chiara em Lamezia Terme, <br>na igreja de S. Maria del'Anima em Nápoles<br> e nas paróquias “Madonna di Loreto” e “San Giuseppe lavoratore” em Chivasso (TO) <br>(onde, em colaboração com Dom Tonino, estamos presentes ao longo deste ano para encontros e acompanhamento espiritual). <br><br> (clique no item de seu interesse)"
+        "caption": "Abaixo encontrará as actividades em curso na igreja de S. Chiara em Lamezia Terme e <br> na igreja de S. Maria dell'Anima em Nápoles. <br><br> (clique no item do seu interesse)"
       }
     },
     "chi-siamo": {

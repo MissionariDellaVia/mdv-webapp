@@ -7,8 +7,9 @@
              @click="tabLog(mainGroup.key)">
           {{ mainGroup.title }}</div>
       </div>
-      <div v-for="(group, index) in subGroups" v-bind:key="index" class="nav-item col-6 p-1" role="presentation">
-        <div class="nav-link fs-4 subgroup" :id=" 'pills-' + group.key + '-tab'" data-bs-toggle="pill" :data-bs-target="'#' + group.key" role="tab" aria-controls="pills-home" aria-selected="true"
+
+      <div v-for="(group, index) in subGroups" v-bind:key="index" class="nav-item shadow-sm col-12 mb-2" role="presentation">
+        <div class="nav-link fs-3 main-group" :id=" 'pills-' + group.key + '-tab'" data-bs-toggle="pill" :data-bs-target="'#' + group.key" role="tab" aria-controls="pills-home" aria-selected="true"
              @click="tabLog(group.key)">
           {{ group.title }}</div>
       </div>
