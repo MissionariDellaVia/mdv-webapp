@@ -93,7 +93,9 @@
               ],
               "image": {
                 "url": [
-                  "attivita-1.jpg", "attivita-2.jpg", "attivita-3.jpg"
+                  "attivita-1.png",
+                  "attivita-2.png",
+                  "attivita-3.png"
                 ]
               }
             }
@@ -121,7 +123,6 @@
       },
       "main": {
         "caption": "Below, you will find the activities in progress in the church of S. Chiara in Lamezia Terme and <br> in the church of S. Maria dell’Anima in Naples. <br><br> (click on the item that interests you)"
-
       }
     },
     "chi-siamo": {
@@ -648,7 +649,9 @@
               ],
               "image": {
                 "url": [
-                  "attivita-1.jpg", "attivita-2.jpg", "attivita-3.jpg"
+                  "attivita-1.png",
+                  "attivita-2.png",
+                  "attivita-3.png"
                 ]
               }
             }
@@ -925,7 +928,9 @@
               ],
               "image": {
                 "url": [
-                  "attivita-1.jpg", "attivita-2.jpg", "attivita-3.jpg"
+                  "attivita-1.png",
+                  "attivita-2.png",
+                  "attivita-3.png"
                 ]
               }
             }
@@ -1203,7 +1208,9 @@
               ],
               "image": {
                 "url": [
-                  "attivita-1.jpg", "attivita-2.jpg", "attivita-3.jpg"
+                  "attivita-1.png",
+                  "attivita-2.png",
+                  "attivita-3.png"
                 ]
               }
             }
@@ -1481,7 +1488,9 @@
               ],
               "image": {
                 "url": [
-                  "attivita-1.jpg", "attivita-2.jpg", "attivita-3.jpg"
+                  "attivita-1.png",
+                  "attivita-2.png",
+                  "attivita-3.png"
                 ]
               }
             }
