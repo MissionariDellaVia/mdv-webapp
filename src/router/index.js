@@ -8,6 +8,7 @@ import Attivita from '@/view/Attivita';
 import Contatti from '@/view/Contatti';
 import Approfondimenti from '@/view/Approfondimenti';
 import PregaPerNoi from '@/view/PregaPerNoi';
+import Links from '@/view/Links';
 import Dashboard from '@/view/admin/Dashboard';
 import EditPage from "@/view/admin/EditPage";
 
@@ -53,6 +54,12 @@ const routes = [
         name: 'prega-con-noi',
         component: PregaPerNoi,
         meta: {  }
+    },
+    {
+        path: '/links',
+        name: 'links',
+        component: Links,
+        meta: { standalone: true }
     },
     {
         path: '/reserved-area/mdv-admin/dashboard',

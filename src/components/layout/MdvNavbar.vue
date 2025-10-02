@@ -18,22 +18,27 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav ms-auto text-uppercase">
 
-            <li v-for="(item, index) in navbarLinks" v-bind:key="index" data-bs-dismiss="offcanvas" class="nav-item">
-              <a v-if="item.external" target="_blank" :href="`${item.to}`" class="nav-link hover-underline-animation">{{ item.title }}</a>
-              <router-link v-else class="nav-link hover-underline-animation" :to="`${item.to}`">{{ item.title }}</router-link>
-            </li>
+            <li v-for="(item, index) in navbarItems" v-bind:key="index" data-bs-dismiss="offcanvas" :class="item.type === 'dropdown' ? 'nav-item dropdown' : 'nav-item'">
 
-            <li v-for="(dropdown, index) in navbarDropdowns" v-bind:key="index"  class="nav-item dropdown">
+              <!-- Regular Link -->
+              <template v-if="item.type === 'link'">
+                <a v-if="item.external" target="_blank" :href="`${item.to}`" class="nav-link hover-underline-animation">{{ item.title }}</a>
+                <router-link v-else class="nav-link hover-underline-animation" :to="`${item.to}`">{{ item.title }}</router-link>
+              </template>
 
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{ dropdown.title }}
-              </a>
-              <div class="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
-                <div v-for="(dropdownItem, index) in dropdown.links" v-bind:key="index">
-                  <a v-if="dropdownItem.external" target="_blank" :href="`${dropdownItem.to}`" class="dropdown-item">{{ dropdownItem.title }}</a>
-                  <router-link v-else class="dropdown-item" :to="`${dropdownItem.to}`">{{ dropdownItem.title }}</router-link>
+              <!-- Dropdown -->
+              <template v-else-if="item.type === 'dropdown'">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ item.title }}
+                </a>
+                <div class="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
+                  <div v-for="(dropdownItem, idx) in item.links" v-bind:key="idx">
+                    <a v-if="dropdownItem.external" target="_blank" :href="`${dropdownItem.to}`" class="dropdown-item">{{ dropdownItem.title }}</a>
+                    <router-link v-else class="dropdown-item" :to="`${dropdownItem.to}`">{{ dropdownItem.title }}</router-link>
+                  </div>
                 </div>
-              </div>
+              </template>
+
             </li>
 
           </ul>
@@ -63,11 +68,8 @@ export default {
     },
   },
   computed: {
-    navbarLinks() {
-      return this.$store.getters['page/navbar'].filter(item => item.type === 'link');
-    },
-    navbarDropdowns() {
-      return this.$store.getters['page/navbar'].filter(item => item.type === 'dropdown');
+    navbarItems() {
+      return this.$store.getters['page/navbar'];
     }
   },
   watch:{

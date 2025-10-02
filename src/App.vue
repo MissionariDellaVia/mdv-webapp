@@ -1,11 +1,11 @@
 <template>
-  <MdvNavbar v-show="!$route.meta.reservedArea"/>
+  <MdvNavbar v-show="!$route.meta.reservedArea && !$route.meta.standalone"/>
   <router-view v-slot="{ Component }">
     <transition name="scale" mode="out-in">
       <component :is="Component" />
     </transition>
   </router-view >
-  <MdvFooter v-show="!$route.meta.reservedArea" />
+  <MdvFooter v-show="!$route.meta.reservedArea && !$route.meta.standalone" />
 </template>
 
 <script>

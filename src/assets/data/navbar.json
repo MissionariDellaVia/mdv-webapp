@@ -1,9 +1,20 @@
 {
   "en": [
     {
-      "type": "link",
+      "type": "dropdown",
       "title": "who we are",
-      "to": "/"
+      "links": [
+        {
+          "type": "link",
+          "title": "who we are",
+          "to": "/"
+        },
+        {
+          "type": "link",
+          "title": "insights",
+          "to": "/approfondimenti"
+        }
+      ]
     },
     {
       "type": "link",
@@ -50,11 +61,6 @@
         },
         {
           "type": "link",
-          "title": "insights",
-          "to": "/approfondimenti"
-        },
-        {
-          "type": "link",
           "title": "pray with us",
           "to": "/prega-con-noi"
         }
@@ -63,9 +69,20 @@
   ],
   "es": [
     {
-      "type": "link",
+      "type": "dropdown",
       "title": "quienes somos",
-      "to": "/"
+      "links": [
+        {
+          "type": "link",
+          "title": "quienes somos",
+          "to": "/"
+        },
+        {
+          "type": "link",
+          "title": "Más información",
+          "to": "/approfondimenti"
+        }
+      ]
     },
     {
       "type": "link",
@@ -112,11 +129,6 @@
         },
         {
           "type": "link",
-          "title": "Más información",
-          "to": "/approfondimenti"
-        },
-        {
-          "type": "link",
           "title": "reza con nosotros",
           "to": "/prega-con-noi"
         }
@@ -125,9 +137,20 @@
   ],
   "pt": [
     {
-      "type": "link",
+      "type": "dropdown",
       "title": "quem nós somos",
-      "to": "/"
+      "links": [
+        {
+          "type": "link",
+          "title": "quem nós somos",
+          "to": "/"
+        },
+        {
+          "type": "link",
+          "title": "Aprofundamentos",
+          "to": "/approfondimenti"
+        }
+      ]
     },
     {
       "type": "link",
@@ -174,11 +197,6 @@
         },
         {
           "type": "link",
-          "title": "Aprofundamentos",
-          "to": "/approfondimenti"
-        },
-        {
-          "type": "link",
           "title": "Ore conosco",
           "to": "/prega-con-noi"
         }
@@ -187,9 +205,20 @@
   ],
   "it": [
     {
-      "type": "link",
+      "type": "dropdown",
       "title": "chi siamo",
-      "to": "/"
+      "links": [
+        {
+          "type": "link",
+          "title": "chi siamo",
+          "to": "/"
+        },
+        {
+          "type": "link",
+          "title": "approfondimenti",
+          "to": "/approfondimenti"
+        }
+      ]
     },
     {
       "type": "link",
@@ -235,12 +264,6 @@
           "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
           "external": true
         },
-
-        {
-          "type": "link",
-          "title": "approfondimenti",
-          "to": "/approfondimenti"
-        },
         {
           "type": "link",
           "title": "prega con noi",
@@ -251,9 +274,20 @@
   ],
   "fr": [
     {
-      "type": "link",
+      "type": "dropdown",
       "title": "À propos de nous",
-      "to": "/"
+      "links": [
+        {
+          "type": "link",
+          "title": "À propos de nous",
+          "to": "/"
+        },
+        {
+          "type": "link",
+          "title": "EN SAVOIR PLUS",
+          "to": "/approfondimenti"
+        }
+      ]
     },
     {
       "type": "link",
@@ -300,11 +334,6 @@
         },
         {
           "type": "link",
-          "title": "EN SAVOIR PLUS",
-          "to": "/approfondimenti"
-        },
-        {
-          "type": "link",
           "title": "Priez avec nous",
           "to": "/prega-con-noi"
         }
@@ -313,9 +342,20 @@
   ],
   "pl": [
     {
-      "type": "link",
+      "type": "dropdown",
       "title": "kim jesteśmy",
-      "to": "/"
+      "links": [
+        {
+          "type": "link",
+          "title": "kim jesteśmy",
+          "to": "/"
+        },
+        {
+          "type": "link",
+          "title": "spostrzeżenia",
+          "to": "/approfondimenti"
+        }
+      ]
     },
     {
       "type": "link",
@@ -359,11 +399,6 @@
           "title": "kanał Youtube",
           "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
           "external": true
-        },
-        {
-          "type": "link",
-          "title": "spostrzeżenia",
-          "to": "/approfondimenti"
         },
         {
           "type": "link",
