@@ -1,5 +1,6 @@
 <template>
   <section class="links-page">
+    <div class="links-background"></div>
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8 col-sm-10">
@@ -106,14 +107,29 @@ export default {
 <style scoped>
 .links-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #281d02 0%, #4a3a0f 100%);
+  min-height: -webkit-fill-available;
   padding: 3rem 1rem;
   font-family: 'Questrial', sans-serif;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  background: #281d02;
 }
 
-.links-page::before {
+.links-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  background: linear-gradient(135deg, #281d02 0%, #4a3a0f 100%);
+  z-index: -1;
+}
+
+.links-background::before {
   content: '';
   position: absolute;
   top: 0;
@@ -398,5 +414,12 @@ export default {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* iOS Safari fixes */
+@supports (-webkit-touch-callout: none) {
+  .links-page {
+    min-height: -webkit-fill-available;
+  }
 }
 </style>

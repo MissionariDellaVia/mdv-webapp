@@ -1,11 +1,13 @@
 <template>
-  <MdvNavbar v-show="!$route.meta.reservedArea && !$route.meta.standalone"/>
-  <router-view v-slot="{ Component }">
-    <transition name="scale" mode="out-in">
-      <component :is="Component" />
-    </transition>
-  </router-view >
-  <MdvFooter v-show="!$route.meta.reservedArea && !$route.meta.standalone" />
+  <div :class="{ 'standalone-page': $route.meta.standalone }">
+    <MdvNavbar v-show="!$route.meta.reservedArea && !$route.meta.standalone"/>
+    <router-view v-slot="{ Component }">
+      <transition name="scale" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view >
+    <MdvFooter v-show="!$route.meta.reservedArea && !$route.meta.standalone" />
+  </div>
 </template>
 
 <script>
@@ -74,6 +76,15 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Bubbler+One&family=Montserrat&family=Questrial&family=Playfair+Display&family=Old+Standard+TT&display=swap');
 html, body {
   overflow-x:hidden !important;
+}
+.standalone-page {
+  background: #281d02;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+.standalone-page body,
+.standalone-page html {
+  background: #281d02 !important;
 }
 .markdown-mdv blockquote{
   color: #8c681c !important;
