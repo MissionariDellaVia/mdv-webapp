@@ -22,20 +22,20 @@
 
               <!-- Regular Link -->
               <template v-if="item.type === 'link'">
-                <a v-if="item.external" target="_blank" :href="`${item.to}`" class="nav-link hover-underline-animation" data-bs-dismiss="offcanvas">{{ item.title }}</a>
-                <router-link v-else class="nav-link hover-underline-animation" :to="`${item.to}`" data-bs-dismiss="offcanvas">{{ item.title }}</router-link>
+                <a v-if="item.external" target="_blank" :href="`${item.to}`" class="nav-link hover-underline-animation" @click="closeOffcanvas">{{ item.title }}</a>
+                <router-link v-else class="nav-link hover-underline-animation" :to="`${item.to}`" @click="closeOffcanvas">{{ item.title }}</router-link>
               </template>
 
               <!-- Dropdown -->
               <template v-else-if="item.type === 'dropdown'">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" :id="`navbarDropdown-${index}`" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   {{ item.title }}
                 </a>
-                <div class="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdown">
-                  <div v-for="(dropdownItem, idx) in item.links" v-bind:key="idx">
-                    <a v-if="dropdownItem.external" target="_blank" :href="`${dropdownItem.to}`" class="dropdown-item" data-bs-dismiss="offcanvas">{{ dropdownItem.title }}</a>
-                    <router-link v-else class="dropdown-item" :to="`${dropdownItem.to}`" data-bs-dismiss="offcanvas">{{ dropdownItem.title }}</router-link>
-                  </div>
+                <div class="dropdown-menu dropdown-menu-end animate slideIn" :aria-labelledby="`navbarDropdown-${index}`">
+                  <template v-for="(dropdownItem, idx) in item.links" v-bind:key="idx">
+                    <a v-if="dropdownItem.external" target="_blank" :href="`${dropdownItem.to}`" class="dropdown-item" @click="closeOffcanvas">{{ dropdownItem.title }}</a>
+                    <router-link v-else class="dropdown-item" :to="`${dropdownItem.to}`" @click="closeOffcanvas">{{ dropdownItem.title }}</router-link>
+                  </template>
                 </div>
               </template>
 
@@ -66,6 +66,15 @@ export default {
         this.show = true;
       }, 300);
     },
+    closeOffcanvas() {
+      const offcanvasElement = document.getElementById('navbarNav');
+      if (offcanvasElement && window.bootstrap && window.bootstrap.Offcanvas) {
+        const bsOffcanvas = window.bootstrap.Offcanvas.getInstance(offcanvasElement);
+        if (bsOffcanvas) {
+          bsOffcanvas.hide();
+        }
+      }
+    }
   },
   computed: {
     navbarItems() {

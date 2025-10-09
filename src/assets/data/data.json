@@ -88,30 +88,13 @@
               "articles": [
                 "**HOLY MASS** Sunday 6.30 pm",
                 "**CONFESSIONS** Saturday and Sunday from 4 pm (to confess at other times it is suggested to request an appointment in advance by contacting the missionaries)"
-              ]
+              ],
+              "image": {
+                "url": "attivita-1.png"
+              }
             }
           ],
-          "title": "Santuario Madonna della Catena",
-          "image": {
-            "url": [
-              "attivita-1.png",
-              "attivita-2.png"
-            ]
-          }
-        },
-        {
-          "key": "s-maria-dell-anima",
-          "sections": [
-            {
-              "articles": [
-                "**Holy Mass** Sunday, October 29 at 6:00 p.m.",
-                "**CATECHESIS** Sunday, October 29 from 5:00 p.m.",
-                "**CONFESSIONS** Sunday, October 29 from 4:30 p.m.",
-                "As we go along, we will notify you of upcoming dates of spiritual retreats."
-              ]
-            }
-          ],
-          "title": "Chiesa di S. Maria dell’Anima (NA)"
+          "title": "Santuario Madonna della Catena"
         }
       ],
       "header": {
@@ -367,30 +350,13 @@
               "articles": [
                 "**SANTA MISA** Domingo 18:30",
                 "**CONFESIONES** Sábado y Domingo a partir de las 19 h (Para confesarse en otros horarios se sugiere solicitar cita contactando a los misioneros)"
-              ]
+              ],
+              "image": {
+                "url": "attivita-1.png"
+              }
             }
           ],
-          "title": "Santuario Madonna della Catena",
-          "image": {
-            "url": [
-              "attivita-1.png",
-              "attivita-2.png"
-            ]
-          }
-        },
-        {
-          "key": "s-maria-dell-anima",
-          "sections": [
-            {
-              "articles": [
-                "**Santa Misa** Domingo 29 de octubre a las 18:00",
-                "**CATEQUESIS** Domingo 29 de octubre a partir de las 17:00",
-                "**CONFESIONES** Domingo 29 de octubre a partir de las 16:30",
-                "Os iremos informando de las próximas fechas de retiros espirituales"
-              ]
-            }
-          ],
-          "title": "Chiesa di S. Maria dell’Anima (NA)"
+          "title": "Santuario Madonna della Catena"
         }
       ],
       "header": {
@@ -646,30 +612,13 @@
               "articles": [
                 "**SAINTE MESSE** Dimanche 18:30",
                 "**CONFESSION** Les samedis et dimanches à partir de 19h00 (Pour les confessions à d’autres moments, il est suggéré de demander un rendez-vous à l’avance en contactant les missionnaires)."
-              ]
+              ],
+              "image": {
+                "url": "attivita-1.png"
+              }
             }
           ],
-          "title": "Santuario Madonna della Catena",
-          "image": {
-            "url": [
-              "attivita-1.png",
-              "attivita-2.png"
-            ]
-          }
-        },
-        {
-          "key": "s-maria-dell-anima",
-          "sections": [
-            {
-              "articles": [
-                "**MESSE SAINTE** dimanche 29 octobre à 18:00",
-                "**CATECHESIS** Dimanche 29 octobre à partir de 17:00",
-                "**CONFESSIONS** Dimanche 29 octobre à partir de 16:30",
-                "Nous vous informerons progressivement des prochaines dates de retraites spirituelles"
-              ]
-            }
-          ],
-          "title": "Chiesa di S. Maria dell’Anima (NA)"
+          "title": "Santuario Madonna della Catena"
         }
       ],
       "header": {
@@ -922,33 +871,19 @@
           "sections": [
             {
               "articles": [
-                "**SANTA MESSA** Domenica ore 18:30",
-                "**ROSARIO** Domenica alle 17:45",
+                "**Santa Messa** Domenica ore 17:00",
+                "**Rosario meditato** Domenica ore 16.15",
                 "**CONFESSIONI** Sabato e domenica dalle ore 16:00 (Per confessarsi in altri momenti si suggerisce di richiedere preventivamente un appuntamento contattando i missionari)"
               ],
               "image": {
                 "url": [
-                  "attivita-1.png",
-                  "attivita-2.png"
+                  "attivita-2.png",
+                  "attivita-3.png"
                 ]
               }
             }
           ],
           "title": "Santuario Madonna della Catena"
-        },
-        {
-          "key": "s-maria-dell-anima",
-          "sections": [
-            {
-              "articles": [
-                "**SANTA MESSA** data da definire",
-                "**CATECHESI** data da definire",
-                "**CONFESSIONI** prima e dopo la S. Messa",
-                "Man mano vi comunicheremo le prossime date dei ritiri spirituali"
-              ]
-            }
-          ],
-          "title": "Chiesa di S. Maria dell’Anima (NA)"
         }
       ],
       "header": {
@@ -956,7 +891,7 @@
         "title": "Attività e missioni"
       },
       "main": {
-        "caption": "A seguire, trovi le attività in corso nella chiesa di Santuario Madonna della Catena a Cassano All’Ionio e <br> nella chiesa di S. Maria dell’Anima a Napoli. <br><br> (clicca sulla voce che ti interessa)"
+        "caption": "A seguire, trovi le attività in corso nella chiesa di Santuario Madonna della Catena a Cassano All’Ionio: br><br> (clicca sulla voce che ti interessa)"
       }
     },
     "chi-siamo": {
@@ -1203,30 +1138,13 @@
               "articles": [
                 "**MSZE ŚWIĘTE** niedziela 18:30",
                 "**SPOWIEDZI** Sobota i niedziela od godz. 16:00 (zeby się spowiadać w innym czasie zaleca się poprosić o spotkanie z wyprzedzeniem, kontaktując się z misjonarzami)"
-              ]
+              ],
+              "image": {
+                "url": "attivita-1.png"
+              }
             }
           ],
-          "title": "Santuario Madonna della Catena",
-          "image": {
-            "url": [
-              "attivita-1.png",
-              "attivita-2.png"
-            ]
-          }
-        },
-        {
-          "key": "s-maria-dell-anima",
-          "sections": [
-            {
-              "articles": [
-                "**Msza Święta** Niedziela 29 października od 18:00",
-                "**KATECHEZA** Niedziela 29 października od 17:00",
-                "**KONFESJONAŁY** niedziela 29 października od 16:30",
-                "O kolejnych terminach rekolekcji będziemy sukcesywnie informować"
-              ]
-            }
-          ],
-          "title": "Chiesa di S. Maria dell’Anima (NA)"
+          "title": "Santuario Madonna della Catena"
         }
       ],
       "header": {
@@ -1482,30 +1400,13 @@
                 "Se você quiser viver momentos de oração conosco... Em Lamezia Terme:",
                 "**SANTA MISSA** Domingo 18:30h",
                 "**CONFISSÕES** Sábado e Domingo a partir das 16:00 (Para se confessar em outros horários sugere- se solicitar agendamento prévio entrando em contato com os missionários)"
-              ]
+              ],
+              "image": {
+                "url": "attivita-1.png"
+              }
             }
           ],
-          "title": "Igreja de S. Chiara",
-          "image": {
-            "url": [
-              "attivita-1.png",
-              "attivita-2.png"
-            ]
-          }
-        },
-        {
-          "key": "s-maria-dell-anima",
-          "sections": [
-            {
-              "articles": [
-                "**Santa Missa** Domingo, 29 de outubro, às 18:00",
-                "**CATECESE** Domingo, 29 de outubro, a partir das 17:00",
-                "**CONFISSÕES** Domingo, 29 de outubro, a partir das 16h30",
-                "Informar-vos-emos gradualmente das próximas datas dos retiros espirituais"
-              ]
-            }
-          ],
-          "title": "Igreja de S. Maria dell'Anima (NA)"
+          "title": "Igreja de S. Chiara"
         }
       ],
       "header": {
