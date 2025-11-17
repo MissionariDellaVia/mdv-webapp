@@ -1,7 +1,5 @@
 <template>
-  <div class="container">
-
-    <!-- Toast -->
+  <div class="auth-container">
     <base-toast :show="!!toast.val" :type="toast.type">
       {{ toast.message }}
     </base-toast>
@@ -10,14 +8,22 @@
       <base-spinner></base-spinner>
     </div>
 
-    <base-card :title="'Area Riservata'">
-      <section class="row my-4">
-        <div class="col-12 mx-auto">
-          <login-form v-if="!signUp" @login-data="handleLogin"></login-form>
+    <div v-else class="auth-card">
+      <div class="auth-header">
+        <div class="logo-section">
+          <h1 class="auth-title">Missionari della Via</h1>
+          <p class="auth-subtitle">Area Riservata</p>
         </div>
-      </section>
-    </base-card>
+      </div>
 
+      <div class="auth-body">
+        <login-form @login-data="handleLogin"></login-form>
+      </div>
+
+      <div class="auth-footer">
+        <p class="text-muted small">Accesso riservato agli amministratori</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -47,7 +53,7 @@ export default {
       this.isLoading = true;
       try {
         await this.$store.dispatch('login', data);
-        const redirectUrl = '/' + (this.$route.query.redirect || 'reserved-area/mdv-admin/dashboard');
+        const redirectUrl = '/' + (this.$route.query.redirect || 'admin');
         this.$router.replace(redirectUrl);
       } catch (error) {
         this.showToast(error.message || 'Errore nel Login!');
@@ -76,12 +82,78 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  border-color: transparent;
-  background-color: #eff0eb;
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #281d02;
+  padding: 20px;
+}
+
+.auth-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 450px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.auth-header {
+  background: #8c681c;
+  padding: 40px 30px;
+  text-align: center;
+  color: white;
+}
+
+.logo-section {
+  margin-bottom: 0;
+}
+
+.auth-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.auth-subtitle {
+  font-family: 'Old Standard TT', serif;
+  font-size: 1.1rem;
+  margin: 0;
+  opacity: 0.95;
+  font-style: italic;
+}
+
+.auth-body {
+  padding: 40px 30px;
+}
+
+.auth-footer {
+  padding: 20px 30px;
+  background: #f8f9fa;
+  text-align: center;
+  border-top: 1px solid #e9ecef;
 }
 
 .small {
-  font-size: 0.70rem;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+@media (max-width: 576px) {
+  .auth-title {
+    font-size: 1.5rem;
+  }
+
+  .auth-subtitle {
+    font-size: 1rem;
+  }
+
+  .auth-body {
+    padding: 30px 20px;
+  }
 }
 </style>

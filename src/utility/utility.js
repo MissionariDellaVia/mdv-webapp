@@ -1,5 +1,6 @@
 export const utilityFunction = {
     getImgUrl: (pic) => {
+        if(!pic) return '';
         if(/(http(s?)):\/\//i.test(pic)) {
             return pic;
         }

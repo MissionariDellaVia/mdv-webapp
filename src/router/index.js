@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import {createRouter, createWebHashHistory} from 'vue-router'
 import store from '@/store/index.js';
 
 import Home from '@/view/Home';
@@ -60,6 +60,12 @@ const routes = [
         name: 'links',
         component: Links,
         meta: { standalone: true }
+    },
+    {
+        path: '/admin',
+        name: 'admin',
+        component: Dashboard,
+        meta: { requiresAuth: true, reservedArea: true }
     },
     {
         path: '/reserved-area/mdv-admin/dashboard',

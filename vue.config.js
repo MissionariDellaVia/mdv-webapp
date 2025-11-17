@@ -44,6 +44,9 @@ module.exports = defineConfig({
       ? '/'
       : '/mdv-webapp/',
   transpileDependencies: true,
+  devServer: {
+    port: 9191
+  },
   configureWebpack: {
     plugins: [
       new SitemapPlugin({ base: 'https://www.missionaridellavia.net/#', paths })
