@@ -26,10 +26,8 @@ console.log('🔍 Verifica variabili d\'ambiente nella build:\n');
 
 // Cerca i valori hardcoded
 const checks = [
-  { name: 'VUE_APP_API_BASE_URL', expected: 'missionaridellavia.net/api/v1' },
-  { name: 'VUE_APP_AUTH_BASE_URL', expected: 'missionaridellavia.net/auth/api' },
-  { name: 'VUE_APP_SERVER_BASE_URL', expected: 'missionaridellavia.net' },
-  { name: 'VUE_APP_FIREBASE_DATABASE_URL', expected: 'mdv-webapp-default-rtdb' }
+  { name: 'VUE_APP_SUPABASE_URL', expected: '.supabase.co' },
+  { name: 'VUE_APP_API_BLOG_BASE_URL', expected: 'blogger' },
 ];
 
 let allCorrect = true;
@@ -42,15 +40,6 @@ checks.forEach(check => {
     allCorrect = false;
   }
 });
-
-// Verifica che non ci siano riferimenti a localhost
-if (content.includes('localhost:8000')) {
-  console.log('\n⚠️  ATTENZIONE: Trovato riferimento a "localhost:8000" nella build!');
-  console.log('   Verifica che stai usando npm run build (non npm run serve)');
-  allCorrect = false;
-} else {
-  console.log('\n✅ Nessun riferimento a localhost:8000 trovato');
-}
 
 if (allCorrect) {
   console.log('\n✅ Tutti i controlli sono passati! La build è pronta per la produzione.');
