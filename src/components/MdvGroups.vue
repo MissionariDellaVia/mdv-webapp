@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="groups && groups.length">
 
     <div class="nav nav-pills mb-3 text-center" id="pills-tab" role="tablist">
       <div class="nav-item shadow-sm col-12 mb-2" role="presentation">
@@ -32,6 +32,7 @@
     </div>
 
   </div>
+  <div v-else class="text-center my-5 py-5 text-muted">Nessuna attività disponibile al momento.</div>
 </template>
 
 <script>

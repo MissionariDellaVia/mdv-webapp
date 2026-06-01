@@ -56,7 +56,7 @@ export default {
       try {
         await this.$store.dispatch('page/loadPage', page);
       } catch (error) {
-        // this.showToast(error.message || 'Errore caricamento pagina!');
+        console.error('Errore caricamento attività:', error);
       }
       this.isLoading = false;
     },

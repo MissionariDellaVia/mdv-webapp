@@ -13,7 +13,7 @@ export default {
             navbar: navbar[localStorage.getItem('lang') ? localStorage.getItem('lang') : navigator.language.substring(0, 2)],
             footer: footer[localStorage.getItem('lang') ? localStorage.getItem('lang') : navigator.language.substring(0, 2)],
             chiSiamo: data["chi-siamo"],
-            attivita: data["attivita"],
+            attivita: { header: {}, main: {}, groups: [] },
             vocazione: data["vocazione"],
             approfondimenti: data["approfondimenti"],
             pregaConNoi: data["prega-con-noi"],
