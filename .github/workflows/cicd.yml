@@ -33,15 +33,18 @@ jobs:
       # Runs install and build
       - name: Install packages
         run: npm install
-#      - name: Set Creds
-#        run: |
-#          git config user.name "GitHub Actions Bot"
-#          git config user.email "<>"
+
+      # Le VUE_APP_* non sono committate nel repo: si generano qui dai GitHub Secrets.
+      # (Sono valori client, finiscono nel bundle pubblico; i Secrets evitano di tenerli nel repo.)
+      - name: Create .env from secrets
+        run: |
+          {
+            echo "VUE_APP_SUPABASE_URL=${{ secrets.VUE_APP_SUPABASE_URL }}"
+            echo "VUE_APP_SUPABASE_ANON_KEY=${{ secrets.VUE_APP_SUPABASE_ANON_KEY }}"
+            echo "VUE_APP_API_BLOG_BASE_URL=${{ secrets.VUE_APP_API_BLOG_BASE_URL }}"
+            echo "VUE_APP_BLOG_API_KEY=${{ secrets.VUE_APP_BLOG_API_KEY }}"
+          } > .env
+
       - name: Deploy 🚀
         run: npm run deploy
-      # Deploy
-#      - name: Deploy 🚀
-#      - uses: actions/setup-node@v3
-#        with:
-#          node-version: '16.x'
 
