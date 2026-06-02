@@ -32,8 +32,9 @@ export default {
         const lang = localStorage.getItem('lang') || 'it';
 
         if (page === 'attivita') {
-            const responseData = await fetchLocations(lang);
-            context.commit('setPage', { data: responseData, page });
+            const supa = await fetchLocations(lang);
+            const base = (data[lang] && data[lang].attivita) || { header: {}, main: {}, groups: [] };
+            context.commit('setPage', { data: { ...base, groups: supa.groups || [] }, page });
             return;
         }
 
