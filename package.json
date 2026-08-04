@@ -8,7 +8,8 @@
     "stage": "vue-cli-service build --mode development",
     "lint": "vue-cli-service lint",
     "deploy": "node scripts/gh-pages-deploy.js",
-    "migrate:attivita": "node scripts/migrate-attivita.js"
+    "migrate:attivita": "node scripts/migrate-attivita.js",
+    "test": "node --test 'scripts/**/*.test.js' 'src/**/*.test.mjs'"
   },
   "dependencies": {
     "@formkit/auto-animate": "^1.0.0-beta.3",
