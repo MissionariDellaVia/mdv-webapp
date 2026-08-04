@@ -1,0 +1,85 @@
+<template>
+  <!-- Altre lingue: si riusa la pagina preesistente cosi' com'e'. E' gia'
+       autosufficiente (intestazione, spinner, caricamento dallo store):
+       reimplementarla qui significherebbe solo poterla far divergere. -->
+  <VocazioneLegacy v-if="!inItaliano" />
+
+  <section v-else>
+    <MdvHeader
+      :image="hub.header.immagine"
+      :title="hub.header.titolo"
+      :caption="hub.header.sottotitolo"
+    />
+
+    <div class="container voc-hub">
+      <blockquote class="voc-hub__citazione">{{ hub.citazione }}</blockquote>
+
+      <Markdown :source="hub.intro" :html="true" class="markdown-mdv voc-hub__testo" />
+
+      <h2 class="voc-hub__invito">{{ hub.invito }}</h2>
+      <VocPorte :porte="hub.porte" />
+
+      <Markdown :source="hub.chiusura" :html="true" class="markdown-mdv voc-hub__testo" />
+
+      <VocRimandi
+        titolo="Puoi anche"
+        :voci="[
+          { etichetta: 'Le vostre domande', rotta: 'vocazione-domande' },
+          { etichetta: 'La nostra proposta', rotta: 'vocazione-proposta' },
+        ]"
+      />
+    </div>
+  </section>
+</template>
+
+<script>
+import Markdown from 'vue3-markdown-it';
+import MdvHeader from '@/components/layout/MdvHeader';
+import VocazioneLegacy from '@/view/Vocazione';
+import VocPorte from '@/components/vocazione/VocPorte';
+import VocRimandi from '@/components/vocazione/VocRimandi';
+import contenuto from '@/assets/data/vocazione.json';
+
+export default {
+  name: 'VocazioneHub',
+  components: {
+    Markdown, MdvHeader, VocazioneLegacy, VocPorte, VocRimandi,
+  },
+  data() {
+    return {
+      hub: contenuto.hub,
+      inItaliano: (localStorage.getItem('lang') || 'it') === 'it',
+    };
+  },
+};
+</script>
+
+<style scoped>
+.voc-hub {
+  max-width: 46rem;
+  padding-top: var(--mdv-spazio-6);
+  padding-bottom: var(--mdv-spazio-6);
+}
+.voc-hub__citazione {
+  font-family: var(--mdv-font-alternativo);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--mdv-oro-scuro);
+  border-left: 3px solid var(--mdv-sabbia);
+  padding-left: var(--mdv-spazio-4);
+  margin-bottom: var(--mdv-spazio-6);
+}
+.voc-hub__invito {
+  font-family: var(--mdv-font-titolo);
+  color: var(--mdv-oro);
+  font-size: 1.9rem;
+  margin-top: var(--mdv-spazio-6);
+}
+.voc-hub__testo :deep(p) {
+  font-family: var(--mdv-font-corpo);
+  font-size: 1.1rem;
+  line-height: 1.9;
+  margin-bottom: var(--mdv-spazio-4);
+}
+</style>
