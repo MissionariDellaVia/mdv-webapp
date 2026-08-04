@@ -28,6 +28,12 @@ function validaBlocchi(blocchi, percorsoTesto, opzioni, errori) {
   });
 }
 
+function validaIntestazione(header, dove, opzioni, errori) {
+  if (header && header.immagine && !opzioni.immagineSitoEsiste(header.immagine)) {
+    errori.push(`${dove}.immagine: immagine assente "${header.immagine}"`);
+  }
+}
+
 function validaContenuto(contenuto, opzioni) {
   const errori = [];
   for (const sezione of SEZIONI) {
@@ -35,7 +41,11 @@ function validaContenuto(contenuto, opzioni) {
   }
   if (errori.length) return errori;
 
+  validaIntestazione(contenuto.hub.header, 'hub.header', opzioni, errori);
+  validaIntestazione(contenuto.proposta.header, 'proposta.header', opzioni, errori);
+
   for (const [nome, percorso] of Object.entries(contenuto.percorsi)) {
+    validaIntestazione(percorso.header, `percorsi.${nome}.header`, opzioni, errori);
     validaBlocchi(percorso.blocchi, `percorsi.${nome}.blocchi`, opzioni, errori);
   }
   validaBlocchi(contenuto.proposta.blocchi, 'proposta.blocchi', opzioni, errori);

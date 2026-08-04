@@ -7,6 +7,7 @@ const { validaContenuto, TIPI_BLOCCO } = require('./valida-vocazione');
 const opzioni = {
   rotteNote: ['vocazione-matrimonio'],
   immagineEsiste: (n) => n === 'stella.jpg',
+  immagineSitoEsiste: (n) => n === 'esistente.jpg',
 };
 
 const valido = {
@@ -68,6 +69,15 @@ test('una foto mancante viene segnalata', () => {
   );
 });
 
+test('un\'immagine di intestazione assente viene segnalata', () => {
+  const c = copia(valido);
+  c.percorsi.matrimonio.header.immagine = 'sparita.jpg';
+  assert.deepStrictEqual(
+    validaContenuto(c, opzioni),
+    ['percorsi.matrimonio.header.immagine: immagine assente "sparita.jpg"'],
+  );
+});
+
 test('una sezione di primo livello mancante viene segnalata', () => {
   const c = copia(valido);
   delete c.domande;
@@ -90,6 +100,7 @@ test('vocazione.json e\' valido', () => {
   const errori = validaContenuto(leggiContenuto(), {
     rotteNote: ROTTE_NOTE,
     immagineEsiste: (n) => fs.existsSync(path.join(CARTELLA_IMG, n)),
+    immagineSitoEsiste: (n) => fs.existsSync(path.join('src/assets/img', n)),
   });
   assert.deepStrictEqual(errori, []);
 });
