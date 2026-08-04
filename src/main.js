@@ -17,6 +17,9 @@ import ImageDialog from "@/components/ui/ImageDialog";
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap';
 
+// Token visivi: unica fonte di colori, font e spaziature
+import './assets/css/tokens.css';
+
 // Markdown
 import Markdown from 'vue3-markdown-it';
 

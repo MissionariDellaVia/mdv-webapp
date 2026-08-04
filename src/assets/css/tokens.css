@@ -1,0 +1,60 @@
+/* src/assets/css/tokens.css
+   Unica fonte dei valori visivi del sito. Nessun componente deve contenere
+   colori, font o spaziature scritti a mano: la guardia in
+   scripts/lib/style-guard.test.js lo verifica a ogni `npm test`. */
+:root {
+  /* Bruni */
+  --mdv-bruno-900: #281d02;
+  --mdv-bruno-900-velato: #281d02e5;
+  --mdv-bruno-850: #29140b;
+  --mdv-bruno-800: #3f2a02;
+  --mdv-bruno-700: #655640;
+  --mdv-terra: #6e4f3a;
+
+  /* Oro */
+  --mdv-oro: #8c681c;
+  --mdv-oro-scuro: #59411a;
+  --mdv-oro-chiaro: #b6974e;
+  --mdv-oro-brillante: #deb865;
+
+  /* Sabbie */
+  --mdv-sabbia: #c3ac7d;
+  --mdv-sabbia-chiara: #dcbca8;
+  --mdv-crema: #e1d9cb;
+  --mdv-pietra: #c5c1b9;
+  --mdv-pietra-rosata: #c3b5b9;
+
+  /* Neutri */
+  --mdv-bianco: #ffffff;
+  --mdv-grigio: #7e7e7e;
+  --mdv-grigio-scuro: #595959;
+
+  /* Stati */
+  --mdv-successo: #417a5a;
+  --mdv-errore: #773737;
+
+  /* Marchi di terzi */
+  --mdv-social-facebook: #3b5998;
+  --mdv-social-telegram: #44bcdd;
+  --mdv-social-instagram: #b83dbd;
+  --mdv-social-youtube: #ff0000;
+
+  /* Tipografia */
+  --mdv-font-titolo: 'Bubbler One', sans-serif;
+  --mdv-font-corpo: 'Playfair Display', serif;
+  --mdv-font-navigazione: 'Questrial', sans-serif;
+  --mdv-font-alternativo: 'Old Standard TT', serif;
+
+  /* Spaziature */
+  --mdv-spazio-1: 0.25rem;
+  --mdv-spazio-2: 0.5rem;
+  --mdv-spazio-3: 1rem;
+  --mdv-spazio-4: 1.5rem;
+  --mdv-spazio-5: 2rem;
+  --mdv-spazio-6: 3rem;
+
+  /* Raggi */
+  --mdv-raggio-s: 0.5rem;
+  --mdv-raggio-m: 1rem;
+  --mdv-raggio-l: 1.563rem;
+}
