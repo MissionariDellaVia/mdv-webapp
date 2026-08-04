@@ -106,9 +106,9 @@ export default {
 <style scoped>
 footer {
   background: rgb(40, 29, 2, 0.9);
-  -webkit-box-shadow: inset 0 2px 13px 6px #281D02E5;
-  -moz-box-shadow: inset 0 2px 13px 6px #281D02E5;
-  box-shadow: inset 0 2px 13px 6px #281D02E5;
+  -webkit-box-shadow: inset 0 2px 13px 6px var(--mdv-bruno-900-velato);
+  -moz-box-shadow: inset 0 2px 13px 6px var(--mdv-bruno-900-velato);
+  box-shadow: inset 0 2px 13px 6px var(--mdv-bruno-900-velato);
   color: white;
   position: relative;
   bottom: 0;
@@ -121,13 +121,13 @@ footer {
 
 .hoverable:hover {
   transform: scale(1.1);
-  color: #c3ac7d;
+  color: var(--mdv-sabbia);
 }
 
 .copy {
   font-size: 0.8rem;
   padding: 0.8rem;
-  border-top: 1px solid #FFFFFF;
+  border-top: 1px solid var(--mdv-bianco);
 }
 
 ul.social-network {
@@ -143,26 +143,26 @@ ul.social-network li {
 }
 
 .social-network a.icoFacebook:hover {
-  background-color: #3B5998;
+  background-color: var(--mdv-social-facebook);
 }
 
 .social-network a.icoInstagram:hover {
-  background-color: #b83dbd;
+  background-color: var(--mdv-social-instagram);
 }
 
 .social-network a.icoYoutube:hover {
-  background-color: #ff0000;
+  background-color: var(--mdv-social-youtube);
 }
 
 .social-network a.icoFacebook:hover i,
 .social-network a.icoInstagram:hover i,
 .social-network a.icoYoutube:hover i {
-  color: #fff;
+  color: var(--mdv-bianco);
 }
 
 .social-network a.socialIcon:hover,
 .socialHoverClass {
-  color: #44BCDD;
+  color: var(--mdv-social-telegram);
 }
 
 .social-circle li a {
@@ -181,7 +181,7 @@ ul.social-network li {
 .social-circle li i {
   margin: 0;
   line-height: 3.5rem;
-  color: #fff;
+  color: var(--mdv-bianco);
   text-align: center;
 }
 
@@ -199,7 +199,7 @@ ul.social-network li {
 }
 
 .social-circle i {
-  color: #595959;
+  color: var(--mdv-grigio-scuro);
   -webkit-transition: all 0.8s;
   -moz-transition: all 0.8s;
   -o-transition: all 0.8s;
@@ -208,7 +208,7 @@ ul.social-network li {
 }
 
 .social-network a {
-  background-color: #c3ac7d;
+  background-color: var(--mdv-sabbia);
   transition: all 0.8s;
 }
 

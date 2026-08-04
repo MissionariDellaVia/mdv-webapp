@@ -17,13 +17,13 @@ export default {
 
 <style scoped>
 .card-title {
-  font-family: 'Bubbler One', sans-serif;
+  font-family: var(--mdv-font-titolo);
   color: rgba(248, 248, 248, 0.9);
   font-size: 3rem;
 }
 .card {
-  color: #29140b;
-  background-color: #e1d9cb !important;
+  color: var(--mdv-bruno-850);
+  background-color: var(--mdv-crema) !important;
   width: 80%;
   /*min-height: 50vh;*/
   -webkit-border-radius: 1.563rem;
@@ -33,7 +33,7 @@ export default {
 
 .card-header {
   border-color: transparent;
-  background-color: #64553f !important;
+  background-color: var(--mdv-bruno-700) !important;
   border-top-left-radius: 1.563rem !important;
   border-top-right-radius: 1.563rem !important;
 }

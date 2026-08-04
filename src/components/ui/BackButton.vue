@@ -8,20 +8,20 @@ export default {}
 
 <style scoped>
 .back-button {
-    color: #fff;
+    color: var(--mdv-bianco);
     border-color: transparent;
     font-size: 18px;
-    background-color: #6e4f3a;
+    background-color: var(--mdv-terra);
     transition: all .1s;
-    -webkit-box-shadow: 3px 4px 15px -5px #7E7E7E; 
-    box-shadow: 3px 4px 15px -5px #7E7E7E;
+    -webkit-box-shadow: 3px 4px 15px -5px var(--mdv-grigio); 
+    box-shadow: 3px 4px 15px -5px var(--mdv-grigio);
 }
 .back-button:hover {
-    background-color: #c3b5b9;
+    background-color: var(--mdv-pietra-rosata);
     transform: scale(0.97);
 }
 .back-button:active {
-    background-color: #c3b5b9;
+    background-color: var(--mdv-pietra-rosata);
     transform: scale(0.93);
 }
 </style>

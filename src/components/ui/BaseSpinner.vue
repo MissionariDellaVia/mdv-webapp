@@ -39,7 +39,7 @@ export default {
 .ping {
   --uib-size: 50px;
   --uib-speed: 1s;
-  --uib-color: #8c681c;
+  --uib-color: var(--mdv-oro);
   position: relative;
   height: var(--uib-size);
   width: var(--uib-size);

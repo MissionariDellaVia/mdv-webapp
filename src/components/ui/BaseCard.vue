@@ -15,16 +15,16 @@ export default {
 
 <style scoped>
 .title {
-  font-family: 'Bubbler One', sans-serif;
+  font-family: var(--mdv-font-titolo);
   font-size: 2.5rem;
-  color: #ffffff;
+  color: var(--mdv-bianco);
 }
 .card {
-  background-color: #3f2a02;
+  background-color: var(--mdv-bruno-800);
   width: 30rem;
-  -webkit-border-radius: 1.563rem;
-  -moz-border-radius: 1.563rem;
-  border-radius: 1.563rem;
+  -webkit-border-radius: var(--mdv-raggio-l);
+  -moz-border-radius: var(--mdv-raggio-l);
+  border-radius: var(--mdv-raggio-l);
 }
 
 /* Small devices (landscape phones, 576px and up)*/

@@ -96,7 +96,7 @@ export default {
 
 <style scoped>
 nav {
-  font-family: 'Questrial', sans-serif;
+  font-family: var(--mdv-font-navigazione);
 }
 .navbar {
   height: 6.5rem;
@@ -114,13 +114,13 @@ nav {
   background: rgb(40, 29, 2, 0.9);
 }
 .navbar a, .nav-item, .nav-link:focus {
-  color: #ffffff;
+  color: var(--mdv-bianco);
 }
 .nav-link, .nav-link:hover {
-  color: #dcbca8;
+  color: var(--mdv-sabbia-chiara);
 }
 .navbar a:focus, .navbar a:hover, .nav-item a:focus, .nav-item a:hover{
-  color: #dcbca8;
+  color: var(--mdv-sabbia-chiara);
 }
 .hover-underline-animation, .router-link-active {
   display: inline-block;
@@ -135,7 +135,7 @@ nav {
   height: 0.2rem;
   bottom: -1px;
   left: 0;
-  background-color: #c3ac7d;
+  background-color: var(--mdv-sabbia);
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }
@@ -154,24 +154,24 @@ nav {
 }
 
 .navbar-toggler > i{
-  color: #c3ac7d !important;
+  color: var(--mdv-sabbia) !important;
   font-size: 2rem;
   border-color: transparent;
 }
 .navbar-toggler > i:focus, .navbar-toggler > i:active, .navbar-toggler > i:hover {
   box-shadow: none;
-  color: #c5c1b9 !important;
+  color: var(--mdv-pietra) !important;
 }
 
 .close-icon {
-  color: #c3ac7d;
+  color: var(--mdv-sabbia);
   cursor: pointer;
   margin-right: 0.2rem;
   margin-top: 0.5rem;
   font-size: 2rem;
 }
 .close-icon:hover {
-  color: #c5c1b9;
+  color: var(--mdv-pietra);
 }
 
 .navbar-toggler{

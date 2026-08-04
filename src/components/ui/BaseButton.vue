@@ -11,30 +11,30 @@ export default {
 
 <style scoped>
 .action-button {
-  font-family: 'Bubbler One', sans-serif;
-  color: #fff;
+  font-family: var(--mdv-font-titolo);
+  color: var(--mdv-bianco);
   padding: 1.7em 1.7em;
   border-color: transparent;
   font-size: 1.8rem;
   height: 10rem;
   width: 20rem;
-  background-color: #655640;
+  background-color: var(--mdv-bruno-700);
   transition: all .1s;
-  -webkit-box-shadow: 3px 4px 15px -5px #7E7E7E;
-  box-shadow: 3px 4px 15px -5px #7E7E7E;
+  -webkit-box-shadow: 3px 4px 15px -5px var(--mdv-grigio);
+  box-shadow: 3px 4px 15px -5px var(--mdv-grigio);
 }
 
 .action-button:hover {
-  color: #fff;
-  background-color: #b6974e;
+  color: var(--mdv-bianco);
+  background-color: var(--mdv-oro-chiaro);
   transform: scale(0.97);
-  border-color: #b6974e;
+  border-color: var(--mdv-oro-chiaro);
 }
 
 .action-button:focus {
-  color: #fff;
-  background-color: #deb865;
-  border-color: #deb865;
+  color: var(--mdv-bianco);
+  background-color: var(--mdv-oro-brillante);
+  border-color: var(--mdv-oro-brillante);
   transform: scale(0.93);
 }
 </style>

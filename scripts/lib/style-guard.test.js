@@ -6,7 +6,7 @@ const { estraiValoriVisivi } = require('./style-guard');
 const deroghe = require('./style-guard-deroghe.json');
 
 // Alzare questo numero e' vietato: la lista di deroga puo' solo accorciarsi.
-const MASSIMO_DEROGHE = 27;
+const MASSIMO_DEROGHE = 18;
 
 function fileVue(dir, acc = []) {
   for (const voce of fs.readdirSync(dir, { withFileTypes: true })) {
