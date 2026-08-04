@@ -9,8 +9,44 @@ const paths = [
   },
   {
     path: '/vocazione',
-    lastmod: '2023-06-13',
-    priority: 0.6,
+    lastmod: '2026-08-04',
+    priority: 0.9,
+    changefreq: 'yearly'
+  },
+  {
+    path: '/vocazione/discernimento',
+    lastmod: '2026-08-04',
+    priority: 0.8,
+    changefreq: 'yearly'
+  },
+  {
+    path: '/vocazione/matrimonio',
+    lastmod: '2026-08-04',
+    priority: 0.8,
+    changefreq: 'yearly'
+  },
+  {
+    path: '/vocazione/sacerdozio',
+    lastmod: '2026-08-04',
+    priority: 0.8,
+    changefreq: 'yearly'
+  },
+  {
+    path: '/vocazione/vita-consacrata',
+    lastmod: '2026-08-04',
+    priority: 0.8,
+    changefreq: 'yearly'
+  },
+  {
+    path: '/vocazione/domande',
+    lastmod: '2026-08-04',
+    priority: 0.7,
+    changefreq: 'monthly'
+  },
+  {
+    path: '/vocazione/proposta',
+    lastmod: '2026-08-04',
+    priority: 0.7,
     changefreq: 'yearly'
   },
   {

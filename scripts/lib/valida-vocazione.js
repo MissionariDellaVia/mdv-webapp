@@ -4,12 +4,36 @@
 const TIPI_BLOCCO = ['prosa', 'elenco', 'segni', 'passi', 'riflessioni', 'testimonianze', 'rimandi'];
 const SEZIONI = ['hub', 'percorsi', 'domande', 'proposta'];
 
+// I campi che il componente corrispondente dichiara "required": se mancano,
+// l'errore comparirebbe solo a runtime, in console e come pagina rotta.
+const CAMPI_RICHIESTI = {
+  prosa: ['testo'],
+  elenco: ['voci'],
+  segni: ['voci'],
+  passi: ['passi'],
+  riflessioni: ['domande'],
+  testimonianze: ['voci'],
+  rimandi: ['voci'],
+};
+
 function validaBlocchi(blocchi, percorsoTesto, opzioni, errori) {
   (blocchi || []).forEach((blocco, i) => {
     const dove = `${percorsoTesto}[${i}]`;
     if (!TIPI_BLOCCO.includes(blocco.tipo)) {
       errori.push(`${dove}: tipo sconosciuto "${blocco.tipo}"`);
       return;
+    }
+    for (const campo of CAMPI_RICHIESTI[blocco.tipo]) {
+      if (blocco[campo] === undefined || blocco[campo] === null) {
+        errori.push(`${dove}: manca il campo obbligatorio "${campo}" per tipo "${blocco.tipo}"`);
+      }
+    }
+    if (blocco.tipo === 'passi') {
+      (blocco.passi || []).forEach((passo, j) => {
+        if (!passo.titolo || !passo.testo) {
+          errori.push(`${dove}.passi[${j}]: titolo o testo mancante`);
+        }
+      });
     }
     if (blocco.tipo === 'rimandi') {
       (blocco.voci || []).forEach((voce, j) => {

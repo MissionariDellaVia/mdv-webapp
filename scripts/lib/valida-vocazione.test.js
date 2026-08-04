@@ -69,6 +69,26 @@ test('una foto mancante viene segnalata', () => {
   );
 });
 
+test('un campo obbligatorio mancante viene segnalato', () => {
+  const c = copia(valido);
+  c.percorsi.matrimonio.blocchi.push({ tipo: 'elenco', titolo: 'senza voci' });
+  assert.deepStrictEqual(
+    validaContenuto(c, opzioni),
+    ['percorsi.matrimonio.blocchi[1]: manca il campo obbligatorio "voci" per tipo "elenco"'],
+  );
+});
+
+test('un passo senza titolo o testo viene segnalato', () => {
+  const c = copia(valido);
+  c.percorsi.matrimonio.blocchi.push({
+    tipo: 'passi', passi: [{ titolo: 'ok', testo: 'ok' }, { titolo: 'monco' }],
+  });
+  assert.deepStrictEqual(
+    validaContenuto(c, opzioni),
+    ['percorsi.matrimonio.blocchi[1].passi[1]: titolo o testo mancante'],
+  );
+});
+
 test('un\'immagine di intestazione assente viene segnalata', () => {
   const c = copia(valido);
   c.percorsi.matrimonio.header.immagine = 'sparita.jpg';
