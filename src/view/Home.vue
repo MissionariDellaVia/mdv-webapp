@@ -1,0 +1,194 @@
+<template>
+  <section>
+    <div v-if="isLoading">
+      <base-spinner></base-spinner>
+    </div>
+    <div v-else >
+      <MdvVideoHeader :image="chiSiamoPage.header.backgroundImage" brand="true"
+                :title="chiSiamoPage.header.title"
+                :caption="chiSiamoPage.header.caption"/>
+
+      <div class="container mb-5">
+        <main>
+          <div class="row text-center my-5">
+            <img src="../assets/img/hr.png" alt="hr" class="hr-img">
+            <div class="col-12 px-5">
+              <h1 class="main-title my-4"> {{ chiSiamoPage.main.title }} </h1>
+              <h4 v-if="chiSiamoPage.main.caption" class="caption"> {{ chiSiamoPage.main.caption }} </h4>
+            </div>
+          </div>
+          <div v-if="chiSiamoPage.main.strings" class="row text-center my-5">
+            <div class="col-md-12 col-sm-12 px-5">
+              <p v-for="(text, index) in chiSiamoPage.main.strings" v-bind:key="index">{{ text }}</p>
+            </div>
+          </div>
+        </main>
+        <MdvArticle v-for="(section, index) in chiSiamoPage.sections" v-bind:key="index"
+                    :image-url="section.image ? section.image.url : null"
+                    :align="section.image ? section.image.align : null"
+                    :title="section.title"
+                    :texts="section.strings"/>
+
+      </div>
+    </div>
+
+    <section class="blog-shadow py-5">
+      <div class="container">
+        <div class="row my-4">
+          <div class="col-sm-12 text-center blog-title">
+            <h1>Blog</h1>
+          </div>
+        </div>
+
+        <Carousel :settings="settings" :pauseAutoplayOnHover="true" :transition="800" :autoplay="4000" :breakpoints="breakpoints" :wrap-around="true" >
+          <Slide v-for="post in lastBlogPosts" :key="post.id">
+            <div class="carousel__item ">
+              <MdvBlogCard :title="post.title"
+                           :image-url="post.images[0].url"
+                           :ref-link="post.url"
+                           :publish-date="parseDate(post.published)"
+              />
+            </div>
+          </Slide>
+          <template #addons>
+            <Navigation />
+          </template>
+        </Carousel>
+
+      </div>
+    </section>
+
+  </section>
+</template>
+
+<script>
+import MdvVideoHeader from "@/components/layout/MdvVideoHeader";
+import MdvArticle from "@/components/MdvArticle";
+import MdvBlogCard from "@/components/MdvBlogCard";
+import { Carousel, Slide, Navigation } from 'vue3-carousel'
+
+export default {
+  name: "HomePage",
+  components: { MdvArticle, MdvVideoHeader, MdvBlogCard, Carousel, Navigation, Slide},
+  created () {
+    this.loadPage("chi-siamo");
+    this.loadBlogPosts(10);
+  },
+  data() {
+    return {
+      helper: this.$util,
+      isLoading: false,
+      // carousel settings
+      settings: {
+        itemsToShow: 1,
+        snapAlign: 'center',
+      },
+      // breakpoints are mobile first
+      // any settings not specified will fallback to the carousel settings
+      breakpoints: {
+        // 700px and up
+        700: {
+          itemsToShow: 2.5,
+          snapAlign: 'center',
+        },
+        // 1024 and up
+        1024: {
+          itemsToShow: 3,
+          snapAlign: 'center',
+        }
+      }
+    };
+  },
+  computed: {
+    chiSiamoPage() {
+      return this.$store.getters['page/chiSiamo'];
+    },
+    lastBlogPosts() {
+      return this.$store.getters['blog/posts'];
+    },
+  },
+  methods: {
+    async loadPage(page) {
+      this.isLoading = true;
+      try {
+        await this.$store.dispatch('page/loadPage', page);
+      } catch (error) {
+        // this.showToast(error.message || 'Errore caricamento pagina!');
+      }
+      this.isLoading = false;
+    },
+    async loadBlogPosts(postNumber) {
+      this.isLoading = true;
+      try {
+        await this.$store.dispatch('blog/loadBlogPost', postNumber);
+      } catch (error) {
+        // this.showToast(error.message || 'Errore caricamento pagina!');
+      }
+      this.isLoading = false;
+    },
+    parseDate(date) {
+      return new Date(date);
+    }
+
+  }
+}
+</script>
+
+<style scoped>
+.hr-img {
+  width: 15rem;
+  margin: auto;
+}
+.main-title {
+  font-family: 'Playfair Display', sans-serif;
+  font-weight: 400 !important;
+  font-size: 2.8rem;
+}
+.caption {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.75;
+  font-style: italic;
+}
+p {
+  font-family: 'Old Standard TT', sans-serif;
+  font-size: 1.2rem;
+}
+.blog-shadow {
+  -webkit-box-shadow: inset 0 2px 12.5px 6px #dddddd;
+  -moz-box-shadow: inset 0 2px 12.5px 6px #dddddd;
+  box-shadow: inset 0 2px 12.5px 6px #dddddd;
+}
+.blog-title {
+  font-family: 'Playfair Display', sans-serif;
+  color: rgb(40, 29, 2);
+}
+.carousel__slide {
+  padding: 1.4rem;
+}
+.carousel__track {
+  transform-style: preserve-3d;
+}
+.carousel__slide--sliding {
+  transition: 0.5s;
+}
+.carousel__slide {
+  opacity: 0.9;
+  transform: rotateY(-20deg) scale(0.8);
+}
+.carousel__slide--active ~ .carousel__slide {
+  transform: rotateY(20deg) scale(0.8);
+}
+.carousel__slide--prev {
+  opacity: 1;
+  transform: rotateY(-10deg) scale(0.85);
+}
+.carousel__slide--next {
+  opacity: 1;
+  transform: rotateY(10deg) scale(0.85);
+}
+.carousel__slide--active {
+  opacity: 1;
+  transform: rotateY(0) scale(1);
+}
+
+</style>

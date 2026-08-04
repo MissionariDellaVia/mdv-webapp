@@ -1,0 +1,411 @@
+{
+  "en": [
+    {
+      "type": "dropdown",
+      "title": "who we are",
+      "links": [
+        {
+          "type": "link",
+          "title": "who we are",
+          "to": "/"
+        },
+        {
+          "type": "link",
+          "title": "insights",
+          "to": "/approfondimenti"
+        }
+      ]
+    },
+    {
+      "type": "link",
+      "title": "vocation",
+      "to": "/vocazione"
+    },
+    {
+      "type": "link",
+      "title": "activities",
+      "to": "/attivita"
+    },
+    {
+      "type": "link",
+      "title": "blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Laity",
+      "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Gospel Way",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "contacts",
+      "to": "/contatti"
+    },
+    {
+      "type": "dropdown",
+      "title": "other",
+      "links": [
+        {
+          "type": "link",
+          "title": "Youtube channel",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "pray with us",
+          "to": "/prega-con-noi"
+        }
+      ]
+    }
+  ],
+  "es": [
+    {
+      "type": "dropdown",
+      "title": "quienes somos",
+      "links": [
+        {
+          "type": "link",
+          "title": "quienes somos",
+          "to": "/"
+        },
+        {
+          "type": "link",
+          "title": "Más información",
+          "to": "/approfondimenti"
+        }
+      ]
+    },
+    {
+      "type": "link",
+      "title": "vocación",
+      "to": "/vocazione"
+    },
+    {
+      "type": "link",
+      "title": "actividades",
+      "to": "/attivita"
+    },
+    {
+      "type": "link",
+      "title": "blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Calle del Evangelio",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Laicos",
+      "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "contactos",
+      "to": "/contatti"
+    },
+    {
+      "type": "dropdown",
+      "title": "otro",
+      "links": [
+        {
+          "type": "link",
+          "title": "canal de Youtube",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "reza con nosotros",
+          "to": "/prega-con-noi"
+        }
+      ]
+    }
+  ],
+  "pt": [
+    {
+      "type": "dropdown",
+      "title": "quem nós somos",
+      "links": [
+        {
+          "type": "link",
+          "title": "quem nós somos",
+          "to": "/"
+        },
+        {
+          "type": "link",
+          "title": "Aprofundamentos",
+          "to": "/approfondimenti"
+        }
+      ]
+    },
+    {
+      "type": "link",
+      "title": "vocação",
+      "to": "/vocazione"
+    },
+    {
+      "type": "link",
+      "title": "Atividades",
+      "to": "/attivita"
+    },
+    {
+      "type": "link",
+      "title": "blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Leigos",
+      "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Rua do Evangelho",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Contatos",
+      "to": "/contatti"
+    },
+    {
+      "type": "dropdown",
+      "title": "outro",
+      "links": [
+        {
+          "type": "link",
+          "title": "canal do Youtube",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "Ore conosco",
+          "to": "/prega-con-noi"
+        }
+      ]
+    }
+  ],
+  "it": [
+    {
+      "type": "dropdown",
+      "title": "chi siamo",
+      "links": [
+        {
+          "type": "link",
+          "title": "chi siamo",
+          "to": "/"
+        },
+        {
+          "type": "link",
+          "title": "approfondimenti",
+          "to": "/approfondimenti"
+        }
+      ]
+    },
+    {
+      "type": "link",
+      "title": "vocazione",
+      "to": "/vocazione"
+    },
+    {
+      "type": "link",
+      "title": "attività",
+      "to": "/attivita"
+    },
+    {
+      "type": "link",
+      "title": "blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Laici",
+      "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Via del Vangelo",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "contatti",
+      "to": "/contatti"
+    },
+
+    {
+      "type": "dropdown",
+      "title": "altro",
+      "links": [
+        {
+          "type": "link",
+          "title": "canale youtube",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "prega con noi",
+          "to": "/prega-con-noi"
+        }
+      ]
+    }
+  ],
+  "fr": [
+    {
+      "type": "dropdown",
+      "title": "À propos de nous",
+      "links": [
+        {
+          "type": "link",
+          "title": "À propos de nous",
+          "to": "/"
+        },
+        {
+          "type": "link",
+          "title": "EN SAVOIR PLUS",
+          "to": "/approfondimenti"
+        }
+      ]
+    },
+    {
+      "type": "link",
+      "title": "VOCATION",
+      "to": "/vocazione"
+    },
+    {
+      "type": "link",
+      "title": "ACTIVITÉS",
+      "to": "/attivita"
+    },
+    {
+      "type": "link",
+      "title": "blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Laïcs",
+      "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Rue de l'Évangile",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "CONTACTS",
+      "to": "/contatti"
+    },
+    {
+      "type": "dropdown",
+      "title": "AUTRE",
+      "links": [
+        {
+          "type": "link",
+          "title": "Chaîne YouTube",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "Priez avec nous",
+          "to": "/prega-con-noi"
+        }
+      ]
+    }
+  ],
+  "pl": [
+    {
+      "type": "dropdown",
+      "title": "kim jesteśmy",
+      "links": [
+        {
+          "type": "link",
+          "title": "kim jesteśmy",
+          "to": "/"
+        },
+        {
+          "type": "link",
+          "title": "spostrzeżenia",
+          "to": "/approfondimenti"
+        }
+      ]
+    },
+    {
+      "type": "link",
+      "title": "powołanie",
+      "to": "/vocazione"
+    },
+    {
+      "type": "link",
+      "title": "zajęcia",
+      "to": "/attivita"
+    },
+    {
+      "type": "link",
+      "title": "blog",
+      "to": "https://blogdeipiccolidellavia.blogspot.com/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "świeccy",
+      "to": "https://www.cristianidistrada.net",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Ulica Ewangelii",
+      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+      "external": true
+    },
+    {
+      "type": "link",
+      "title": "Łączność",
+      "to": "/contatti"
+    },
+    {
+      "type": "dropdown",
+      "title": "inny",
+      "links": [
+        {
+          "type": "link",
+          "title": "kanał Youtube",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "módlcie się z nami",
+          "to": "/prega-con-noi"
+        }
+      ]
+    }
+  ]
+}
