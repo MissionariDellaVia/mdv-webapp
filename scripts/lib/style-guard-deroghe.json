@@ -15,6 +15,5 @@
   "src/view/Contatti.vue",
   "src/view/Home.vue",
   "src/view/Links.vue",
-  "src/view/PregaPerNoi.vue",
-  "src/view/Vocazione.vue"
+  "src/view/PregaPerNoi.vue"
 ]

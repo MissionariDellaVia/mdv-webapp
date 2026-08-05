@@ -72,26 +72,26 @@ export default {
 
 <style scoped>
 .main-title {
-  font-family: 'Playfair Display', sans-serif;
+  font-family: var(--mdv-font-corpo);
   font-weight: 400 !important;
   font-size: 2.8rem;
 }
 .caption {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--mdv-font-corpo);
   line-height: 1.75;
   font-style: italic;
 }
 p {
-  font-family: 'Old Standard TT', sans-serif;
+  font-family: var(--mdv-font-alternativo);
   font-size: 1.2rem;
 }
 a {
   text-decoration: none;
-  color: #8c681c !important;
+  color: var(--mdv-oro) !important;
   margin-bottom: 1.2rem;
 }
 .md a:hover, .md a:focus {
-  color: #59411a;
+  color: var(--mdv-oro-scuro);
 }
 
 </style>
