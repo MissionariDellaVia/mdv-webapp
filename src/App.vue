@@ -1,8 +1,8 @@
 <template>
-  <div :class="{ 'standalone-page': $route.meta.standalone }">
+  <div :class="{ 'standalone-page': $route.meta.standalone, 'voc-atmosfera': inSezione }">
     <MdvNavbar v-show="!$route.meta.reservedArea && !$route.meta.standalone"/>
     <router-view v-slot="{ Component }">
-      <transition name="scale" mode="out-in">
+      <transition :name="inSezione ? 'dissolvenza' : 'scale'" mode="out-in">
         <component :is="Component" />
       </transition>
     </router-view >
@@ -13,6 +13,7 @@
 <script>
 import MdvNavbar from "@/components/layout/MdvNavbar";
 import MdvFooter from "@/components/layout/MdvFooter";
+import { inVocazione } from "@/utility/inVocazione.mjs";
 
 const supportedLang = ['it', 'en', 'pl', 'es', 'fr']
 
@@ -20,6 +21,13 @@ export default {
   name: 'App',
   components: {
     MdvNavbar,MdvFooter
+  },
+  computed: {
+    // Navbar e footer sono fratelli del router-view: l'atmosfera puo'
+    // essere applicata solo da qui per raggiungerli tutti.
+    inSezione() {
+      return inVocazione(this.$route.path);
+    },
   },
   created() {
     this.checkAndSetLang();

@@ -67,3 +67,51 @@
   --mdv-raggio-m: 1rem;
   --mdv-raggio-l: 1.563rem;
 }
+
+/* Atmosfera della sezione vocazionale: ridefinisce i token invece di
+   introdurre regole nuove, cosi' ogni componente cambia senza saperlo. */
+.voc-atmosfera {
+  --mdv-bianco: #faf6ee;
+  --mdv-bruno-900: #1d1508;
+  --mdv-crema: #f0e7d6;
+  --mdv-sabbia: #b89f6d;
+
+  background-color: var(--mdv-bianco);
+  transition: background-color 700ms ease, color 700ms ease;
+}
+
+/* Rivelazione allo scroll: la direttiva v-rivela aggiunge le classi. */
+.da-rivelare {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+.rivelato {
+  opacity: 1;
+  transform: none;
+}
+
+/* Transizione fra le pagine della sezione. */
+.dissolvenza-enter-active,
+.dissolvenza-leave-active {
+  transition: opacity 300ms ease;
+}
+.dissolvenza-enter-from,
+.dissolvenza-leave-to {
+  opacity: 0;
+}
+
+/* Chi ha attivato "riduci movimento" spesso lo ha fatto per disturbi
+   vestibolari: velo e dissolvenze sono precisamente cio' che li scatena. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .da-rivelare {
+    opacity: 1;
+    transform: none;
+  }
+}
