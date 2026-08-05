@@ -1,0 +1,8 @@
+[
+  { "nome": "vocazione-discernimento",   "etichetta": "Sto cercando la mia strada", "gruppo": "percorsi" },
+  { "nome": "vocazione-matrimonio",      "etichetta": "Matrimonio",                 "gruppo": "percorsi" },
+  { "nome": "vocazione-sacerdozio",      "etichetta": "Sacerdozio",                 "gruppo": "percorsi" },
+  { "nome": "vocazione-vita-consacrata", "etichetta": "Vita consacrata",            "gruppo": "percorsi" },
+  { "nome": "vocazione-domande",         "etichetta": "Le vostre domande",          "gruppo": "altro" },
+  { "nome": "vocazione-proposta",        "etichetta": "La nostra proposta",         "gruppo": "altro" }
+]

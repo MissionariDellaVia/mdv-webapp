@@ -108,11 +108,10 @@ test('una sezione di primo livello mancante viene segnalata', () => {
 
 const FILE_CONTENUTO = 'src/assets/data/vocazione.json';
 const CARTELLA_IMG = 'src/assets/img/vocazione';
-const ROTTE_NOTE = [
-  'vocazione', 'vocazione-discernimento', 'vocazione-matrimonio',
-  'vocazione-sacerdozio', 'vocazione-vita-consacrata',
-  'vocazione-domande', 'vocazione-proposta',
-];
+const FILE_INDICE = 'src/assets/data/indice-vocazione.json';
+const indice = JSON.parse(fs.readFileSync(FILE_INDICE, 'utf8'));
+// L'hub non e' nell'indice: e' raggiunto dalla freccia della barra.
+const ROTTE_NOTE = ['vocazione', ...indice.map((v) => v.nome)];
 
 const leggiContenuto = () => JSON.parse(fs.readFileSync(FILE_CONTENUTO, 'utf8'));
 
@@ -138,6 +137,24 @@ test('le domande del documento sono otto', () => {
 
 test('l\'hub ha le quattro porte del documento', () => {
   assert.strictEqual(leggiContenuto().hub.porte.length, 4);
+});
+
+test('l\'indice elenca le sei pagine non-hub', () => {
+  assert.strictEqual(indice.length, 6);
+  assert.deepStrictEqual(
+    indice.map((v) => v.nome).sort(),
+    [
+      'vocazione-discernimento', 'vocazione-domande', 'vocazione-matrimonio',
+      'vocazione-proposta', 'vocazione-sacerdozio', 'vocazione-vita-consacrata',
+    ],
+  );
+});
+
+test('ogni voce dell\'indice ha etichetta e gruppo', () => {
+  for (const voce of indice) {
+    assert.ok(voce.etichetta, `manca etichetta per ${voce.nome}`);
+    assert.ok(['percorsi', 'altro'].includes(voce.gruppo), `gruppo non valido per ${voce.nome}`);
+  }
 });
 
 test('nessun indirizzo email nel contenuto: i contatti stanno in /contatti', () => {
