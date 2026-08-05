@@ -1,49 +1,50 @@
 <template>
-<div class="card">
-  <image-dialog :show="!!image.show" :imageLink="image.link" @close="cleanImageDialog"></image-dialog>
-  <div v-if="title" class="card-header">
-    <div v-show="'right' === align" class="text-md-start fs-3">{{ title }}</div>
-    <div v-show="'left' === align" class="text-md-end fs-3">{{ title }}</div>
-  </div>
-  <div class="card-body">
+  <BaseRiquadro>
+    <template v-if="title" #testata>
+      <div :class="allineamentoTitolo">{{ title }}</div>
+    </template>
+
+    <image-dialog :show="!!image.show" :imageLink="image.link" @close="cleanImageDialog"></image-dialog>
+
     <div v-if="imageUrl" class="row my-4">
       <div class="col col-sm-12 text-center" :class="imgArticleClass.imgCssClass">
-        <Carousel v-if="Array.isArray(imageUrl)" :pauseAutoplayOnHover="true" :transition="800" :autoplay="3000" :wrap-around="true" :breakpoints="breakpoints" class="mb-3" >
-          <Slide v-for="(img, index) in imageUrl" :key="index">
-            <div class="carousel__item ">
-              <img :src=helper.getImgUrl(img) @click="showImage(img)" class="shadow carousel-preview-img" alt="imageUrl">
-            </div>
-          </Slide>
-          <template #addons>
-            <Navigation />
-          </template>
-        </Carousel>
-        <img v-else :src=helper.getImgUrl(imageUrl) class="img-fluid" :class="{'small-img' : small}" alt="imageUrl">
+        <BaseCarosello v-if="Array.isArray(imageUrl)" :autoplay="3000" ciclico>
+          <img
+            v-for="(img, index) in imageUrl"
+            :key="index"
+            :src="helper.getImgUrl(img)"
+            class="anteprima"
+            alt=""
+            @click="showImage(img)"
+          />
+        </BaseCarosello>
+        <img v-else :src="helper.getImgUrl(imageUrl)" class="img-fluid" :class="{'small-img' : small}" alt="">
       </div>
-      <div class="col col-sm-12 text-start" :class="imgArticleClass.textCssClass" >
-        <p v-for="(text, index) in texts" v-bind:key="index" >
+      <div class="col col-sm-12 text-start" :class="imgArticleClass.textCssClass">
+        <p v-for="(text, index) in texts" v-bind:key="index">
           <Markdown :source="text" :html="true" class="markdown-mdv"></Markdown>
         </p>
       </div>
     </div>
+
     <div v-else class="row my-4">
       <div class="col col-sm-12 align-self-start">
-        <p v-for="(text, index) in texts" v-bind:key="index" >
+        <p v-for="(text, index) in texts" v-bind:key="index">
           <Markdown :source="text" :breaks="true" class="markdown-mdv"></Markdown>
         </p>
       </div>
     </div>
-  </div>
-</div>
+  </BaseRiquadro>
 </template>
 
 <script>
 import Markdown from 'vue3-markdown-it';
-import { Carousel, Navigation, Slide } from 'vue3-carousel'
+import BaseRiquadro from '@/components/ui/BaseRiquadro';
+import BaseCarosello from '@/components/ui/BaseCarosello';
 
 export default {
   name: "MdvArticle",
-  components: {Markdown, Carousel, Navigation, Slide},
+  components: {Markdown, BaseRiquadro, BaseCarosello},
   props: ['title', 'texts', 'align', 'imageUrl', 'small'],
   data(){
     return {
@@ -51,25 +52,14 @@ export default {
       image: {
         show: null,
         link: ''
-      },
-      breakpoints: {
-        // 700px and up
-        400: {
-          itemsToShow: 1,
-        },
-        // 1024 and up
-        1280: {
-          itemsToShow: 2,
-        },
-        // 1024 and up
-        1440: {
-          itemsToShow: 3,
-        }
       }
-
     }
   },
   computed: {
+    // Il titolo si accosta al lato opposto all'immagine.
+    allineamentoTitolo() {
+      return 'right' === this.align ? 'text-md-start fs-3' : 'text-md-end fs-3';
+    },
     imgArticleClass() {
       if (Array.isArray(this.imageUrl))
         return {"imgCssClass" : "order-last"};
@@ -98,15 +88,6 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  border: 0;
-}
-.card-header{
-  font-family: var(--mdv-font-corpo);
-  color: var(--mdv-bianco);
-  border: 0;
-  background: var(--mdv-bruno-900-velato);
-}
 p {
   font-family: var(--mdv-font-alternativo);
   font-size: 1.3rem;
@@ -115,52 +96,21 @@ p {
   max-width: 22rem;
   margin: auto;
 }
-.carousel__item {
-  object-fit: cover !important;
-}
-.carousel-preview-img{
-  max-width: 15rem;
+/* Le vecchie regole .carousel__slide con le rotazioni in 3D erano classi
+   della libreria: sparita quella, non avevano piu' niente da colpire. */
+.anteprima {
+  width: 15rem;
+  height: 11rem;
+  object-fit: cover;
+  border-radius: var(--mdv-raggio-s);
   cursor: pointer;
 }
-
-.carousel__slide {
-  padding: 1.4rem;
-}
-.carousel__track {
-  transform-style: preserve-3d;
-}
-.carousel__slide--sliding {
-  transition: 0.5s;
-}
-.carousel__slide {
-  opacity: 0.9;
-  transform: rotateY(-20deg) scale(0.8);
-}
-.carousel__slide--active ~ .carousel__slide {
-  transform: rotateY(20deg) scale(0.8);
-}
-.carousel__slide--prev {
-  opacity: 1;
-  transform: rotateY(-10deg) scale(0.85);
-}
-.carousel__slide--next {
-  opacity: 1;
-  transform: rotateY(10deg) scale(0.85);
-}
-.carousel__slide--active {
-  opacity: 1;
-  transform: rotateY(0) scale(1);
-}
-
 
 @media only screen and (max-width: 480px) {
   img {
     max-width: 19rem !important;
     padding: 0 !important;
     margin-bottom: 1rem !important;
-  }
-  .card-header {
-    text-align: center;
   }
 }
 </style>

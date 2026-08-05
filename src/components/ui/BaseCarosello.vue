@@ -1,23 +1,29 @@
 <template>
-  <div class="voc-carosello">
-    <div ref="pista" class="voc-carosello__pista" @scroll.passive="aggiorna">
+  <div
+    class="carosello"
+    @mouseenter="ferma"
+    @mouseleave="riparti"
+    @focusin="ferma"
+    @focusout="riparti"
+  >
+    <div ref="pista" class="carosello__pista" @scroll.passive="aggiorna">
       <slot />
     </div>
 
-    <div v-if="totale > 1" class="voc-carosello__comandi">
+    <div v-if="totale > 1" class="carosello__comandi">
       <button
         type="button"
-        class="voc-carosello__freccia"
-        :disabled="corrente === 0"
+        class="carosello__freccia"
+        :disabled="!ciclico && corrente === 0"
         aria-label="Precedente"
         @click="scorri(-1)"
       >←</button>
 
-      <ol class="voc-carosello__punti">
+      <ol class="carosello__punti">
         <li v-for="i in totale" :key="i">
           <button
             type="button"
-            :class="['voc-carosello__punto', { 'voc-carosello__punto--attivo': i - 1 === corrente }]"
+            :class="['carosello__punto', { 'carosello__punto--attivo': i - 1 === corrente }]"
             :aria-label="`Vai a ${i} di ${totale}`"
             :aria-current="i - 1 === corrente ? 'true' : null"
             @click="vaiA(i - 1)"
@@ -27,8 +33,8 @@
 
       <button
         type="button"
-        class="voc-carosello__freccia"
-        :disabled="corrente >= totale - 1"
+        class="carosello__freccia"
+        :disabled="!ciclico && corrente >= totale - 1"
         aria-label="Successivo"
         @click="scorri(1)"
       >→</button>
@@ -42,16 +48,29 @@
 // funziona senza aggiunte e non c'e' una dipendenza in piu' da
 // aggiornare. Le frecce sono comodita', non il meccanismo.
 export default {
-  name: 'VocCarosello',
+  name: 'BaseCarosello',
+  props: {
+    // Millisecondi fra un avanzamento e l'altro. Zero: nessun movimento
+    // automatico, che e' il valore giusto quando le schede si leggono.
+    autoplay: { type: Number, default: 0 },
+    // Arrivato in fondo torna all'inizio, invece di fermarsi.
+    ciclico: { type: Boolean, default: false },
+  },
   data() {
     return { corrente: 0, totale: 0 };
   },
   mounted() {
     this.contaSchede();
     window.addEventListener('resize', this.contaSchede);
+    // Un carosello che continua a girare in una scheda che nessuno guarda
+    // consuma batteria e basta.
+    document.addEventListener('visibilitychange', this.suVisibilita);
+    this.riparti();
   },
   beforeUnmount() {
     window.removeEventListener('resize', this.contaSchede);
+    document.removeEventListener('visibilitychange', this.suVisibilita);
+    this.ferma();
   },
   methods: {
     contaSchede() {
@@ -78,19 +97,38 @@ export default {
     scorri(direzione) {
       const pista = this.$refs.pista;
       if (!pista) return;
-      pista.scrollBy({ left: this.passo() * direzione, behavior: 'smooth' });
+      const prossimo = this.corrente + direzione;
+      if (this.ciclico && prossimo >= this.totale) return this.vaiA(0);
+      if (this.ciclico && prossimo < 0) return this.vaiA(this.totale - 1);
+      return pista.scrollBy({ left: this.passo() * direzione, behavior: 'smooth' });
     },
     vaiA(indice) {
       const pista = this.$refs.pista;
       if (!pista) return;
       pista.scrollTo({ left: this.passo() * indice, behavior: 'smooth' });
     },
+    // --- movimento automatico ---
+    riparti() {
+      this.ferma();
+      if (!this.autoplay) return;
+      // Chi ha chiesto meno movimento non vuole certo una giostra.
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      this.battito = setInterval(() => this.scorri(1), this.autoplay);
+    },
+    ferma() {
+      clearInterval(this.battito);
+      this.battito = null;
+    },
+    suVisibilita() {
+      if (document.hidden) this.ferma();
+      else this.riparti();
+    },
   },
 };
 </script>
 
 <style scoped>
-.voc-carosello__pista {
+.carosello__pista {
   display: flex;
   gap: var(--mdv-spazio-4);
   overflow-x: auto;
@@ -103,21 +141,21 @@ export default {
      vengono tagliati sopra e sotto. */
   padding-block: var(--mdv-spazio-4);
 }
-.voc-carosello__pista::-webkit-scrollbar {
+.carosello__pista::-webkit-scrollbar {
   display: none;
 }
-.voc-carosello__pista :deep(> *) {
+.carosello__pista :deep(> *) {
   scroll-snap-align: start;
   flex: 0 0 auto;
 }
 
-.voc-carosello__comandi {
+.carosello__comandi {
   display: flex;
   align-items: center;
   gap: var(--mdv-spazio-3);
   margin-top: var(--mdv-spazio-3);
 }
-.voc-carosello__freccia {
+.carosello__freccia {
   width: 2.5rem;
   height: 2.5rem;
   border: 1px solid var(--mdv-sabbia);
@@ -129,15 +167,11 @@ export default {
   cursor: pointer;
   transition: border-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
-.voc-carosello__freccia:hover:not(:disabled) {
-  border-color: var(--mdv-oro);
-  color: var(--mdv-oro-chiaro);
-}
-.voc-carosello__freccia:disabled {
+.carosello__freccia:disabled {
   opacity: 0.3;
   cursor: default;
 }
-.voc-carosello__punti {
+.carosello__punti {
   display: flex;
   align-items: center;
   gap: var(--mdv-spazio-2);
@@ -145,7 +179,7 @@ export default {
   padding: 0;
   margin: 0 auto 0 0;
 }
-.voc-carosello__punto {
+.carosello__punto {
   width: 1.6rem;
   height: 2px;
   padding: 0;
@@ -155,13 +189,20 @@ export default {
   cursor: pointer;
   transition: opacity 0.3s ease, background-color 0.3s ease;
 }
-.voc-carosello__punto--attivo {
+.carosello__punto--attivo {
   background-color: var(--mdv-oro);
   opacity: 1;
 }
-.voc-carosello__freccia:focus-visible,
-.voc-carosello__punto:focus-visible {
+.carosello__freccia:focus-visible,
+.carosello__punto:focus-visible {
   outline: 2px solid var(--mdv-oro);
   outline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .carosello__freccia:hover:not(:disabled) {
+    border-color: var(--mdv-oro);
+    color: var(--mdv-oro-chiaro);
+  }
 }
 </style>

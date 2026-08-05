@@ -3,7 +3,7 @@
     <h2 v-if="titolo" class="voc-passi__titolo">{{ titolo }}</h2>
     <p class="voc-passi__avanzamento">{{ letti.length }} di {{ passi.length }} · tocca una carta per girarla</p>
 
-    <VocCarosello>
+    <BaseCarosello>
       <button
         v-for="(passo, i) in passi"
         :key="i"
@@ -26,17 +26,17 @@
           </span>
         </span>
       </button>
-    </VocCarosello>
+    </BaseCarosello>
   </section>
 </template>
 
 <script>
-import VocCarosello from '@/components/vocazione/VocCarosello';
+import BaseCarosello from '@/components/ui/BaseCarosello';
 import { vocStorage } from '@/utility/vocStorage.mjs';
 
 export default {
   name: 'VocPassi',
-  components: { VocCarosello },
+  components: { BaseCarosello },
   props: {
     titolo: { type: String, default: '' },
     passi: { type: Array, required: true },

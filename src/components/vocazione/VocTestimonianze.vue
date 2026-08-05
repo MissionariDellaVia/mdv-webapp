@@ -2,7 +2,7 @@
   <section class="voc-testimonianze">
     <h2 v-if="titolo" class="voc-testimonianze__titolo">{{ titolo }}</h2>
 
-    <VocCarosello>
+    <BaseCarosello>
       <button
         v-for="(voce, i) in voci"
         :key="i"
@@ -32,7 +32,7 @@
           Leggi <span class="voc-testimonianze__freccia" aria-hidden="true">→</span>
         </span>
       </button>
-    </VocCarosello>
+    </BaseCarosello>
 
     <VocModale
       :aperta="apertaIndice !== null"
@@ -81,13 +81,13 @@
 
 <script>
 import Markdown from 'vue3-markdown-it';
-import VocCarosello from '@/components/vocazione/VocCarosello';
+import BaseCarosello from '@/components/ui/BaseCarosello';
 import VocModale from '@/components/vocazione/VocModale';
 import { estratto } from '@/utility/estratto.mjs';
 
 export default {
   name: 'VocTestimonianze',
-  components: { Markdown, VocCarosello, VocModale },
+  components: { Markdown, BaseCarosello, VocModale },
   props: {
     titolo: { type: String, default: '' },
     voci: { type: Array, required: true },

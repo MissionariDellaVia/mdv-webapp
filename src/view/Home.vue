@@ -40,20 +40,16 @@
           </div>
         </div>
 
-        <Carousel :settings="settings" :pauseAutoplayOnHover="true" :transition="800" :autoplay="4000" :breakpoints="breakpoints" :wrap-around="true" >
-          <Slide v-for="post in lastBlogPosts" :key="post.id">
-            <div class="carousel__item ">
-              <MdvBlogCard :title="post.title"
-                           :image-url="post.images[0].url"
-                           :ref-link="post.url"
-                           :publish-date="parseDate(post.published)"
-              />
-            </div>
-          </Slide>
-          <template #addons>
-            <Navigation />
-          </template>
-        </Carousel>
+        <!-- Quante schede si vedano non e' piu' una tabella di soglie:
+             ci stanno quelle che ci stanno, e la pista scorre. -->
+        <BaseCarosello :autoplay="4000" ciclico>
+          <MdvBlogCard v-for="post in lastBlogPosts" :key="post.id"
+                       :title="post.title"
+                       :image-url="post.images[0].url"
+                       :ref-link="post.url"
+                       :publish-date="parseDate(post.published)"
+          />
+        </BaseCarosello>
 
       </div>
     </section>
@@ -65,11 +61,11 @@
 import MdvVideoHeader from "@/components/layout/MdvVideoHeader";
 import MdvArticle from "@/components/MdvArticle";
 import MdvBlogCard from "@/components/MdvBlogCard";
-import { Carousel, Slide, Navigation } from 'vue3-carousel'
+import BaseCarosello from '@/components/ui/BaseCarosello';
 
 export default {
   name: "HomePage",
-  components: { MdvArticle, MdvVideoHeader, MdvBlogCard, Carousel, Navigation, Slide},
+  components: { MdvArticle, MdvVideoHeader, MdvBlogCard, BaseCarosello },
   created () {
     this.loadPage("chi-siamo");
     this.loadBlogPosts(10);
@@ -78,25 +74,6 @@ export default {
     return {
       helper: this.$util,
       isLoading: false,
-      // carousel settings
-      settings: {
-        itemsToShow: 1,
-        snapAlign: 'center',
-      },
-      // breakpoints are mobile first
-      // any settings not specified will fallback to the carousel settings
-      breakpoints: {
-        // 700px and up
-        700: {
-          itemsToShow: 2.5,
-          snapAlign: 'center',
-        },
-        // 1024 and up
-        1024: {
-          itemsToShow: 3,
-          snapAlign: 'center',
-        }
-      }
     };
   },
   computed: {

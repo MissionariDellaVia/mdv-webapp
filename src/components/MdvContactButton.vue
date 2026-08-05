@@ -1,46 +1,33 @@
 <template>
-<div class="card shadow">
-  <div class="card-header">
-    <slot name="card-header"></slot>
-  </div>
-  <div class="card-body">
+  <BaseRiquadro reattivo class="contatto">
+    <template #testata>
+      <span class="contatto__icona"><slot name="card-header"></slot></span>
+    </template>
     <slot name="body"></slot>
-  </div>
-</div>
+  </BaseRiquadro>
 </template>
 
 <script>
+import BaseRiquadro from '@/components/ui/BaseRiquadro';
+
 export default {
-  name: "ContactoButtonPage"
+  name: "MdvContactButton",
+  components: { BaseRiquadro },
 }
 </script>
 
 <style scoped>
-.card {
-  font-family: var(--mdv-font-corpo);
-  border: 0;
+.contatto {
   width: 20rem;
   margin: auto;
-  transition: all 0.2s ease;
-  transform: scale(0.9);
+  text-align: center;
 }
-.card-header{
-  border: 0;
-  background: var(--mdv-bruno-900-velato);
-  color: var(--mdv-bianco);
+.contatto__icona {
   font-size: 3rem;
-  text-align: center;
+  line-height: 1;
 }
-.card-body {
-  font-size: medium;
-  height: 12rem;
-  text-align: center;
-}
-p {
+.contatto :deep(p) {
   font-family: var(--mdv-font-navigazione);
   font-size: larger;
-}
-.card:hover {
-  transform: scale(1);
 }
 </style>

@@ -8,8 +8,6 @@ import store from './store/index.js';
 import App from './App.vue';
 import BaseSpinner from './components/ui/BaseSpinner'
 import BaseToast from './components/ui/BaseToast'
-import BaseCard from './components/ui/BaseCard'
-import BaseDashboard from "@/components/ui/BaseDashboard";
 import BaseButton from "@/components/ui/BaseButton";
 import BackButton from "@/components/ui/BackButton";
 import ImageDialog from "@/components/ui/ImageDialog";
@@ -30,7 +28,6 @@ import Markdown from 'vue3-markdown-it';
 // di highlight serve solo ai blocchi di codice, che nei contenuti del
 // sito non esistono.
 import "/node_modules/flag-icons/css/flag-icons.min.css";
-import 'vue3-carousel/dist/carousel.css';
 
 const app = createApp(App)
 app.use(router);
@@ -44,8 +41,6 @@ app.directive('rivela', direttivaRivela);
 
 app.component('base-spinner', BaseSpinner);
 app.component('base-toast', BaseToast);
-app.component('base-card', BaseCard);
-app.component('base-dashboard', BaseDashboard);
 app.component('base-button', BaseButton);
 app.component('back-button', BackButton);
 app.component('image-dialog', ImageDialog);

@@ -1,20 +1,30 @@
 <template>
-<div class="card shadow">
-  <img :src=helper.getImgUrl(imageUrl)  class="card-img-top" alt="cardImage" referrerpolicy="no-referrer">
-  <div class="card-body text-center">
-    <h4 class="card-title text-center fs-5">{{ title }}</h4>
-    <p class="text-center my-4">pubblicato il {{ parsedDate }}</p>
-    <div class="pb-2">
-      <hr/>
-      <a :href="refLink">Leggi di più</a>
-    </div>
-  </div>
-</div>
+  <BaseRiquadro reattivo class="scheda-blog">
+    <template #immagine>
+      <img
+        :src="helper.getImgUrl(imageUrl)"
+        class="scheda-blog__foto"
+        alt=""
+        referrerpolicy="no-referrer"
+      />
+    </template>
+
+    <h3 class="scheda-blog__titolo">{{ title }}</h3>
+    <p class="scheda-blog__data">pubblicato il {{ parsedDate }}</p>
+    <hr class="scheda-blog__filo" />
+    <a :href="refLink" class="mdv-invito">
+      Leggi di più
+      <span class="mdv-invito__freccia" aria-hidden="true">&rarr;</span>
+    </a>
+  </BaseRiquadro>
 </template>
 
 <script>
+import BaseRiquadro from '@/components/ui/BaseRiquadro';
+
 export default {
   name: "MdvBlogCard",
+  components: { BaseRiquadro },
   props: ['title', 'cardText', 'publishDate', 'imageUrl', 'refLink'],
   computed: {
     parsedDate() {
@@ -30,34 +40,34 @@ export default {
 </script>
 
 <style scoped>
-hr {
-  border-top: 0.2rem solid var(--mdv-bruno-900);
-  margin: 1.2rem auto 0.5rem;
-  width: 70%;
+.scheda-blog {
+  width: 21rem;
+  max-width: 100%;
+  text-align: center;
+  background-color: var(--mdv-fondo-scheda);
 }
-a {
-  font-size: larger;
-  text-decoration: none;
-  color: var(--mdv-oro);
-  margin-bottom: 1.2rem;
-}
-a:hover, a:focus {
-  color: var(--mdv-oro-scuro);
-}
-.card {
-  border: 0;
-  border-radius: 0;
-  background: var(--mdv-fondo-scheda);
-  color: var(--mdv-bruno-900);
-  transform: scale(0.9);
-  font-family: var(--mdv-font-corpo);
-  transition: all 0.2s ease;
-}
-.card:hover {
-  transform: scale(0.95);
-}
-.card-img-top {
+.scheda-blog__foto {
+  width: 100%;
   height: 15rem;
   object-fit: cover;
+}
+.scheda-blog__titolo {
+  font-family: var(--mdv-font-corpo);
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin: 0;
+}
+.scheda-blog__data {
+  font-family: var(--mdv-font-navigazione);
+  font-size: 0.9rem;
+  color: var(--mdv-grigio-scuro);
+  margin: var(--mdv-spazio-3) 0 0 0;
+}
+.scheda-blog__filo {
+  border: none;
+  border-top: 2px solid var(--mdv-sabbia);
+  width: 70%;
+  margin: var(--mdv-spazio-4) auto;
+  opacity: 1;
 }
 </style>
