@@ -1,4 +1,5 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
+import { USA_CRONOLOGIA_HTML5 } from './instradamento'
 import Home from '@/view/Home';
 import Attivita from '@/view/Attivita';
 import Contatti from '@/view/Contatti';
@@ -71,8 +72,16 @@ const routes = [
 // Il ritorno in cima si vedeva perche' avveniva mentre la pagina vecchia
 // era ancora sullo schermo: lo scatto era il vero difetto, non lo scroll.
 // Differendolo dentro l'uscita, il salto avviene a schermo gia' svuotato.
+// La modalita' e la sitemap leggono la stessa costante: passare agli
+// indirizzi senza cancelletto senza aggiornare anche la sitemap — o senza
+// che il server sappia riscrivere — e' esattamente il modo in cui si
+// rompono tutti i collegamenti profondi. Vedi instradamento.js.
+const cronologia = USA_CRONOLOGIA_HTML5
+    ? createWebHistory(process.env.BASE_URL)
+    : createWebHashHistory();
+
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: cronologia,
     routes,
     scrollBehavior: () => scrollDifferito({ top: 0 }),
 });
