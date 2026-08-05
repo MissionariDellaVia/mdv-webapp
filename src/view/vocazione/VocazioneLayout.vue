@@ -7,11 +7,15 @@
          sono. E' questo a togliere la sensazione di ricarica. -->
     <VocIntestazione v-if="intestazione" v-bind="intestazione" />
 
-    <router-view v-slot="{ Component }">
-      <transition name="dissolvenza" mode="out-in">
-        <component :is="Component" />
-      </transition>
-    </router-view>
+    <!-- Ancora fissa: esiste sempre, anche mentre la pagina si sta
+         sostituendo, quindi il router puo' puntarci senza aspettarla. -->
+    <div id="voc-contenuto">
+      <router-view v-slot="{ Component }">
+        <transition name="dissolvenza" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+    </div>
   </div>
 </template>
 

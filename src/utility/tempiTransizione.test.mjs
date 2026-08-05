@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert';
 import fs from 'node:fs';
-import { USCITA_PAGINA_MS, RITARDO_SCROLL_MS, scrollDifferitoInCima } from './tempiTransizione.mjs';
+import { USCITA_PAGINA_MS, RITARDO_SCROLL_MS, scrollDifferito } from './tempiTransizione.mjs';
 
 test('la durata di uscita combacia con il token CSS', () => {
   const css = fs.readFileSync('src/assets/css/tokens.css', 'utf8');
@@ -15,6 +15,10 @@ test('lo scroll parte prima che l\'uscita finisca', () => {
   assert.ok(RITARDO_SCROLL_MS < USCITA_PAGINA_MS);
 });
 
-test('lo scroll differito risolve la posizione in cima', async () => {
-  assert.deepStrictEqual(await scrollDifferitoInCima(0), { top: 0 });
+test('lo scroll differito restituisce la destinazione ricevuta', async () => {
+  assert.deepStrictEqual(await scrollDifferito({ top: 0 }, 0), { top: 0 });
+  assert.deepStrictEqual(
+    await scrollDifferito({ el: '#voc-contenuto', top: 120 }, 0),
+    { el: '#voc-contenuto', top: 120 },
+  );
 });

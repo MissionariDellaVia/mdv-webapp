@@ -16,7 +16,11 @@
            nuovo entra mentre il vecchio esce senza che niente si sposti
            in altezza: il filo e il menu non si muovono di un pixel. -->
       <div class="voc-intestazione__testo">
-        <transition name="titolo">
+        <!-- out-in: senza, i due titoli restano sovrapposti per mezzo
+             secondo e si legge un doppione — il nuovo che compare mentre
+             il vecchio e' ancora li'. Lo spazio e' riservato, quindi
+             darsi il cambio non sposta niente. -->
+        <transition name="titolo" mode="out-in">
           <div :key="titolo" class="voc-intestazione__strato">
             <p v-if="occhiello" class="voc-intestazione__occhiello">{{ occhiello }}</p>
             <h1 class="voc-intestazione__titolo">{{ titolo }}</h1>
@@ -175,7 +179,7 @@ export default {
 .voc-intestazione__menu {
   display: flex;
   flex-wrap: nowrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
   /* "safe" evita che, quando la riga non ci sta, il centraggio nasconda
      la prima voce oltre il bordo sinistro dell'area che scorre. */
@@ -191,10 +195,15 @@ export default {
   display: none;
 }
 
+/* Metriche identiche per ogni voce — stessa altezza di riga, stesso
+   riempimento, display esplicito: cosi' nessuna puo' sedersi piu' in
+   alto o piu' in basso delle altre. */
 .voc-intestazione__voce {
   position: relative;
+  display: block;
   flex: 0 0 auto;
   padding: var(--mdv-spazio-2) 0;
+  line-height: 1.4;
   font-family: var(--mdv-font-navigazione);
   font-size: clamp(0.78rem, 1.35vw, 0.92rem);
   letter-spacing: 0.07em;
@@ -240,11 +249,15 @@ export default {
 /* Il titolo si scambia in dissolvenza incrociata, con un velo di sfocatura
    che fa "mettere a fuoco" quello nuovo. Niente spostamenti: il testo non
    sale e non scende, cambia e basta. */
-.titolo-enter-active,
+.titolo-enter-active {
+  transition:
+    opacity 620ms var(--mdv-curva-morbida),
+    filter 620ms var(--mdv-curva-morbida);
+}
 .titolo-leave-active {
   transition:
-    opacity 700ms var(--mdv-curva-morbida),
-    filter 700ms var(--mdv-curva-morbida);
+    opacity 300ms ease-in,
+    filter 300ms ease-in;
 }
 .titolo-enter-from,
 .titolo-leave-to {

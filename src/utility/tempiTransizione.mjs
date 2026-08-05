@@ -8,10 +8,10 @@ export const USCITA_PAGINA_MS = 260;
 // montata, quindi il salto avviene su uno schermo che nessuno guarda.
 export const RITARDO_SCROLL_MS = USCITA_PAGINA_MS - 60;
 
-// Riporta la pagina in cima, ma solo dopo l'uscita. Restituire una
-// promessa e' il modo previsto da vue-router per ritardare lo scroll.
-export function scrollDifferitoInCima(attendi = RITARDO_SCROLL_MS) {
+// Sposta la pagina, ma solo dopo l'uscita. Restituire una promessa e' il
+// modo previsto da vue-router per ritardare lo scroll.
+export function scrollDifferito(destinazione, attendi = RITARDO_SCROLL_MS) {
   return new Promise((risolvi) => {
-    setTimeout(() => risolvi({ top: 0 }), attendi);
+    setTimeout(() => risolvi(destinazione), attendi);
   });
 }
