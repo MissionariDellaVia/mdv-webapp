@@ -25,9 +25,11 @@ import './assets/css/tokens.css';
 import Markdown from 'vue3-markdown-it';
 
 // Css
-import 'animate.css';
+// animate.css e il tema di highlight.js erano importati ma non usati da
+// nessuno: 71 KB di CSS scaricati da ogni visitatore per niente. Il tema
+// di highlight serve solo ai blocchi di codice, che nei contenuti del
+// sito non esistono.
 import "/node_modules/flag-icons/css/flag-icons.min.css";
-import 'highlight.js/styles/monokai.css';
 import 'vue3-carousel/dist/carousel.css';
 
 const app = createApp(App)

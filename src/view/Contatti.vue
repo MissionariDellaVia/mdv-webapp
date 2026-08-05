@@ -82,9 +82,14 @@
 <script>
 import MDHeader from "@/components/layout/MdvHeader";
 import MdvContactoButton from "@/components/MdvContactButton";
-import BaseMap from "@/components/ui/BaseMap";
 import MdvForm from "@/components/MdvForm";
 import Markdown from 'vue3-markdown-it';
+import { defineAsyncComponent } from 'vue';
+
+// La mappa si porta dietro maplibre-gl, il pezzo piu' pesante di tutto il
+// sito. Caricata cosi', arriva solo quando qualcuno apre i contatti: chi
+// legge "chi siamo" non scarica piu' un motore cartografico.
+const BaseMap = defineAsyncComponent(() => import("@/components/ui/BaseMap"));
 
 export default {
   name: "ContattiPage",
