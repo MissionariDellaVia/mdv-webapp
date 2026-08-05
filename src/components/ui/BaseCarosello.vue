@@ -130,7 +130,13 @@ export default {
 <style scoped>
 .carosello__pista {
   display: flex;
+  /* Le schede stanno al centro quando ci stanno tutte, e scorrono da
+     sinistra quando non ci stanno. "safe" e' quello che evita che, con il
+     centraggio, la prima finisca oltre il bordo e diventi irraggiungibile. */
+  justify-content: center;
+  justify-content: safe center;
   gap: var(--mdv-spazio-4);
+  scroll-padding-inline: var(--mdv-spazio-4);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;

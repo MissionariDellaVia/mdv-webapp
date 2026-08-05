@@ -40,16 +40,17 @@
           </div>
         </div>
 
-        <!-- Quante schede si vedano non e' piu' una tabella di soglie:
-             ci stanno quelle che ci stanno, e la pista scorre. -->
-        <BaseCarosello :autoplay="4000" ciclico>
+        <!-- Gli ultimi articoli stanno in griglia, non in un carosello:
+             qui si vedono tutti insieme e nessuno deve aspettare che
+             ruotino per sapere cosa c'e'. -->
+        <div class="griglia-blog">
           <MdvBlogCard v-for="post in lastBlogPosts" :key="post.id"
                        :title="post.title"
                        :image-url="post.images[0].url"
                        :ref-link="post.url"
                        :publish-date="parseDate(post.published)"
           />
-        </BaseCarosello>
+        </div>
 
       </div>
     </section>
@@ -61,14 +62,13 @@
 import MdvVideoHeader from "@/components/layout/MdvVideoHeader";
 import MdvArticle from "@/components/MdvArticle";
 import MdvBlogCard from "@/components/MdvBlogCard";
-import BaseCarosello from '@/components/ui/BaseCarosello';
 
 export default {
   name: "HomePage",
-  components: { MdvArticle, MdvVideoHeader, MdvBlogCard, BaseCarosello },
+  components: { MdvArticle, MdvVideoHeader, MdvBlogCard },
   created () {
     this.loadPage("chi-siamo");
-    this.loadBlogPosts(10);
+    this.loadBlogPosts(3);
   },
   data() {
     return {
@@ -112,6 +112,16 @@ export default {
 </script>
 
 <style scoped>
+/* Tre schede affiancate dove ci stanno, in colonna dove no. Non c'e' una
+   tabella di soglie: le colonne le decide lo spazio disponibile. */
+.griglia-blog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: var(--mdv-spazio-5);
+  align-items: start;
+  justify-items: center;
+}
+
 .hr-img {
   width: 15rem;
   margin: auto;
