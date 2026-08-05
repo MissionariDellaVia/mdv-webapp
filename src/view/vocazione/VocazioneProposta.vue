@@ -1,9 +1,11 @@
 <template>
   <section>
-    <MdvHeader
-      :image="proposta.header.immagine"
-      :title="proposta.header.titolo"
-      :caption="proposta.header.sottotitolo"
+    <VocIntestazione
+      ritorno
+      occhiello="Vocazione"
+      :immagine="proposta.header.immagine"
+      :titolo="proposta.header.titolo"
+      :sottotitolo="proposta.header.sottotitolo"
     />
 
     <div class="container voc-proposta">
@@ -24,13 +26,13 @@
 </template>
 
 <script>
-import MdvHeader from '@/components/layout/MdvHeader';
+import VocIntestazione from '@/components/vocazione/VocIntestazione';
 import VocProsa from '@/components/vocazione/VocProsa';
 import contenuto from '@/assets/data/vocazione.json';
 
 export default {
   name: 'VocazioneProposta',
-  components: { MdvHeader, VocProsa },
+  components: { VocIntestazione, VocProsa },
   data() {
     return { proposta: contenuto.proposta };
   },

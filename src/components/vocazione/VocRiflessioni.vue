@@ -117,7 +117,8 @@ export default {
   border: 1px solid var(--mdv-sabbia);
   border-radius: var(--mdv-raggio-s);
   font-family: var(--mdv-font-corpo);
-  background-color: var(--mdv-bianco);
+  color: var(--mdv-bruno-900);
+  background-color: var(--voc-campo);
 }
 .voc-riflessioni__cancella {
   margin-top: var(--mdv-spazio-4);

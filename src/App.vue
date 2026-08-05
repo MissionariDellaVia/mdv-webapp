@@ -1,5 +1,9 @@
 <template>
-  <div :class="{ 'standalone-page': $route.meta.standalone, 'voc-atmosfera': inSezione }">
+  <div :class="{
+    'standalone-page': $route.meta.standalone,
+    'app-sfondo': !$route.meta.standalone,
+    'voc-atmosfera': inSezione,
+  }">
     <MdvNavbar v-show="!$route.meta.reservedArea && !$route.meta.standalone"/>
     <router-view v-slot="{ Component }">
       <transition :name="inSezione ? 'dissolvenza' : 'scale'" mode="out-in">
@@ -25,8 +29,14 @@ export default {
   computed: {
     // Navbar e footer sono fratelli del router-view: l'atmosfera puo'
     // essere applicata solo da qui per raggiungerli tutti.
+    // In lingua diversa dall'italiano /vocazione mostra la vecchia pagina,
+    // che e' scritta per il fondo chiaro: li' l'atmosfera resta spenta.
+    // La navbar cambia a ogni cambio lingua: leggerla rende il calcolo
+    // reattivo senza doverne aggiungere uno stato apposito.
     inSezione() {
-      return inVocazione(this.$route.path);
+      void this.$store.getters['page/navbar'];
+      const lingua = localStorage.getItem('lang') || 'it';
+      return lingua === 'it' && inVocazione(this.$route.path);
     },
   },
   created() {

@@ -1,8 +1,10 @@
 <template>
   <section>
-    <MdvHeader
-      title="Le vostre domande"
-      caption="Domande vere, risposte dei missionari"
+    <VocIntestazione
+      ritorno
+      occhiello="Vocazione"
+      titolo="Le vostre domande"
+      sottotitolo="Domande vere, risposte dei missionari"
     />
 
     <div class="container voc-domande">
@@ -18,13 +20,13 @@
 </template>
 
 <script>
-import MdvHeader from '@/components/layout/MdvHeader';
+import VocIntestazione from '@/components/vocazione/VocIntestazione';
 import VocFaq from '@/components/vocazione/VocFaq';
 import contenuto from '@/assets/data/vocazione.json';
 
 export default {
   name: 'VocazioneDomande',
-  components: { MdvHeader, VocFaq },
+  components: { VocIntestazione, VocFaq },
   data() {
     return { domande: contenuto.domande };
   },

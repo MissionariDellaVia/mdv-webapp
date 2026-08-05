@@ -66,18 +66,71 @@
   --mdv-raggio-s: 0.5rem;
   --mdv-raggio-m: 1rem;
   --mdv-raggio-l: 1.563rem;
+
+  /* Tavolozza della sezione vocazionale: notte calda. Vive qui e non
+     dentro .voc-atmosfera perche' serve anche al <body>, che non e'
+     dentro l'applicazione. */
+  --voc-fondo: #17110a;
+  --voc-fondo-alto: #241a0f;
+  --voc-campo: #0f0b06;
+  --voc-alone: rgba(226, 186, 108, 0.16);
 }
 
-/* Atmosfera della sezione vocazionale: ridefinisce i token invece di
-   introdurre regole nuove, cosi' ogni componente cambia senza saperlo. */
-.voc-atmosfera {
-  --mdv-bianco: #faf6ee;
-  --mdv-bruno-900: #1d1508;
-  --mdv-crema: #f0e7d6;
-  --mdv-sabbia: #b89f6d;
-
+/* Fondo dell'applicazione: e' qui che avviene il passaggio di atmosfera.
+   Una sola proprieta' in transizione, su un solo elemento. */
+.app-sfondo {
+  min-height: 100vh;
   background-color: var(--mdv-bianco);
-  transition: background-color 700ms ease, color 700ms ease;
+  transition: background-color 900ms ease, color 900ms ease;
+}
+
+/* Entrare in /vocazione deve somigliare a entrare in un altro posto: il
+   fondo diventa notte, l'oro sale, il testo si schiarisce. Non si scrivono
+   regole nuove — si ridefiniscono i token gia' usati dai componenti, che
+   cambiano senza saperlo. Navbar e footer inclusi. */
+.voc-atmosfera {
+  --mdv-bruno-900: #ece1cd;
+  --mdv-bruno-900-velato: rgba(23, 17, 10, 0.94);
+  --mdv-bruno-800: #d8c9ab;
+  --mdv-bruno-700: #b9a98c;
+  --mdv-terra: #b98a63;
+
+  --mdv-oro: #e2ba6c;
+  --mdv-oro-scuro: #d0a458;
+  --mdv-oro-chiaro: #f2d8a2;
+
+  --mdv-sabbia: #6f5b38;
+  --mdv-sabbia-chiara: #e8d4a8;
+  --mdv-crema: #241a0f;
+  --mdv-pietra: #b9ad97;
+
+  --mdv-grigio: #a2937b;
+  --mdv-grigio-scuro: #b8ab94;
+
+  background-color: var(--voc-fondo);
+  color: var(--mdv-bruno-900);
+}
+
+/* L'area di rimbalzo dello scroll resta bianca se non si tinge anche il
+   body, e il salto si vede sui trackpad. */
+body:has(.voc-atmosfera) {
+  background-color: var(--voc-fondo);
+  transition: background-color 900ms ease;
+}
+
+/* I colori del markdown sono globali e scritti per il fondo chiaro. */
+.voc-atmosfera .markdown-mdv blockquote {
+  color: var(--mdv-oro) !important;
+}
+.voc-atmosfera .markdown-mdv a {
+  color: var(--mdv-oro);
+}
+.voc-atmosfera .markdown-mdv a:hover,
+.voc-atmosfera .markdown-mdv a:focus {
+  color: var(--mdv-oro-chiaro);
+}
+.voc-atmosfera .markdown-mdv em {
+  color: var(--mdv-grigio-scuro);
 }
 
 /* Rivelazione allo scroll: la direttiva v-rivela aggiunge le classi. */
@@ -106,6 +159,9 @@
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    /* Senza azzerare anche il ritardo, un elemento che parte da opacity 0
+       con animazione differita resta invisibile per tutta l'attesa. */
+    animation-delay: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;

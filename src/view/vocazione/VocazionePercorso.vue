@@ -1,9 +1,11 @@
 <template>
   <section>
-    <MdvHeader
-      :image="percorso.header.immagine"
-      :title="percorso.header.titolo"
-      :caption="percorso.header.sottotitolo"
+    <VocIntestazione
+      ritorno
+      occhiello="Percorso"
+      :immagine="percorso.header.immagine"
+      :titolo="percorso.header.titolo"
+      :sottotitolo="percorso.header.sottotitolo"
     />
 
     <div class="container voc-percorso">
@@ -31,7 +33,7 @@
 </template>
 
 <script>
-import MdvHeader from '@/components/layout/MdvHeader';
+import VocIntestazione from '@/components/vocazione/VocIntestazione';
 import VocProsa from '@/components/vocazione/VocProsa';
 import VocElenco from '@/components/vocazione/VocElenco';
 import VocPassi from '@/components/vocazione/VocPassi';
@@ -53,7 +55,7 @@ const PER_TIPO = {
 export default {
   name: 'VocazionePercorso',
   components: {
-    MdvHeader, VocProsa, VocElenco, VocPassi, VocRiflessioni, VocTestimonianze, VocRimandi,
+    VocIntestazione, VocProsa, VocElenco, VocPassi, VocRiflessioni, VocTestimonianze, VocRimandi,
   },
   props: {
     chiave: { type: String, required: true },

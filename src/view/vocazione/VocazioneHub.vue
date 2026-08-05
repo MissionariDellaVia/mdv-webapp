@@ -5,10 +5,11 @@
   <VocazioneLegacy v-if="!inItaliano" />
 
   <section v-else>
-    <MdvHeader
-      :image="hub.header.immagine"
-      :title="hub.header.titolo"
-      :caption="hub.header.sottotitolo"
+    <VocIntestazione
+      alta
+      :immagine="hub.header.immagine"
+      :titolo="hub.header.titolo"
+      :sottotitolo="hub.header.sottotitolo"
     />
 
     <div class="container voc-hub">
@@ -34,7 +35,7 @@
 
 <script>
 import Markdown from 'vue3-markdown-it';
-import MdvHeader from '@/components/layout/MdvHeader';
+import VocIntestazione from '@/components/vocazione/VocIntestazione';
 import VocazioneLegacy from '@/view/Vocazione';
 import VocPorte from '@/components/vocazione/VocPorte';
 import VocRimandi from '@/components/vocazione/VocRimandi';
@@ -43,7 +44,7 @@ import contenuto from '@/assets/data/vocazione.json';
 export default {
   name: 'VocazioneHub',
   components: {
-    Markdown, MdvHeader, VocazioneLegacy, VocPorte, VocRimandi,
+    Markdown, VocIntestazione, VocazioneLegacy, VocPorte, VocRimandi,
   },
   data() {
     return {

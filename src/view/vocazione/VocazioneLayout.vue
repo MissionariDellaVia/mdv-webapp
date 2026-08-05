@@ -1,25 +1,25 @@
 <template>
   <div class="voc-layout">
     <VocSoglia />
-    <VocBarraSezione v-if="!inHub" :pagine="pagine" :rotta-corrente="$route.name" />
     <router-view />
+    <VocIndiceSezione v-if="!inHub" :pagine="pagine" :rotta-corrente="$route.name" />
   </div>
 </template>
 
 <script>
 import VocSoglia from '@/components/vocazione/VocSoglia';
-import VocBarraSezione from '@/components/vocazione/VocBarraSezione';
+import VocIndiceSezione from '@/components/vocazione/VocIndiceSezione';
 import indice from '@/assets/data/indice-vocazione.json';
 
 export default {
   name: 'VocazioneLayout',
-  components: { VocSoglia, VocBarraSezione },
+  components: { VocSoglia, VocIndiceSezione },
   data() {
     return { pagine: indice };
   },
   computed: {
-    // Sull'hub la barra non serve: il ritorno non ha destinazione e le
-    // quattro porte sono gia' in pagina. L'hub e' l'indice.
+    // Sull'hub l'indice non serve: le quattro porte sono gia' in pagina.
+    // L'hub e' l'indice.
     inHub() {
       return this.$route.name === 'vocazione';
     },
