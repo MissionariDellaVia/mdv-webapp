@@ -1,11 +1,14 @@
 <template>
-  <!-- Altre lingue: si riusa la pagina preesistente cosi' com'e'. E' gia'
-       autosufficiente (intestazione, spinner, caricamento dallo store):
-       reimplementarla qui significherebbe solo poterla far divergere. -->
-  <VocazioneLegacy v-if="!inItaliano" />
+  <section>
+    <!-- Altre lingue: si riusa la pagina preesistente cosi' com'e'. E' gia'
+         autosufficiente (intestazione, spinner, caricamento dallo store):
+         reimplementarla qui significherebbe solo poterla far divergere.
+         Il commento sta dentro la radice, non accanto: un commento alla
+         radice conta come nodo, la radice diventa multipla e la pagina
+         smette di comparire (vedi scripts/lib/radice-unica.js). -->
+    <VocazioneLegacy v-if="!inItaliano" />
 
-  <section v-else>
-    <div class="container voc-hub">
+    <div v-else class="container voc-hub">
       <blockquote class="voc-hub__citazione">{{ hub.citazione }}</blockquote>
 
       <Markdown :source="hub.intro" :html="true" class="markdown-mdv voc-hub__testo" />
@@ -25,6 +28,7 @@
     </div>
   </section>
 </template>
+
 
 <script>
 import Markdown from 'vue3-markdown-it';
