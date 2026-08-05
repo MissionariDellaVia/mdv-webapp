@@ -3,7 +3,7 @@
     <div class="container">
       <!-- Logo image -->
       <a class="navbar-brand" href="#">
-        <img src="../../assets/logo-small.png" alt="logo" class="img-fluid"/>
+        <img src="../../assets/logo.png" alt="Missionari della Via" class="logo-navbar"/>
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,6 +88,17 @@ export default {
 <style scoped>
 nav {
   font-family: var(--mdv-font-navigazione);
+}
+
+/* Il logo era un'immagine da 60x73 disegnata a grandezza naturale: su uno
+   schermo a densita' doppia — cioe' su qualunque schermo di oggi — veniva
+   ingrandita e si vedeva sfocata. Stessa grandezza a video, ma presa dal
+   file grande che era gia' in cartella: 313 pixel di sorgente per 72 a
+   video reggono anche gli schermi a densita' tripla. */
+.logo-navbar {
+  height: 4.5rem;
+  width: auto;
+  max-width: 100%;
 }
 .navbar {
   height: var(--mdv-altezza-navbar);
