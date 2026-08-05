@@ -1,13 +1,24 @@
 import test from 'node:test';
 import assert from 'node:assert';
 import fs from 'node:fs';
-import { USCITA_PAGINA_MS, RITARDO_SCROLL_MS, scrollDifferito } from './tempiTransizione.mjs';
+import {
+  USCITA_PAGINA_MS, SOGLIA_MS, RITARDO_SCROLL_MS, scrollDifferito,
+} from './tempiTransizione.mjs';
 
-test('la durata di uscita combacia con il token CSS', () => {
-  const css = fs.readFileSync('src/assets/css/tokens.css', 'utf8');
-  const trovato = css.match(/--mdv-uscita-pagina:\s*(\d+)ms/);
-  assert.ok(trovato, 'token --mdv-uscita-pagina assente da tokens.css');
-  assert.strictEqual(Number(trovato[1]), USCITA_PAGINA_MS);
+const css = fs.readFileSync('src/assets/css/tokens.css', 'utf8');
+
+function tokenMs(nome) {
+  const trovato = css.match(new RegExp(`--${nome}:\\s*(\\d+)ms`));
+  assert.ok(trovato, `token --${nome} assente da tokens.css`);
+  return Number(trovato[1]);
+}
+
+// Se i due valori divergono, il JavaScript smonta il velo prima che il
+// CSS lo abbia alzato — o lo lascia in giro dopo. Nessuno se ne
+// accorgerebbe leggendo il codice: se ne accorge questo test.
+test('le durate del JavaScript combaciano con i token CSS', () => {
+  assert.strictEqual(tokenMs('mdv-uscita-pagina'), USCITA_PAGINA_MS);
+  assert.strictEqual(tokenMs('mdv-soglia'), SOGLIA_MS);
 });
 
 test('lo scroll parte prima che l\'uscita finisca', () => {

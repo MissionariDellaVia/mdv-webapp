@@ -3,6 +3,11 @@
 // valori divergono il salto in cima torna a vedersi.
 export const USCITA_PAGINA_MS = 260;
 
+// Durata complessiva del velo di soglia, dal clic al velo alzato. Deve
+// restare uguale a --mdv-soglia in tokens.css: e' il CSS ad animarlo, il
+// JavaScript deve solo sapere quando smontarlo.
+export const SOGLIA_MS = 1200;
+
 // Il ritorno in cima si fa poco prima che l'uscita finisca: a quel punto
 // la pagina vecchia e' quasi trasparente e la nuova non e' ancora
 // montata, quindi il salto avviene su uno schermo che nessuno guarda.

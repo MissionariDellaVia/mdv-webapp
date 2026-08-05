@@ -68,6 +68,8 @@
   --mdv-uscita-pagina: 260ms;
   --mdv-entrata-pagina: 520ms;
   --mdv-curva-morbida: cubic-bezier(0.22, 0.61, 0.36, 1);
+  /* Durata complessiva del velo di soglia, dal clic al velo alzato. */
+  --mdv-soglia: 1200ms;
 
   /* Raggi */
   --mdv-raggio-s: 0.5rem;

@@ -16,7 +16,11 @@
            quindi il filo e il menu non si spostano di un pixel: la loro
            posizione e' identica su tutte le pagine della sezione. -->
       <div class="voc-intestazione__testo">
-        <transition name="titolo" mode="out-in">
+        <!-- "appear": anche la prima comparsa e' un'entrata, non un
+             apparire di colpo. Senza, il titolo si vedeva gia' fatto
+             sotto il velo che si alzava, invece di formarsi mentre si
+             alza. -->
+        <transition name="titolo" mode="out-in" appear>
           <div :key="titolo" class="voc-intestazione__strato">
             <p v-if="occhiello" class="voc-intestazione__occhiello">{{ occhiello }}</p>
             <h1 class="voc-intestazione__titolo">{{ titolo }}</h1>

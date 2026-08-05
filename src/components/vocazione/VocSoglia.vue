@@ -1,20 +1,29 @@
 <template>
-  <div v-if="visibile" class="voc-soglia" aria-hidden="true"></div>
+  <div class="voc-soglia" aria-hidden="true"></div>
 </template>
 
 <script>
-// Durata complessiva del passaggio: il velo si dissolve da solo, il timer
-// serve solo a smontarlo perche' non resti un elemento a tutto schermo.
-const DURATA = 1400;
+import { SOGLIA_MS } from '@/utility/tempiTransizione.mjs';
 
+// Velo che copre il momento in cui il sito cambia atmosfera.
+//
+// La sequenza, dal clic:
+//   0 →  180ms  il velo sale sulla pagina che sta uscendo
+// 180 →  520ms  velo fermo: sotto, la pagina vecchia finisce di uscire,
+//               il fondo diventa scuro e la sezione si monta
+// 520 → 1200ms  il velo si alza e sotto c'e' gia' tutto, con la sua
+//               animazione di entrata in corso
+//
+// L'ordine conta: se il velo salisse dopo che la sezione e' comparsa, si
+// vedrebbe il titolo apparire, sparire e riapparire. E' il motivo per cui
+// questo componente vive in App e non dentro il layout della sezione:
+// dentro, sarebbe entrato in scena insieme alla pagina che deve coprire.
 export default {
   name: 'VocSoglia',
-  data() {
-    return { visibile: true };
-  },
+  emits: ['finita'],
   mounted() {
     const ridotto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    this.timer = setTimeout(() => { this.visibile = false; }, ridotto ? 0 : DURATA);
+    this.timer = setTimeout(() => this.$emit('finita'), ridotto ? 0 : SOGLIA_MS);
   },
   beforeUnmount() {
     clearTimeout(this.timer);
@@ -23,27 +32,23 @@ export default {
 </script>
 
 <style scoped>
-/* Il velo ha lo stesso colore del fondo che trovera' sotto di se': quando
-   si dissolve non "scopre" un'altra pagina, sembra che il colore si sia
-   posato sullo sfondo. E' questo a far sentire il passaggio di atmosfera,
-   non il lampo. */
 .voc-soglia {
   position: fixed;
   inset: 0;
   /* Sotto la navbar fixed-top di Bootstrap, che sta a 1030: coprirla la
-     faceva sparire e riapparire, ed e' uno degli scatti che si vedono. */
+     farebbe sparire e riapparire, ed e' un altro scatto. */
   z-index: 1020;
   pointer-events: none;
   background:
     radial-gradient(70% 55% at 50% 45%, var(--voc-alone) 0%, transparent 70%),
     var(--voc-fondo);
-  animation: voc-velo 1400ms ease forwards;
+  animation: voc-velo var(--mdv-soglia) var(--mdv-curva-morbida) forwards;
 }
 
 @keyframes voc-velo {
   0%   { opacity: 0; }
-  26%  { opacity: 1; }
-  50%  { opacity: 1; }
+  15%  { opacity: 1; }
+  43%  { opacity: 1; }
   100% { opacity: 0; }
 }
 </style>

@@ -1,7 +1,5 @@
 <template>
   <div class="voc-layout">
-    <VocSoglia />
-
     <!-- L'intestazione sta qui e non nelle pagine: cambiando pagina si
          rifa' solo il titolo, mentre menu, foto e atmosfera restano dove
          sono. E' questo a togliere la sensazione di ricarica. -->
@@ -12,16 +10,21 @@
       etichetta-menu="Sezione vocazione"
     />
 
+    <!-- La chiave sul nome della rotta e' quello che rende uguale
+         l'entrata di tutte le pagine. Senza, quattro percorsi che
+         condividono lo stesso componente venivano aggiornati sul posto
+         invece che rimontati: la transizione non partiva e matrimonio,
+         sacerdozio e vita consacrata comparivano di colpo, mentre le
+         pagine con un componente proprio entravano in dissolvenza. -->
     <router-view v-slot="{ Component }">
       <transition name="dissolvenza" mode="out-in">
-        <component :is="Component" />
+        <component :is="Component" :key="$route.name" />
       </transition>
     </router-view>
   </div>
 </template>
 
 <script>
-import VocSoglia from '@/components/vocazione/VocSoglia';
 import VocIntestazione from '@/components/vocazione/VocIntestazione';
 import { intestazionePer } from '@/utility/intestazioneVocazione.mjs';
 import { componiMenu } from '@/utility/menuVocazione.mjs';
@@ -30,7 +33,7 @@ import indice from '@/assets/data/indice-vocazione.json';
 
 export default {
   name: 'VocazioneLayout',
-  components: { VocSoglia, VocIntestazione },
+  components: { VocIntestazione },
   data() {
     return { menu: componiMenu(indice) };
   },

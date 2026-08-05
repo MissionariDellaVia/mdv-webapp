@@ -11,13 +11,20 @@
       </transition>
     </router-view >
     <MdvFooter v-show="!$route.meta.reservedArea && !$route.meta.standalone" />
+
+    <!-- Il velo sta qui, fuori dalla transizione di pagina: dentro
+         sarebbe entrato in scena insieme alla pagina che deve coprire, e
+         sarebbe salito dopo di lei invece che prima. -->
+    <VocSoglia v-if="soglia" @finita="soglia = false" />
   </div>
 </template>
 
 <script>
 import MdvNavbar from "@/components/layout/MdvNavbar";
 import MdvFooter from "@/components/layout/MdvFooter";
+import VocSoglia from "@/components/vocazione/VocSoglia";
 import { inVocazione } from "@/utility/inVocazione.mjs";
+import { attraversaSoglia } from "@/utility/soglia.mjs";
 import { USCITA_PAGINA_MS } from "@/utility/tempiTransizione.mjs";
 
 const supportedLang = ['it', 'en', 'pl', 'es', 'fr']
@@ -25,19 +32,26 @@ const supportedLang = ['it', 'en', 'pl', 'es', 'fr']
 export default {
   name: 'App',
   components: {
-    MdvNavbar,MdvFooter
+    MdvNavbar,MdvFooter,VocSoglia
   },
   data() {
-    return { inSezione: false };
+    return { inSezione: false, soglia: false };
   },
   watch: {
-    // L'atmosfera non cambia all'istante del clic: se cambiasse subito, la
-    // pagina che sta ancora uscendo — chiara — resterebbe per un attimo
-    // sopra il fondo gia' scuro, ed e' esattamente lo scatto che si vede.
-    // Aspettando la fine dell'uscita, il colore gira su uno schermo vuoto.
+    // Un solo posto decide la sequenza del passaggio, in quest'ordine:
+    //   subito           il velo comincia a salire sulla pagina in uscita
+    //   +260ms           sotto il velo, il fondo cambia atmosfera
+    //   +260ms           sotto il velo, la sezione si monta ed entra
+    //   +1200ms          il velo e' alzato, il velo si smonta
+    //
+    // L'atmosfera aspetta la fine dell'uscita: cambiandola all'istante del
+    // clic, la pagina chiara che sta ancora uscendo resterebbe per un
+    // attimo sopra il fondo gia' scuro.
     $route: {
       immediate: true,
-      handler() {
+      handler(verso, da) {
+        if (attraversaSoglia(da && da.path, verso.path)) this.soglia = true;
+
         const atteso = this.calcolaSezione();
         if (atteso === this.inSezione) return;
         clearTimeout(this.attesaAtmosfera);
