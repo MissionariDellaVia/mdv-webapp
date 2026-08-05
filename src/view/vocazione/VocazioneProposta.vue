@@ -9,8 +9,9 @@
       />
 
       <p class="voc-proposta__contatto">
-        <router-link :to="{ name: 'contatti' }" class="voc-proposta__link">
+        <router-link :to="{ name: 'contatti' }" class="mdv-invito">
           Scrivici per un primo contatto
+          <span class="mdv-invito__freccia" aria-hidden="true">&rarr;</span>
         </router-link>
       </p>
     </div>
@@ -39,12 +40,5 @@ export default {
 .voc-proposta__contatto {
   text-align: center;
   margin-top: var(--mdv-spazio-6);
-}
-.voc-proposta__link {
-  font-family: var(--mdv-font-navigazione);
-  font-size: 1.1rem;
-  color: var(--mdv-oro-scuro);
-  border-bottom: 1px solid var(--mdv-sabbia);
-  text-decoration: none;
 }
 </style>

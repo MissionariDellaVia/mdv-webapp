@@ -138,19 +138,141 @@ body:has(.voc-atmosfera) {
   color: var(--mdv-bruno-900);
 }
 
-/* I colori del markdown sono globali e scritti per il fondo chiaro. */
-.voc-atmosfera .markdown-mdv blockquote {
-  color: var(--mdv-oro) !important;
+/* Il markdown arriva da data.json e da Supabase: nessuno puo' mettere una
+   classe ai suoi elementi, quindi si stilano dal contenitore. Stava tutto
+   in App.vue con i colori scritti a mano; qui i colori vengono dai token e
+   quindi la sezione vocazionale li ribalta da sola. */
+.markdown-mdv blockquote {
+  color: var(--mdv-oro);
+  font-style: italic;
 }
-.voc-atmosfera .markdown-mdv a {
+.markdown-mdv em {
+  font-size: smaller;
+  color: var(--mdv-grigio-scuro);
+}
+
+/* ── Link ──────────────────────────────────────────────────────────────
+   Un link puo' chiedere tre cose diverse, e ognuna ha il suo gesto:
+   accompagnare una frase, dire dove sei, invitarti a un passo. Tre ruoli,
+   tre regole, qui dentro. Nei componenti si applica la classe e basta:
+   ogni trattamento inventato sul posto ci riporta ai venti di prima.
+
+   Tutti e tre usano text-decoration invece di border-bottom. Un bordo
+   appartiene al riquadro: quando il link va a capo la riga passa sotto
+   l'intero blocco invece che sotto le parole. text-decoration segue il
+   testo, evita le lettere discendenti e si stacca dalla base quanto serve.
+
+   Il colore non e' scritto: viene dai token, che l'atmosfera vocazionale
+   ridefinisce. Gli stessi link funzionano sul chiaro e sullo scuro. */
+
+/* I link dentro il markdown sono la maggioranza dei link del sito e
+   nessuno puo' mettergli una classe: li si prende dal contenitore. */
+.mdv-link,
+.markdown-mdv a {
+  color: var(--mdv-oro-scuro);
+  text-decoration: underline;
+  /* Il filo c'e' gia', tenue: il link non si accende quando ti avvicini. */
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  text-decoration-skip-ink: auto;
+  transition:
+    color 220ms ease,
+    text-decoration-color 220ms ease,
+    text-decoration-thickness 220ms ease;
+}
+.mdv-link:focus-visible,
+.markdown-mdv a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.mdv-navlink {
+  position: relative;
+  display: inline-block;
+  padding: var(--mdv-spazio-2) 0;
+  font-family: var(--mdv-font-navigazione);
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  color: var(--mdv-oro-scuro);
+  text-decoration: none;
+  opacity: 0.72;
+  transition: opacity 220ms ease, color 220ms ease;
+}
+.mdv-navlink::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 320ms var(--mdv-curva-morbida);
+}
+.mdv-navlink--attivo {
+  opacity: 1;
   color: var(--mdv-oro);
 }
-.voc-atmosfera .markdown-mdv a:hover,
-.voc-atmosfera .markdown-mdv a:focus {
-  color: var(--mdv-oro-chiaro);
+.mdv-navlink--attivo::after {
+  transform: scaleX(1);
 }
-.voc-atmosfera .markdown-mdv em {
-  color: var(--mdv-grigio-scuro);
+.mdv-navlink:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.mdv-invito {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mdv-spazio-2);
+  padding: var(--mdv-spazio-3) var(--mdv-spazio-4);
+  border: 1px solid var(--mdv-sabbia);
+  border-radius: 999px;
+  font-family: var(--mdv-font-navigazione);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mdv-oro-scuro);
+  text-decoration: none;
+  background: none;
+  cursor: pointer;
+  transition: border-color 260ms ease, color 260ms ease, background-color 260ms ease;
+}
+.mdv-invito__freccia {
+  display: inline-block;
+  transition: transform 320ms var(--mdv-curva-morbida);
+}
+.mdv-invito:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* Gli effetti di passaggio valgono solo dove esiste un puntatore: sul
+   tocco restavano appiccicati addosso al link dopo averlo lasciato. */
+@media (hover: hover) {
+  .mdv-link:hover,
+  .markdown-mdv a:hover {
+    color: var(--mdv-oro);
+    text-decoration-color: currentColor;
+    text-decoration-thickness: 2px;
+  }
+  .mdv-navlink:hover {
+    opacity: 1;
+    color: var(--mdv-oro);
+  }
+  .mdv-navlink:hover::after {
+    transform: scaleX(1);
+  }
+  .mdv-invito:hover {
+    border-color: var(--mdv-oro);
+    color: var(--mdv-oro);
+    background-color: color-mix(in srgb, var(--mdv-oro) 8%, transparent);
+  }
+  .mdv-invito:hover .mdv-invito__freccia {
+    transform: translateX(0.3rem);
+  }
 }
 
 /* Entrata condivisa. Ogni sezione entra allo stesso modo: una salita

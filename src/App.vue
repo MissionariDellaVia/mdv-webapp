@@ -114,34 +114,8 @@ html, body {
   overflow-x:hidden !important;
 }
 .standalone-page {
-  background: #281d02;
+  background: var(--mdv-bruno-900);
   min-height: 100vh;
   min-height: -webkit-fill-available;
-}
-.standalone-page body,
-.standalone-page html {
-  background: #281d02 !important;
-}
-.markdown-mdv blockquote{
-  color: #8c681c !important;
-  font-style: italic;
-  /*text-align: center;*/
-}
-.markdown-mdv a {
-  text-decoration: none;
-  color: #8c681c;
-}
-.markdown-mdv a:hover, .markdown-mdv a:focus {
-  color: #59411a;
-}
-.markdown-mdv em {
-  font-size: smaller;
-  color: rgba(40, 29, 2, 0.9);
-}
-.markdown-mdv em > a {
-  color: rgb(222, 148, 11) !important;
-}
-.markdown-mdv em > a:hover, .markdown-mdv em > a:focus {
-  color: rgb(140, 104, 28) !important;
 }
 </style>

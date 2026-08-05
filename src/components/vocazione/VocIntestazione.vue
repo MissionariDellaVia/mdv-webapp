@@ -37,8 +37,8 @@
           v-for="voce in voci"
           :key="voce.nome"
           :to="{ name: voce.nome }"
-          :class="['voc-intestazione__voce', {
-            'voc-intestazione__voce--attiva': voce.nome === $route.name,
+          :class="['mdv-navlink', 'voc-intestazione__voce', {
+            'mdv-navlink--attivo': voce.nome === $route.name,
           }]"
           :aria-current="voce.nome === $route.name ? 'page' : null"
         >{{ voce.breve }}</router-link>
@@ -187,55 +187,13 @@ export default {
   display: none;
 }
 
-/* Metriche identiche per ogni voce — stessa altezza di riga, stesso
-   riempimento, display esplicito: cosi' nessuna puo' sedersi piu' in
-   alto o piu' in basso delle altre. */
+/* Il gesto e' quello di .mdv-navlink, condiviso con tutto il sito. Qui
+   restano solo le misure che dipendono da questa riga: non deve andare a
+   capo e deve rimpicciolirsi quando lo schermo stringe. */
 .voc-intestazione__voce {
-  position: relative;
-  display: block;
   flex: 0 0 auto;
-  padding: var(--mdv-spazio-2) 0;
-  line-height: 1.4;
-  font-family: var(--mdv-font-navigazione);
   font-size: clamp(0.78rem, 1.35vw, 0.92rem);
-  letter-spacing: 0.07em;
   white-space: nowrap;
-  color: var(--mdv-sabbia-chiara);
-  text-decoration: none;
-  opacity: 0.72;
-  transition: opacity 0.3s ease, color 0.3s ease;
-}
-.voc-intestazione__voce::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background-color: var(--mdv-oro);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.35s var(--mdv-curva-morbida);
-}
-.voc-intestazione__voce:hover,
-.voc-intestazione__voce:focus {
-  opacity: 1;
-  color: var(--mdv-oro-chiaro);
-}
-.voc-intestazione__voce:hover::after,
-.voc-intestazione__voce:focus::after {
-  transform: scaleX(1);
-}
-.voc-intestazione__voce--attiva {
-  opacity: 1;
-  color: var(--mdv-oro);
-}
-.voc-intestazione__voce--attiva::after {
-  transform: scaleX(1);
-}
-.voc-intestazione__voce:focus-visible {
-  outline: 2px solid var(--mdv-oro);
-  outline-offset: 4px;
 }
 
 /* Il titolo si scambia in dissolvenza incrociata, con un velo di sfocatura

@@ -3,7 +3,7 @@
     <div class="container voc-domande">
       <p class="voc-domande__invito">
         Hai una domanda da fare o un pensiero da condividere?
-        <router-link :to="{ name: 'contatti' }">Scrivici</router-link>: la tua domanda e la
+        <router-link :to="{ name: 'contatti' }" class="mdv-link">Scrivici</router-link>: la tua domanda e la
         nostra risposta potranno essere pubblicate qui, nel rispetto della tua privacy.
       </p>
 
@@ -37,10 +37,5 @@ export default {
   line-height: 1.8;
   color: var(--mdv-grigio-scuro);
   margin-bottom: var(--mdv-spazio-6);
-}
-.voc-domande__invito a {
-  color: var(--mdv-oro);
-  text-decoration: none;
-  border-bottom: 1px solid var(--mdv-sabbia);
 }
 </style>

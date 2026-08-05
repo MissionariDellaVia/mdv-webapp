@@ -16,8 +16,9 @@
         <p class="voc-percorso__proposta-testo">
           Accompagniamo spiritualmente chi è in ricerca vocazionale e proponiamo dei ritiri.
         </p>
-        <router-link :to="{ name: 'vocazione-proposta' }" class="voc-percorso__proposta-link">
+        <router-link :to="{ name: 'vocazione-proposta' }" class="mdv-invito">
           Scopri la nostra proposta
+          <span class="mdv-invito__freccia" aria-hidden="true">&rarr;</span>
         </router-link>
       </aside>
     </div>
@@ -101,11 +102,5 @@ export default {
   font-family: var(--mdv-font-corpo);
   font-size: 1.05rem;
   margin-bottom: var(--mdv-spazio-4);
-}
-.voc-percorso__proposta-link {
-  font-family: var(--mdv-font-navigazione);
-  color: var(--mdv-oro-scuro);
-  border-bottom: 1px solid var(--mdv-sabbia);
-  text-decoration: none;
 }
 </style>
