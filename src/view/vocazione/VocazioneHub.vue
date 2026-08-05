@@ -36,17 +36,23 @@ import VocazioneLegacy from '@/view/Vocazione.vue';
 import VocPorte from '@/components/vocazione/VocPorte.vue';
 import VocRimandi from '@/components/vocazione/VocRimandi.vue';
 import contenuto from '@/assets/data/vocazione.json';
+import { usaPagina } from '@/store/pagina.mjs';
 
 export default {
   name: 'VocazioneHub',
+  setup() {
+    return { pagina: usaPagina() };
+  },
   components: {
     Markdown, VocazioneLegacy, VocPorte, VocRimandi,
   },
   data() {
-    return {
-      hub: contenuto.hub,
-      inItaliano: (localStorage.getItem('lang') || 'it') === 'it',
-    };
+    return { hub: contenuto.hub };
+  },
+  computed: {
+    inItaliano() {
+      return this.pagina.lingua === 'it';
+    },
   },
 };
 </script>

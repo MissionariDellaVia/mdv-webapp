@@ -24,12 +24,16 @@
 </template>
 
 <script>
+import { usaPagina } from '@/store/pagina.mjs';
 import MDHeader from "@/components/layout/MdvHeader.vue";
 import MdvGroups from "@/components/MdvGroups.vue";
 import Markdown from 'vue3-markdown-it';
 
 export default {
   name: "AttivitaPage",
+  setup() {
+    return { pagina: usaPagina() };
+  },
   components: {MdvGroups, MDHeader, Markdown},
   created() {
     this.loadPage("attivita");
@@ -42,7 +46,7 @@ export default {
   },
   computed: {
     attivitaPage() {
-      return this.$store.getters['page/attivita'];
+      return this.pagina.attivita;
     },
 
   },
@@ -50,7 +54,7 @@ export default {
     async loadPage(page) {
       this.isLoading = true;
       try {
-        await this.$store.dispatch('page/loadPage', page);
+        await this.pagina.caricaPagina(page);
       } catch (error) {
         console.error('Errore caricamento attività:', error);
       }

@@ -24,11 +24,15 @@
 </template>
 
 <script>
+import { usaPagina } from '@/store/pagina.mjs';
 import MDHeader from "@/components/layout/MdvHeader.vue";
 import MdvLongArticle from "@/components/MdvLongArticle.vue";
 
 export default {
   name: "ApprofondimentiPage",
+  setup() {
+    return { pagina: usaPagina() };
+  },
   components: {MdvLongArticle, MDHeader},
   created() {
     this.loadPage("approfondimenti");
@@ -41,14 +45,14 @@ export default {
   },
   computed: {
     approfondimentiPage() {
-      return this.$store.getters['page/approfondimenti'];
+      return this.pagina.approfondimenti;
     },
   },
   methods: {
     async loadPage(page) {
       this.isLoading = true;
       try {
-        await this.$store.dispatch('page/loadPage', page);
+        await this.pagina.caricaPagina(page);
       } catch (error) {
         console.error("Errore nel caricamento della pagina:", error);
       }

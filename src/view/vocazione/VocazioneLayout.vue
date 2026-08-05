@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { usaPagina } from '@/store/pagina.mjs';
 import VocIntestazione from '@/components/vocazione/VocIntestazione.vue';
 import { intestazionePer } from '@/utility/intestazioneVocazione.mjs';
 import { componiMenu } from '@/utility/menuVocazione.mjs';
@@ -33,6 +34,9 @@ import indice from '@/assets/data/indice-vocazione.json';
 
 export default {
   name: 'VocazioneLayout',
+  setup() {
+    return { pagina: usaPagina() };
+  },
   components: { VocIntestazione },
   data() {
     return { menu: componiMenu(indice) };
@@ -41,9 +45,7 @@ export default {
     // Nelle altre lingue l'hub mostra la vecchia pagina, che ha gia' la
     // sua intestazione ed e' scritta per il fondo chiaro.
     intestazione() {
-      void this.$store.getters['page/navbar'];
-      const lingua = localStorage.getItem('lang') || 'it';
-      if (lingua !== 'it') return null;
+      if (this.pagina.lingua !== 'it') return null;
       return intestazionePer(this.$route.name, contenuto);
     },
   },
@@ -51,8 +53,7 @@ export default {
     // Cambiando lingua dentro la sezione, le sotto-pagine non esistono in
     // quella lingua: si torna all'hub invece di restare su una pagina orfana.
     $route(rotta) {
-      const lingua = localStorage.getItem('lang') || 'it';
-      if (rotta.name !== 'vocazione' && lingua !== 'it') {
+      if (rotta.name !== 'vocazione' && this.pagina.lingua !== 'it') {
         this.$router.replace({ name: 'vocazione' });
       }
     },

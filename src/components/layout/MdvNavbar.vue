@@ -49,8 +49,12 @@
 </template>
 
 <script>
+import { usaPagina } from '@/store/pagina.mjs';
 export default {
   name: "MdvNavbar",
+  setup() {
+    return { pagina: usaPagina() };
+  },
   data() {
     return {
       scrollPosition: null
@@ -72,7 +76,7 @@ export default {
   },
   computed: {
     navbarItems() {
-      return this.$store.getters['page/navbar'];
+      return this.pagina.navbar;
     }
   },
   // Niente watch su $route: la navbar spariva e riappariva a ogni

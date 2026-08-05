@@ -18,10 +18,10 @@
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.2.0",
     "maplibre-gl": "^2.4.0",
+    "pinia": "^4.0.2",
     "vue": "^3.5.41",
     "vue-router": "^4.6.4",
-    "vue3-markdown-it": "^1.0.10",
-    "vuex": "^4.1.0"
+    "vue3-markdown-it": "^1.0.10"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

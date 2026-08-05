@@ -82,6 +82,7 @@
 </template>
 
 <script>
+import { usaPagina } from '@/store/pagina.mjs';
 import MDHeader from "@/components/layout/MdvHeader.vue";
 import MdvContactoButton from "@/components/MdvContactButton.vue";
 import MdvForm from "@/components/MdvForm.vue";
@@ -95,6 +96,9 @@ const BaseMap = defineAsyncComponent(() => import("@/components/ui/BaseMap.vue")
 
 export default {
   name: "ContattiPage",
+  setup() {
+    return { pagina: usaPagina() };
+  },
   components: {MdvForm, BaseMap, MDHeader, MdvContactoButton, Markdown},
   created() {
     this.loadPage("contatti");
@@ -107,14 +111,14 @@ export default {
   },
   computed: {
     contattiPage() {
-      return this.$store.getters['page/contatti'];
+      return this.pagina.contatti;
     },
   },
   methods: {
     async loadPage(page) {
       this.isLoading = true;
       try {
-        await this.$store.dispatch('page/loadPage', page);
+        await this.pagina.caricaPagina(page);
       } catch (error) {
         console.error("Errore nel caricamento della pagina:", error);
       }

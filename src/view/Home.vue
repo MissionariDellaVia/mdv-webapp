@@ -59,12 +59,17 @@
 </template>
 
 <script>
+import { usaPagina } from '@/store/pagina.mjs';
+import { usaBlog } from '@/store/blog.mjs';
 import MdvVideoHeader from "@/components/layout/MdvVideoHeader.vue";
 import MdvArticle from "@/components/MdvArticle.vue";
 import MdvBlogCard from "@/components/MdvBlogCard.vue";
 
 export default {
   name: "HomePage",
+  setup() {
+    return { pagina: usaPagina(), blog: usaBlog() };
+  },
   components: { MdvArticle, MdvVideoHeader, MdvBlogCard },
   created () {
     this.loadPage("chi-siamo");
@@ -78,17 +83,17 @@ export default {
   },
   computed: {
     chiSiamoPage() {
-      return this.$store.getters['page/chiSiamo'];
+      return this.pagina.chiSiamo;
     },
     lastBlogPosts() {
-      return this.$store.getters['blog/posts'];
+      return this.blog.articoli;
     },
   },
   methods: {
     async loadPage(page) {
       this.isLoading = true;
       try {
-        await this.$store.dispatch('page/loadPage', page);
+        await this.pagina.caricaPagina(page);
       } catch (error) {
         console.error("Errore nel caricamento della pagina:", error);
       }
@@ -97,7 +102,7 @@ export default {
     async loadBlogPosts(postNumber) {
       this.isLoading = true;
       try {
-        await this.$store.dispatch('blog/loadBlogPost', postNumber);
+        await this.blog.caricaArticoli(postNumber);
       } catch (error) {
         console.error("Errore nel caricamento della pagina:", error);
       }

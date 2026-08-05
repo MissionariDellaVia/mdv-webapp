@@ -61,8 +61,12 @@
 </template>
 
 <script>
+import { usaPagina } from '@/store/pagina.mjs';
 export default {
   name: "MdvFooter",
+  setup() {
+    return { pagina: usaPagina() };
+  },
   data() {
     return {
       helper: this.$util,
@@ -82,11 +86,10 @@ export default {
       return this.$route.name;
     },
     footerList() {
-      return this.$store.getters['page/footer'];
+      return this.pagina.footer;
     },
     linguaCorrente() {
-      void this.$store.getters['page/navbar'];
-      return localStorage.getItem('lang') || 'it';
+      return this.pagina.lingua;
     },
   },
   // Come la navbar: restava fermo il contenuto e spariva il contenitore.
@@ -99,7 +102,7 @@ export default {
       try {
         console.debug("change from " + localStorage.getItem('lang') + " to " + lang);
         console.debug("current route " + this.currentRouteName);
-        this.$store.dispatch('page/changeLang', {lang: lang, route: this.currentRouteName});
+        this.pagina.cambiaLingua(lang, this.currentRouteName);
         this.scrollToTop();
       } catch (error) {
         console.error("Errore nel caricamento della pagina:", error);

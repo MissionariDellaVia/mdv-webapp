@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { usaPagina } from '@/store/pagina.mjs';
 import MdvNavbar from "@/components/layout/MdvNavbar.vue";
 import MdvFooter from "@/components/layout/MdvFooter.vue";
 import VocSoglia from "@/components/vocazione/VocSoglia.vue";
@@ -31,6 +32,9 @@ const supportedLang = ['it', 'en', 'pl', 'es', 'fr']
 
 export default {
   name: 'App',
+  setup() {
+    return { pagina: usaPagina() };
+  },
   components: {
     MdvNavbar,MdvFooter,VocSoglia
   },
@@ -71,8 +75,7 @@ export default {
     // In lingua diversa dall'italiano /vocazione mostra la vecchia pagina,
     // che e' scritta per il fondo chiaro: li' l'atmosfera resta spenta.
     calcolaSezione() {
-      const lingua = localStorage.getItem('lang') || 'it';
-      return lingua === 'it' && inVocazione(this.$route.path);
+      return this.pagina.lingua === 'it' && inVocazione(this.$route.path);
     },
     checkAndSetLang() {
       if (localStorage.getItem('lang')) {

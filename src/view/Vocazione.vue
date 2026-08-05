@@ -35,11 +35,15 @@
 </template>
 
 <script>
+import { usaPagina } from '@/store/pagina.mjs';
 import MDHeader from "@/components/layout/MdvHeader.vue";
 import Markdown from 'vue3-markdown-it';
 
 export default {
   name: "VocazioniPage",
+  setup() {
+    return { pagina: usaPagina() };
+  },
   components: { MDHeader, Markdown},
   created() {
     this.loadPage("vocazione");
@@ -52,14 +56,14 @@ export default {
   },
   computed: {
     vocazionePage() {
-      return this.$store.getters['page/vocazione'];
+      return this.pagina.vocazione;
     },
   },
   methods: {
     async loadPage(page) {
       this.isLoading = true;
       try {
-        await this.$store.dispatch('page/loadPage', page);
+        await this.pagina.caricaPagina(page);
       } catch (error) {
         console.error("Errore nel caricamento della pagina:", error);
       }

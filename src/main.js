@@ -3,7 +3,7 @@ import { utilityFunction } from './utility/utility.js';
 import { direttivaRivela } from './utility/direttivaRivela.mjs';
 import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 import router from './router';
-import store from './store/index.js';
+import { createPinia } from 'pinia';
 
 import App from './App.vue';
 import BaseSpinner from './components/ui/BaseSpinner.vue'
@@ -30,7 +30,7 @@ import Markdown from 'vue3-markdown-it';
 
 const app = createApp(App)
 app.use(router);
-app.use(store);
+app.use(createPinia());
 app.use(autoAnimatePlugin);
 app.use(Markdown);
 
