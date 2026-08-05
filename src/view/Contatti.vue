@@ -82,16 +82,16 @@
 </template>
 
 <script>
-import MDHeader from "@/components/layout/MdvHeader";
-import MdvContactoButton from "@/components/MdvContactButton";
-import MdvForm from "@/components/MdvForm";
+import MDHeader from "@/components/layout/MdvHeader.vue";
+import MdvContactoButton from "@/components/MdvContactButton.vue";
+import MdvForm from "@/components/MdvForm.vue";
 import Markdown from 'vue3-markdown-it';
 import { defineAsyncComponent } from 'vue';
 
 // La mappa si porta dietro maplibre-gl, il pezzo piu' pesante di tutto il
 // sito. Caricata cosi', arriva solo quando qualcuno apre i contatti: chi
 // legge "chi siamo" non scarica piu' un motore cartografico.
-const BaseMap = defineAsyncComponent(() => import("@/components/ui/BaseMap"));
+const BaseMap = defineAsyncComponent(() => import("@/components/ui/BaseMap.vue"));
 
 export default {
   name: "ContattiPage",
@@ -116,7 +116,7 @@ export default {
       try {
         await this.$store.dispatch('page/loadPage', page);
       } catch (error) {
-        // this.showToast(error.message || 'Errore caricamento pagina!');
+        console.error("Errore nel caricamento della pagina:", error);
       }
       this.isLoading = false;
     },

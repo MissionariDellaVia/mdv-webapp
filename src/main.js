@@ -6,11 +6,11 @@ import router from './router';
 import store from './store/index.js';
 
 import App from './App.vue';
-import BaseSpinner from './components/ui/BaseSpinner'
-import BaseToast from './components/ui/BaseToast'
-import BaseButton from "@/components/ui/BaseButton";
-import BackButton from "@/components/ui/BackButton";
-import ImageDialog from "@/components/ui/ImageDialog";
+import BaseSpinner from './components/ui/BaseSpinner.vue'
+import BaseToast from './components/ui/BaseToast.vue'
+import BaseButton from "@/components/ui/BaseButton.vue";
+import BackButton from "@/components/ui/BackButton.vue";
+import ImageDialog from "@/components/ui/ImageDialog.vue";
 
 // Bootstrap Style
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -27,7 +27,6 @@ import Markdown from 'vue3-markdown-it';
 // nessuno: 71 KB di CSS scaricati da ogni visitatore per niente. Il tema
 // di highlight serve solo ai blocchi di codice, che nei contenuti del
 // sito non esistono.
-import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 const app = createApp(App)
 app.use(router);

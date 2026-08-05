@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import BaseCarosello from '@/components/ui/BaseCarosello';
+import BaseCarosello from '@/components/ui/BaseCarosello.vue';
 import { vocStorage } from '@/utility/vocStorage.mjs';
 
 export default {

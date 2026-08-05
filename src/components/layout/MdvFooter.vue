@@ -4,12 +4,22 @@
 
       <div class="row">
         <div class="col-md-12 text-center">
-          <span class="fi fi-it" @click="changeLang('it')"></span>
-          <span class="fi fi-gb ms-3" @click="changeLang('en')"></span>
-          <span class="fi fi-es ms-3" @click="changeLang('es')"></span>
-          <span class="fi fi-pt ms-3" @click="changeLang('pt')"></span>
-          <span class="fi fi-fr ms-3" @click="changeLang('fr')"></span>
-          <span class="fi fi-pl ms-3" @click="changeLang('pl')"></span>
+          <!-- Le bandiere erano una libreria da 259 paesi per i sei che
+               servono, e Vite le incorporava tutte nel foglio di stile.
+               Ora sono sei file, e sono bottoni: prima erano <span>, quindi
+               col tabulatore non si raggiungevano. -->
+          <button
+            v-for="lingua in lingue"
+            :key="lingua.codice"
+            type="button"
+            class="bandiera"
+            :class="{ 'bandiera--attiva': lingua.codice === linguaCorrente }"
+            :aria-label="lingua.nome"
+            :aria-current="lingua.codice === linguaCorrente ? 'true' : null"
+            @click="changeLang(lingua.codice)"
+          >
+            <img :src="helper.getImgUrl(`bandiere/${lingua.bandiera}.svg`)" alt="" />
+          </button>
         </div>
       </div>
 
@@ -56,7 +66,15 @@ export default {
   data() {
     return {
       helper: this.$util,
-      isLoading: false
+      isLoading: false,
+      lingue: [
+        { codice: 'it', bandiera: 'it', nome: 'Italiano' },
+        { codice: 'en', bandiera: 'gb', nome: 'English' },
+        { codice: 'es', bandiera: 'es', nome: 'Español' },
+        { codice: 'pt', bandiera: 'pt', nome: 'Português' },
+        { codice: 'fr', bandiera: 'fr', nome: 'Français' },
+        { codice: 'pl', bandiera: 'pl', nome: 'Polski' },
+      ]
     }
   },
   computed: {
@@ -65,6 +83,10 @@ export default {
     },
     footerList() {
       return this.$store.getters['page/footer'];
+    },
+    linguaCorrente() {
+      void this.$store.getters['page/navbar'];
+      return localStorage.getItem('lang') || 'it';
     },
   },
   // Come la navbar: restava fermo il contenuto e spariva il contenitore.
@@ -80,7 +102,7 @@ export default {
         this.$store.dispatch('page/changeLang', {lang: lang, route: this.currentRouteName});
         this.scrollToTop();
       } catch (error) {
-        // this.showToast(error.message || 'Errore caricamento pagina!');
+        console.error("Errore nel caricamento della pagina:", error);
       }
       this.isLoading = false
     },
@@ -197,12 +219,33 @@ ul.social-network li {
   transition: all 0.8s;
 }
 
-.fi {
-  font-size: larger;
+.bandiera {
+  padding: var(--mdv-spazio-1);
+  margin: 0 var(--mdv-spazio-2);
+  border: none;
+  background: none;
   cursor: pointer;
-  transition: all 0.1s ease;
+  line-height: 0;
+  opacity: 0.65;
+  transition: opacity 0.25s ease, transform 0.25s var(--mdv-curva-morbida);
 }
-.fi:hover {
-  transform: scale(1.4);
+.bandiera img {
+  width: 1.6rem;
+  height: 1.2rem;
+  object-fit: cover;
+  border-radius: 2px;
+}
+.bandiera--attiva {
+  opacity: 1;
+}
+.bandiera:focus-visible {
+  outline: 2px solid var(--mdv-sabbia);
+  outline-offset: 3px;
+}
+@media (hover: hover) {
+  .bandiera:hover {
+    opacity: 1;
+    transform: scale(1.25);
+  }
 }
 </style>

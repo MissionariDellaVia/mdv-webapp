@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import MdvArticle from "@/components/MdvArticle";
+import MdvArticle from "@/components/MdvArticle.vue";
 export default {
   name: "MdvGroups",
   components: {MdvArticle},

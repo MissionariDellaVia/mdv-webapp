@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import VocProsa from '@/components/vocazione/VocProsa';
+import VocProsa from '@/components/vocazione/VocProsa.vue';
 import contenuto from '@/assets/data/vocazione.json';
 
 export default {

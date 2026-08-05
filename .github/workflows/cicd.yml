@@ -34,15 +34,15 @@ jobs:
       - name: Install packages
         run: npm install
 
-      # Le VUE_APP_* non sono committate nel repo: si generano qui dai GitHub Secrets.
+      # Le VITE_* non sono committate nel repo: si generano qui dai GitHub Secrets.
       # (Sono valori client, finiscono nel bundle pubblico; i Secrets evitano di tenerli nel repo.)
       - name: Create .env from secrets
         run: |
           {
-            echo "VUE_APP_SUPABASE_URL=${{ secrets.VUE_APP_SUPABASE_URL }}"
-            echo "VUE_APP_SUPABASE_ANON_KEY=${{ secrets.VUE_APP_SUPABASE_ANON_KEY }}"
-            echo "VUE_APP_API_BLOG_BASE_URL=${{ secrets.VUE_APP_API_BLOG_BASE_URL }}"
-            echo "VUE_APP_BLOG_API_KEY=${{ secrets.VUE_APP_BLOG_API_KEY }}"
+            echo "VITE_SUPABASE_URL=${{ secrets.VITE_SUPABASE_URL }}"
+            echo "VITE_SUPABASE_ANON_KEY=${{ secrets.VITE_SUPABASE_ANON_KEY }}"
+            echo "VITE_API_BLOG_BASE_URL=${{ secrets.VITE_API_BLOG_BASE_URL }}"
+            echo "VITE_BLOG_API_KEY=${{ secrets.VITE_BLOG_API_KEY }}"
           } > .env
 
       - name: Deploy 🚀

@@ -13,9 +13,7 @@ const path = require('node:path');
 // elenca per iscritto, cosi' aggiungerne una e' una decisione e non una
 // svista.
 const INDIRETTE = {
-  'core-js': 'polyfill iniettato da babel secondo browserslist',
   '@popperjs/core': 'richiesta da bootstrap per dropdown e tooltip',
-  'vue-cli-plugin-sitemap': 'gira in fase di build, vedi vue.config.js',
 };
 
 function contenutiDi(dir, acc = []) {

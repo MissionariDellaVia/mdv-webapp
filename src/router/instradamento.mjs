@@ -21,10 +21,10 @@
  * profondo del sito. Per questo la costante sta qui e non nel router: la
  * sitemap la legge dallo stesso posto, e le due non possono divergere.
  */
-const USA_CRONOLOGIA_HTML5 = false;
+export const USA_CRONOLOGIA_HTML5 = false;
 
 // Le pagine pubbliche, con i dati che servono alla sitemap.
-const ROTTE_PUBBLICHE = [
+export const ROTTE_PUBBLICHE = [
   { path: '/', lastmod: '2023-06-13', priority: 1.0, changefreq: 'yearly' },
   { path: '/vocazione', lastmod: '2026-08-04', priority: 0.9, changefreq: 'yearly' },
   { path: '/vocazione/discernimento', lastmod: '2026-08-04', priority: 0.8, changefreq: 'yearly' },
@@ -46,9 +46,7 @@ const ROTTE_PUBBLICHE = [
  * dichiarare un indirizzo vero che otto che rimandano a una pagina di
  * errore — quelli fanno danno, non restano semplicemente inutili.
  */
-function rotteDaPubblicare(usaCronologiaHtml5 = USA_CRONOLOGIA_HTML5) {
+export function rotteDaPubblicare(usaCronologiaHtml5 = USA_CRONOLOGIA_HTML5) {
   if (usaCronologiaHtml5) return ROTTE_PUBBLICHE;
   return ROTTE_PUBBLICHE.filter((rotta) => rotta.path === '/');
 }
-
-module.exports = { USA_CRONOLOGIA_HTML5, ROTTE_PUBBLICHE, rotteDaPubblicare };

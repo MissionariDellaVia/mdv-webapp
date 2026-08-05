@@ -26,12 +26,12 @@
 </template>
 
 <script>
-import VocProsa from '@/components/vocazione/VocProsa';
-import VocElenco from '@/components/vocazione/VocElenco';
-import VocPassi from '@/components/vocazione/VocPassi';
-import VocRiflessioni from '@/components/vocazione/VocRiflessioni';
-import VocTestimonianze from '@/components/vocazione/VocTestimonianze';
-import VocRimandi from '@/components/vocazione/VocRimandi';
+import VocProsa from '@/components/vocazione/VocProsa.vue';
+import VocElenco from '@/components/vocazione/VocElenco.vue';
+import VocPassi from '@/components/vocazione/VocPassi.vue';
+import VocRiflessioni from '@/components/vocazione/VocRiflessioni.vue';
+import VocTestimonianze from '@/components/vocazione/VocTestimonianze.vue';
+import VocRimandi from '@/components/vocazione/VocRimandi.vue';
 import contenuto from '@/assets/data/vocazione.json';
 
 const PER_TIPO = {

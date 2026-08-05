@@ -32,9 +32,9 @@
 
 <script>
 import Markdown from 'vue3-markdown-it';
-import VocazioneLegacy from '@/view/Vocazione';
-import VocPorte from '@/components/vocazione/VocPorte';
-import VocRimandi from '@/components/vocazione/VocRimandi';
+import VocazioneLegacy from '@/view/Vocazione.vue';
+import VocPorte from '@/components/vocazione/VocPorte.vue';
+import VocRimandi from '@/components/vocazione/VocRimandi.vue';
 import contenuto from '@/assets/data/vocazione.json';
 
 export default {

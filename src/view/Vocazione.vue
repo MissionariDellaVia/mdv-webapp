@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import MDHeader from "@/components/layout/MdvHeader";
+import MDHeader from "@/components/layout/MdvHeader.vue";
 import Markdown from 'vue3-markdown-it';
 
 export default {
@@ -61,7 +61,7 @@ export default {
       try {
         await this.$store.dispatch('page/loadPage', page);
       } catch (error) {
-        // this.showToast(error.message || 'Errore caricamento pagina!');
+        console.error("Errore nel caricamento della pagina:", error);
       }
       this.isLoading = false;
     },

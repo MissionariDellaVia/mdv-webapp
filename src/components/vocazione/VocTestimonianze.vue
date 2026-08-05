@@ -81,8 +81,8 @@
 
 <script>
 import Markdown from 'vue3-markdown-it';
-import BaseCarosello from '@/components/ui/BaseCarosello';
-import VocModale from '@/components/vocazione/VocModale';
+import BaseCarosello from '@/components/ui/BaseCarosello.vue';
+import VocModale from '@/components/vocazione/VocModale.vue';
 import { estratto } from '@/utility/estratto.mjs';
 
 export default {
@@ -102,7 +102,7 @@ export default {
   },
   methods: {
     immagine(nome) {
-      return require(`@/assets/img/vocazione/${nome}`);
+      return this.$util.getImgUrl(`vocazione/${nome}`);
     },
     anteprima(testo) {
       return estratto(testo, 175);

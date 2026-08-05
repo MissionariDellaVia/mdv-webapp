@@ -59,9 +59,9 @@
 </template>
 
 <script>
-import MdvVideoHeader from "@/components/layout/MdvVideoHeader";
-import MdvArticle from "@/components/MdvArticle";
-import MdvBlogCard from "@/components/MdvBlogCard";
+import MdvVideoHeader from "@/components/layout/MdvVideoHeader.vue";
+import MdvArticle from "@/components/MdvArticle.vue";
+import MdvBlogCard from "@/components/MdvBlogCard.vue";
 
 export default {
   name: "HomePage",
@@ -90,7 +90,7 @@ export default {
       try {
         await this.$store.dispatch('page/loadPage', page);
       } catch (error) {
-        // this.showToast(error.message || 'Errore caricamento pagina!');
+        console.error("Errore nel caricamento della pagina:", error);
       }
       this.isLoading = false;
     },
@@ -99,7 +99,7 @@ export default {
       try {
         await this.$store.dispatch('blog/loadBlogPost', postNumber);
       } catch (error) {
-        // this.showToast(error.message || 'Errore caricamento pagina!');
+        console.error("Errore nel caricamento della pagina:", error);
       }
       this.isLoading = false;
     },

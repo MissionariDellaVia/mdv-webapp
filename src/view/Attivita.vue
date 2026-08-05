@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import MDHeader from "@/components/layout/MdvHeader";
-import MdvGroups from "@/components/MdvGroups";
+import MDHeader from "@/components/layout/MdvHeader.vue";
+import MdvGroups from "@/components/MdvGroups.vue";
 import Markdown from 'vue3-markdown-it';
 
 export default {

@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import MdvNavbar from "@/components/layout/MdvNavbar";
-import MdvFooter from "@/components/layout/MdvFooter";
-import VocSoglia from "@/components/vocazione/VocSoglia";
+import MdvNavbar from "@/components/layout/MdvNavbar.vue";
+import MdvFooter from "@/components/layout/MdvFooter.vue";
+import VocSoglia from "@/components/vocazione/VocSoglia.vue";
 import { inVocazione } from "@/utility/inVocazione.mjs";
 import { attraversaSoglia } from "@/utility/soglia.mjs";
 import { USCITA_PAGINA_MS } from "@/utility/tempiTransizione.mjs";

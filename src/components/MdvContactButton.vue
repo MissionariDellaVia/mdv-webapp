@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import BaseRiquadro from '@/components/ui/BaseRiquadro';
+import BaseRiquadro from '@/components/ui/BaseRiquadro.vue';
 
 export default {
   name: "MdvContactButton",

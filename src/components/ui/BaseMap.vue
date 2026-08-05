@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style scoped>
-@import '~maplibre-gl/dist/maplibre-gl.css';
+@import 'maplibre-gl/dist/maplibre-gl.css';
 
 .map-wrap {
   position: relative;

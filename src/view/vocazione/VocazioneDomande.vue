@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import VocFaq from '@/components/vocazione/VocFaq';
+import VocFaq from '@/components/vocazione/VocFaq.vue';
 import contenuto from '@/assets/data/vocazione.json';
 
 export default {

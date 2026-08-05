@@ -25,8 +25,8 @@ test('nessuna dipendenza orfana nel progetto', () => {
   const { dependencies } = JSON.parse(fs.readFileSync('package.json', 'utf8'));
   const sorgenti = [
     ...contenutiDi('src'),
-    fs.readFileSync('vue.config.js', 'utf8'),
-    fs.readFileSync('babel.config.js', 'utf8'),
+    fs.readFileSync('vite.config.mjs', 'utf8'),
+    fs.readFileSync('index.html', 'utf8'),
   ];
   assert.deepStrictEqual(
     dipendenzeOrfane(dependencies, sorgenti),

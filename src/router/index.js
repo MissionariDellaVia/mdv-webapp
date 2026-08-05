@@ -1,17 +1,17 @@
 import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
-import { USA_CRONOLOGIA_HTML5 } from './instradamento'
-import Home from '@/view/Home';
-import Attivita from '@/view/Attivita';
-import Contatti from '@/view/Contatti';
-import Approfondimenti from '@/view/Approfondimenti';
-import PregaPerNoi from '@/view/PregaPerNoi';
-import Links from '@/view/Links';
+import { USA_CRONOLOGIA_HTML5 } from './instradamento.mjs'
+import Home from '@/view/Home.vue';
+import Attivita from '@/view/Attivita.vue';
+import Contatti from '@/view/Contatti.vue';
+import Approfondimenti from '@/view/Approfondimenti.vue';
+import PregaPerNoi from '@/view/PregaPerNoi.vue';
+import Links from '@/view/Links.vue';
 
-import VocazioneLayout from '@/view/vocazione/VocazioneLayout';
-import VocazioneHub from '@/view/vocazione/VocazioneHub';
-import VocazionePercorso from '@/view/vocazione/VocazionePercorso';
-import VocazioneDomande from '@/view/vocazione/VocazioneDomande';
-import VocazioneProposta from '@/view/vocazione/VocazioneProposta';
+import VocazioneLayout from '@/view/vocazione/VocazioneLayout.vue';
+import VocazioneHub from '@/view/vocazione/VocazioneHub.vue';
+import VocazionePercorso from '@/view/vocazione/VocazionePercorso.vue';
+import VocazioneDomande from '@/view/vocazione/VocazioneDomande.vue';
+import VocazioneProposta from '@/view/vocazione/VocazioneProposta.vue';
 import { decidiAccesso } from '@/utility/accessoVocazione.mjs';
 import { scrollDifferito } from '@/utility/tempiTransizione.mjs';
 

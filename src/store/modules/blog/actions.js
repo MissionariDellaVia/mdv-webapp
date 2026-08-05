@@ -4,7 +4,7 @@ export default {
         const fetchImages = true;
 
         const response = await fetch(
-            `${process.env.VUE_APP_API_BLOG_BASE_URL}/blogs/${blogId}/posts?key=${process.env.VUE_APP_BLOG_API_KEY}&maxResults=${postNumber}&orderBy=published&fetchImages=${fetchImages}`
+            `${import.meta.env.VITE_API_BLOG_BASE_URL}/blogs/${blogId}/posts?key=${import.meta.env.VITE_BLOG_API_KEY}&maxResults=${postNumber}&orderBy=published&fetchImages=${fetchImages}`
         );
         const responseData = await response.json();
         if (!response.ok) {

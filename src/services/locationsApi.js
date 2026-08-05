@@ -1,14 +1,14 @@
 // src/services/locationsApi.js
-const SUPABASE_URL = process.env.VUE_APP_SUPABASE_URL;
-const ANON_KEY = process.env.VUE_APP_SUPABASE_ANON_KEY;
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 // Senza configurazione l'indirizzo diventava "undefined/functions/v1/..."
 // e in console compariva un errore di rete: sembrava un server irraggiungibile,
 // invece era il .env che non c'era. Meglio dirlo.
 function verificaConfigurazione() {
   const mancanti = [];
-  if (!SUPABASE_URL) mancanti.push('VUE_APP_SUPABASE_URL');
-  if (!ANON_KEY) mancanti.push('VUE_APP_SUPABASE_ANON_KEY');
+  if (!SUPABASE_URL) mancanti.push('VITE_SUPABASE_URL');
+  if (!ANON_KEY) mancanti.push('VITE_SUPABASE_ANON_KEY');
   if (!mancanti.length) return;
   throw new Error(
     `Configurazione Supabase assente: ${mancanti.join(', ')}. `

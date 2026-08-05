@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import MDHeader from "@/components/layout/MdvHeader";
-import MdvLongArticle from "@/components/MdvLongArticle";
+import MDHeader from "@/components/layout/MdvHeader.vue";
+import MdvLongArticle from "@/components/MdvLongArticle.vue";
 
 export default {
   name: "ApprofondimentiPage",
@@ -50,7 +50,7 @@ export default {
       try {
         await this.$store.dispatch('page/loadPage', page);
       } catch (error) {
-        // this.showToast(error.message || 'Errore caricamento pagina!');
+        console.error("Errore nel caricamento della pagina:", error);
       }
       this.isLoading = false;
     },

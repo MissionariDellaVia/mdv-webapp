@@ -1,9 +1,7 @@
-const test = require('node:test');
-const assert = require('node:assert');
-const fs = require('node:fs');
-const {
-  USA_CRONOLOGIA_HTML5, ROTTE_PUBBLICHE, rotteDaPubblicare,
-} = require('../../src/router/instradamento');
+import test from 'node:test';
+import assert from 'node:assert';
+import fs from 'node:fs';
+import { USA_CRONOLOGIA_HTML5, ROTTE_PUBBLICHE, rotteDaPubblicare } from './instradamento.mjs';
 
 test('col cancelletto si dichiara solo la radice', () => {
   const rotte = rotteDaPubblicare(false);

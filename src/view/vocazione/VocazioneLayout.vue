@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import VocIntestazione from '@/components/vocazione/VocIntestazione';
+import VocIntestazione from '@/components/vocazione/VocIntestazione.vue';
 import { intestazionePer } from '@/utility/intestazioneVocazione.mjs';
 import { componiMenu } from '@/utility/menuVocazione.mjs';
 import contenuto from '@/assets/data/vocazione.json';

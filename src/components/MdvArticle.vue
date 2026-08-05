@@ -39,8 +39,8 @@
 
 <script>
 import Markdown from 'vue3-markdown-it';
-import BaseRiquadro from '@/components/ui/BaseRiquadro';
-import BaseCarosello from '@/components/ui/BaseCarosello';
+import BaseRiquadro from '@/components/ui/BaseRiquadro.vue';
+import BaseCarosello from '@/components/ui/BaseCarosello.vue';
 
 export default {
   name: "MdvArticle",
