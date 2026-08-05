@@ -1,5 +1,6 @@
 <template>
   <div class="voc-layout">
+    <VocSoglia />
     <router-view />
 
     <nav v-if="!inHub" class="voc-layout__ritorno">
@@ -11,8 +12,11 @@
 </template>
 
 <script>
+import VocSoglia from '@/components/vocazione/VocSoglia';
+
 export default {
   name: 'VocazioneLayout',
+  components: { VocSoglia },
   computed: {
     inHub() {
       return this.$route.name === 'vocazione';
