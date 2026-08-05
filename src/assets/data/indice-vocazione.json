@@ -1,8 +1,8 @@
 [
-  { "nome": "vocazione-discernimento",   "etichetta": "Sto cercando la mia strada", "gruppo": "percorsi" },
-  { "nome": "vocazione-matrimonio",      "etichetta": "Matrimonio",                 "gruppo": "percorsi" },
-  { "nome": "vocazione-sacerdozio",      "etichetta": "Sacerdozio",                 "gruppo": "percorsi" },
-  { "nome": "vocazione-vita-consacrata", "etichetta": "Vita consacrata",            "gruppo": "percorsi" },
-  { "nome": "vocazione-domande",         "etichetta": "Le vostre domande",          "gruppo": "altro" },
-  { "nome": "vocazione-proposta",        "etichetta": "La nostra proposta",         "gruppo": "altro" }
+  { "nome": "vocazione-discernimento",   "etichetta": "Sto cercando la mia strada", "breve": "Discernimento",  "gruppo": "percorsi" },
+  { "nome": "vocazione-matrimonio",      "etichetta": "Matrimonio",                 "breve": "Matrimonio",     "gruppo": "percorsi" },
+  { "nome": "vocazione-sacerdozio",      "etichetta": "Sacerdozio",                 "breve": "Sacerdozio",     "gruppo": "percorsi" },
+  { "nome": "vocazione-vita-consacrata", "etichetta": "Vita consacrata",            "breve": "Vita consacrata","gruppo": "percorsi" },
+  { "nome": "vocazione-domande",         "etichetta": "Le vostre domande",          "breve": "Domande",        "gruppo": "altro" },
+  { "nome": "vocazione-proposta",        "etichetta": "La nostra proposta",         "breve": "Proposta",       "gruppo": "altro" }
 ]

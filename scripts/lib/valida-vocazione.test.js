@@ -150,9 +150,13 @@ test('l\'indice elenca le sei pagine non-hub', () => {
   );
 });
 
-test('ogni voce dell\'indice ha etichetta e gruppo', () => {
+test('ogni voce dell\'indice ha etichetta, forma breve e gruppo', () => {
   for (const voce of indice) {
     assert.ok(voce.etichetta, `manca etichetta per ${voce.nome}`);
+    // La forma breve sta nel menu dell'intestazione, su una riga sola:
+    // se si allunga, il menu va a capo e smette di leggersi come menu.
+    assert.ok(voce.breve, `manca forma breve per ${voce.nome}`);
+    assert.ok(voce.breve.length <= 16, `forma breve troppo lunga per ${voce.nome}`);
     assert.ok(['percorsi', 'altro'].includes(voce.gruppo), `gruppo non valido per ${voce.nome}`);
   }
 });

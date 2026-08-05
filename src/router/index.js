@@ -12,6 +12,7 @@ import VocazionePercorso from '@/view/vocazione/VocazionePercorso';
 import VocazioneDomande from '@/view/vocazione/VocazioneDomande';
 import VocazioneProposta from '@/view/vocazione/VocazioneProposta';
 import { decidiAccesso } from '@/utility/accessoVocazione.mjs';
+import { scrollDifferitoInCima } from '@/utility/tempiTransizione.mjs';
 
 // La sezione vocazionale esiste solo in italiano: nelle altre lingue le
 // sotto-pagine tornano all'hub, che continua a servire la pagina breve
@@ -67,5 +68,12 @@ const routes = [
     { path: '/:pathMatch(.*)*', component: Home },
 ];
 
-const router = createRouter({ history: createWebHashHistory(), routes, scrollBehavior() { return { top: 0 }; } });
+// Il ritorno in cima si vedeva perche' avveniva mentre la pagina vecchia
+// era ancora sullo schermo: lo scatto era il vero difetto, non lo scroll.
+// Differendolo dentro l'uscita, il salto avviene a schermo gia' svuotato.
+const router = createRouter({
+    history: createWebHashHistory(),
+    routes,
+    scrollBehavior: () => scrollDifferitoInCima(),
+});
 export default router

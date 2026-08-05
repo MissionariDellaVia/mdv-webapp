@@ -1,7 +1,6 @@
 <template>
   <section>
     <VocIntestazione
-      ritorno
       occhiello="Vocazione"
       :immagine="proposta.header.immagine"
       :titolo="proposta.header.titolo"

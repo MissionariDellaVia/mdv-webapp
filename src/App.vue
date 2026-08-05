@@ -6,7 +6,7 @@
   }">
     <MdvNavbar v-show="!$route.meta.reservedArea && !$route.meta.standalone"/>
     <router-view v-slot="{ Component }">
-      <transition :name="inSezione ? 'dissolvenza' : 'scale'" mode="out-in">
+      <transition name="dissolvenza" mode="out-in">
         <component :is="Component" />
       </transition>
     </router-view >
@@ -112,15 +112,5 @@ html, body {
 }
 .markdown-mdv em > a:hover, .markdown-mdv em > a:focus {
   color: rgb(140, 104, 28) !important;
-}
-.scale-enter-active,
-.scale-leave-active {
-  transition: all 0.2s ease;
-}
-
-.scale-enter-from,
-.scale-leave-to {
-  opacity: 0;
-  transform: scale(0.9);
 }
 </style>

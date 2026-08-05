@@ -1,7 +1,6 @@
 <template>
   <section>
     <VocIntestazione
-      ritorno
       occhiello="Percorso"
       :immagine="percorso.header.immagine"
       :titolo="percorso.header.titolo"

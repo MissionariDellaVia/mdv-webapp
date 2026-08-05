@@ -1,7 +1,6 @@
 <template>
   <section>
     <VocIntestazione
-      ritorno
       occhiello="Vocazione"
       titolo="Le vostre domande"
       sottotitolo="Domande vere, risposte dei missionari"
