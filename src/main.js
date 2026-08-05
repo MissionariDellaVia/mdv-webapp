@@ -12,9 +12,10 @@ import BaseButton from "@/components/ui/BaseButton.vue";
 import BackButton from "@/components/ui/BackButton.vue";
 import ImageDialog from "@/components/ui/ImageDialog.vue";
 
-// Bootstrap Style
+// Di Bootstrap resta solo il foglio di stile — griglia e utility — finche'
+// non passiamo a Tailwind. Il suo JavaScript non serve piu' a nessuno: il
+// cassetto del menu e le linguette delle attivita' sono componenti nostri.
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap';
 
 // Token visivi: unica fonte di colori, font e spaziature
 import './assets/css/tokens.css';

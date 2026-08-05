@@ -12,9 +12,7 @@ const path = require('node:path');
 // Dipendenze che non compaiono in src perche' agiscono altrove: le si
 // elenca per iscritto, cosi' aggiungerne una e' una decisione e non una
 // svista.
-const INDIRETTE = {
-  '@popperjs/core': 'richiesta da bootstrap per dropdown e tooltip',
-};
+const INDIRETTE = {};
 
 function contenutiDi(dir, acc = []) {
   for (const voce of fs.readdirSync(dir, { withFileTypes: true })) {

@@ -11,8 +11,12 @@ test('una dipendenza che nessuno nomina viene segnalata', () => {
 });
 
 test('le indirette dichiarate non vengono segnalate', () => {
-  const nome = Object.keys(INDIRETTE)[0];
-  assert.deepStrictEqual(dipendenzeOrfane({ [nome]: '1' }, ['']), []);
+  // L'elenco puo' essere vuoto — anzi, e' l'obiettivo: significa che ogni
+  // dipendenza si giustifica da sola comparendo nel codice.
+  for (const nome of Object.keys(INDIRETTE)) {
+    assert.deepStrictEqual(dipendenzeOrfane({ [nome]: '1' }, ['']), []);
+  }
+  assert.deepStrictEqual(dipendenzeOrfane({ inventata: '1' }, ['']), ['inventata']);
 });
 
 test('ogni indiretta porta scritto perche\' resta', () => {

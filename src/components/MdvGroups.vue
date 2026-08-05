@@ -1,107 +1,51 @@
 <template>
-  <div class="container" v-if="groups && groups.length">
-
-    <div class="nav nav-pills mb-3 text-center" id="pills-tab" role="tablist">
-      <div class="nav-item shadow-sm col-12 mb-2" role="presentation">
-        <div class="nav-link fs-2 active main-group" :id=" 'pills-' + mainGroup.key + '-tab'" data-bs-toggle="pill" :data-bs-target="'#' + mainGroup.key" role="tab" aria-controls="pills-home" aria-selected="true"
-             @click="tabLog(mainGroup.key)">
-          {{ mainGroup.title }}</div>
-      </div>
-
-      <div v-for="(group, index) in subGroups" v-bind:key="index" class="nav-item shadow-sm col-12 mb-2" role="presentation">
-        <div class="nav-link fs-3 main-group" :id=" 'pills-' + group.key + '-tab'" data-bs-toggle="pill" :data-bs-target="'#' + group.key" role="tab" aria-controls="pills-home" aria-selected="true"
-             @click="tabLog(group.key)">
-          {{ group.title }}</div>
-      </div>
-    </div>
-    <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" :id="mainGroup.key"  @click="articleLog(mainGroup.key)">
-          <MdvArticle v-for="(section, index) in mainGroup.sections" v-bind:key="index" small="true"
-                      :image-url="section.image ? section.image.url : null"
-                      :align="section.image ? section.image.align : null"
-                      :title="section.title"
-                      :texts="section.articles"/>
-        </div>
-        <div v-for="(group, index) in subGroups" v-bind:key="index" class="tab-pane fade" :id="group.key" >
-          <MdvArticle v-for="(section, index) in group.sections" v-bind:key="index" small="true"
-                      :image-url="section.image ? section.image.url : null"
-                      :align="section.image ? section.image.align : null"
-                      :title="section.title"
-                      :texts="section.articles"/>
-        </div>
-    </div>
-
+  <div v-if="groups && groups.length" class="container">
+    <BaseSchede :voci="voci" etichetta="Gruppi di attività" v-slot="{ voce }">
+      <MdvArticle
+        v-for="(section, index) in voce.sections"
+        :key="index"
+        small="true"
+        :image-url="section.image ? section.image.url : null"
+        :align="section.image ? section.image.align : null"
+        :title="section.title"
+        :texts="section.articles"
+      />
+    </BaseSchede>
   </div>
-  <div v-else class="text-center my-5 py-5 text-muted">Nessuna attività disponibile al momento.</div>
+
+  <p v-else class="text-center my-5 py-5 nessuna-attivita">
+    Nessuna attività disponibile al momento.
+  </p>
 </template>
 
 <script>
 import MdvArticle from "@/components/MdvArticle.vue";
+import BaseSchede from "@/components/ui/BaseSchede.vue";
+
 export default {
   name: "MdvGroups",
-  components: {MdvArticle},
+  components: { MdvArticle, BaseSchede },
   props: {
     groups: Array
   },
   computed: {
-    mainGroup() {
-      return this.groups[0];
-    },
-    subGroups() {
-      return this.groups.slice(1);
-    }
-  },
-  methods: {
-    articleLog(string) {
-      console.log("from article " + string);
-    },
-    tabLog(string) {
-      console.log("from tab" + string);
+    // Il primo gruppo faceva riga a se' con un carattere piu' grande e un
+    // ramo di markup tutto suo, duplicato dal ciclo sottostante. E' un
+    // gruppo come gli altri: qui sono un elenco solo.
+    voci() {
+      return (this.groups || []).map((gruppo) => ({
+        chiave: gruppo.key,
+        titolo: gruppo.title,
+        sections: gruppo.sections,
+      }));
     }
   }
 }
 </script>
 
 <style scoped>
-
-.nav-link {
+.nessuna-attivita {
   font-family: var(--mdv-font-corpo);
-  background: var(--mdv-bruno-900-velato) !important;
-  color: var(--mdv-bianco) !important;
-  border-radius: 0 !important;
-  border-color: var(--mdv-bianco) !important;
-  box-shadow: none !important;
-  cursor: pointer;
-  -webkit-transition: all .2s;
-  -moz-transition: all .2s;
-  -o-transition: all .2s;
-  transition: all .2s;
-  transition-timing-function: ease;
-  -moz-transition-timing-function: ease;
-  -webkit-transition-timing-function: ease;
-  -o-transition-timing-function: ease;
-
+  color: var(--mdv-grigio);
 }
-.nav-link.active, .nav-link:hover, .nav-link:focus, .nav-link:active  {
-  background: var(--mdv-sabbia) !important;
-  color: var(--mdv-bianco);
-}
-.nav-link:hover {
-  background: var(--mdv-sabbia) !important;
-}
-.subgroup {
-  height: 6.5rem;
-}
-
-@media only screen and (max-width: 480px) {
-  .subgroup {
-    height: 9rem;
-    font-size: 1.1rem !important;
-  }
-}
-
-.main-group {
-  min-width: 100% !important;
-}
-
 </style>

@@ -1,77 +1,92 @@
 <template>
   <nav class="navbar fixed-top navbar-expand-lg entra-velata" :class="{changeColor: scrollPosition > 50}">
     <div class="container">
-      <!-- Logo image -->
-      <a class="navbar-brand" href="#">
+      <router-link class="navbar-brand" :to="{ name: 'chi-siamo' }">
         <img src="../../assets/logo.png" alt="Missionari della Via" class="logo-navbar"/>
-      </a>
+      </router-link>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
+      <button
+        type="button"
+        class="navbar-toggler"
+        aria-label="Apri il menu"
+        :aria-expanded="cassettoAperto ? 'true' : 'false'"
+        @click="cassettoAperto = true"
+      >
+        <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
 
-      <!-- Navigation with Offcanvas menu -->
-      <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarNav" aria-labelledby="DrawerBar">
-        <div class="offcanvas-header">
-          <i class="fas fa-times fa-lg close-icon ms-auto" data-bs-dismiss="offcanvas"></i>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav ms-auto text-uppercase">
+      <BaseCassetto :aperto="cassettoAperto" etichetta="Menu principale" @chiudi="chiudi">
+        <ul class="menu">
+          <li v-for="(item, index) in navbarItems" :key="index" class="menu__voce">
+            <template v-if="item.type === 'link'">
+              <a
+                v-if="item.external"
+                target="_blank"
+                rel="noopener noreferrer"
+                :href="item.to"
+                class="menu__link"
+                @click="chiudi"
+              >{{ item.title }}</a>
+              <router-link v-else class="menu__link" :to="item.to" @click="chiudi">
+                {{ item.title }}
+              </router-link>
+            </template>
 
-            <li v-for="(item, index) in navbarItems" v-bind:key="index" :class="item.type === 'dropdown' ? 'nav-item dropdown' : 'nav-item'">
-
-              <!-- Regular Link -->
-              <template v-if="item.type === 'link'">
-                <a v-if="item.external" target="_blank" :href="`${item.to}`" class="nav-link hover-underline-animation" @click="closeOffcanvas">{{ item.title }}</a>
-                <router-link v-else class="nav-link hover-underline-animation" :to="`${item.to}`" @click="closeOffcanvas">{{ item.title }}</router-link>
-              </template>
-
-              <!-- Dropdown -->
-              <template v-else-if="item.type === 'dropdown'">
-                <a class="nav-link dropdown-toggle" href="#" :id="`navbarDropdown-${index}`" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  {{ item.title }}
-                </a>
-                <div class="dropdown-menu dropdown-menu-end animate slideIn" :aria-labelledby="`navbarDropdown-${index}`">
-                  <template v-for="(dropdownItem, idx) in item.links" v-bind:key="idx">
-                    <a v-if="dropdownItem.external" target="_blank" :href="`${dropdownItem.to}`" class="dropdown-item" @click="closeOffcanvas">{{ dropdownItem.title }}</a>
-                    <router-link v-else class="dropdown-item" :to="`${dropdownItem.to}`" @click="closeOffcanvas">{{ dropdownItem.title }}</router-link>
-                  </template>
-                </div>
-              </template>
-
-            </li>
-
-          </ul>
-        </div>
-      </div>
+            <template v-else-if="item.type === 'dropdown'">
+              <!-- Il pannello a comparsa era un dropdown di Bootstrap.
+                   Qui e' un bottone che apre un elenco: dentro un cassetto
+                   che si legge dall'alto in basso, aprire in verticale e'
+                   anche piu' naturale che far spuntare un riquadro. -->
+              <button
+                type="button"
+                class="menu__link menu__link--gruppo"
+                :aria-expanded="apertoIndice === index ? 'true' : 'false'"
+                @click="apertoIndice = apertoIndice === index ? null : index"
+              >
+                {{ item.title }}
+                <span class="menu__freccia" :class="{ 'menu__freccia--su': apertoIndice === index }" aria-hidden="true">⌄</span>
+              </button>
+              <ul v-show="apertoIndice === index" class="menu__sottoelenco">
+                <li v-for="(sotto, idx) in item.links" :key="idx">
+                  <a
+                    v-if="sotto.external"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    :href="sotto.to"
+                    class="menu__link menu__link--sotto"
+                    @click="chiudi"
+                  >{{ sotto.title }}</a>
+                  <router-link
+                    v-else
+                    class="menu__link menu__link--sotto"
+                    :to="sotto.to"
+                    @click="chiudi"
+                  >{{ sotto.title }}</router-link>
+                </li>
+              </ul>
+            </template>
+          </li>
+        </ul>
+      </BaseCassetto>
     </div>
   </nav>
 </template>
 
 <script>
 import { usaPagina } from '@/store/pagina.mjs';
+import BaseCassetto from '@/components/ui/BaseCassetto.vue';
+
 export default {
   name: "MdvNavbar",
+  components: { BaseCassetto },
   setup() {
     return { pagina: usaPagina() };
   },
   data() {
     return {
-      scrollPosition: null
-    }
-  },
-  methods: {
-    updateScroll() {
-      this.scrollPosition = window.scrollY
-    },
-    closeOffcanvas() {
-      const offcanvasElement = document.getElementById('navbarNav');
-      if (offcanvasElement && window.bootstrap && window.bootstrap.Offcanvas) {
-        const bsOffcanvas = window.bootstrap.Offcanvas.getInstance(offcanvasElement);
-        if (bsOffcanvas) {
-          bsOffcanvas.hide();
-        }
-      }
+      scrollPosition: null,
+      cassettoAperto: false,
+      apertoIndice: null,
     }
   },
   computed: {
@@ -85,7 +100,18 @@ export default {
   created () {
     window.addEventListener('scroll', this.updateScroll);
   },
-
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.updateScroll);
+  },
+  methods: {
+    updateScroll() {
+      this.scrollPosition = window.scrollY
+    },
+    chiudi() {
+      this.cassettoAperto = false;
+      this.apertoIndice = null;
+    },
+  },
 }
 </script>
 
@@ -104,142 +130,89 @@ nav {
   width: auto;
   max-width: 100%;
 }
+
 .navbar {
   height: var(--mdv-altezza-navbar);
   background: transparent;
-  -webkit-transition: all .4s;
-  -moz-transition: all .4s;
-  -o-transition: all .4s;
-  transition: all .4s;
-  transition-timing-function: ease-in-out;
-  -moz-transition-timing-function: ease-in-out;
-  -webkit-transition-timing-function: ease-in-out;
-  -o-transition-timing-function: ease-in-out;
+  transition: background .4s ease-in-out;
 }
-.changeColor{
-  background: var(--mdv-bruno-900-velato);
-}
-.navbar a, .nav-item, .nav-link:focus {
-  color: var(--mdv-bianco);
-}
-.nav-link, .nav-link:hover {
-  color: var(--mdv-sabbia-chiara);
-}
-.navbar a:focus, .navbar a:hover, .nav-item a:focus, .nav-item a:hover{
-  color: var(--mdv-sabbia-chiara);
-}
-.hover-underline-animation, .router-link-active {
-  display: inline-block;
-  position: relative;
-
-}
-.hover-underline-animation:after, .router-link-active:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 0.2rem;
-  bottom: -1px;
-  left: 0;
-  background-color: var(--mdv-sabbia);
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-.hover-underline-animation:hover:after, .hover-underline-animation:focus:after, .hover-underline-animation:active:after, .router-link-active:after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-
-}
-
-.dropdown-menu {
+.changeColor {
   background: var(--mdv-bruno-900-velato);
 }
 
-.dropdown-item:hover{
-  background-color: transparent;
-}
-
-.navbar-toggler > i{
-  color: var(--mdv-sabbia) !important;
-  font-size: 2rem;
-  border-color: transparent;
-}
-.navbar-toggler > i:focus, .navbar-toggler > i:active, .navbar-toggler > i:hover {
-  box-shadow: none;
-  color: var(--mdv-pietra) !important;
-}
-
-.close-icon {
-  color: var(--mdv-sabbia);
-  cursor: pointer;
-  margin-right: 0.2rem;
-  margin-top: 0.5rem;
-  font-size: 2rem;
-}
-.close-icon:hover {
-  color: var(--mdv-pietra);
-}
-
-.navbar-toggler{
+.navbar-toggler {
+  border: none;
   border-radius: 0;
-  border-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+.navbar-toggler > i {
+  color: var(--mdv-sabbia);
+  font-size: 2rem;
+}
+.navbar-toggler:focus-visible {
+  outline: 2px solid var(--mdv-sabbia);
+  outline-offset: 2px;
 }
 
-.navbar-toggler:focus {
+/* Il menu vive dentro il cassetto, che è teletrasportato sul body: gli
+   stili con ambito non lo raggiungerebbero, quindi passano da :deep. */
+:deep(.menu) {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--mdv-spazio-1);
+}
+:deep(.menu__link) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mdv-spazio-3);
+  width: 100%;
+  padding: var(--mdv-spazio-3) 0;
+  border: none;
+  background: none;
+  font-family: var(--mdv-font-navigazione);
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: left;
   text-decoration: none;
-  outline: none;
-  box-shadow: none;
+  color: var(--mdv-sabbia-chiara);
+  cursor: pointer;
+  transition: color 0.25s ease, padding-left 0.25s var(--mdv-curva-morbida);
+}
+:deep(.menu__link:focus-visible) {
+  outline: 2px solid var(--mdv-sabbia);
+  outline-offset: 2px;
+}
+:deep(.menu__voce + .menu__voce) {
+  border-top: 1px solid var(--mdv-bruno-700);
+}
+:deep(.menu__freccia) {
+  transition: transform 0.3s var(--mdv-curva-morbida);
+}
+:deep(.menu__freccia--su) {
+  transform: rotate(180deg);
+}
+:deep(.menu__sottoelenco) {
+  list-style: none;
+  padding: 0 0 var(--mdv-spazio-2) var(--mdv-spazio-4);
+  margin: 0;
+}
+:deep(.menu__link--sotto) {
+  font-size: 0.92rem;
+  text-transform: none;
+  letter-spacing: 0.03em;
+  padding: var(--mdv-spazio-2) 0;
 }
 
-.offcanvas {
-  background: var(--mdv-bruno-900-velato);
-}
-
-@media only screen and (min-width: 768px) {
-  .animate {
-    animation-duration: 0.3s;
-    -webkit-animation-duration: 0.3s;
-    animation-fill-mode: both;
-    -webkit-animation-fill-mode: both;
+@media (hover: hover) {
+  :deep(.menu__link:hover) {
+    color: var(--mdv-bianco);
+    padding-left: var(--mdv-spazio-2);
   }
-}
-
-@keyframes slideIn {
-  0% {
-    transform: translateY(1rem);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0rem);
-    opacity: 1;
-  }
-
-  0% {
-    transform: translateY(1rem);
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes slideIn {
-  0% {
-    -webkit-transform: transform;
-    -webkit-opacity: 0;
-  }
-
-  100% {
-    -webkit-transform: translateY(0);
-    -webkit-opacity: 1;
-  }
-
-  0% {
-    -webkit-transform: translateY(1rem);
-    -webkit-opacity: 0;
-  }
-}
-
-.slideIn {
-  -webkit-animation-name: slideIn;
-  animation-name: slideIn;
 }
 </style>
