@@ -23,3 +23,6 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+# "env" senza punto non viene letto da Vue CLI ma contiene le stesse
+# chiavi: ignorarlo evita che un file creato per sbaglio finisca committato.
+/env
