@@ -11,6 +11,7 @@
         :is="componentePer(blocco.tipo)"
         v-for="(blocco, i) in blocchiValidi"
         :key="i"
+        v-rivela
         v-bind="propsPer(blocco)"
       />
 

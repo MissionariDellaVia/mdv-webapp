@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import { utilityFunction } from './utility/utility.js';
+import { direttivaRivela } from './utility/direttivaRivela.mjs';
 import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 import router from './router';
 import store from './store/index.js';
@@ -36,6 +37,8 @@ app.use(autoAnimatePlugin);
 app.use(Markdown);
 
 app.config.globalProperties.$util = utilityFunction;
+
+app.directive('rivela', direttivaRivela);
 
 app.component('base-spinner', BaseSpinner);
 app.component('base-toast', BaseToast);

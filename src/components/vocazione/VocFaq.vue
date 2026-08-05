@@ -1,6 +1,6 @@
 <template>
   <div class="voc-faq">
-    <article v-for="(voce, i) in domande" :key="voce.id" class="voc-faq__voce">
+    <article v-for="(voce, i) in domande" :key="voce.id" v-auto-animate class="voc-faq__voce">
       <button
         type="button"
         :class="['voc-faq__domanda', { 'voc-faq__domanda--aperta': aperta === i }]"
@@ -10,7 +10,7 @@
         <span class="voc-faq__testo-domanda">{{ voce.domanda }}</span>
         <span class="voc-faq__segno" aria-hidden="true">{{ aperta === i ? '−' : '+' }}</span>
       </button>
-      <div v-show="aperta === i" class="voc-faq__risposta">
+      <div v-if="aperta === i" class="voc-faq__risposta">
         <Markdown :source="voce.risposta" :html="true" class="markdown-mdv" />
       </div>
     </article>

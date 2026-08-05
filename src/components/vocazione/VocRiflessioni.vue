@@ -6,7 +6,7 @@
       Le tue risposte restano su questo dispositivo: non le riceve nessuno.
     </p>
 
-    <div v-for="(domanda, i) in domande" :key="i" class="voc-riflessioni__voce">
+    <div v-for="(domanda, i) in domande" :key="i" v-auto-animate class="voc-riflessioni__voce">
       <button
         type="button"
         :class="['voc-riflessioni__domanda', { 'voc-riflessioni__domanda--aperta': aperta === i }]"
@@ -16,7 +16,7 @@
         {{ domanda }}
       </button>
       <textarea
-        v-show="aperta === i"
+        v-if="aperta === i"
         v-model="risposte[i]"
         class="voc-riflessioni__risposta"
         rows="4"
@@ -56,6 +56,11 @@ export default {
     haRisposte() {
       return Object.values(this.risposte).some((r) => r && r.trim().length > 0);
     },
+  },
+  beforeUnmount() {
+    // Il campo ora e' sotto v-if: se l'utente lascia la pagina senza che
+    // blur sia scattato, il testo si salva comunque.
+    this.salva();
   },
   methods: {
     salva() {

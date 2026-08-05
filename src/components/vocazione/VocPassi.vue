@@ -4,7 +4,7 @@
     <p class="voc-passi__avanzamento">{{ letti.length }} di {{ passi.length }}</p>
 
     <ol class="voc-passi__lista">
-      <li v-for="(passo, i) in passi" :key="i" class="voc-passi__passo">
+      <li v-for="(passo, i) in passi" :key="i" v-auto-animate class="voc-passi__passo">
         <button
           type="button"
           :class="['voc-passi__intestazione', { 'voc-passi__intestazione--letto': letti.includes(i) }]"
@@ -14,7 +14,7 @@
           <span class="voc-passi__numero">{{ i + 1 }}</span>
           <span class="voc-passi__nome">{{ passo.titolo }}</span>
         </button>
-        <p v-show="aperto === i" class="voc-passi__testo">{{ passo.testo }}</p>
+        <p v-if="aperto === i" class="voc-passi__testo">{{ passo.testo }}</p>
       </li>
     </ol>
   </section>
