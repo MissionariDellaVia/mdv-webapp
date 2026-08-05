@@ -125,6 +125,17 @@ body:has(.voc-atmosfera) {
   transition: background-color 900ms ease;
 }
 
+/* I controlli di modulo non ereditano il colore del testo: il browser
+   applica il suo, che e' scuro. In un'atmosfera invertita spariscono
+   tutti insieme. Si corregge qui una volta, non componente per
+   componente, perche' il difetto e' della regola non del componente. */
+.voc-atmosfera button,
+.voc-atmosfera input,
+.voc-atmosfera textarea,
+.voc-atmosfera select {
+  color: var(--mdv-bruno-900);
+}
+
 /* I colori del markdown sono globali e scritti per il fondo chiaro. */
 .voc-atmosfera .markdown-mdv blockquote {
   color: var(--mdv-oro) !important;
@@ -140,6 +151,30 @@ body:has(.voc-atmosfera) {
   color: var(--mdv-grigio-scuro);
 }
 
+/* Entrata condivisa. Ogni sezione entra allo stesso modo: una salita
+   breve con la curva che decelera. Le classi stanno qui e non nei
+   componenti proprio perche' l'animazione dev'essere una sola. */
+@keyframes mdv-entrata {
+  from { opacity: 0; transform: translateY(1.4rem); }
+  to   { opacity: 1; transform: none; }
+}
+/* Per gli elementi che non devono muoversi — la navbar fissa, il footer:
+   spostarli farebbe ballare tutto il resto. */
+@keyframes mdv-apparizione {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.entra {
+  animation: mdv-entrata var(--mdv-entrata-pagina) var(--mdv-curva-morbida) both;
+}
+.entra-velata {
+  animation: mdv-apparizione var(--mdv-entrata-pagina) var(--mdv-curva-morbida) both;
+}
+.entra--2 { animation-delay: 120ms; }
+.entra--3 { animation-delay: 240ms; }
+.entra--4 { animation-delay: 360ms; }
+.entra--5 { animation-delay: 480ms; }
+
 /* Rivelazione allo scroll: la direttiva v-rivela aggiunge le classi. */
 .da-rivelare {
   opacity: 0;
@@ -154,22 +189,16 @@ body:has(.voc-atmosfera) {
 /* Passaggio fra le pagine. Niente scatto di scala: la pagina vecchia si
    ritira in fretta, la nuova sale piano con una curva che decelera. */
 .dissolvenza-enter-active {
-  transition:
-    opacity var(--mdv-entrata-pagina) var(--mdv-curva-morbida),
-    transform var(--mdv-entrata-pagina) var(--mdv-curva-morbida);
+  transition: opacity var(--mdv-entrata-pagina) var(--mdv-curva-morbida);
 }
 .dissolvenza-leave-active {
-  transition:
-    opacity var(--mdv-uscita-pagina) ease-in,
-    transform var(--mdv-uscita-pagina) ease-in;
+  transition: opacity var(--mdv-uscita-pagina) ease-in;
 }
-.dissolvenza-enter-from {
-  opacity: 0;
-  transform: translateY(1.1rem);
-}
+/* Dissolvenza pura: niente scorrimento verticale, cosi' il testo non
+   scivola sotto agli occhi mentre lo si sta gia' leggendo. */
+.dissolvenza-enter-from,
 .dissolvenza-leave-to {
   opacity: 0;
-  transform: translateY(-0.6rem);
 }
 
 /* Chi ha attivato "riduci movimento" spesso lo ha fatto per disturbi

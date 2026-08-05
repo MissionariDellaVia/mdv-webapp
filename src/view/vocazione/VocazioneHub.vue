@@ -5,13 +5,6 @@
   <VocazioneLegacy v-if="!inItaliano" />
 
   <section v-else>
-    <VocIntestazione
-      alta
-      :immagine="hub.header.immagine"
-      :titolo="hub.header.titolo"
-      :sottotitolo="hub.header.sottotitolo"
-    />
-
     <div class="container voc-hub">
       <blockquote class="voc-hub__citazione">{{ hub.citazione }}</blockquote>
 
@@ -35,7 +28,6 @@
 
 <script>
 import Markdown from 'vue3-markdown-it';
-import VocIntestazione from '@/components/vocazione/VocIntestazione';
 import VocazioneLegacy from '@/view/Vocazione';
 import VocPorte from '@/components/vocazione/VocPorte';
 import VocRimandi from '@/components/vocazione/VocRimandi';
@@ -44,7 +36,7 @@ import contenuto from '@/assets/data/vocazione.json';
 export default {
   name: 'VocazioneHub',
   components: {
-    Markdown, VocIntestazione, VocazioneLegacy, VocPorte, VocRimandi,
+    Markdown, VocazioneLegacy, VocPorte, VocRimandi,
   },
   data() {
     return {

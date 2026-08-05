@@ -1,12 +1,5 @@
 <template>
   <section>
-    <VocIntestazione
-      occhiello="Percorso"
-      :immagine="percorso.header.immagine"
-      :titolo="percorso.header.titolo"
-      :sottotitolo="percorso.header.sottotitolo"
-    />
-
     <div class="container voc-percorso">
       <component
         :is="componentePer(blocco.tipo)"
@@ -32,7 +25,6 @@
 </template>
 
 <script>
-import VocIntestazione from '@/components/vocazione/VocIntestazione';
 import VocProsa from '@/components/vocazione/VocProsa';
 import VocElenco from '@/components/vocazione/VocElenco';
 import VocPassi from '@/components/vocazione/VocPassi';
@@ -54,7 +46,7 @@ const PER_TIPO = {
 export default {
   name: 'VocazionePercorso',
   components: {
-    VocIntestazione, VocProsa, VocElenco, VocPassi, VocRiflessioni, VocTestimonianze, VocRimandi,
+    VocProsa, VocElenco, VocPassi, VocRiflessioni, VocTestimonianze, VocRimandi,
   },
   props: {
     chiave: { type: String, required: true },

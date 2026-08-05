@@ -1,30 +1,42 @@
 <template>
   <section class="voc-passi">
     <h2 v-if="titolo" class="voc-passi__titolo">{{ titolo }}</h2>
-    <p class="voc-passi__avanzamento">{{ letti.length }} di {{ passi.length }}</p>
+    <p class="voc-passi__avanzamento">{{ letti.length }} di {{ passi.length }} · tocca una carta per girarla</p>
 
-    <ol class="voc-passi__lista">
-      <li v-for="(passo, i) in passi" :key="i" v-auto-animate class="voc-passi__passo">
-        <button
-          type="button"
-          :class="['voc-passi__intestazione', { 'voc-passi__intestazione--letto': letti.includes(i) }]"
-          :aria-expanded="aperto === i ? 'true' : 'false'"
-          @click="apri(i)"
-        >
-          <span class="voc-passi__numero">{{ i + 1 }}</span>
-          <span class="voc-passi__nome">{{ passo.titolo }}</span>
-        </button>
-        <p v-if="aperto === i" class="voc-passi__testo">{{ passo.testo }}</p>
-      </li>
-    </ol>
+    <VocCarosello>
+      <button
+        v-for="(passo, i) in passi"
+        :key="i"
+        type="button"
+        :class="['voc-passi__carta', { 'voc-passi__carta--girata': girata === i }]"
+        :aria-pressed="girata === i ? 'true' : 'false'"
+        @click="gira(i)"
+      >
+        <span class="voc-passi__interno">
+          <span class="voc-passi__faccia voc-passi__faccia--fronte">
+            <span :class="['voc-passi__numero', { 'voc-passi__numero--letto': letti.includes(i) }]">
+              {{ i + 1 }}
+            </span>
+            <span class="voc-passi__nome">{{ passo.titolo }}</span>
+            <span class="voc-passi__invito">gira</span>
+          </span>
+
+          <span class="voc-passi__faccia voc-passi__faccia--retro">
+            <span class="voc-passi__testo">{{ passo.testo }}</span>
+          </span>
+        </span>
+      </button>
+    </VocCarosello>
   </section>
 </template>
 
 <script>
+import VocCarosello from '@/components/vocazione/VocCarosello';
 import { vocStorage } from '@/utility/vocStorage.mjs';
 
 export default {
   name: 'VocPassi',
+  components: { VocCarosello },
   props: {
     titolo: { type: String, default: '' },
     passi: { type: Array, required: true },
@@ -32,14 +44,14 @@ export default {
   },
   data() {
     return {
-      aperto: null,
+      girata: null,
       letti: vocStorage.leggi(this.percorso, 'passi', []),
     };
   },
   methods: {
-    apri(i) {
-      this.aperto = this.aperto === i ? null : i;
-      if (this.aperto === i && !this.letti.includes(i)) {
+    gira(i) {
+      this.girata = this.girata === i ? null : i;
+      if (this.girata === i && !this.letti.includes(i)) {
         this.letti = [...this.letti, i];
         vocStorage.scrivi(this.percorso, 'passi', this.letti);
       }
@@ -64,27 +76,54 @@ export default {
   color: var(--mdv-grigio);
   margin-bottom: var(--mdv-spazio-4);
 }
-.voc-passi__lista {
-  list-style: none;
-  padding-left: 0;
-}
-.voc-passi__passo {
-  margin-bottom: var(--mdv-spazio-2);
-}
-.voc-passi__intestazione {
-  display: flex;
-  align-items: center;
-  gap: var(--mdv-spazio-3);
-  width: 100%;
-  background: none;
+
+/* La carta e' il bottone: un solo elemento attivabile, una sola tappa
+   con il tabulatore. La prospettiva sta qui, il giro sull'interno. */
+.voc-passi__carta {
+  width: 15rem;
+  height: 19rem;
+  padding: 0;
   border: none;
-  border-bottom: 1px solid var(--mdv-sabbia);
-  padding: var(--mdv-spazio-3) 0;
-  text-align: left;
-  font-family: var(--mdv-font-corpo);
-  font-size: 1.1rem;
+  background: none;
+  perspective: 1000px;
   cursor: pointer;
 }
+.voc-passi__interno {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 700ms var(--mdv-curva-morbida);
+}
+.voc-passi__carta--girata .voc-passi__interno {
+  transform: rotateY(180deg);
+}
+
+.voc-passi__faccia {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: var(--mdv-spazio-4);
+  border: 1px solid var(--mdv-sabbia);
+  border-radius: var(--mdv-raggio-m);
+  background-color: var(--voc-fondo-alto);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  text-align: left;
+}
+.voc-passi__faccia--fronte {
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.voc-passi__faccia--retro {
+  justify-content: center;
+  transform: rotateY(180deg);
+  border-color: var(--mdv-oro-scuro);
+  overflow-y: auto;
+}
+
 .voc-passi__numero {
   flex: 0 0 auto;
   width: var(--mdv-spazio-6);
@@ -95,19 +134,59 @@ export default {
   align-items: center;
   justify-content: center;
   font-family: var(--mdv-font-titolo);
+  font-size: 1.2rem;
   color: var(--mdv-oro);
-  transition: background-color .15s, color .15s;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
-.voc-passi__intestazione--letto .voc-passi__numero {
+.voc-passi__numero--letto {
   background-color: var(--mdv-oro);
-  color: var(--mdv-bianco);
+  color: var(--voc-fondo);
   border-color: var(--mdv-oro);
+}
+.voc-passi__nome {
+  font-family: var(--mdv-font-titolo);
+  font-size: 1.5rem;
+  line-height: 1.25;
+  color: var(--mdv-oro-chiaro);
+}
+.voc-passi__invito {
+  font-family: var(--mdv-font-navigazione);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mdv-grigio);
 }
 .voc-passi__testo {
   font-family: var(--mdv-font-corpo);
-  font-size: 1.1rem;
-  line-height: 1.8;
-  padding: var(--mdv-spazio-3) 0 var(--mdv-spazio-3) var(--mdv-spazio-6);
-  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--mdv-bruno-900);
+}
+
+.voc-passi__carta:hover .voc-passi__faccia--fronte {
+  border-color: var(--mdv-oro-scuro);
+}
+.voc-passi__carta:focus-visible {
+  outline: 2px solid var(--mdv-oro);
+  outline-offset: 4px;
+  border-radius: var(--mdv-raggio-m);
+}
+
+/* Senza il 3D il giro non si puo' rendere: si scambiano le due facce. */
+@media (prefers-reduced-motion: reduce) {
+  .voc-passi__interno {
+    transform-style: flat;
+  }
+  .voc-passi__carta--girata .voc-passi__interno {
+    transform: none;
+  }
+  .voc-passi__faccia--retro {
+    transform: none;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .voc-passi__carta--girata .voc-passi__faccia--retro {
+    opacity: 1;
+  }
 }
 </style>

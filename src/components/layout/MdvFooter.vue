@@ -1,5 +1,5 @@
 <template>
-  <footer v-if="show" class="py-5">
+  <footer class="py-5 entra-velata">
     <div class="container">
 
       <div class="row">
@@ -56,7 +56,6 @@ export default {
   data() {
     return {
       helper: this.$util,
-      show: false,
       isLoading: false
     }
   },
@@ -68,19 +67,8 @@ export default {
       return this.$store.getters['page/footer'];
     },
   },
-  watch: {
-    $route(to, from) {
-      console.debug('to: ' + to.path + ' - from: ' + from.path)
-      this.show = false;
-      this.setShow();
-    }
-  },
+  // Come la navbar: restava fermo il contenuto e spariva il contenitore.
   methods: {
-    setShow() {
-      setTimeout(() => {
-        this.show = true;
-      }, 300);
-    },
     scrollToTop() {
       window.scrollTo(0,0);
     },
@@ -96,9 +84,6 @@ export default {
       }
       this.isLoading = false
     },
-  },
-  created() {
-    this.setShow();
   },
 }
 </script>

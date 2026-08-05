@@ -18,6 +18,7 @@
 import MdvNavbar from "@/components/layout/MdvNavbar";
 import MdvFooter from "@/components/layout/MdvFooter";
 import { inVocazione } from "@/utility/inVocazione.mjs";
+import { USCITA_PAGINA_MS } from "@/utility/tempiTransizione.mjs";
 
 const supportedLang = ['it', 'en', 'pl', 'es', 'fr']
 
@@ -26,23 +27,39 @@ export default {
   components: {
     MdvNavbar,MdvFooter
   },
-  computed: {
-    // Navbar e footer sono fratelli del router-view: l'atmosfera puo'
-    // essere applicata solo da qui per raggiungerli tutti.
-    // In lingua diversa dall'italiano /vocazione mostra la vecchia pagina,
-    // che e' scritta per il fondo chiaro: li' l'atmosfera resta spenta.
-    // La navbar cambia a ogni cambio lingua: leggerla rende il calcolo
-    // reattivo senza doverne aggiungere uno stato apposito.
-    inSezione() {
-      void this.$store.getters['page/navbar'];
-      const lingua = localStorage.getItem('lang') || 'it';
-      return lingua === 'it' && inVocazione(this.$route.path);
+  data() {
+    return { inSezione: false };
+  },
+  watch: {
+    // L'atmosfera non cambia all'istante del clic: se cambiasse subito, la
+    // pagina che sta ancora uscendo — chiara — resterebbe per un attimo
+    // sopra il fondo gia' scuro, ed e' esattamente lo scatto che si vede.
+    // Aspettando la fine dell'uscita, il colore gira su uno schermo vuoto.
+    $route: {
+      immediate: true,
+      handler() {
+        const atteso = this.calcolaSezione();
+        if (atteso === this.inSezione) return;
+        clearTimeout(this.attesaAtmosfera);
+        this.attesaAtmosfera = setTimeout(() => {
+          this.inSezione = this.calcolaSezione();
+        }, USCITA_PAGINA_MS);
+      },
     },
   },
   created() {
     this.checkAndSetLang();
   },
+  beforeUnmount() {
+    clearTimeout(this.attesaAtmosfera);
+  },
   methods: {
+    // In lingua diversa dall'italiano /vocazione mostra la vecchia pagina,
+    // che e' scritta per il fondo chiaro: li' l'atmosfera resta spenta.
+    calcolaSezione() {
+      const lingua = localStorage.getItem('lang') || 'it';
+      return lingua === 'it' && inVocazione(this.$route.path);
+    },
     checkAndSetLang() {
       if (localStorage.getItem('lang')) {
         let currentLang = localStorage.getItem('lang');

@@ -37,7 +37,7 @@
       "header": {
         "titolo": "Sto cercando la mia strada",
         "sottotitolo": "Il discernimento vocazionale",
-        "immagine": "vocazioni-1.jpg"
+        "immagine": "vocazione/discernimento.jpg"
       },
       "blocchi": [
         {
@@ -172,7 +172,7 @@
       "header": {
         "titolo": "Vocazione al matrimonio",
         "sottotitolo": "Una chiamata ad amare",
-        "immagine": "corsoSposi.jpg"
+        "immagine": "vocazione/matrimonio.jpg"
       },
       "blocchi": [
         {
@@ -234,7 +234,7 @@
       "header": {
         "titolo": "Vocazione al sacerdozio",
         "sottotitolo": "«Vieni e seguimi»",
-        "immagine": "sdv.jpg"
+        "immagine": "vocazione/sacerdozio.jpg"
       },
       "blocchi": [
         {
@@ -287,7 +287,7 @@
       "header": {
         "titolo": "Vocazione alla vita consacrata",
         "sottotitolo": "«Tu solo mi basti»",
-        "immagine": "fraternita.jpg"
+        "immagine": "vocazione/vita-consacrata.jpg"
       },
       "blocchi": [
         {
@@ -399,7 +399,7 @@
     "header": {
       "titolo": "La nostra proposta",
       "sottotitolo": "Per coloro che vogliono capire meglio",
-      "immagine": "camminoGiovani.jpg"
+      "immagine": "vocazione/proposta.jpg"
     },
     "blocchi": [
       {

@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="show" class="navbar fixed-top navbar-expand-lg" :class="{changeColor: scrollPosition > 50}">
+  <nav class="navbar fixed-top navbar-expand-lg entra-velata" :class="{changeColor: scrollPosition > 50}">
     <div class="container">
       <!-- Logo image -->
       <a class="navbar-brand" href="#">
@@ -53,18 +53,12 @@ export default {
   name: "MdvNavbar",
   data() {
     return {
-      scrollPosition: null,
-      show: true
+      scrollPosition: null
     }
   },
   methods: {
     updateScroll() {
       this.scrollPosition = window.scrollY
-    },
-    setShow() {
-      setTimeout(() => {
-        this.show = true;
-      }, 300);
     },
     closeOffcanvas() {
       const offcanvasElement = document.getElementById('navbarNav');
@@ -81,12 +75,9 @@ export default {
       return this.$store.getters['page/navbar'];
     }
   },
-  watch:{
-    $route (){
-      this.show = false;
-      this.setShow();
-    }
-  },
+  // Niente watch su $route: la navbar spariva e riappariva a ogni
+  // navigazione, ed e' quello a far sembrare che si ricarichi tutto.
+  // Sta ferma, cambia solo il contenuto sotto.
   created () {
     window.addEventListener('scroll', this.updateScroll);
   },

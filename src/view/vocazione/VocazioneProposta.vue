@@ -1,12 +1,5 @@
 <template>
   <section>
-    <VocIntestazione
-      occhiello="Vocazione"
-      :immagine="proposta.header.immagine"
-      :titolo="proposta.header.titolo"
-      :sottotitolo="proposta.header.sottotitolo"
-    />
-
     <div class="container voc-proposta">
       <VocProsa
         v-for="(blocco, i) in proposta.blocchi"
@@ -25,13 +18,12 @@
 </template>
 
 <script>
-import VocIntestazione from '@/components/vocazione/VocIntestazione';
 import VocProsa from '@/components/vocazione/VocProsa';
 import contenuto from '@/assets/data/vocazione.json';
 
 export default {
   name: 'VocazioneProposta',
-  components: { VocIntestazione, VocProsa },
+  components: { VocProsa },
   data() {
     return { proposta: contenuto.proposta };
   },

@@ -1,11 +1,5 @@
 <template>
   <section>
-    <VocIntestazione
-      occhiello="Vocazione"
-      titolo="Le vostre domande"
-      sottotitolo="Domande vere, risposte dei missionari"
-    />
-
     <div class="container voc-domande">
       <p class="voc-domande__invito">
         Hai una domanda da fare o un pensiero da condividere?
@@ -19,13 +13,12 @@
 </template>
 
 <script>
-import VocIntestazione from '@/components/vocazione/VocIntestazione';
 import VocFaq from '@/components/vocazione/VocFaq';
 import contenuto from '@/assets/data/vocazione.json';
 
 export default {
   name: 'VocazioneDomande',
-  components: { VocIntestazione, VocFaq },
+  components: { VocFaq },
   data() {
     return { domande: contenuto.domande };
   },

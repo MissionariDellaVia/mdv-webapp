@@ -1,21 +1,34 @@
 <template>
   <header :class="['voc-intestazione', { 'voc-intestazione--alta': alta }]">
-    <div
-      v-if="fondale"
-      class="voc-intestazione__fondale"
-      :style="{ backgroundImage: `url(${fondale})` }"
-      aria-hidden="true"
-    ></div>
+    <transition name="fondale">
+      <div
+        v-if="fondale"
+        :key="fondale"
+        class="voc-intestazione__fondale"
+        :style="{ backgroundImage: `url(${fondale})` }"
+        aria-hidden="true"
+      ></div>
+    </transition>
 
     <div class="container voc-intestazione__contenuto">
-      <p v-if="occhiello" class="voc-intestazione__occhiello">{{ occhiello }}</p>
+      <!-- Cambiando pagina cambia solo cio' che sta qui dentro. Lo spazio
+           e' riservato e i due testi sono sovrapposti, quindi il titolo
+           nuovo entra mentre il vecchio esce senza che niente si sposti
+           in altezza: il filo e il menu non si muovono di un pixel. -->
+      <div class="voc-intestazione__testo">
+        <transition name="titolo">
+          <div :key="titolo" class="voc-intestazione__strato">
+            <p v-if="occhiello" class="voc-intestazione__occhiello">{{ occhiello }}</p>
+            <h1 class="voc-intestazione__titolo">{{ titolo }}</h1>
+            <p v-if="sottotitolo" class="voc-intestazione__sottotitolo">{{ sottotitolo }}</p>
+          </div>
+        </transition>
+      </div>
 
-      <h1 class="voc-intestazione__titolo">{{ titolo }}</h1>
-      <p v-if="sottotitolo" class="voc-intestazione__sottotitolo">{{ sottotitolo }}</p>
+      <span class="voc-intestazione__filo entra entra--4" aria-hidden="true"></span>
 
-      <span class="voc-intestazione__filo" aria-hidden="true"></span>
-
-      <nav class="voc-intestazione__menu" aria-label="Sezione vocazione">
+      <!-- Il menu resta montato: e' il punto fermo della sezione. -->
+      <nav class="voc-intestazione__menu entra entra--5" aria-label="Sezione vocazione">
         <router-link
           v-for="voce in menu"
           :key="voce.nome"
@@ -97,12 +110,27 @@ export default {
      cromatica e non passa dai token. */
   -webkit-mask-image: linear-gradient(180deg, black 0%, transparent 88%);
   mask-image: linear-gradient(180deg, black 0%, transparent 88%);
-  animation: voc-fondale 1800ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
 
 .voc-intestazione__contenuto {
   position: relative;
-  max-width: 52rem;
+  max-width: 54rem;
+}
+
+/* Altezza riservata al titolo: e' il motivo per cui il menu non balla
+   passando da "Vocazione" a "Vocazione alla vita consacrata". Scala con
+   lo schermo insieme al corpo del titolo. */
+.voc-intestazione__testo {
+  position: relative;
+  min-height: clamp(15rem, 32vh, 22rem);
+}
+.voc-intestazione__strato {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .voc-intestazione__occhiello {
@@ -112,16 +140,14 @@ export default {
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--mdv-oro);
-  animation: voc-sale 900ms 200ms both cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .voc-intestazione__titolo {
   margin: 0;
   font-family: var(--mdv-font-titolo);
-  font-size: clamp(3rem, 9vw, 6.5rem);
-  line-height: 1.05;
+  font-size: clamp(2.6rem, 7.6vw, 5.6rem);
+  line-height: 1.08;
   color: var(--mdv-oro-chiaro);
-  animation: voc-sale 1100ms 320ms both cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .voc-intestazione__sottotitolo {
@@ -132,7 +158,6 @@ export default {
   line-height: 1.7;
   color: var(--mdv-bruno-900);
   opacity: 0.82;
-  animation: voc-sale 1100ms 500ms both cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .voc-intestazione__filo {
@@ -141,25 +166,39 @@ export default {
   height: 1px;
   margin: var(--mdv-spazio-6) auto;
   background: linear-gradient(90deg, transparent, var(--mdv-oro), transparent);
-  animation: voc-filo 1200ms 700ms both cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 /* Il menu sta qui, sotto il titolo, e non fra la navbar e l'immagine:
-   e' dentro l'atmosfera invece di tagliarla. */
+   e' dentro l'atmosfera invece di tagliarla. Sta su una riga sola; se
+   lo schermo non basta scorre in orizzontale, che e' meno peggio del
+   menu che va a capo e smette di leggersi come menu. */
 .voc-intestazione__menu {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  align-items: baseline;
   justify-content: center;
-  gap: var(--mdv-spazio-2) var(--mdv-spazio-5);
-  animation: voc-sale 1100ms 880ms both cubic-bezier(0.22, 0.61, 0.36, 1);
+  /* "safe" evita che, quando la riga non ci sta, il centraggio nasconda
+     la prima voce oltre il bordo sinistro dell'area che scorre. */
+  justify-content: safe center;
+  gap: clamp(var(--mdv-spazio-3), 2.4vw, var(--mdv-spazio-5));
+  max-width: 100%;
+  padding-inline: var(--mdv-spazio-2);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.voc-intestazione__menu::-webkit-scrollbar {
+  display: none;
 }
 
 .voc-intestazione__voce {
   position: relative;
+  flex: 0 0 auto;
   padding: var(--mdv-spazio-2) 0;
   font-family: var(--mdv-font-navigazione);
-  font-size: 0.92rem;
-  letter-spacing: 0.08em;
+  font-size: clamp(0.78rem, 1.35vw, 0.92rem);
+  letter-spacing: 0.07em;
+  white-space: nowrap;
   color: var(--mdv-sabbia-chiara);
   text-decoration: none;
   opacity: 0.72;
@@ -175,7 +214,7 @@ export default {
   background-color: var(--mdv-oro);
   transform: scaleX(0);
   transform-origin: center;
-  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: transform 0.35s var(--mdv-curva-morbida);
 }
 .voc-intestazione__voce:hover,
 .voc-intestazione__voce:focus {
@@ -198,17 +237,31 @@ export default {
   outline-offset: 4px;
 }
 
-@keyframes voc-sale {
-  from { opacity: 0; transform: translateY(1.6rem); }
-  to   { opacity: 1; transform: none; }
+/* Il titolo si scambia in dissolvenza incrociata, con un velo di sfocatura
+   che fa "mettere a fuoco" quello nuovo. Niente spostamenti: il testo non
+   sale e non scende, cambia e basta. */
+.titolo-enter-active,
+.titolo-leave-active {
+  transition:
+    opacity 700ms var(--mdv-curva-morbida),
+    filter 700ms var(--mdv-curva-morbida);
 }
-@keyframes voc-filo {
-  from { opacity: 0; transform: scaleX(0); }
-  to   { opacity: 1; transform: none; }
+.titolo-enter-from,
+.titolo-leave-to {
+  opacity: 0;
+  filter: blur(12px);
 }
-@keyframes voc-fondale {
-  from { opacity: 0; transform: scale(1.08); }
-  to   { opacity: 0.26; transform: none; }
+
+/* La foto di fondo si sostituisce in dissolvenza incrociata: i due
+   livelli sono sovrapposti, quindi non c'e' mai un buco fra l'una e
+   l'altra. Ultime nel foglio perche' devono vincere sull'opacita' base. */
+.fondale-enter-active,
+.fondale-leave-active {
+  transition: opacity 900ms var(--mdv-curva-morbida);
+}
+.fondale-enter-from,
+.fondale-leave-to {
+  opacity: 0;
 }
 
 @media (max-width: 576px) {
@@ -217,12 +270,6 @@ export default {
   }
   .voc-intestazione--alta {
     min-height: 82vh;
-  }
-  .voc-intestazione__menu {
-    gap: var(--mdv-spazio-2) var(--mdv-spazio-4);
-  }
-  .voc-intestazione__voce {
-    font-size: 0.85rem;
   }
 }
 </style>

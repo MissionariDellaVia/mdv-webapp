@@ -30,8 +30,9 @@ export default {
 .voc-soglia {
   position: fixed;
   inset: 0;
-  /* Sopra la navbar fixed-top di Bootstrap, che sta a 1030. */
-  z-index: 2000;
+  /* Sotto la navbar fixed-top di Bootstrap, che sta a 1030: coprirla la
+     faceva sparire e riapparire, ed e' uno degli scatti che si vedono. */
+  z-index: 1020;
   pointer-events: none;
   background:
     radial-gradient(70% 55% at 50% 45%, var(--voc-alone) 0%, transparent 70%),
