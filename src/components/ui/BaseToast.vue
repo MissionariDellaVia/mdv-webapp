@@ -33,7 +33,7 @@ export default {
     font-family: var(--mdv-font-corpo);
     padding: 20px;
     /*border-radius: 10px;*/
-    box-shadow: 1px 3px 5px rgba(0,0,0,0.2);
+    box-shadow: 1px 3px 5px var(--mdv-ombra-lieve);
     max-width: 450px;
     font-size: 1.2rem;
     color: white;

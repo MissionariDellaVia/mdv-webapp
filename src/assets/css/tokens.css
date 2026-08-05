@@ -33,6 +33,15 @@
   --mdv-successo: #417a5a;
   --mdv-errore: #773737;
 
+  /* Veli e ombre — il nero non e' un colore di marca: token propri */
+  --mdv-bianco-velato: rgba(248, 248, 248, 0.9);
+  --mdv-velo-scuro: rgba(0, 0, 0, 0.75);
+  --mdv-ombra-media: rgba(0, 0, 0, 0.26);
+  --mdv-ombra-lieve: rgba(0, 0, 0, 0.2);
+
+  /* Misure condivise */
+  --mdv-altezza-navbar: 6.5rem;
+
   /* Marchi di terzi */
   --mdv-social-facebook: #3b5998;
   --mdv-social-telegram: #44bcdd;

@@ -99,7 +99,7 @@ nav {
   font-family: var(--mdv-font-navigazione);
 }
 .navbar {
-  height: 6.5rem;
+  height: var(--mdv-altezza-navbar);
   background: transparent;
   -webkit-transition: all .4s;
   -moz-transition: all .4s;
@@ -111,7 +111,7 @@ nav {
   -o-transition-timing-function: ease-in-out;
 }
 .changeColor{
-  background: rgb(40, 29, 2, 0.9);
+  background: var(--mdv-bruno-900-velato);
 }
 .navbar a, .nav-item, .nav-link:focus {
   color: var(--mdv-bianco);
@@ -146,7 +146,7 @@ nav {
 }
 
 .dropdown-menu {
-  background: rgb(40, 29, 2, 0.9);
+  background: var(--mdv-bruno-900-velato);
 }
 
 .dropdown-item:hover{
@@ -186,7 +186,7 @@ nav {
 }
 
 .offcanvas {
-  background: rgb(40, 29, 2, 0.9);
+  background: var(--mdv-bruno-900-velato);
 }
 
 @media only screen and (min-width: 768px) {

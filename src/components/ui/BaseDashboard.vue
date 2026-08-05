@@ -18,7 +18,7 @@ export default {
 <style scoped>
 .card-title {
   font-family: var(--mdv-font-titolo);
-  color: rgba(248, 248, 248, 0.9);
+  color: var(--mdv-bianco-velato);
   font-size: 3rem;
 }
 .card {

@@ -50,7 +50,7 @@ export default {
   left: 0;
   height: 100vh;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: var(--mdv-velo-scuro);
   z-index: 10;
 }
 
@@ -61,7 +61,7 @@ dialog {
   width: 80%;
   z-index: 100;
   border: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  box-shadow: 0 2px 8px var(--mdv-ombra-media);
   padding: 0;
   margin: 0;
   overflow: hidden;

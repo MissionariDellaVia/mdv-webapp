@@ -105,7 +105,7 @@ export default {
 
 <style scoped>
 footer {
-  background: rgb(40, 29, 2, 0.9);
+  background: var(--mdv-bruno-900-velato);
   -webkit-box-shadow: inset 0 2px 13px 6px var(--mdv-bruno-900-velato);
   -moz-box-shadow: inset 0 2px 13px 6px var(--mdv-bruno-900-velato);
   box-shadow: inset 0 2px 13px 6px var(--mdv-bruno-900-velato);

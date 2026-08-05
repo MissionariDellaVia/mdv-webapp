@@ -29,6 +29,15 @@ test('estraiValoriVisivi ignora il template', () => {
   assert.deepStrictEqual(estraiValoriVisivi(sfc), []);
 });
 
+test('estraiValoriVisivi trova anche rgb, rgba e hsl', () => {
+  const sfc = '<template><div/></template>'
+    + '<style>.a{background:rgb(40, 29, 2, 0.9);color:rgba(0,0,0,.2);border-color:hsl(30 40% 50%);}</style>';
+  assert.deepStrictEqual(
+    estraiValoriVisivi(sfc),
+    ['rgb(40, 29, 2, 0.9)', 'rgba(0,0,0,.2)', 'hsl(30 40% 50%)'],
+  );
+});
+
 test('nessun valore visivo scritto a mano fuori dalle deroghe', () => {
   const colpevoli = [];
   for (const f of fileVue('src')) {
