@@ -1,15 +1,1 @@
-[
-  "src/components/MdvArticle.vue",
-  "src/components/MdvBlogCard.vue",
-  "src/components/MdvContactButton.vue",
-  "src/components/MdvForm.vue",
-  "src/components/MdvGroups.vue",
-  "src/components/MdvLongArticle.vue",
-  "src/components/layout/MdvHeader.vue",
-  "src/components/layout/MdvVideoHeader.vue",
-  "src/view/Attivita.vue",
-  "src/view/Contatti.vue",
-  "src/view/Home.vue",
-  "src/view/Links.vue",
-  "src/view/PregaPerNoi.vue"
-]
+[]

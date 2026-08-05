@@ -9,6 +9,8 @@
   --mdv-bruno-850: #29140b;
   --mdv-bruno-800: #3f2a02;
   --mdv-bruno-700: #655640;
+  /* Estremo chiaro del bruno: serve al gradiente della pagina /links. */
+  --mdv-bruno-600: #4a3a0f;
   --mdv-terra: #6e4f3a;
 
   /* Oro */
@@ -28,6 +30,12 @@
   --mdv-bianco: #ffffff;
   --mdv-grigio: #7e7e7e;
   --mdv-grigio-scuro: #595959;
+  --mdv-grigio-chiaro: #a8a8a8;
+  --mdv-argento: #d7d7d7;
+  --mdv-nebbia: #dddddd;
+  /* Fondi appena staccati dal bianco: schede e campi di modulo. */
+  --mdv-fondo-scheda: #f5f1ed;
+  --mdv-fondo-campo: #e5e4df;
 
   /* Stati */
   --mdv-successo: #417a5a;
@@ -42,10 +50,14 @@
   /* Misure condivise */
   --mdv-altezza-navbar: 6.5rem;
 
-  /* Marchi di terzi */
-  --mdv-social-facebook: #3b5998;
+  /* Marchi di terzi. Non sono colori nostri e non si scelgono: sono
+     quelli delle piattaforme. Ognuno compariva in due o tre sfumature
+     diverse sparse nel codice — qui ce n'e' una sola per marchio. */
+  --mdv-social-facebook: #1877f2;
   --mdv-social-telegram: #44bcdd;
-  --mdv-social-instagram: #b83dbd;
+  --mdv-social-instagram: #e1306c;
+  --mdv-social-instagram-viola: #833ab4;
+  --mdv-social-instagram-rosa: #fb3958;
   --mdv-social-youtube: #ff0000;
 
   /* Tipografia */

@@ -66,15 +66,15 @@ export default {
 
 <style scoped>
 .main-title {
-  font-family: 'Bubbler One', sans-serif;
+  font-family: var(--mdv-font-titolo);
   font-size: 3.5rem;
 }
 .caption {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--mdv-font-corpo);
   font-style: italic;
 }
 p {
-  font-family: 'Playfair Display', sans-serif;
+  font-family: var(--mdv-font-corpo);
   font-size: larger;
 }
 </style>

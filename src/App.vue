@@ -109,7 +109,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bubbler+One&family=Montserrat&family=Questrial&family=Playfair+Display&family=Old+Standard+TT&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bubbler+One&family=Questrial&family=Playfair+Display&family=Old+Standard+TT&display=swap');
 html, body {
   overflow-x:hidden !important;
 }

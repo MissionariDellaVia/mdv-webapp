@@ -58,21 +58,21 @@ export default {
 }
 
 .md-bg {
-  font-family: 'Bubbler One', sans-serif;
+  font-family: var(--mdv-font-titolo);
   height: 45rem;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.30);
+  box-shadow:inset 0 0 0 2000px var(--mdv-ombra-media);
   margin-bottom: 3%;
-  color: #FFFFFF;
+  color: var(--mdv-bianco);
 }
 
 .lead.headerSection {
   font-size: 2rem;
   width: 80%;
   margin: auto;
-  color: #a8a8a8;
+  color: var(--mdv-grigio-chiaro);
 }
 
 img {

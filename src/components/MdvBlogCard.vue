@@ -31,26 +31,26 @@ export default {
 
 <style scoped>
 hr {
-  border-top: 0.2rem solid rgb(40, 29, 2);
+  border-top: 0.2rem solid var(--mdv-bruno-900);
   margin: 1.2rem auto 0.5rem;
   width: 70%;
 }
 a {
   font-size: larger;
   text-decoration: none;
-  color: #8c681c;
+  color: var(--mdv-oro);
   margin-bottom: 1.2rem;
 }
 a:hover, a:focus {
-  color: #59411a;
+  color: var(--mdv-oro-scuro);
 }
 .card {
   border: 0;
   border-radius: 0;
-  background: #f5f1ed;
-  color: rgb(40, 29, 2);
+  background: var(--mdv-fondo-scheda);
+  color: var(--mdv-bruno-900);
   transform: scale(0.9);
-  font-family: 'Playfair Display', sans-serif;
+  font-family: var(--mdv-font-corpo);
   transition: all 0.2s ease;
 }
 .card:hover {

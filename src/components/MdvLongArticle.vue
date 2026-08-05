@@ -69,13 +69,13 @@ export default {
   border: 0;
 }
 .card-header{
-  font-family: 'Playfair Display', sans-serif;
-  color: #fff;
+  font-family: var(--mdv-font-corpo);
+  color: var(--mdv-bianco);
   border: 0;
-  background: rgb(40, 29, 2, 0.9);
+  background: var(--mdv-bruno-900-velato);
 }
 p {
-  font-family: 'Old Standard TT', sans-serif;
+  font-family: var(--mdv-font-alternativo);
   font-size: 1.3rem;
 }
 img {

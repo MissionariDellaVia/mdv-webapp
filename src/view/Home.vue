@@ -140,27 +140,27 @@ export default {
   margin: auto;
 }
 .main-title {
-  font-family: 'Playfair Display', sans-serif;
+  font-family: var(--mdv-font-corpo);
   font-weight: 400 !important;
   font-size: 2.8rem;
 }
 .caption {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--mdv-font-corpo);
   line-height: 1.75;
   font-style: italic;
 }
 p {
-  font-family: 'Old Standard TT', sans-serif;
+  font-family: var(--mdv-font-alternativo);
   font-size: 1.2rem;
 }
 .blog-shadow {
-  -webkit-box-shadow: inset 0 2px 12.5px 6px #dddddd;
-  -moz-box-shadow: inset 0 2px 12.5px 6px #dddddd;
-  box-shadow: inset 0 2px 12.5px 6px #dddddd;
+  -webkit-box-shadow: inset 0 2px 12.5px 6px var(--mdv-nebbia);
+  -moz-box-shadow: inset 0 2px 12.5px 6px var(--mdv-nebbia);
+  box-shadow: inset 0 2px 12.5px 6px var(--mdv-nebbia);
 }
 .blog-title {
-  font-family: 'Playfair Display', sans-serif;
-  color: rgb(40, 29, 2);
+  font-family: var(--mdv-font-corpo);
+  color: var(--mdv-bruno-900);
 }
 .carousel__slide {
   padding: 1.4rem;

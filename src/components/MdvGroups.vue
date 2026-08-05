@@ -65,11 +65,11 @@ export default {
 <style scoped>
 
 .nav-link {
-  font-family: 'Playfair Display', sans-serif;
-  background: rgb(40, 29, 2, 0.9) !important;
-  color: #fff !important;
+  font-family: var(--mdv-font-corpo);
+  background: var(--mdv-bruno-900-velato) !important;
+  color: var(--mdv-bianco) !important;
   border-radius: 0 !important;
-  border-color: #fff !important;
+  border-color: var(--mdv-bianco) !important;
   box-shadow: none !important;
   cursor: pointer;
   -webkit-transition: all .2s;
@@ -83,11 +83,11 @@ export default {
 
 }
 .nav-link.active, .nav-link:hover, .nav-link:focus, .nav-link:active  {
-  background: #c3ac7d !important;
-  color: #fff;
+  background: var(--mdv-sabbia) !important;
+  color: var(--mdv-bianco);
 }
 .nav-link:hover {
-  background: #c3ac7d !important;
+  background: var(--mdv-sabbia) !important;
 }
 .subgroup {
   height: 6.5rem;

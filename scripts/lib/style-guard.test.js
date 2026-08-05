@@ -5,8 +5,9 @@ const path = require('node:path');
 const { estraiValoriVisivi } = require('./style-guard');
 const deroghe = require('./style-guard-deroghe.json');
 
-// Alzare questo numero e' vietato: la lista di deroga puo' solo accorciarsi.
-const MASSIMO_DEROGHE = 13;
+// La lista e' vuota: ogni valore visivo del sito passa dai token. Da qui
+// non si torna indietro — questo numero non si alza.
+const MASSIMO_DEROGHE = 0;
 
 function fileVue(dir, acc = []) {
   for (const voce of fs.readdirSync(dir, { withFileTypes: true })) {

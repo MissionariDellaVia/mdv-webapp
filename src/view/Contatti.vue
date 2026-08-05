@@ -123,17 +123,17 @@ export default {
   border: 0;
 }
 .card-header{
-  font-family: 'Playfair Display', sans-serif;
-  color: #fff;
+  font-family: var(--mdv-font-corpo);
+  color: var(--mdv-bianco);
   border: 0;
-  background: rgb(40, 29, 2, 0.9);
+  background: var(--mdv-bruno-900-velato);
 }
 a {
   text-decoration: none;
-  color: #8c681c;
+  color: var(--mdv-oro);
   margin-bottom: 1.2rem;
 }
 a:hover, a:focus {
-  color: #59411a;
+  color: var(--mdv-oro-scuro);
 }
 </style>

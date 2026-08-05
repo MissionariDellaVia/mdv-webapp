@@ -109,10 +109,10 @@ export default {
   min-height: 100vh;
   min-height: -webkit-fill-available;
   padding: 3rem 1rem;
-  font-family: 'Questrial', sans-serif;
+  font-family: var(--mdv-font-navigazione);
   position: relative;
   overflow-x: hidden;
-  background: #281d02;
+  background: var(--mdv-bruno-900);
 }
 
 .links-background {
@@ -125,7 +125,7 @@ export default {
   height: 100%;
   min-height: 100vh;
   min-height: -webkit-fill-available;
-  background: linear-gradient(135deg, #281d02 0%, #4a3a0f 100%);
+  background: linear-gradient(135deg, var(--mdv-bruno-900) 0%, var(--mdv-bruno-600) 100%);
   z-index: -1;
 }
 
@@ -137,8 +137,8 @@ export default {
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 20% 50%, rgba(195, 172, 125, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(220, 188, 168, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, color-mix(in srgb, var(--mdv-sabbia) 10%, transparent) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, color-mix(in srgb, var(--mdv-sabbia-chiara) 10%, transparent) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -182,10 +182,10 @@ export default {
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(195, 172, 125, 0.3), 0 0 40px rgba(195, 172, 125, 0.1);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--mdv-sabbia) 30%, transparent), 0 0 40px color-mix(in srgb, var(--mdv-sabbia) 10%, transparent);
   }
   50% {
-    box-shadow: 0 0 30px rgba(195, 172, 125, 0.5), 0 0 60px rgba(195, 172, 125, 0.2);
+    box-shadow: 0 0 30px color-mix(in srgb, var(--mdv-sabbia) 50%, transparent), 0 0 60px color-mix(in srgb, var(--mdv-sabbia) 20%, transparent);
   }
 }
 
@@ -213,16 +213,16 @@ export default {
 }
 
 .page-title {
-  font-family: 'Playfair Display', serif;
-  color: #dcbca8;
+  font-family: var(--mdv-font-corpo);
+  color: var(--mdv-sabbia-chiara);
   font-size: 2.2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px var(--mdv-ombra-media);
 }
 
 .page-subtitle {
-  color: #c3ac7d;
+  color: var(--mdv-sabbia);
   font-size: 1.1rem;
   margin: 0;
   font-style: italic;
@@ -239,10 +239,10 @@ export default {
   display: flex;
   align-items: center;
   padding: 1.25rem 1.5rem;
-  background: rgba(255, 255, 255, 0.08);
-  border: 2px solid rgba(195, 172, 125, 0.25);
+  background: color-mix(in srgb, var(--mdv-bianco) 8%, transparent);
+  border: 2px solid color-mix(in srgb, var(--mdv-sabbia) 25%, transparent);
   border-radius: 50px;
-  color: #ffffff;
+  color: var(--mdv-bianco);
   text-decoration: none;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   backdrop-filter: blur(10px);
@@ -257,7 +257,7 @@ export default {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(195, 172, 125, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--mdv-sabbia) 20%, transparent), transparent);
   transition: left 0.5s ease;
 }
 
@@ -266,10 +266,10 @@ export default {
 }
 
 .link-item:hover {
-  background: rgba(195, 172, 125, 0.15);
-  border-color: #dcbca8;
+  background: color-mix(in srgb, var(--mdv-sabbia) 15%, transparent);
+  border-color: var(--mdv-sabbia-chiara);
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(195, 172, 125, 0.4);
+  box-shadow: 0 8px 25px color-mix(in srgb, var(--mdv-sabbia) 40%, transparent);
 }
 
 .link-item:active {
@@ -282,9 +282,9 @@ export default {
   justify-content: center;
   width: 45px;
   height: 45px;
-  background: rgba(195, 172, 125, 0.25);
+  background: color-mix(in srgb, var(--mdv-sabbia) 25%, transparent);
   border-radius: 50%;
-  color: #dcbca8;
+  color: var(--mdv-sabbia-chiara);
   font-size: 1.3rem;
   margin-right: 1.2rem;
   flex-shrink: 0;
@@ -293,50 +293,50 @@ export default {
 
 .link-item:hover .link-icon {
   transform: rotate(360deg);
-  background: rgba(220, 188, 168, 0.4);
+  background: color-mix(in srgb, var(--mdv-sabbia-chiara) 40%, transparent);
 }
 
 /* Social Media Specific Colors */
 .facebook-icon {
-  background: rgba(24, 119, 242, 0.2);
-  color: #4267B2;
+  background: color-mix(in srgb, var(--mdv-social-facebook) 20%, transparent);
+  color: var(--mdv-social-facebook);
 }
 
 .link-item:hover .facebook-icon {
-  background: rgba(24, 119, 242, 0.3);
-  box-shadow: 0 0 15px rgba(66, 103, 178, 0.5);
+  background: color-mix(in srgb, var(--mdv-social-facebook) 30%, transparent);
+  box-shadow: 0 0 15px color-mix(in srgb, var(--mdv-social-facebook) 50%, transparent);
 }
 
 .instagram-icon {
-  background: linear-gradient(45deg, rgba(251, 57, 88, 0.2), rgba(131, 58, 180, 0.2));
-  color: #E1306C;
+  background: linear-gradient(45deg, color-mix(in srgb, var(--mdv-social-instagram-rosa) 20%, transparent), color-mix(in srgb, var(--mdv-social-instagram-viola) 20%, transparent));
+  color: var(--mdv-social-instagram);
 }
 
 .link-item:hover .instagram-icon {
-  background: linear-gradient(45deg, rgba(251, 57, 88, 0.4), rgba(131, 58, 180, 0.4));
-  box-shadow: 0 0 15px rgba(225, 48, 108, 0.5);
+  background: linear-gradient(45deg, color-mix(in srgb, var(--mdv-social-instagram-rosa) 40%, transparent), color-mix(in srgb, var(--mdv-social-instagram-viola) 40%, transparent));
+  box-shadow: 0 0 15px color-mix(in srgb, var(--mdv-social-instagram) 50%, transparent);
 }
 
 .youtube-icon {
-  background: rgba(255, 0, 0, 0.2);
-  color: #FF0000;
+  background: color-mix(in srgb, var(--mdv-social-youtube) 20%, transparent);
+  color: var(--mdv-social-youtube);
 }
 
 .link-item:hover .youtube-icon {
-  background: rgba(255, 0, 0, 0.3);
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+  background: color-mix(in srgb, var(--mdv-social-youtube) 30%, transparent);
+  box-shadow: 0 0 15px color-mix(in srgb, var(--mdv-social-youtube) 50%, transparent);
 }
 
 .link-text {
   flex: 1;
   font-size: 1.1rem;
   font-weight: 500;
-  color: #ffffff;
+  color: var(--mdv-bianco);
   letter-spacing: 0.3px;
 }
 
 .link-arrow {
-  color: #c3ac7d;
+  color: var(--mdv-sabbia);
   font-size: 1rem;
   opacity: 0.7;
   transition: all 0.3s ease;
@@ -345,7 +345,7 @@ export default {
 .link-item:hover .link-arrow {
   opacity: 1;
   transform: translateX(8px);
-  color: #dcbca8;
+  color: var(--mdv-sabbia-chiara);
 }
 
 /* Divider */
@@ -358,17 +358,17 @@ export default {
 }
 
 .divider span {
-  background: linear-gradient(135deg, #281d02 0%, #4a3a0f 100%);
-  color: #dcbca8;
+  background: linear-gradient(135deg, var(--mdv-bruno-900) 0%, var(--mdv-bruno-600) 100%);
+  color: var(--mdv-sabbia-chiara);
   padding: 0.5rem 2rem;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--mdv-font-corpo);
   font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 2px;
-  border: 2px solid rgba(195, 172, 125, 0.5);
+  border: 2px solid color-mix(in srgb, var(--mdv-sabbia) 50%, transparent);
   border-radius: 50px;
   margin: 0 auto;
-  box-shadow: 0 4px 15px rgba(195, 172, 125, 0.3);
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--mdv-sabbia) 30%, transparent);
   text-transform: uppercase;
 }
 

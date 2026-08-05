@@ -86,7 +86,7 @@ export default {
   width: 100%;
   height: 100%;
   content: '';
-  background: linear-gradient(180deg, rgba(28,24,10,0.7989262599571079) 0%, rgba(43,37,16,0) 32%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--mdv-bruno-900) 80%, transparent) 0%, transparent 32%);
 }
 video {
   object-fit: cover;
@@ -99,9 +99,9 @@ video {
 }
 .header{
   position: relative;
-  font-family: 'Bubbler One', sans-serif;
-  color: #FFFFFF;
-  text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+  font-family: var(--mdv-font-titolo);
+  color: var(--mdv-bianco);
+  text-shadow: 1px 1px 8px var(--mdv-velo-scuro);
 }
 
 .lead.headerSection {
@@ -109,7 +109,7 @@ video {
   text-transform: uppercase;
   width: 80%;
   margin: auto;
-  color: #d7d7d7;
+  color: var(--mdv-argento);
 }
 
 img {

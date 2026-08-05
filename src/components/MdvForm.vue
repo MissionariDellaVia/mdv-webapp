@@ -118,14 +118,14 @@ export default {
 }
 
 .card-header {
-  font-family: 'Playfair Display', sans-serif;
-  color: #ffffff;
+  font-family: var(--mdv-font-corpo);
+  color: var(--mdv-bianco);
   border: 0;
-  background: rgb(40, 29, 2, 0.9);
+  background: var(--mdv-bruno-900-velato);
 }
 
 p {
-  font-family: 'Old Standard TT', sans-serif;
+  font-family: var(--mdv-font-alternativo);
   font-size: 1.3rem;
 }
 
@@ -140,13 +140,13 @@ form {
 }
 
 .form-control {
-  background-color: #e5e4df;
+  background-color: var(--mdv-fondo-campo);
   border-color: transparent;
-  color: rgb(40, 29, 2, 0.9) !important;
+  color: var(--mdv-bruno-900-velato) !important;
 }
 
 .form-floating {
-  color: rgb(40, 29, 2, 0.9) !important;
+  color: var(--mdv-bruno-900-velato) !important;
 }
 
 label {
@@ -155,13 +155,13 @@ label {
 
 input:focus, textarea:focus, button:focus {
   box-shadow: none;
-  background-color: #e5e4df !important;
+  background-color: var(--mdv-fondo-campo) !important;
   border-color: transparent !important;
 }
 
 .btn-contact {
-  background-color: rgb(40, 29, 2, 0.9);
-  color: #FFFFFF;
+  background-color: var(--mdv-bruno-900-velato);
+  color: var(--mdv-bianco);
   font-size: 1.2rem;
   border-radius: 0;
 }

@@ -17,7 +17,7 @@ export default {
 
 <style scoped>
 .card {
-  font-family: 'Playfair Display', sans-serif;
+  font-family: var(--mdv-font-corpo);
   border: 0;
   width: 20rem;
   margin: auto;
@@ -26,8 +26,8 @@ export default {
 }
 .card-header{
   border: 0;
-  background: rgb(40, 29, 2, 0.9);
-  color: #fff;
+  background: var(--mdv-bruno-900-velato);
+  color: var(--mdv-bianco);
   font-size: 3rem;
   text-align: center;
 }
@@ -37,7 +37,7 @@ export default {
   text-align: center;
 }
 p {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--mdv-font-navigazione);
   font-size: larger;
 }
 .card:hover {
