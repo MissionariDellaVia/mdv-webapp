@@ -1,13 +1,16 @@
 <template>
   <section>
-    <div v-if="isLoading">
-      <base-spinner></base-spinner>
-    </div>
-    <div v-else>
-      <MDHeader :image="contattiPage.header.backgroundImage"
-                :title="contattiPage.header.title"/>
+    <!-- Intestazione e modulo arrivano dal JSON locale: sono qui dal primo
+         fotogramma. Solo le sedi aspettano la rete, e lo dicono al loro
+         posto invece di far sparire la pagina intera. -->
+    <MDHeader :image="contattiPage.header.backgroundImage"
+              :title="contattiPage.header.title"/>
 
-      <div class="container">
+    <div class="container">
+
+      <div v-if="isLoading" class="py-5">
+        <base-spinner></base-spinner>
+      </div>
 
         <div v-for="(place, index) in contattiPage.places" v-bind:key="index" class="row my-4" >
           <div class="col-sm-12">
@@ -74,7 +77,6 @@
         </div>
 
 
-      </div>
     </div>
   </section>
 </template>

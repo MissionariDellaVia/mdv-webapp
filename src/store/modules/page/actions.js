@@ -31,16 +31,25 @@ export default {
     async loadPage(context, page) {
         const lang = localStorage.getItem('lang') || 'it';
 
+        // Le due pagine ibride: intestazione e testi vengono dal JSON locale,
+        // solo gli elenchi da Supabase. Prima si aspettava la rete anche per
+        // la parte statica, quindi l'intestazione compariva un secondo dopo e
+        // la pagina cresceva di colpo di 45rem sotto gli occhi. La parte che
+        // e' gia' qui si mostra subito; la rete aggiorna solo il suo pezzo.
         if (page === 'attivita') {
-            const supa = await fetchLocations(lang);
             const base = (data[lang] && data[lang].attivita) || { header: {}, main: {}, groups: [] };
+            context.commit('setPage', { data: { ...base, groups: [] }, page });
+
+            const supa = await fetchLocations(lang);
             context.commit('setPage', { data: { ...base, groups: supa.groups || [] }, page });
             return;
         }
 
         if (page === 'contatti') {
-            const supa = await fetchLocations(lang);
             const base = (data[lang] && data[lang].contatti) || { header: {}, form: {}, places: [] };
+            context.commit('setPage', { data: { ...base, places: [] }, page });
+
+            const supa = await fetchLocations(lang);
             context.commit('setPage', { data: { ...base, places: buildPlaces(supa.groups, lang) }, page });
             return;
         }
