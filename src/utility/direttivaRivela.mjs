@@ -1,54 +1,74 @@
 // src/utility/direttivaRivela.mjs
 // Rivela un elemento quando entra in vista, una volta sola: se il movimento
 // si ripetesse a ogni scorrimento, rileggere una pagina diventerebbe faticoso.
+//
+// La direttiva applica soltanto le decisioni prese in rivelazione.mjs, che
+// non tocca il DOM ed e' verificabile. Qui restano il ciclo di vita e
+// l'osservatore.
+import {
+  CLASSE_NASCOSTO,
+  CLASSE_RIVELATO,
+  decidiRivelazione,
+} from './rivelazione.mjs';
 
 // Soglia zero: basta che ne compaia un pezzo. Con una soglia in
 // percentuale, un blocco piu' alto dello schermo non la raggiunge mai —
-// non se ne puo' vedere il 10% se nello schermo ce ne sta il 9% — e resta
-// invisibile per sempre. E' cosi' che il contenuto spariva.
-const OPZIONI = { threshold: 0, rootMargin: '0px 0px -5% 0px' };
-
-// Rete di sicurezza: se per qualunque ragione l'osservatore non parte, il
-// testo si mostra comunque. Un'animazione mancata e' un dettaglio; del
-// testo invisibile e' una pagina rotta.
-const RESA_MS = 1500;
+// non se ne puo' vedere il 10% se nello schermo ce ne sta il 9%.
+const OPZIONI = { threshold: 0 };
 
 const stati = new WeakMap();
 
-function rivela(el) {
-  el.classList.add('rivelato');
-  smetti(el);
+function osservabile() {
+  return typeof IntersectionObserver !== 'undefined';
 }
 
-function smetti(el) {
+function movimentoRidotto() {
+  return typeof window !== 'undefined'
+    && typeof window.matchMedia === 'function'
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function stacca(el) {
   const stato = stati.get(el);
   if (!stato) return;
-  if (stato.osservatore) stato.osservatore.disconnect();
-  clearTimeout(stato.resa);
+  stato.osservatore.disconnect();
   stati.delete(el);
 }
 
+function rivela(el) {
+  el.classList.remove(CLASSE_NASCOSTO);
+  el.classList.add(CLASSE_RIVELATO);
+  stacca(el);
+}
+
+function nascondi(el) {
+  if (stati.has(el)) return;
+  el.classList.add(CLASSE_NASCOSTO);
+  const osservatore = new IntersectionObserver((voci) => {
+    if (voci.some((voce) => voce.isIntersecting)) rivela(el);
+  }, OPZIONI);
+  osservatore.observe(el);
+  stati.set(el, { osservatore });
+}
+
+function valuta(el) {
+  if (el.classList.contains(CLASSE_RIVELATO)) return;
+  const esito = decidiRivelazione({
+    cima: el.getBoundingClientRect().top,
+    altezzaFinestra: window.innerHeight,
+    osservabile: osservabile(),
+    movimentoRidotto: movimentoRidotto(),
+  });
+  if (esito === 'rivela') rivela(el);
+  else nascondi(el);
+}
+
 export const direttivaRivela = {
-  mounted(el) {
-    const ridotto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (ridotto || typeof IntersectionObserver === 'undefined') {
-      el.classList.add('rivelato');
-      return;
-    }
-
-    el.classList.add('da-rivelare');
-    const stato = {};
-    stati.set(el, stato);
-
-    stato.osservatore = new IntersectionObserver((voci) => {
-      if (voci.some((voce) => voce.isIntersecting)) rivela(el);
-    }, OPZIONI);
-    stato.osservatore.observe(el);
-    stato.resa = setTimeout(() => rivela(el), RESA_MS);
-  },
-  // Senza questo, ogni navigazione lasciava dietro un osservatore e un
-  // timer per ogni blocco della pagina appena lasciata.
-  unmounted(el) {
-    smetti(el);
-  },
+  mounted: valuta,
+  // Cambiando pagina dentro una sezione, Vue riusa gli elementi invece di
+  // ricrearli: senza questo controllo un blocco rimasto nascosto sulla
+  // pagina precedente resterebbe nascosto anche qui, dove magari e'
+  // perfettamente in vista.
+  updated: valuta,
+  unmounted: stacca,
 };

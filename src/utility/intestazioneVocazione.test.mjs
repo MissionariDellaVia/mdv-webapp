@@ -6,10 +6,8 @@ import { intestazionePer } from './intestazioneVocazione.mjs';
 const contenuto = JSON.parse(fs.readFileSync('src/assets/data/vocazione.json', 'utf8'));
 const indice = JSON.parse(fs.readFileSync('src/assets/data/indice-vocazione.json', 'utf8'));
 
-test('l\'hub e\' l\'unica intestazione a tutta altezza', () => {
-  const hub = intestazionePer('vocazione', contenuto);
-  assert.strictEqual(hub.alta, true);
-  assert.strictEqual(hub.titolo, contenuto.hub.header.titolo);
+test('l\'hub porta il titolo del contenuto', () => {
+  assert.strictEqual(intestazionePer('vocazione', contenuto).titolo, contenuto.hub.header.titolo);
 });
 
 test('ogni pagina della sezione ha un titolo', () => {
@@ -17,7 +15,18 @@ test('ogni pagina della sezione ha un titolo', () => {
     const testa = intestazionePer(voce.nome, contenuto);
     assert.ok(testa, `nessuna intestazione per ${voce.nome}`);
     assert.ok(testa.titolo, `titolo mancante per ${voce.nome}`);
-    assert.ok(!testa.alta, `solo l'hub e' alto, non ${voce.nome}`);
+  }
+});
+
+test('nessuna intestazione chiede una geometria propria', () => {
+  // Una sola geometria per tutta la sezione: il menu deve trovarsi alla
+  // stessa altezza ovunque. Se ricompare un'opzione di dimensione, e'
+  // qui che la si intercetta.
+  const consentiti = ['titolo', 'sottotitolo', 'immagine', 'occhiello'];
+  for (const rotta of ['vocazione', ...indice.map((v) => v.nome)]) {
+    for (const campo of Object.keys(intestazionePer(rotta, contenuto))) {
+      assert.ok(consentiti.includes(campo), `campo inatteso "${campo}" per ${rotta}`);
+    }
   }
 });
 

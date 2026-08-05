@@ -5,7 +5,12 @@
     <!-- L'intestazione sta qui e non nelle pagine: cambiando pagina si
          rifa' solo il titolo, mentre menu, foto e atmosfera restano dove
          sono. E' questo a togliere la sensazione di ricarica. -->
-    <VocIntestazione v-if="intestazione" v-bind="intestazione" />
+    <VocIntestazione
+      v-if="intestazione"
+      v-bind="intestazione"
+      :voci="menu"
+      etichetta-menu="Sezione vocazione"
+    />
 
     <router-view v-slot="{ Component }">
       <transition name="dissolvenza" mode="out-in">
@@ -19,11 +24,16 @@
 import VocSoglia from '@/components/vocazione/VocSoglia';
 import VocIntestazione from '@/components/vocazione/VocIntestazione';
 import { intestazionePer } from '@/utility/intestazioneVocazione.mjs';
+import { componiMenu } from '@/utility/menuVocazione.mjs';
 import contenuto from '@/assets/data/vocazione.json';
+import indice from '@/assets/data/indice-vocazione.json';
 
 export default {
   name: 'VocazioneLayout',
   components: { VocSoglia, VocIntestazione },
+  data() {
+    return { menu: componiMenu(indice) };
+  },
   computed: {
     // Nelle altre lingue l'hub mostra la vecchia pagina, che ha gia' la
     // sua intestazione ed e' scritta per il fondo chiaro.

@@ -16,10 +16,10 @@ const DOMANDE = {
 export function intestazionePer(nomeRotta, contenuto) {
   if (!nomeRotta || !contenuto) return null;
 
-  if (nomeRotta === 'vocazione') {
-    // L'hub apre la sezione: e' l'unica intestazione a tutta altezza.
-    return { ...contenuto.hub.header, alta: true };
-  }
+  // L'hub apre la sezione ma ha la stessa intestazione delle altre: se
+  // fosse piu' alta, il menu si troverebbe a un'altezza diversa e il
+  // passaggio si vedrebbe come uno scarto.
+  if (nomeRotta === 'vocazione') return { ...contenuto.hub.header };
   if (nomeRotta === 'vocazione-domande') return { ...DOMANDE };
   if (nomeRotta === 'vocazione-proposta') {
     return { ...contenuto.proposta.header, occhiello: 'Vocazione' };

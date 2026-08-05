@@ -1,5 +1,5 @@
 <template>
-  <header :class="['voc-intestazione', { 'voc-intestazione--alta': alta }]">
+  <header class="voc-intestazione">
     <transition name="fondale">
       <div
         v-if="fondale"
@@ -12,14 +12,10 @@
 
     <div class="container voc-intestazione__contenuto">
       <!-- Cambiando pagina cambia solo cio' che sta qui dentro. Lo spazio
-           e' riservato e i due testi sono sovrapposti, quindi il titolo
-           nuovo entra mentre il vecchio esce senza che niente si sposti
-           in altezza: il filo e il menu non si muovono di un pixel. -->
+           e' riservato e i due testi si danno il cambio sovrapposti,
+           quindi il filo e il menu non si spostano di un pixel: la loro
+           posizione e' identica su tutte le pagine della sezione. -->
       <div class="voc-intestazione__testo">
-        <!-- out-in: senza, i due titoli restano sovrapposti per mezzo
-             secondo e si legge un doppione — il nuovo che compare mentre
-             il vecchio e' ancora li'. Lo spazio e' riservato, quindi
-             darsi il cambio non sposta niente. -->
         <transition name="titolo" mode="out-in">
           <div :key="titolo" class="voc-intestazione__strato">
             <p v-if="occhiello" class="voc-intestazione__occhiello">{{ occhiello }}</p>
@@ -32,9 +28,9 @@
       <span class="voc-intestazione__filo entra entra--4" aria-hidden="true"></span>
 
       <!-- Il menu resta montato: e' il punto fermo della sezione. -->
-      <nav class="voc-intestazione__menu entra entra--5" aria-label="Sezione vocazione">
+      <nav v-if="voci.length" class="voc-intestazione__menu entra entra--5" :aria-label="etichettaMenu">
         <router-link
-          v-for="voce in menu"
+          v-for="voce in voci"
           :key="voce.nome"
           :to="{ name: voce.nome }"
           :class="['voc-intestazione__voce', {
@@ -48,12 +44,6 @@
 </template>
 
 <script>
-import indice from '@/assets/data/indice-vocazione.json';
-
-// L'hub non e' nell'indice — l'indice elenca le pagine interne — ma nel
-// menu ci deve stare: e' il ritorno, ed e' sempre la prima voce.
-const MENU = [{ nome: 'vocazione', breve: 'Vocazione' }, ...indice];
-
 export default {
   name: 'VocIntestazione',
   props: {
@@ -62,12 +52,10 @@ export default {
     // Sopracciglio: dice dove ci si trova senza bisogno di una barra.
     occhiello: { type: String, default: '' },
     immagine: { type: String, default: '' },
-    // L'hub apre la sezione e occupa quasi tutto lo schermo; le pagine
-    // interne no, altrimenti si scrolla molto per arrivare al testo.
-    alta: { type: Boolean, default: false },
-  },
-  data() {
-    return { menu: MENU };
+    // Le voci arrivano da fuori: l'intestazione non sa nulla della
+    // sezione che sta intestando, e puo' servirne altre.
+    voci: { type: Array, default: () => [] },
+    etichettaMenu: { type: String, default: 'Sezione' },
   },
   computed: {
     fondale() {
@@ -81,16 +69,17 @@ export default {
 /* Questa intestazione non e' MdvHeader: e' la porta della sezione.
    La foto resta, ma come memoria sotto il buio; il gradiente finisce
    esattamente sul colore di fondo della pagina, cosi' l'hero non ha un
-   bordo inferiore — si scioglie nello sfondo. */
+   bordo inferiore — si scioglie nello sfondo.
+
+   Una sola geometria per tutte le pagine, hub compreso: se la copertina
+   fosse piu' alta, il menu si troverebbe ogni volta a un'altezza diversa
+   e il passaggio da una pagina all'altra si vedrebbe come uno scarto. */
 .voc-intestazione {
   position: relative;
   isolation: isolate;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* Le pagine interne stanno basse di proposito: se l'intestazione riempie
-     lo schermo, sotto non si vede niente e il testo sembra non esserci.
-     Solo l'hub, che e' la copertina, se lo puo' permettere. */
   min-height: 42vh;
   padding-top: calc(var(--mdv-altezza-navbar) + var(--mdv-spazio-4));
   padding-bottom: var(--mdv-spazio-5);
@@ -99,9 +88,6 @@ export default {
   background:
     radial-gradient(90% 70% at 50% 18%, var(--voc-alone) 0%, transparent 68%),
     linear-gradient(180deg, var(--voc-fondo-alto) 0%, var(--voc-fondo) 82%);
-}
-.voc-intestazione--alta {
-  min-height: 92vh;
 }
 
 .voc-intestazione__fondale {
@@ -125,14 +111,10 @@ export default {
 }
 
 /* Altezza riservata al titolo: e' il motivo per cui il menu non balla
-   passando da "Vocazione" a "Vocazione alla vita consacrata". Scala con
-   lo schermo insieme al corpo del titolo. */
+   passando da "Vocazione" a "Vocazione alla vita consacrata". */
 .voc-intestazione__testo {
   position: relative;
   min-height: clamp(8.5rem, 19vh, 12rem);
-}
-.voc-intestazione--alta .voc-intestazione__testo {
-  min-height: clamp(15rem, 32vh, 22rem);
 }
 .voc-intestazione__strato {
   position: absolute;
@@ -159,17 +141,12 @@ export default {
   line-height: 1.1;
   color: var(--mdv-oro-chiaro);
 }
-/* Il titolo grande e' quello della copertina: e' li' che deve pesare. */
-.voc-intestazione--alta .voc-intestazione__titolo {
-  font-size: clamp(2.6rem, 7.6vw, 5.6rem);
-  line-height: 1.08;
-}
 
 .voc-intestazione__sottotitolo {
-  margin: var(--mdv-spazio-4) auto 0 auto;
+  margin: var(--mdv-spazio-3) auto 0 auto;
   max-width: 34rem;
   font-family: var(--mdv-font-corpo);
-  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  font-size: clamp(1.02rem, 1.9vw, 1.2rem);
   line-height: 1.7;
   color: var(--mdv-bruno-900);
   opacity: 0.82;
@@ -181,9 +158,6 @@ export default {
   height: 1px;
   margin: var(--mdv-spazio-5) auto;
   background: linear-gradient(90deg, transparent, var(--mdv-oro), transparent);
-}
-.voc-intestazione--alta .voc-intestazione__filo {
-  margin: var(--mdv-spazio-6) auto;
 }
 
 /* Il menu sta qui, sotto il titolo, e non fra la navbar e l'immagine:
@@ -289,14 +263,5 @@ export default {
 .fondale-enter-from,
 .fondale-leave-to {
   opacity: 0;
-}
-
-@media (max-width: 576px) {
-  .voc-intestazione {
-    min-height: 58vh;
-  }
-  .voc-intestazione--alta {
-    min-height: 82vh;
-  }
 }
 </style>
