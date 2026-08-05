@@ -85,7 +85,9 @@ export default {
   padding: 0;
   border: none;
   background: none;
-  perspective: 1000px;
+  /* Prospettiva lunga: piu' e' corta, piu' la carta sporge dal proprio
+     riquadro mentre gira, e i bordi finiscono tagliati dallo scorrevole. */
+  perspective: 1600px;
   cursor: pointer;
 }
 .voc-passi__interno {
@@ -94,6 +96,7 @@ export default {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
+  will-change: transform;
   transition: transform 700ms var(--mdv-curva-morbida);
 }
 .voc-passi__carta--girata .voc-passi__interno {
@@ -111,6 +114,9 @@ export default {
   background-color: var(--voc-fondo-alto);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  /* Il ritaglio sul raggio evita la sbavatura di un pixel che si vede sui
+     bordi mentre la faccia ruota. */
+  overflow: hidden;
   text-align: left;
 }
 .voc-passi__faccia--fronte {
@@ -121,6 +127,7 @@ export default {
   justify-content: center;
   transform: rotateY(180deg);
   border-color: var(--mdv-oro-scuro);
+  overflow-x: hidden;
   overflow-y: auto;
 }
 

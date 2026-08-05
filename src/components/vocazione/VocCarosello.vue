@@ -98,8 +98,10 @@ export default {
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  /* Spazio perche' il rilievo delle schede non venga tagliato. */
-  padding-bottom: var(--mdv-spazio-3);
+  /* Chi scorre in orizzontale ritaglia anche in verticale: senza questo
+     spazio, il rilievo delle schede e la sporgenza di quelle che girano
+     vengono tagliati sopra e sotto. */
+  padding-block: var(--mdv-spazio-4);
 }
 .voc-carosello__pista::-webkit-scrollbar {
   display: none;

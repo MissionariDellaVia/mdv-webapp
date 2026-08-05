@@ -13,7 +13,6 @@ import VocazioneDomande from '@/view/vocazione/VocazioneDomande';
 import VocazioneProposta from '@/view/vocazione/VocazioneProposta';
 import { decidiAccesso } from '@/utility/accessoVocazione.mjs';
 import { scrollDifferito } from '@/utility/tempiTransizione.mjs';
-import { destinazionePer } from '@/utility/destinazioneScroll.mjs';
 
 // La sezione vocazionale esiste solo in italiano: nelle altre lingue le
 // sotto-pagine tornano all'hub, che continua a servire la pagina breve
@@ -75,6 +74,6 @@ const routes = [
 const router = createRouter({
     history: createWebHashHistory(),
     routes,
-    scrollBehavior: (verso, da) => scrollDifferito(destinazionePer(da.path, verso.path)),
+    scrollBehavior: () => scrollDifferito({ top: 0 }),
 });
 export default router

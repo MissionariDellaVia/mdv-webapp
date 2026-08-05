@@ -9,17 +9,34 @@
       @click.self="$emit('chiudi')"
     >
       <div ref="riquadro" class="voc-modale__riquadro" tabindex="-1">
-        <button
-          type="button"
-          class="voc-modale__chiudi"
-          aria-label="Chiudi"
-          @click="$emit('chiudi')"
-        >×</button>
+        <!-- L'intestazione resta ferma mentre il testo scorre: si sa
+             sempre chi sta parlando e la chiusura e' sempre a portata. -->
+        <header class="voc-modale__testa">
+          <div class="voc-modale__identita">
+            <slot name="ritratto" />
+            <div>
+              <p v-if="occhiello" class="voc-modale__occhiello">{{ occhiello }}</p>
+              <h2 class="voc-modale__titolo">{{ titolo }}</h2>
+            </div>
+          </div>
 
-        <h2 class="voc-modale__titolo">{{ titolo }}</h2>
+          <button
+            type="button"
+            class="voc-modale__chiudi"
+            aria-label="Chiudi"
+            @click="$emit('chiudi')"
+          >
+            <span aria-hidden="true">×</span>
+          </button>
+        </header>
+
         <div class="voc-modale__corpo">
           <slot />
         </div>
+
+        <footer v-if="$slots.piede" class="voc-modale__piede">
+          <slot name="piede" />
+        </footer>
       </div>
     </div>
   </transition>
@@ -31,6 +48,7 @@ export default {
   props: {
     aperta: { type: Boolean, default: false },
     titolo: { type: String, default: '' },
+    occhiello: { type: String, default: '' },
   },
   emits: ['chiudi'],
   watch: {
@@ -41,16 +59,35 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener('keydown', this.chiudiConEsc);
+    window.addEventListener('keydown', this.daTastiera);
   },
   beforeUnmount() {
-    window.removeEventListener('keydown', this.chiudiConEsc);
+    window.removeEventListener('keydown', this.daTastiera);
     // Smontarsi da aperta lascerebbe la pagina bloccata per sempre.
     document.body.style.overflow = '';
   },
   methods: {
-    chiudiConEsc(evento) {
-      if (evento.key === 'Escape' && this.aperta) this.$emit('chiudi');
+    daTastiera(evento) {
+      if (!this.aperta) return;
+      if (evento.key === 'Escape') this.$emit('chiudi');
+      // Il fuoco non deve poter uscire dalla modale: senza questo, il
+      // tabulatore andrebbe a finire sui link della pagina dietro.
+      if (evento.key !== 'Tab') return;
+      const riquadro = this.$refs.riquadro;
+      if (!riquadro) return;
+      const fuocabili = riquadro.querySelectorAll(
+        'button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])',
+      );
+      if (!fuocabili.length) return;
+      const primo = fuocabili[0];
+      const ultimo = fuocabili[fuocabili.length - 1];
+      if (evento.shiftKey && document.activeElement === primo) {
+        evento.preventDefault();
+        ultimo.focus();
+      } else if (!evento.shiftKey && document.activeElement === ultimo) {
+        evento.preventDefault();
+        primo.focus();
+      }
     },
   },
 };
@@ -66,41 +103,82 @@ export default {
   justify-content: center;
   padding: var(--mdv-spazio-4);
   background-color: var(--mdv-velo-scuro);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
+
 .voc-modale__riquadro {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  max-width: 44rem;
-  max-height: 86vh;
-  overflow-y: auto;
-  padding: var(--mdv-spazio-6);
-  background-color: var(--voc-fondo-alto);
+  max-width: 46rem;
+  max-height: 88vh;
   border: 1px solid var(--mdv-sabbia);
-  border-radius: var(--mdv-raggio-m);
-  box-shadow: 0 1.5rem 3rem var(--mdv-ombra-media);
+  border-radius: var(--mdv-raggio-l);
+  background-color: var(--voc-fondo-alto);
+  box-shadow: 0 2rem 4rem var(--mdv-ombra-media);
+  overflow: hidden;
 }
 .voc-modale__riquadro:focus {
   outline: none;
 }
+
+.voc-modale__testa {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mdv-spazio-4);
+  padding: var(--mdv-spazio-5) var(--mdv-spazio-5) var(--mdv-spazio-4);
+  border-bottom: 1px solid var(--mdv-sabbia);
+  background-color: var(--voc-fondo-alto);
+}
+.voc-modale__identita {
+  display: flex;
+  align-items: center;
+  gap: var(--mdv-spazio-4);
+  min-width: 0;
+}
+.voc-modale__occhiello {
+  margin: 0 0 var(--mdv-spazio-1) 0;
+  font-family: var(--mdv-font-navigazione);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mdv-oro);
+}
+.voc-modale__titolo {
+  margin: 0;
+  font-family: var(--mdv-font-titolo);
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+  line-height: 1.2;
+  color: var(--mdv-oro-chiaro);
+}
+
 .voc-modale__chiudi {
-  position: absolute;
-  top: var(--mdv-spazio-3);
-  right: var(--mdv-spazio-4);
+  flex: 0 0 auto;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--mdv-sabbia);
+  border-radius: 50%;
   background: none;
-  border: none;
-  font-size: 2rem;
+  font-size: 1.6rem;
   line-height: 1;
   color: var(--mdv-oro);
   cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s var(--mdv-curva-morbida);
 }
-.voc-modale__titolo {
-  font-family: var(--mdv-font-titolo);
-  font-size: 2rem;
+.voc-modale__chiudi:hover {
+  border-color: var(--mdv-oro);
   color: var(--mdv-oro-chiaro);
-  margin-bottom: var(--mdv-spazio-5);
-  padding-right: var(--mdv-spazio-6);
+  transform: rotate(90deg);
+}
+
+.voc-modale__corpo {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: var(--mdv-spazio-5);
+  scrollbar-width: thin;
 }
 .voc-modale__corpo :deep(p) {
   font-family: var(--mdv-font-corpo);
@@ -109,10 +187,16 @@ export default {
   margin-bottom: var(--mdv-spazio-4);
 }
 .voc-modale__corpo :deep(blockquote) {
-  border-left: 2px solid var(--mdv-sabbia);
+  border-left: 2px solid var(--mdv-oro-scuro);
   padding-left: var(--mdv-spazio-4);
   font-style: italic;
   color: var(--mdv-oro-scuro);
+}
+
+.voc-modale__piede {
+  flex: 0 0 auto;
+  padding: var(--mdv-spazio-3) var(--mdv-spazio-5);
+  border-top: 1px solid var(--mdv-sabbia);
 }
 
 .modale-enter-active,
@@ -129,6 +213,18 @@ export default {
 }
 .modale-enter-from .voc-modale__riquadro,
 .modale-leave-to .voc-modale__riquadro {
-  transform: scale(0.97);
+  transform: translateY(1.5rem) scale(0.98);
+}
+
+@media (max-width: 576px) {
+  .voc-modale {
+    padding: 0;
+  }
+  .voc-modale__riquadro {
+    max-height: 100vh;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+  }
 }
 </style>

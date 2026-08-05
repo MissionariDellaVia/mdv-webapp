@@ -88,9 +88,12 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 64vh;
-  padding-top: calc(var(--mdv-altezza-navbar) + var(--mdv-spazio-6));
-  padding-bottom: var(--mdv-spazio-6);
+  /* Le pagine interne stanno basse di proposito: se l'intestazione riempie
+     lo schermo, sotto non si vede niente e il testo sembra non esserci.
+     Solo l'hub, che e' la copertina, se lo puo' permettere. */
+  min-height: 42vh;
+  padding-top: calc(var(--mdv-altezza-navbar) + var(--mdv-spazio-4));
+  padding-bottom: var(--mdv-spazio-5);
   overflow: hidden;
   text-align: center;
   background:
@@ -126,6 +129,9 @@ export default {
    lo schermo insieme al corpo del titolo. */
 .voc-intestazione__testo {
   position: relative;
+  min-height: clamp(8.5rem, 19vh, 12rem);
+}
+.voc-intestazione--alta .voc-intestazione__testo {
   min-height: clamp(15rem, 32vh, 22rem);
 }
 .voc-intestazione__strato {
@@ -149,9 +155,14 @@ export default {
 .voc-intestazione__titolo {
   margin: 0;
   font-family: var(--mdv-font-titolo);
+  font-size: clamp(2.1rem, 5.4vw, 3.6rem);
+  line-height: 1.1;
+  color: var(--mdv-oro-chiaro);
+}
+/* Il titolo grande e' quello della copertina: e' li' che deve pesare. */
+.voc-intestazione--alta .voc-intestazione__titolo {
   font-size: clamp(2.6rem, 7.6vw, 5.6rem);
   line-height: 1.08;
-  color: var(--mdv-oro-chiaro);
 }
 
 .voc-intestazione__sottotitolo {
@@ -168,8 +179,11 @@ export default {
   display: block;
   width: 9rem;
   height: 1px;
-  margin: var(--mdv-spazio-6) auto;
+  margin: var(--mdv-spazio-5) auto;
   background: linear-gradient(90deg, transparent, var(--mdv-oro), transparent);
+}
+.voc-intestazione--alta .voc-intestazione__filo {
+  margin: var(--mdv-spazio-6) auto;
 }
 
 /* Il menu sta qui, sotto il titolo, e non fra la navbar e l'immagine:
