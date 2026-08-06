@@ -101,21 +101,21 @@ export default {
 .articolo__figura {
   text-align: center;
 }
-/* La cornice da' alla foto una forma stabile: prima ogni immagine
-   arrivava con le sue proporzioni e le sezioni si allineavano a caso.
-   Il ritaglio e' dentro la cornice, quindi la colonna non cambia altezza
-   a seconda di che foto ci finisce. */
+/* La cornice non impone una forma: ritaglia soltanto, perche' la foto
+   possa respirare all'over senza uscire dagli angoli. Le proporzioni
+   restano quelle dell'immagine — forzarle a 4:3 tagliava fotografie che
+   erano state inquadrate come sono. */
 .articolo__cornice {
-  display: block;
+  display: inline-block;
   overflow: hidden;
   border-radius: var(--mdv-raggio-m);
-  aspect-ratio: 4 / 3;
-  background-color: var(--mdv-fondo-scheda);
+  max-width: 100%;
+  line-height: 0;
 }
 .articolo__foto {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  display: block;
+  max-width: 100%;
+  height: auto;
   transition: transform 900ms var(--mdv-curva-morbida);
 }
 @media (hover: hover) {

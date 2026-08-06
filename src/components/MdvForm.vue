@@ -1,12 +1,17 @@
 <template>
-  <BaseRiquadro class="modulo">
+  <section class="modulo">
     <base-toast :show="!!toast.val" :type="toast.type">
       {{ toast.message }}
     </base-toast>
 
-    <template v-if="title" #testata>
-      <div class="text-center">{{ title }}</div>
-    </template>
+    <!-- Il titolo stava dentro la fascia scura della scheda: una frase
+         intera in una banda bruna non si legge come un titolo, si legge
+         come un'insegna. Qui e' un'intestazione, con sopra chi sta
+         parlando e sotto cosa fare. -->
+    <header v-if="title" class="modulo__intestazione">
+      <p class="modulo__occhiello">Scrivici</p>
+      <h2 class="modulo__titolo">{{ title }}</h2>
+    </header>
 
     <form class="modulo__campi" @submit.prevent="submitForm">
       <!-- Le etichette puntavano tutte a "floatingInput", che non esiste:
@@ -38,7 +43,7 @@
         <button type="submit" class="mdv-invito">{{ buttonName }}</button>
       </p>
     </form>
-  </BaseRiquadro>
+  </section>
 </template>
 
 <script>
@@ -114,6 +119,25 @@ export default {
 .modulo {
   max-width: 44rem;
   margin: 0 auto;
+}
+.modulo__intestazione {
+  margin-bottom: var(--mdv-spazio-6);
+  text-align: center;
+}
+.modulo__occhiello {
+  margin: 0 0 var(--mdv-spazio-2);
+  font-family: var(--mdv-font-navigazione);
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--mdv-oro);
+}
+.modulo__titolo {
+  margin: 0;
+  font-family: var(--mdv-font-corpo);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  line-height: 1.35;
+  color: var(--mdv-bruno-900);
 }
 .modulo__campi {
   display: flex;
