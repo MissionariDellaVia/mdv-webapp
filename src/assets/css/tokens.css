@@ -434,19 +434,41 @@
     transform: none;
   }
 
-  /* Passaggio fra le pagine. Niente scatto di scala: la pagina vecchia si
-     ritira in fretta, la nuova sale piano con una curva che decelera. */
+  /* Passaggio fra le pagine: lo stesso gesto con cui si scambiano i
+     titoli dentro la sezione vocazionale — la pagina nuova non compare
+     gia' fatta, si mette a fuoco.
+
+     La sfocatura e' 6px e non 12 come sul titolo, e la ragione e' il
+     costo: sfocare una scritta e' quasi gratis, sfocare una pagina intera
+     obbliga il browser a ridisegnarla per intero a ogni fotogramma.
+     Con will-change il livello viene preparato una volta e il lavoro
+     passa alla scheda grafica; oltre i pochi pixel, pero', anche cosi' si
+     comincia a sentire.
+
+     Niente scorrimento verticale: il testo non deve scivolare sotto agli
+     occhi mentre lo si sta gia' leggendo. */
   .dissolvenza-enter-active {
-    transition: opacity var(--mdv-entrata-pagina) var(--mdv-curva-morbida);
+    transition:
+      opacity var(--mdv-entrata-pagina) var(--mdv-curva-morbida),
+      filter var(--mdv-entrata-pagina) var(--mdv-curva-morbida);
+    will-change: opacity, filter;
   }
   .dissolvenza-leave-active {
-    transition: opacity var(--mdv-uscita-pagina) ease-in;
+    transition:
+      opacity var(--mdv-uscita-pagina) ease-in,
+      filter var(--mdv-uscita-pagina) ease-in;
+    will-change: opacity, filter;
   }
-  /* Dissolvenza pura: niente scorrimento verticale, cosi' il testo non
-     scivola sotto agli occhi mentre lo si sta gia' leggendo. */
   .dissolvenza-enter-from,
   .dissolvenza-leave-to {
     opacity: 0;
+    filter: blur(6px);
+  }
+  /* Finita la transizione il livello non serve piu' preparato: tenerlo
+     costerebbe memoria su ogni pagina, per sempre. */
+  .dissolvenza-enter-to,
+  .dissolvenza-leave-from {
+    will-change: auto;
   }
 
   /* Chi ha attivato "riduci movimento" spesso lo ha fatto per disturbi
