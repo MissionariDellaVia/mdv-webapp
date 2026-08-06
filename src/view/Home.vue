@@ -1,60 +1,67 @@
 <template>
   <section>
-    <div v-if="isLoading">
-      <base-spinner></base-spinner>
-    </div>
-    <div v-else >
-      <MdvVideoHeader :image="chiSiamoPage.header.backgroundImage" brand="true"
-                :title="chiSiamoPage.header.title"
-                :caption="chiSiamoPage.header.caption"/>
+    <MdvVideoHeader
+      :image="chiSiamoPage.header.backgroundImage"
+      brand="true"
+      :title="chiSiamoPage.header.title"
+      :caption="chiSiamoPage.header.caption"
+    />
 
-      <div class="container mb-5">
-        <main>
-          <div class="row text-center my-5">
-            <img src="../assets/img/hr.png" alt="hr" class="hr-img">
-            <div class="col-12 px-5">
-              <h1 class="main-title my-4"> {{ chiSiamoPage.main.title }} </h1>
-              <h4 v-if="chiSiamoPage.main.caption" class="caption"> {{ chiSiamoPage.main.caption }} </h4>
-            </div>
-          </div>
-          <div v-if="chiSiamoPage.main.strings" class="row text-center my-5">
-            <div class="col-md-12 col-sm-12 px-5">
-              <p v-for="(text, index) in chiSiamoPage.main.strings" v-bind:key="index">{{ text }}</p>
-            </div>
-          </div>
-        </main>
-        <MdvArticle v-for="(section, index) in chiSiamoPage.sections" v-bind:key="index"
-                    :image-url="section.image ? section.image.url : null"
-                    :align="section.image ? section.image.align : null"
-                    :title="section.title"
-                    :texts="section.strings"/>
+    <div class="mx-auto w-full max-w-6xl px-4 pb-12">
+      <main class="my-12 px-4 text-center">
+        <span class="filo" aria-hidden="true"></span>
+        <h1 class="titolo my-6">{{ chiSiamoPage.main.title }}</h1>
+        <p v-if="chiSiamoPage.main.caption" class="occhiello">
+          {{ chiSiamoPage.main.caption }}
+        </p>
 
-      </div>
-    </div>
-
-    <section class="blog-shadow py-5">
-      <div class="container">
-        <div class="row my-4">
-          <div class="col-sm-12 text-center blog-title">
-            <h1>Blog</h1>
-          </div>
+        <div v-if="chiSiamoPage.main.strings" class="prosa mt-12">
+          <p v-for="(testo, index) in chiSiamoPage.main.strings" :key="index">{{ testo }}</p>
         </div>
+      </main>
 
-        <!-- Gli ultimi articoli stanno in griglia, non in un carosello:
-             qui si vedono tutti insieme e nessuno deve aspettare che
-             ruotino per sapere cosa c'e'. -->
-        <div class="griglia-blog">
-          <MdvBlogCard v-for="post in lastBlogPosts" :key="post.id"
-                       :title="post.title"
-                       :image-url="post.images[0].url"
-                       :ref-link="post.url"
-                       :publish-date="parseDate(post.published)"
+      <MdvArticle
+        v-for="(sezione, index) in chiSiamoPage.sections"
+        :key="index"
+        :image-url="sezione.image ? sezione.image.url : null"
+        :align="sezione.image ? sezione.image.align : null"
+        :title="sezione.title"
+        :texts="sezione.strings"
+      />
+    </div>
+
+    <!-- Dal blog. Il piu' recente sta in rilievo: e' l'unica cosa che i
+         tre articoli hanno da dire l'uno rispetto all'altro, e vale piu'
+         di tre schede uguali affiancate. -->
+    <section v-if="articoli.length" class="sezione-blog py-16">
+      <div class="mx-auto w-full max-w-6xl px-4">
+        <header class="mb-10 text-center">
+          <p class="sopratitolo">Dal blog</p>
+          <h2 class="titolo-blog">Ultimi articoli</h2>
+        </header>
+
+        <div class="griglia-blog" v-rivela>
+          <MdvBlogCard
+            v-for="(post, i) in articoli"
+            :key="post.id"
+            :class="{ 'in-rilievo': i === 0 }"
+            :rilievo="i === 0"
+            :title="post.title"
+            :image-url="immaginePost(post)"
+            :ref-link="post.url"
+            :publish-date="parseDate(post.published)"
           />
         </div>
 
+        <p class="mt-12 text-center">
+          <a href="https://blogdeipiccolidellavia.blogspot.com/" target="_blank"
+             rel="noopener noreferrer" class="mdv-invito">
+            Tutti gli articoli
+            <span class="mdv-invito__freccia" aria-hidden="true">&rarr;</span>
+          </a>
+        </p>
       </div>
     </section>
-
   </section>
 </template>
 
@@ -85,11 +92,15 @@ export default {
     chiSiamoPage() {
       return this.pagina.chiSiamo;
     },
-    lastBlogPosts() {
+    articoli() {
       return this.blog.articoli;
     },
   },
   methods: {
+    // Un articolo senza immagini faceva esplodere post.images[0].
+    immaginePost(post) {
+      return post.images && post.images.length ? post.images[0].url : '';
+    },
     async loadPage(page) {
       this.isLoading = true;
       try {
@@ -117,70 +128,62 @@ export default {
 </script>
 
 <style scoped>
-/* Tre schede affiancate dove ci stanno, in colonna dove no. Non c'e' una
-   tabella di soglie: le colonne le decide lo spazio disponibile. */
-.griglia-blog {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
-  gap: var(--mdv-spazio-5);
-  align-items: start;
-  justify-items: center;
+.filo {
+  display: block;
+  width: 9rem;
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, var(--mdv-sabbia), transparent);
 }
-
-.hr-img {
-  width: 15rem;
-  margin: auto;
-}
-.main-title {
+.titolo {
   font-family: var(--mdv-font-corpo);
-  font-weight: 400 !important;
+  font-weight: 400;
   font-size: 2.8rem;
+  line-height: 1.2;
 }
-.caption {
+.occhiello {
   font-family: var(--mdv-font-corpo);
+  font-size: 1.4rem;
   line-height: 1.75;
   font-style: italic;
 }
-p {
+.prosa p {
   font-family: var(--mdv-font-alternativo);
   font-size: 1.2rem;
 }
-.blog-shadow {
-  -webkit-box-shadow: inset 0 2px 12.5px 6px var(--mdv-nebbia);
-  -moz-box-shadow: inset 0 2px 12.5px 6px var(--mdv-nebbia);
-  box-shadow: inset 0 2px 12.5px 6px var(--mdv-nebbia);
+
+/* ── Dal blog ────────────────────────────────────────────────────────── */
+.sezione-blog {
+  background-color: var(--mdv-fondo-scheda);
 }
-.blog-title {
+.sopratitolo {
+  margin-bottom: var(--mdv-spazio-2);
+  font-family: var(--mdv-font-navigazione);
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--mdv-oro);
+}
+.titolo-blog {
   font-family: var(--mdv-font-corpo);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
   color: var(--mdv-bruno-900);
-}
-.carousel__slide {
-  padding: 1.4rem;
-}
-.carousel__track {
-  transform-style: preserve-3d;
-}
-.carousel__slide--sliding {
-  transition: 0.5s;
-}
-.carousel__slide {
-  opacity: 0.9;
-  transform: rotateY(-20deg) scale(0.8);
-}
-.carousel__slide--active ~ .carousel__slide {
-  transform: rotateY(20deg) scale(0.8);
-}
-.carousel__slide--prev {
-  opacity: 1;
-  transform: rotateY(-10deg) scale(0.85);
-}
-.carousel__slide--next {
-  opacity: 1;
-  transform: rotateY(10deg) scale(0.85);
-}
-.carousel__slide--active {
-  opacity: 1;
-  transform: rotateY(0) scale(1);
+  margin: 0;
 }
 
+/* In colonna sul telefono; su schermo largo il primo occupa la colonna
+   grande e gli altri due si impilano accanto. */
+.griglia-blog {
+  display: grid;
+  gap: var(--mdv-spazio-6) var(--mdv-spazio-5);
+}
+@media (min-width: 62rem) {
+  .griglia-blog {
+    grid-template-columns: 3fr 2fr;
+    align-items: start;
+  }
+  .griglia-blog .in-rilievo {
+    grid-row: span 2;
+  }
+}
 </style>

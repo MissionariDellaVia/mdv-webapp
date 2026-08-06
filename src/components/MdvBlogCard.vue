@@ -1,73 +1,128 @@
 <template>
-  <BaseRiquadro reattivo class="scheda-blog">
-    <template #immagine>
-      <img
-        :src="helper.getImgUrl(imageUrl)"
-        class="scheda-blog__foto"
-        alt=""
-        referrerpolicy="no-referrer"
-      />
-    </template>
+  <a
+    :href="refLink"
+    target="_blank"
+    rel="noopener noreferrer"
+    :class="['articolo', { 'articolo--rilievo': rilievo }]"
+  >
+    <span v-if="imageUrl" class="articolo__cornice">
+      <img :src="helper.getImgUrl(imageUrl)" alt="" class="articolo__foto" referrerpolicy="no-referrer" />
+    </span>
 
-    <h3 class="scheda-blog__titolo">{{ title }}</h3>
-    <p class="scheda-blog__data">pubblicato il {{ parsedDate }}</p>
-    <hr class="scheda-blog__filo" />
-    <a :href="refLink" class="mdv-invito">
-      Leggi di più
-      <span class="mdv-invito__freccia" aria-hidden="true">&rarr;</span>
-    </a>
-  </BaseRiquadro>
+    <span class="articolo__testo">
+      <span class="articolo__data">{{ parsedDate }}</span>
+      <span class="articolo__titolo">{{ title }}</span>
+      <span class="articolo__filo" aria-hidden="true"></span>
+    </span>
+  </a>
 </template>
 
 <script>
-import BaseRiquadro from '@/components/ui/BaseRiquadro.vue';
-
+// Una scheda sola, due pesi. L'articolo piu' recente sta in rilievo: non
+// e' un ornamento, e' l'unica cosa che le tre schede hanno da dire
+// l'una rispetto all'altra.
 export default {
   name: "MdvBlogCard",
-  components: { BaseRiquadro },
-  props: ['title', 'cardText', 'publishDate', 'imageUrl', 'refLink'],
+  props: {
+    title: String,
+    publishDate: Date,
+    imageUrl: String,
+    refLink: String,
+    rilievo: { type: Boolean, default: false },
+  },
+  data() {
+    return { helper: this.$util };
+  },
   computed: {
     parsedDate() {
-      return this.publishDate.getDate() + " " + this.publishDate.toLocaleDateString('default', { month: 'long' });
+      if (!this.publishDate) return '';
+      return `${this.publishDate.getDate()} ${this.publishDate.toLocaleDateString('default', { month: 'long' })}`;
     }
   },
-  data(){
-    return {
-      helper: this.$util
-    }
-  }
 }
 </script>
 
 <style scoped>
-.scheda-blog {
-  width: 21rem;
-  max-width: 100%;
-  text-align: center;
+.articolo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mdv-spazio-4);
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* La cornice ritaglia: e' l'immagine a muoversi dentro, non la scheda a
+   sobbalzare. */
+.articolo__cornice {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--mdv-raggio-s);
   background-color: var(--mdv-fondo-scheda);
+  aspect-ratio: 3 / 2;
 }
-.scheda-blog__foto {
+.articolo__foto {
   width: 100%;
-  height: 15rem;
+  height: 100%;
   object-fit: cover;
+  transition: transform 700ms var(--mdv-curva-morbida);
 }
-.scheda-blog__titolo {
-  font-family: var(--mdv-font-corpo);
-  font-size: 1.25rem;
-  line-height: 1.4;
-  margin: 0;
+
+.articolo__testo {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--mdv-spazio-2);
 }
-.scheda-blog__data {
+.articolo__data {
   font-family: var(--mdv-font-navigazione);
-  font-size: 0.9rem;
-  color: var(--mdv-grigio-scuro);
-  margin: var(--mdv-spazio-3) 0 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mdv-oro);
 }
-.scheda-blog__filo {
-  border: none;
-  border-top: 2px solid var(--mdv-sabbia);
-  width: 70%;
-  margin: var(--mdv-spazio-4) auto;
-  opacity: 1;
+.articolo__titolo {
+  font-family: var(--mdv-font-corpo);
+  font-size: 1.15rem;
+  line-height: 1.4;
+  color: var(--mdv-bruno-900);
+  transition: color 300ms ease;
+}
+/* Il filo si tira sotto al titolo al passaggio: e' il solo movimento. */
+.articolo__filo {
+  display: block;
+  width: 2rem;
+  height: 1px;
+  margin-top: auto;
+  padding-top: var(--mdv-spazio-3);
+  border-bottom: 1px solid var(--mdv-oro);
+  transition: width 500ms var(--mdv-curva-morbida);
+}
+
+.articolo--rilievo .articolo__cornice {
+  aspect-ratio: 16 / 10;
+}
+.articolo--rilievo .articolo__titolo {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.25;
+}
+
+.articolo:focus-visible {
+  outline: 2px solid var(--mdv-oro);
+  outline-offset: 4px;
+  border-radius: var(--mdv-raggio-s);
+}
+
+@media (hover: hover) {
+  .articolo:hover .articolo__foto {
+    transform: scale(1.05);
+  }
+  .articolo:hover .articolo__titolo {
+    color: var(--mdv-oro);
+  }
+  .articolo:hover .articolo__filo {
+    width: 5rem;
+  }
 }
 </style>
