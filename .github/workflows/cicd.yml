@@ -93,9 +93,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Dice a Pages che la sorgente e' questo workflow e non un ramo.
-      # Con enablement lo imposta da se': l'alternativa e' ricordarsi di
-      # cambiarlo a mano nelle impostazioni, e non ricordarselo.
+      # Legge la configurazione di Pages e la mette a disposizione dei
+      # passi successivi. "enablement" accende Pages se e' spento, ma
+      # NON converte un sito gia' acceso da "costruisci da un ramo" a
+      # "costruisci da un workflow": quella e' una scelta che si fa una
+      # volta sola, a mano, in Settings > Pages > Source.
+      #
+      # Verificato il 6 agosto 2026: con la sorgente ancora su ramo il
+      # passo qui sotto riesce senza dire niente, e la pubblicazione poi
+      # resta in "deployment_in_progress" finche' non scade. Se un
+      # giorno succede di nuovo, e' la prima cosa da guardare.
       - name: Prepara Pages
         uses: actions/configure-pages@v5
         with:
@@ -125,6 +132,11 @@ jobs:
       - name: Build di collaudo
         run: npm run stage
 
+      # Se la pubblicazione fallisce, non ri-eseguire il solo job fallito:
+      # questo passo caricherebbe un secondo artefatto "github-pages"
+      # nella stessa esecuzione, e deploy-pages si ferma trovandone due.
+      # Va rilanciato il workflow intero (Run workflow, o "gh workflow
+      # run cicd-develop --ref develop").
       - name: Carica il sito come artefatto
         uses: actions/upload-pages-artifact@v3
         with:
