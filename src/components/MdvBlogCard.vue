@@ -77,14 +77,14 @@ export default {
 }
 .articolo__data {
   font-family: var(--mdv-font-navigazione);
-  font-size: 0.72rem;
+  font-size: var(--mdv-testo-xs);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--mdv-oro);
 }
 .articolo__titolo {
   font-family: var(--mdv-font-corpo);
-  font-size: 1.15rem;
+  font-size: var(--mdv-testo-m);
   line-height: 1.4;
   color: var(--mdv-bruno-900);
   transition: color 300ms ease;

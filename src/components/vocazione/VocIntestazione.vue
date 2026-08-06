@@ -153,7 +153,7 @@ export default {
   max-width: 34rem;
   font-family: var(--mdv-font-corpo);
   font-size: clamp(1.02rem, 1.9vw, 1.2rem);
-  line-height: 1.7;
+  line-height: var(--mdv-interlinea-corpo);
   color: var(--mdv-bruno-900);
   opacity: 0.82;
 }

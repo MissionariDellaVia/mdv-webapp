@@ -40,7 +40,7 @@ export default {
 .voc-elenco__voce {
   font-family: var(--mdv-font-corpo);
   font-size: 1.1rem;
-  line-height: 1.7;
+  line-height: var(--mdv-interlinea-corpo);
   padding-left: var(--mdv-spazio-5);
   margin-bottom: var(--mdv-spazio-3);
   position: relative;
@@ -51,7 +51,7 @@ export default {
   left: var(--mdv-spazio-2);
   top: -0.35rem;
   color: var(--mdv-sabbia);
-  font-size: 1.8rem;
+  font-size: var(--mdv-testo-xl);
 }
 .voc-elenco__lista--segni .voc-elenco__voce::before {
   content: '✓';

@@ -89,7 +89,7 @@ export default {
 }
 .voc-riflessioni__avviso {
   font-family: var(--mdv-font-navigazione);
-  font-size: 0.85rem;
+  font-size: var(--mdv-testo-s);
   color: var(--mdv-grigio-scuro);
   margin-bottom: var(--mdv-spazio-4);
 }
@@ -104,7 +104,7 @@ export default {
   border-bottom: 1px solid var(--mdv-sabbia);
   padding: var(--mdv-spazio-3) 0;
   font-family: var(--mdv-font-corpo);
-  font-size: 1.05rem;
+  font-size: var(--mdv-testo-m);
   cursor: pointer;
 }
 .voc-riflessioni__domanda--aperta {
@@ -127,7 +127,7 @@ export default {
   border-radius: var(--mdv-raggio-s);
   padding: var(--mdv-spazio-2) var(--mdv-spazio-4);
   font-family: var(--mdv-font-navigazione);
-  font-size: 0.9rem;
+  font-size: var(--mdv-testo-s);
   color: var(--mdv-grigio-scuro);
   cursor: pointer;
 }

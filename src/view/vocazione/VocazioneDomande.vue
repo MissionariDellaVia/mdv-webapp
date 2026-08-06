@@ -35,7 +35,7 @@ export default {
 }
 .voc-domande__invito {
   font-family: var(--mdv-font-corpo);
-  font-size: 1.05rem;
+  font-size: var(--mdv-testo-m);
   line-height: 1.8;
   color: var(--mdv-grigio-scuro);
   margin-bottom: var(--mdv-spazio-6);

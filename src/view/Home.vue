@@ -138,18 +138,18 @@ export default {
 .titolo {
   font-family: var(--mdv-font-corpo);
   font-weight: 400;
-  font-size: 2.8rem;
+  font-size: var(--mdv-testo-2xl);
   line-height: 1.2;
 }
 .occhiello {
   font-family: var(--mdv-font-corpo);
-  font-size: 1.4rem;
-  line-height: 1.75;
+  font-size: var(--mdv-testo-l);
+  line-height: var(--mdv-interlinea-corpo);
   font-style: italic;
 }
 .prosa p {
   font-family: var(--mdv-font-alternativo);
-  font-size: 1.2rem;
+  font-size: var(--mdv-testo-l);
 }
 
 /* ── Dal blog ────────────────────────────────────────────────────────── */
@@ -159,14 +159,14 @@ export default {
 .sopratitolo {
   margin-bottom: var(--mdv-spazio-2);
   font-family: var(--mdv-font-navigazione);
-  font-size: 0.75rem;
+  font-size: var(--mdv-testo-xs);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--mdv-oro);
 }
 .titolo-blog {
   font-family: var(--mdv-font-corpo);
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-size: var(--mdv-testo-2xl);
   color: var(--mdv-bruno-900);
   margin: 0;
 }

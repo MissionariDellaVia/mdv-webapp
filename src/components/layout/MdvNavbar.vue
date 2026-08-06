@@ -290,7 +290,7 @@ export default {
 .barra__sottolink {
   display: block;
   padding: var(--mdv-spazio-2) var(--mdv-spazio-4);
-  font-size: 0.9rem;
+  font-size: var(--mdv-testo-s);
   text-decoration: none;
   color: var(--mdv-sabbia-chiara);
   white-space: nowrap;
@@ -358,7 +358,7 @@ export default {
   border: none;
   background: none;
   font-family: var(--mdv-font-navigazione);
-  font-size: 1.05rem;
+  font-size: var(--mdv-testo-m);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-align: left;

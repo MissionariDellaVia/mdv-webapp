@@ -209,7 +209,7 @@ export default {
 }
 .voc-testimonianze__iniziale {
   font-family: var(--mdv-font-titolo);
-  font-size: 1.8rem;
+  font-size: var(--mdv-testo-xl);
   color: var(--mdv-oro);
 }
 
@@ -229,7 +229,7 @@ export default {
 .voc-testimonianze__estratto {
   font-family: var(--mdv-font-corpo);
   font-size: 0.98rem;
-  line-height: 1.7;
+  line-height: var(--mdv-interlinea-corpo);
   color: var(--mdv-bruno-900);
   opacity: 0.8;
 }
@@ -265,7 +265,7 @@ export default {
   border: none;
   padding: var(--mdv-spazio-2);
   font-family: var(--mdv-font-navigazione);
-  font-size: 0.9rem;
+  font-size: var(--mdv-testo-s);
   color: var(--mdv-oro);
   cursor: pointer;
   transition: color 0.3s ease, opacity 0.3s ease;

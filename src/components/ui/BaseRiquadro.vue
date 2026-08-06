@@ -58,7 +58,7 @@ export default {
   background-color: var(--mdv-bruno-900-velato);
   color: var(--mdv-bianco);
   font-family: var(--mdv-font-corpo);
-  font-size: clamp(1.4rem, 2.6vw, 1.75rem);
+  font-size: var(--mdv-testo-xl);
   line-height: 1.3;
   text-align: center;
 }

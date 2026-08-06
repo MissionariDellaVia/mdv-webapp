@@ -55,7 +55,7 @@ export default {
 }
 .approfondimento p {
   font-family: var(--mdv-font-alternativo);
-  font-size: 1.3rem;
+  font-size: var(--mdv-testo-l);
   text-align: left;
 }
 

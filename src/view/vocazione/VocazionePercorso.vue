@@ -102,7 +102,7 @@ export default {
 }
 .voc-percorso__proposta-testo {
   font-family: var(--mdv-font-corpo);
-  font-size: 1.05rem;
+  font-size: var(--mdv-testo-m);
   margin-bottom: var(--mdv-spazio-4);
 }
 </style>

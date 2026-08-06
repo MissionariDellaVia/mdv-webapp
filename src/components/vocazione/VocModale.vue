@@ -142,7 +142,7 @@ export default {
 .voc-modale__occhiello {
   margin: 0 0 var(--mdv-spazio-1) 0;
   font-family: var(--mdv-font-navigazione);
-  font-size: 0.72rem;
+  font-size: var(--mdv-testo-xs);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--mdv-oro);
@@ -182,8 +182,8 @@ export default {
 }
 .voc-modale__corpo :deep(p) {
   font-family: var(--mdv-font-corpo);
-  font-size: 1.05rem;
-  line-height: 1.9;
+  font-size: var(--mdv-testo-m);
+  line-height: var(--mdv-interlinea-prosa);
   margin-bottom: var(--mdv-spazio-4);
 }
 .voc-modale__corpo :deep(blockquote) {

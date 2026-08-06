@@ -121,7 +121,7 @@ export default {
 .articolo__testo :deep(p),
 .articolo__testo p {
   font-family: var(--mdv-font-alternativo);
-  font-size: 1.3rem;
+  font-size: var(--mdv-testo-l);
 }
 
 /* Le vecchie regole .carousel__slide con le rotazioni in 3D erano classi

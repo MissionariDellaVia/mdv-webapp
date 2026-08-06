@@ -75,13 +75,13 @@ export default {
 .titolo {
   font-family: var(--mdv-font-corpo);
   font-weight: 400;
-  font-size: 2.8rem;
+  font-size: var(--mdv-testo-2xl);
   line-height: 1.2;
 }
 .occhiello {
   font-family: var(--mdv-font-corpo);
-  font-size: 1.4rem;
-  line-height: 1.75;
+  font-size: var(--mdv-testo-l);
+  line-height: var(--mdv-interlinea-corpo);
   font-style: italic;
 }
 
@@ -102,7 +102,7 @@ export default {
 .corpo__testo :deep(p),
 .corpo__testo p {
   font-family: var(--mdv-font-alternativo);
-  font-size: 1.2rem;
+  font-size: var(--mdv-testo-l);
 }
 
 @media (min-width: 48rem) {

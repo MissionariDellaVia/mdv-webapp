@@ -127,7 +127,7 @@ export default {
 .modulo__occhiello {
   margin: 0 0 var(--mdv-spazio-2);
   font-family: var(--mdv-font-navigazione);
-  font-size: 0.75rem;
+  font-size: var(--mdv-testo-xs);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--mdv-oro);
@@ -135,7 +135,7 @@ export default {
 .modulo__titolo {
   margin: 0;
   font-family: var(--mdv-font-corpo);
-  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-size: var(--mdv-testo-xl);
   line-height: 1.35;
   color: var(--mdv-bruno-900);
 }
@@ -157,7 +157,7 @@ export default {
 }
 .modulo__campo label {
   font-family: var(--mdv-font-navigazione);
-  font-size: 0.75rem;
+  font-size: var(--mdv-testo-xs);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--mdv-grigio);

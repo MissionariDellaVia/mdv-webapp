@@ -46,13 +46,13 @@ export default {
 .voc-porte__titolo {
   font-family: var(--mdv-font-titolo);
   color: var(--mdv-oro-scuro);
-  font-size: 1.4rem;
+  font-size: var(--mdv-testo-l);
   margin-bottom: var(--mdv-spazio-3);
 }
 .voc-porte__testo {
   font-family: var(--mdv-font-corpo);
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: var(--mdv-interlinea-corpo);
   margin: 0;
 }
 </style>

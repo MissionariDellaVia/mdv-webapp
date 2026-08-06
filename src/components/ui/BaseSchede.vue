@@ -120,7 +120,7 @@ export default {
 
 @media (max-width: 576px) {
   .schede__linguetta {
-    font-size: 1.4rem;
+    font-size: var(--mdv-testo-l);
   }
 }
 

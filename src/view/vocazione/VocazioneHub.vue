@@ -68,7 +68,7 @@ export default {
 .voc-hub__citazione {
   font-family: var(--mdv-font-alternativo);
   font-style: italic;
-  font-size: 1.15rem;
+  font-size: var(--mdv-testo-m);
   line-height: 1.8;
   color: var(--mdv-oro-scuro);
   border-left: 3px solid var(--mdv-sabbia);
@@ -84,7 +84,7 @@ export default {
 .voc-hub__testo :deep(p) {
   font-family: var(--mdv-font-corpo);
   font-size: 1.1rem;
-  line-height: 1.9;
+  line-height: var(--mdv-interlinea-prosa);
   margin-bottom: var(--mdv-spazio-4);
 }
 </style>

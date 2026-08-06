@@ -31,7 +31,7 @@ export default {
 .voc-prosa :deep(p) {
   font-family: var(--mdv-font-corpo);
   font-size: 1.1rem;
-  line-height: 1.9;
+  line-height: var(--mdv-interlinea-prosa);
   margin-bottom: var(--mdv-spazio-4);
 }
 .voc-prosa :deep(blockquote) {

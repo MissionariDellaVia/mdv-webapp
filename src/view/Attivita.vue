@@ -65,12 +65,12 @@ export default {
 <style scoped>
 .titolo {
   font-family: var(--mdv-font-titolo);
-  font-size: 3.5rem;
+  font-size: var(--mdv-testo-3xl);
   line-height: 1.15;
 }
 .occhiello {
   font-family: var(--mdv-font-corpo);
-  font-size: 1.4rem;
+  font-size: var(--mdv-testo-l);
   font-style: italic;
 }
 </style>

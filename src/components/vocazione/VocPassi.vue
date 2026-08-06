@@ -72,7 +72,7 @@ export default {
 }
 .voc-passi__avanzamento {
   font-family: var(--mdv-font-navigazione);
-  font-size: 0.9rem;
+  font-size: var(--mdv-testo-s);
   color: var(--mdv-grigio);
   margin-bottom: var(--mdv-spazio-4);
 }
@@ -141,7 +141,7 @@ export default {
   align-items: center;
   justify-content: center;
   font-family: var(--mdv-font-titolo);
-  font-size: 1.2rem;
+  font-size: var(--mdv-testo-l);
   color: var(--mdv-oro);
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
@@ -158,7 +158,7 @@ export default {
 }
 .voc-passi__invito {
   font-family: var(--mdv-font-navigazione);
-  font-size: 0.75rem;
+  font-size: var(--mdv-testo-xs);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--mdv-grigio);
@@ -166,7 +166,7 @@ export default {
 .voc-passi__testo {
   font-family: var(--mdv-font-corpo);
   font-size: 1.02rem;
-  line-height: 1.75;
+  line-height: var(--mdv-interlinea-corpo);
   color: var(--mdv-bruno-900);
 }
 

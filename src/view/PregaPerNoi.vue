@@ -65,17 +65,17 @@ export default {
 .titolo {
   font-family: var(--mdv-font-corpo);
   font-weight: 400;
-  font-size: 2.8rem;
+  font-size: var(--mdv-testo-2xl);
 }
 .occhiello {
   font-family: var(--mdv-font-corpo);
-  font-size: 1.4rem;
-  line-height: 1.75;
+  font-size: var(--mdv-testo-l);
+  line-height: var(--mdv-interlinea-corpo);
   font-style: italic;
 }
 .prosa :deep(p),
 .prosa p {
   font-family: var(--mdv-font-alternativo);
-  font-size: 1.2rem;
+  font-size: var(--mdv-testo-l);
 }
 </style>

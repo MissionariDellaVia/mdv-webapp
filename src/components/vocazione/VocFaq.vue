@@ -58,7 +58,7 @@ export default {
 .voc-faq__segno {
   flex: 0 0 auto;
   font-family: var(--mdv-font-titolo);
-  font-size: 1.4rem;
+  font-size: var(--mdv-testo-l);
   color: var(--mdv-oro);
   line-height: 1;
 }
@@ -67,8 +67,8 @@ export default {
 }
 .voc-faq__risposta :deep(p) {
   font-family: var(--mdv-font-corpo);
-  font-size: 1.05rem;
-  line-height: 1.9;
+  font-size: var(--mdv-testo-m);
+  line-height: var(--mdv-interlinea-prosa);
   margin-bottom: var(--mdv-spazio-4);
 }
 .voc-faq__risposta :deep(em) {

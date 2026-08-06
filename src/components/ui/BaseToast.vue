@@ -35,7 +35,7 @@ export default {
     /*border-radius: 10px;*/
     box-shadow: 1px 3px 5px var(--mdv-ombra-lieve);
     max-width: 450px;
-    font-size: 1.2rem;
+    font-size: var(--mdv-testo-l);
     color: white;
     background: var(--mdv-successo);
 }

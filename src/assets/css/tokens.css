@@ -68,6 +68,34 @@
     --mdv-font-navigazione: 'Questrial', sans-serif;
     --mdv-font-alternativo: 'Old Standard TT', serif;
 
+    /* Scala tipografica.
+       Ogni pagina sceglieva le sue misure — 2,8rem qui, 3,5rem la',
+       clamp(1.4rem, 3vw, 1.9rem) altrove — decise una alla volta e mai
+       confrontate fra loro. E' anche il motivo per cui i titoli delle
+       sezioni erano "un po' piu' piccoli" e nessuno sapeva dire quanto
+       avrebbero dovuto essere: non c'era un quanto.
+       I passi crescono di circa un quarto per volta, e i tre piu' grandi
+       si adattano allo schermo invece di avere una misura per il telefono
+       e una per il monitor. */
+    --mdv-testo-xs: 0.75rem;
+    --mdv-testo-s: 0.88rem;
+    --mdv-testo-m: 1.05rem;
+    --mdv-testo-l: 1.25rem;
+    --mdv-testo-xl: clamp(1.4rem, 2.4vw, 1.75rem);
+    --mdv-testo-2xl: clamp(1.75rem, 3.4vw, 2.4rem);
+    --mdv-testo-3xl: clamp(2.2rem, 5vw, 3.4rem);
+
+    /* Interlinee: stretta per i titoli, larga per la lettura. */
+    --mdv-interlinea-titolo: 1.2;
+    --mdv-interlinea-corpo: 1.7;
+    --mdv-interlinea-prosa: 1.9;
+
+    /* Ritmo verticale. Lo stacco fra due sezioni e' una misura sola per
+       tutto il sito: quando ogni pagina se lo sceglieva, scorrendo il
+       sito le distanze cambiavano senza motivo. */
+    --mdv-ritmo-sezione: clamp(3rem, 7vw, 6rem);
+    --mdv-ritmo-blocco: var(--mdv-spazio-6);
+
     /* Spaziature */
     --mdv-spazio-1: 0.25rem;
     --mdv-spazio-2: 0.5rem;
@@ -304,6 +332,34 @@
     .mdv-invito:hover .mdv-invito__freccia {
       transform: translateX(0.3rem);
     }
+  }
+
+  /* ── Intestazioni di sezione ────────────────────────────────────────
+     Occhiello sopra, titolo sotto. Lo schema era ripetuto a mano nel
+     blog, nei contatti, nel modulo e nella sezione vocazionale, ogni
+     volta con misure leggermente diverse. */
+  .mdv-occhiello {
+    margin: 0 0 var(--mdv-spazio-2);
+    font-family: var(--mdv-font-navigazione);
+    font-size: var(--mdv-testo-xs);
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--mdv-oro);
+  }
+  .mdv-titolo-sezione {
+    margin: 0;
+    font-family: var(--mdv-font-corpo);
+    font-size: var(--mdv-testo-2xl);
+    line-height: var(--mdv-interlinea-titolo);
+    color: var(--mdv-bruno-900);
+  }
+  .mdv-sottotitolo {
+    margin: var(--mdv-spazio-3) auto 0;
+    max-width: 40rem;
+    font-family: var(--mdv-font-corpo);
+    font-size: var(--mdv-testo-l);
+    line-height: var(--mdv-interlinea-corpo);
+    font-style: italic;
   }
 
   /* Entrata condivisa. Ogni sezione entra allo stesso modo: una salita

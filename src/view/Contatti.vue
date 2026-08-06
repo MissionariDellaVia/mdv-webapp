@@ -149,7 +149,7 @@ export default {
 .sede__citta {
   margin: 0 0 var(--mdv-spazio-2);
   font-family: var(--mdv-font-navigazione);
-  font-size: 0.75rem;
+  font-size: var(--mdv-testo-xs);
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--mdv-oro);
@@ -157,7 +157,7 @@ export default {
 .sede__nome {
   margin: 0 0 var(--mdv-spazio-5);
   font-family: var(--mdv-font-corpo);
-  font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+  font-size: var(--mdv-testo-2xl);
   line-height: 1.25;
   color: var(--mdv-bruno-900);
 }
@@ -174,7 +174,7 @@ export default {
   gap: var(--mdv-spazio-2);
   margin-bottom: var(--mdv-spazio-2);
   font-family: var(--mdv-font-navigazione);
-  font-size: 0.72rem;
+  font-size: var(--mdv-testo-xs);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--mdv-grigio);
@@ -182,8 +182,8 @@ export default {
 .sede__valore {
   margin: 0;
   font-family: var(--mdv-font-corpo);
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: var(--mdv-testo-m);
+  line-height: var(--mdv-interlinea-corpo);
   color: var(--mdv-bruno-900);
 }
 .sede__valore .block + .block {
@@ -193,7 +193,7 @@ export default {
   display: inline-block;
   min-width: 5rem;
   font-family: var(--mdv-font-navigazione);
-  font-size: 0.85rem;
+  font-size: var(--mdv-testo-s);
   color: var(--mdv-grigio);
 }
 

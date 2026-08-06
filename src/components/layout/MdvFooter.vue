@@ -155,7 +155,7 @@ export default {
   width: 3.2rem;
   height: 3.2rem;
   border-radius: 50%;
-  font-size: 1.2rem;
+  font-size: var(--mdv-testo-l);
   color: var(--mdv-bianco);
   background-color: var(--mdv-sabbia);
   transition: background-color 0.5s ease, transform 0.5s ease;
