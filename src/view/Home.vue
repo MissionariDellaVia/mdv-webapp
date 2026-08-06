@@ -9,13 +9,15 @@
 
     <div class="mx-auto w-full max-w-6xl px-4 pb-12">
       <main class="my-12 px-4 text-center">
-        <span class="filo" aria-hidden="true"></span>
-        <h1 class="titolo my-6">{{ chiSiamoPage.main.title }}</h1>
-        <p v-if="chiSiamoPage.main.caption" class="occhiello">
+        <span class="filo entra entra--2" aria-hidden="true"></span>
+        <h1 class="titolo my-6 entra entra--3">{{ chiSiamoPage.main.title }}</h1>
+        <p v-if="chiSiamoPage.main.caption" class="occhiello entra entra--4">
           {{ chiSiamoPage.main.caption }}
         </p>
 
-        <div v-if="chiSiamoPage.main.strings" class="prosa mt-12">
+        <!-- Questa sta gia' sotto la piega quando la pagina apre: si
+             rivela scorrendo, non all'avvio. -->
+        <div v-if="chiSiamoPage.main.strings" v-rivela class="prosa mt-12">
           <p v-for="(testo, index) in chiSiamoPage.main.strings" :key="index">{{ testo }}</p>
         </div>
       </main>
@@ -35,15 +37,20 @@
          di tre schede uguali affiancate. -->
     <section v-if="articoli.length" class="sezione-blog py-16">
       <div class="mx-auto w-full max-w-6xl px-4">
-        <header class="mb-10 text-center">
+        <header v-rivela class="mb-10 text-center">
           <p class="sopratitolo">Dal blog</p>
           <h2 class="titolo-blog">Ultimi articoli</h2>
         </header>
 
-        <div class="griglia-blog" v-rivela>
+        <!-- Le schede arrivano una dopo l'altra invece che tutte insieme.
+             Il ritardo si ferma alla quarta: oltre, chi scorre veloce
+             aspetterebbe una scheda che non e' ancora arrivata. -->
+        <div class="griglia-blog">
           <MdvBlogCard
             v-for="(post, i) in articoli"
             :key="post.id"
+            v-rivela
+            :style="{ transitionDelay: `${Math.min(i, 3) * 90}ms` }"
             :class="{ 'in-rilievo': i === 0 }"
             :rilievo="i === 0"
             :title="post.title"
@@ -53,7 +60,7 @@
           />
         </div>
 
-        <p class="mt-12 text-center">
+        <p v-rivela class="mt-12 text-center">
           <a href="https://blogdeipiccolidellavia.blogspot.com/" target="_blank"
              rel="noopener noreferrer" class="mdv-invito">
             Tutti gli articoli
