@@ -7,15 +7,13 @@
               :title="attivitaPage.header.title"
               :caption="attivitaPage.header.caption"/>
 
-    <div class="container">
-      <div class="row text-center my-5">
-        <div class="col-12 px-5">
-          <h1 class="main-title my-2"> {{ attivitaPage.main.title }} </h1>
-          <Markdown :source="attivitaPage.main.caption" class="caption h4" :html="true"></Markdown>
-        </div>
+    <div class="mx-auto w-full max-w-6xl px-4">
+      <div class="my-12 px-4 text-center">
+        <h1 class="titolo my-2">{{ attivitaPage.main.title }}</h1>
+        <Markdown :source="attivitaPage.main.caption" class="occhiello markdown-mdv" :html="true" />
       </div>
 
-      <div v-if="isLoading" class="py-5">
+      <div v-if="isLoading" class="py-12">
         <base-spinner></base-spinner>
       </div>
       <MdvGroups v-else :groups="attivitaPage.groups"/>
@@ -65,16 +63,14 @@ export default {
 </script>
 
 <style scoped>
-.main-title {
+.titolo {
   font-family: var(--mdv-font-titolo);
   font-size: 3.5rem;
+  line-height: 1.15;
 }
-.caption {
+.occhiello {
   font-family: var(--mdv-font-corpo);
+  font-size: 1.4rem;
   font-style: italic;
-}
-p {
-  font-family: var(--mdv-font-corpo);
-  font-size: larger;
 }
 </style>

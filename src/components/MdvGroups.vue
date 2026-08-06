@@ -1,5 +1,5 @@
 <template>
-  <div v-if="luoghi.length" class="container">
+  <div v-if="luoghi.length">
     <!-- I gruppi sono i luoghi in cui la comunita' e' presente, non
          categorie di attivita': oggi ce n'e' uno, domani ce ne saranno
          altri. La fascia porta il nome del posto — con un luogo solo fa da
@@ -17,7 +17,7 @@
     </BaseSchede>
   </div>
 
-  <p v-else class="text-center my-5 py-5 nessuna-attivita">
+  <p v-else class="nessuna-attivita my-12 py-12 text-center">
     Nessuna attività disponibile al momento.
   </p>
 </template>

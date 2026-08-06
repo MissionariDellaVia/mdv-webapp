@@ -3,80 +3,64 @@
     <!-- Intestazione e modulo arrivano dal JSON locale: sono qui dal primo
          fotogramma. Solo le sedi aspettano la rete, e lo dicono al loro
          posto invece di far sparire la pagina intera. -->
-    <MDHeader :image="contattiPage.header.backgroundImage"
-              :title="contattiPage.header.title"/>
+    <MDHeader
+      :image="contattiPage.header.backgroundImage"
+      :title="contattiPage.header.title"
+    />
 
-    <div class="container">
-
-      <div v-if="isLoading" class="py-5">
+    <div class="mx-auto w-full max-w-6xl px-4 py-12">
+      <div v-if="isLoading" class="py-12">
         <base-spinner></base-spinner>
       </div>
 
-        <div v-for="(place, index) in contattiPage.places" v-bind:key="index" class="row my-4" >
-          <div class="col-sm-12">
-            <div class="card">
-              <div class="card-header">
-                <div class="text-center fs-2">{{ place.title }}</div>
-              </div>
-              <div class="card-body">
-                <div class="row my-4">
-                  <div class="col col-lg-12 align-self-start">
-                    <BaseMap :lat="place.lat" :lng="place.lng"></BaseMap>
-                  </div>
-                </div>
-                <div class="row my-4">
-                  <div class="col col-lg-4">
-                    <MdvContactoButton>
-                      <template v-slot:card-header>
-                        <i class="fa-solid fa-location-dot"></i>
-                      </template>
-                      <template v-slot:body>
-                        <p v-for="(addr, index) in place.address" v-bind:key="index">
-                          <Markdown :source="addr"></Markdown>
-                        </p>
-                      </template>
-                    </MdvContactoButton>
-                  </div>
-                  <div class="col col-lg-4">
-                    <MdvContactoButton>
-                      <template v-slot:card-header>
-                        <i class="fa-solid fa-phone"></i>
-                      </template>
-                      <template v-slot:body>
-                        <p class="fw-bold"></p>
-                        <p><Markdown :source="place.phone.title"></Markdown><a :href="`tel:0039${place.phone.number}`" >{{ place.phone.number }}</a></p>
-                      </template>
-                    </MdvContactoButton>
-                  </div>
-                  <div class="col col-lg-4">
-                    <MdvContactoButton>
-                      <template v-slot:card-header>
-                        <i class="fa-regular fa-envelope"></i>
-                      </template>
-                      <template v-slot:body>
-                        <p v-for="(email, index) in place.emails" v-bind:key="index">
-                          <Markdown :source="email.title"></Markdown>
-                          <a :href="`mailto:${email.email}`">{{ email.email }}</a>
-                        </p>
-                      </template>
-                    </MdvContactoButton>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <BaseRiquadro v-for="(sede, index) in contattiPage.places" :key="index" class="mb-12">
+        <template #testata>
+          <span class="nome-sede">{{ sede.title }}</span>
+        </template>
+
+        <BaseMap :lat="sede.lat" :lng="sede.lng" />
+
+        <!-- Indirizzo, telefono e posta: tre riquadri affiancati dove ci
+             stanno, in colonna dove no. -->
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <MdvContactoButton>
+            <template #icona>
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+            </template>
+            <p v-for="(riga, i) in sede.address" :key="i">
+              <Markdown :source="riga" />
+            </p>
+          </MdvContactoButton>
+
+          <MdvContactoButton>
+            <template #icona>
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            </template>
+            <p>
+              <Markdown :source="sede.phone.title" />
+              <a :href="`tel:0039${sede.phone.number}`">{{ sede.phone.number }}</a>
+            </p>
+          </MdvContactoButton>
+
+          <MdvContactoButton>
+            <template #icona>
+              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            </template>
+            <p v-for="(posta, i) in sede.emails" :key="i">
+              <Markdown :source="posta.title" />
+              <a :href="`mailto:${posta.email}`">{{ posta.email }}</a>
+            </p>
+          </MdvContactoButton>
         </div>
+      </BaseRiquadro>
 
-        <div class="row my-4">
-          <MdvForm :title="contattiPage.form.title"
-                   :button-name="contattiPage.form.buttonName"
-                   :name-field="contattiPage.form.nameField"
-                   :last-name-field="contattiPage.form.lastNameField"
-                   :text-field="contattiPage.form.messageField"
-          />
-        </div>
-
-
+      <MdvForm
+        :title="contattiPage.form.title"
+        :button-name="contattiPage.form.buttonName"
+        :name-field="contattiPage.form.nameField"
+        :last-name-field="contattiPage.form.lastNameField"
+        :text-field="contattiPage.form.messageField"
+      />
     </div>
   </section>
 </template>
@@ -86,6 +70,7 @@ import { usaPagina } from '@/store/pagina.mjs';
 import MDHeader from "@/components/layout/MdvHeader.vue";
 import MdvContactoButton from "@/components/MdvContactButton.vue";
 import MdvForm from "@/components/MdvForm.vue";
+import BaseRiquadro from "@/components/ui/BaseRiquadro.vue";
 import Markdown from 'vue3-markdown-it';
 import { defineAsyncComponent } from 'vue';
 
@@ -99,7 +84,7 @@ export default {
   setup() {
     return { pagina: usaPagina() };
   },
-  components: {MdvForm, BaseMap, MDHeader, MdvContactoButton, Markdown},
+  components: {MdvForm, BaseMap, BaseRiquadro, MDHeader, MdvContactoButton, Markdown},
   created() {
     this.loadPage("contatti");
   },
@@ -130,21 +115,10 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  border: 0;
-}
-.card-header{
-  font-family: var(--mdv-font-corpo);
-  color: var(--mdv-bianco);
-  border: 0;
-  background: var(--mdv-bruno-900-velato);
-}
-a {
-  text-decoration: none;
-  color: var(--mdv-oro);
-  margin-bottom: 1.2rem;
-}
-a:hover, a:focus {
-  color: var(--mdv-oro-scuro);
+/* La scatola la disegna BaseRiquadro e i link li veste il sistema: qui
+   resta solo il nome della sede, che nella fascia sta piu' grande. */
+.nome-sede {
+  font-size: 1.8rem;
+  line-height: 1.3;
 }
 </style>

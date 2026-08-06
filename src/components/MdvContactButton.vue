@@ -1,9 +1,9 @@
 <template>
   <BaseRiquadro reattivo class="contatto">
     <template #testata>
-      <span class="contatto__icona"><slot name="card-header"></slot></span>
+      <span class="contatto__icona"><slot name="icona"></slot></span>
     </template>
-    <slot name="body"></slot>
+    <slot></slot>
   </BaseRiquadro>
 </template>
 
