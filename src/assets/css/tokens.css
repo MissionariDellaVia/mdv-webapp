@@ -277,6 +277,17 @@
     opacity: 1;
     color: var(--mdv-oro);
   }
+  /* Stesso gesto, su fondo scuro: la barra e il cassetto stanno sul
+     bruno o sopra una fotografia, dove l'oro scuro non si legge. */
+  .mdv-navlink--chiaro {
+    color: var(--mdv-sabbia-chiara);
+  }
+  .mdv-navlink--chiaro.mdv-navlink--attivo {
+    color: var(--mdv-bianco);
+  }
+  .mdv-navlink--chiaro::after {
+    background-color: var(--mdv-sabbia);
+  }
   .mdv-navlink--attivo::after {
     transform: scaleX(1);
   }
@@ -324,6 +335,9 @@
     .mdv-navlink:hover {
       opacity: 1;
       color: var(--mdv-oro);
+    }
+    .mdv-navlink--chiaro:hover {
+      color: var(--mdv-bianco);
     }
     .mdv-navlink:hover::after {
       transform: scaleX(1);

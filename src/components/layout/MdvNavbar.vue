@@ -12,7 +12,7 @@
         <li
           v-for="(item, index) in navbarItems"
           :key="index"
-          class="barra__voce"
+          :class="['barra__voce', { 'barra__voce--altrove': portaFuori(item) }]"
           @mouseenter="apriGruppo(item, index)"
           @mouseleave="apertoIndice = null"
         >
@@ -22,19 +22,24 @@
               target="_blank"
               rel="noopener noreferrer"
               :href="item.to"
-              class="barra__link"
+              class="mdv-navlink mdv-navlink--chiaro barra__link"
             >
               {{ item.title }}
               <span class="fuori" aria-hidden="true">↗</span>
               <span class="sr-only">(si apre in una nuova scheda)</span>
             </a>
-            <router-link v-else class="barra__link" :to="item.to">{{ item.title }}</router-link>
+            <router-link
+              v-else
+              :class="['mdv-navlink', 'mdv-navlink--chiaro', 'barra__link',
+                       { 'mdv-navlink--attivo': $route.path === item.to }]"
+              :to="item.to"
+            >{{ item.title }}</router-link>
           </template>
 
           <template v-else-if="item.type === 'dropdown'">
             <button
               type="button"
-              class="barra__link barra__link--gruppo"
+              class="mdv-navlink mdv-navlink--chiaro barra__link barra__link--gruppo"
               :aria-expanded="apertoIndice === index ? 'true' : 'false'"
               @click="apertoIndice = apertoIndice === index ? null : index"
             >
@@ -79,7 +84,11 @@
 
       <BaseCassetto :aperto="cassettoAperto" etichetta="Menu principale" @chiudi="chiudi">
         <ul class="menu">
-          <li v-for="(item, index) in navbarItems" :key="index" class="menu__voce">
+          <li
+            v-for="(item, index) in navbarItems"
+            :key="index"
+            :class="['menu__voce', { 'menu__voce--altrove': portaFuori(item) }]"
+          >
             <template v-if="item.type === 'link'">
               <a
                 v-if="item.external"
@@ -187,6 +196,12 @@ export default {
     updateScroll() {
       this.scrollPosition = window.scrollY;
     },
+    // Un gruppo che contiene solo destinazioni fuori dal sito: si
+    // riconosce da cosa c'e' dentro, non dalla posizione, cosi' resta
+    // vero anche se domani l'ordine delle voci cambia.
+    portaFuori(item) {
+      return item.type === 'dropdown' && item.links.every((s) => s.external);
+    },
     // Il passaggio del mouse apre il gruppo solo dove un mouse c'e'
     // davvero: sul tocco resterebbe aperto dopo il tocco.
     apriGruppo(item, index) {
@@ -264,6 +279,23 @@ export default {
 }
 .barra__voce {
   position: relative;
+}
+/* Un filo prima del gruppo che porta altrove: la barra dice a colpo
+   d'occhio dove finisce il sito e dove comincia il resto. Le frecce ↗
+   lo dicono voce per voce, questo lo dice tutto insieme. */
+.barra__voce--altrove {
+  padding-left: clamp(var(--mdv-spazio-3), 2.4vw, var(--mdv-spazio-5));
+  margin-left: calc(clamp(var(--mdv-spazio-3), 2.4vw, var(--mdv-spazio-5)) * -0.5);
+}
+.barra__voce--altrove::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 1.1rem;
+  transform: translateY(-50%);
+  background-color: color-mix(in srgb, var(--mdv-sabbia) 45%, transparent);
 }
 .barra__link {
   display: inline-flex;
@@ -385,13 +417,6 @@ export default {
 }
 
 @media (hover: hover) {
-  .barra__link:hover {
-    color: var(--mdv-bianco);
-  }
-  .barra__link:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
   .barra__sottolink:hover {
     color: var(--mdv-bianco);
     background-color: color-mix(in srgb, var(--mdv-sabbia) 18%, transparent);
@@ -439,6 +464,13 @@ export default {
 }
 :deep(.menu__voce + .menu__voce) {
   border-top: 1px solid var(--mdv-bruno-700);
+}
+/* Nel cassetto il confine e' uno stacco piu' largo e un filo d'oro:
+   sotto ci sono i posti fuori dal sito. */
+:deep(.menu__voce--altrove) {
+  margin-top: var(--mdv-spazio-4);
+  padding-top: var(--mdv-spazio-2);
+  border-top: 1px solid var(--mdv-oro-scuro) !important;
 }
 :deep(.menu__freccia) {
   transition: transform 0.3s var(--mdv-curva-morbida);
