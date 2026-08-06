@@ -8,7 +8,7 @@
     />
 
     <div class="mx-auto w-full max-w-6xl px-4 pb-12">
-      <main class="my-12 px-4 text-center">
+      <main class="apertura px-4 text-center">
         <!-- Lo stemma della comunita'. Il file si chiamava "hr.png" e la
              classe ".hr-img", nomi da linea orizzontale: l'avevo scambiato
              per un divisore decorativo e tolto. -->
@@ -17,8 +17,8 @@
           alt="Missionari della Via"
           class="emblema entra entra--2"
         />
-        <h1 class="titolo my-6 entra entra--3">{{ chiSiamoPage.main.title }}</h1>
-        <p v-if="chiSiamoPage.main.caption" class="occhiello entra entra--4">
+        <h1 class="mdv-titolo-pagina my-6 entra entra--3">{{ chiSiamoPage.main.title }}</h1>
+        <p v-if="chiSiamoPage.main.caption" class="mdv-sottotitolo entra entra--4">
           {{ chiSiamoPage.main.caption }}
         </p>
 
@@ -45,8 +45,8 @@
     <section v-if="articoli.length" class="sezione-blog py-16">
       <div class="mx-auto w-full max-w-6xl px-4">
         <header v-rivela class="mb-10 text-center">
-          <p class="sopratitolo">Dal blog</p>
-          <h2 class="titolo-blog">Ultimi articoli</h2>
+          <p class="mdv-sopratitolo">Dal blog</p>
+          <h2 class="mdv-titolo-sezione">Ultimi articoli</h2>
         </header>
 
         <!-- Le schede arrivano una dopo l'altra invece che tutte insieme.
@@ -142,23 +142,15 @@ export default {
 </script>
 
 <style scoped>
+.apertura {
+  margin-block: var(--mdv-ritmo-sezione);
+}
+
 .emblema {
   width: 15rem;
   max-width: 60vw;
   height: auto;
   margin: 0 auto;
-}
-.titolo {
-  font-family: var(--mdv-font-corpo);
-  font-weight: 400;
-  font-size: var(--mdv-testo-2xl);
-  line-height: 1.2;
-}
-.occhiello {
-  font-family: var(--mdv-font-corpo);
-  font-size: var(--mdv-testo-l);
-  line-height: var(--mdv-interlinea-corpo);
-  font-style: italic;
 }
 .prosa p {
   font-family: var(--mdv-font-alternativo);
@@ -168,20 +160,6 @@ export default {
 /* ── Dal blog ────────────────────────────────────────────────────────── */
 .sezione-blog {
   background-color: var(--mdv-fondo-scheda);
-}
-.sopratitolo {
-  margin-bottom: var(--mdv-spazio-2);
-  font-family: var(--mdv-font-navigazione);
-  font-size: var(--mdv-testo-xs);
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--mdv-oro);
-}
-.titolo-blog {
-  font-family: var(--mdv-font-corpo);
-  font-size: var(--mdv-testo-2xl);
-  color: var(--mdv-bruno-900);
-  margin: 0;
 }
 
 /* In colonna sul telefono, due colonne sul tablet, tre da schermo largo.

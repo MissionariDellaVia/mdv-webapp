@@ -358,10 +358,18 @@
   }
 
   /* ── Intestazioni di sezione ────────────────────────────────────────
-     Occhiello sopra, titolo sotto. Lo schema era ripetuto a mano nel
-     blog, nei contatti, nel modulo e nella sezione vocazionale, ogni
-     volta con misure leggermente diverse. */
-  .mdv-occhiello {
+     Tre pezzi, e ognuno ha un posto fisso:
+
+       sopratitolo   la riga piccola in maiuscoletto d'oro, sopra
+       titolo        il titolo
+       sottotitolo   la frase in corsivo, sotto
+
+     Il nome conta piu' del solito, qui. Prima "occhiello" indicava il
+     sottotitolo in quattro pagine e il sopratitolo in altre tre, e il
+     sopratitolo aveva cinque nomi diversi — sopratitolo, sede__citta,
+     modulo__occhiello, articolo__data, voc-modale__occhiello. Chi apriva
+     un file non poteva sapere di quale dei due si parlasse. */
+  .mdv-sopratitolo {
     margin: 0 0 var(--mdv-spazio-2);
     font-family: var(--mdv-font-navigazione);
     font-size: var(--mdv-testo-xs);
@@ -372,7 +380,17 @@
   .mdv-titolo-sezione {
     margin: 0;
     font-family: var(--mdv-font-corpo);
+    font-weight: 400;
     font-size: var(--mdv-testo-2xl);
+    line-height: var(--mdv-interlinea-titolo);
+    color: var(--mdv-bruno-900);
+  }
+  /* Il titolo che apre una pagina, non una sezione al suo interno. */
+  .mdv-titolo-pagina {
+    margin: 0;
+    font-family: var(--mdv-font-corpo);
+    font-weight: 400;
+    font-size: var(--mdv-testo-3xl);
     line-height: var(--mdv-interlinea-titolo);
     color: var(--mdv-bruno-900);
   }

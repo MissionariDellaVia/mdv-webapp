@@ -9,7 +9,7 @@
          come un'insegna. Qui e' un'intestazione, con sopra chi sta
          parlando e sotto cosa fare. -->
     <header v-if="title" class="modulo__intestazione">
-      <p class="modulo__occhiello">Scrivici</p>
+      <p class="mdv-sopratitolo">Scrivici</p>
       <h2 class="modulo__titolo">{{ title }}</h2>
     </header>
 
@@ -123,14 +123,6 @@ export default {
 .modulo__intestazione {
   margin-bottom: var(--mdv-spazio-6);
   text-align: center;
-}
-.modulo__occhiello {
-  margin: 0 0 var(--mdv-spazio-2);
-  font-family: var(--mdv-font-navigazione);
-  font-size: var(--mdv-testo-xs);
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--mdv-oro);
 }
 .modulo__titolo {
   margin: 0;

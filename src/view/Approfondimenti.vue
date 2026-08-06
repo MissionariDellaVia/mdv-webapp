@@ -6,10 +6,11 @@
       :caption="approfondimentiPage.header.caption"
     />
 
-    <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-4 py-12">
+    <div class="corpo mx-auto flex w-full max-w-6xl flex-col px-4">
       <MdvLongArticle
         v-for="(sezione, index) in approfondimentiPage.sections"
         :key="index"
+        v-rivela
         :title="sezione.title"
         :align="sezione.image.align"
         :imageUrl="sezione.image.url"
@@ -42,3 +43,10 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.corpo {
+  gap: var(--mdv-ritmo-sezione);
+  padding-block: var(--mdv-ritmo-sezione);
+}
+</style>

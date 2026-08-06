@@ -8,9 +8,9 @@
               :caption="attivitaPage.header.caption"/>
 
     <div class="mx-auto w-full max-w-6xl px-4">
-      <div class="my-12 px-4 text-center">
-        <h1 class="titolo my-2">{{ attivitaPage.main.title }}</h1>
-        <Markdown :source="attivitaPage.main.caption" class="occhiello markdown-mdv" :html="true" />
+      <div v-rivela class="apertura px-4 text-center">
+        <h1 class="mdv-titolo-pagina my-2">{{ attivitaPage.main.title }}</h1>
+        <Markdown :source="attivitaPage.main.caption" class="mdv-sottotitolo markdown-mdv" :html="true" />
       </div>
 
       <!-- Mentre le attivita' arrivano si vede la loro forma: la fascia
@@ -29,7 +29,7 @@
           </div>
         </div>
       </div>
-      <MdvGroups v-else :groups="attivitaPage.groups"/>
+      <MdvGroups v-else v-rivela :groups="attivitaPage.groups"/>
     </div>
   </section>
 </template>
@@ -77,6 +77,10 @@ export default {
 </script>
 
 <style scoped>
+.apertura {
+  margin-block: var(--mdv-ritmo-sezione);
+}
+
 .attesa {
   display: flex;
   flex-direction: column;
@@ -99,14 +103,4 @@ export default {
   }
 }
 
-.titolo {
-  font-family: var(--mdv-font-titolo);
-  font-size: var(--mdv-testo-3xl);
-  line-height: 1.15;
-}
-.occhiello {
-  font-family: var(--mdv-font-corpo);
-  font-size: var(--mdv-testo-l);
-  font-style: italic;
-}
 </style>

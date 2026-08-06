@@ -36,8 +36,8 @@
         v-rivela
       >
         <div class="sede__dati">
-          <p v-if="sede.citta" class="sede__citta">{{ sede.citta }}</p>
-          <h2 class="sede__nome">{{ sede.titolo }}</h2>
+          <p v-if="sede.citta" class="mdv-sopratitolo sede__citta">{{ sede.citta }}</p>
+          <h2 class="mdv-titolo-sezione sede__nome">{{ sede.titolo }}</h2>
 
           <dl class="sede__elenco">
             <div v-if="sede.indirizzo.length" class="sede__voce">
@@ -182,19 +182,10 @@ export default {
 }
 
 .sede__citta {
-  margin: 0 0 var(--mdv-spazio-2);
-  font-family: var(--mdv-font-navigazione);
-  font-size: var(--mdv-testo-xs);
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--mdv-oro);
+  margin-bottom: var(--mdv-spazio-2);
 }
 .sede__nome {
-  margin: 0 0 var(--mdv-spazio-5);
-  font-family: var(--mdv-font-corpo);
-  font-size: var(--mdv-testo-2xl);
-  line-height: 1.25;
-  color: var(--mdv-bruno-900);
+  margin-bottom: var(--mdv-spazio-5);
 }
 
 .sede__elenco {

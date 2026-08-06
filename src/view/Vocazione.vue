@@ -8,8 +8,8 @@
 
     <div class="mx-auto w-full max-w-6xl px-4 py-12">
       <div class="mb-12 px-4 text-center">
-        <h1 class="titolo my-2">{{ vocazionePage.main.title }}</h1>
-        <p class="occhiello">{{ vocazionePage.main.caption }}</p>
+        <h1 class="mdv-titolo-pagina my-2">{{ vocazionePage.main.title }}</h1>
+        <p class="mdv-sottotitolo">{{ vocazionePage.main.caption }}</p>
       </div>
 
       <div class="corpo">
@@ -72,18 +72,6 @@ export default {
 </script>
 
 <style scoped>
-.titolo {
-  font-family: var(--mdv-font-corpo);
-  font-weight: 400;
-  font-size: var(--mdv-testo-2xl);
-  line-height: 1.2;
-}
-.occhiello {
-  font-family: var(--mdv-font-corpo);
-  font-size: var(--mdv-testo-l);
-  line-height: var(--mdv-interlinea-corpo);
-  font-style: italic;
-}
 
 .corpo {
   display: grid;
