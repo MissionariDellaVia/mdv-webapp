@@ -67,7 +67,7 @@
             :href="`https://www.google.com/maps/dir/?api=1&destination=${sede.lat},${sede.lng}`"
             target="_blank"
             rel="noopener noreferrer"
-            class="mdv-invito mt-2"
+            class="mdv-invito sede__indicazioni"
           >
             Come arrivare
             <span class="mdv-invito__freccia" aria-hidden="true">&rarr;</span>
@@ -142,6 +142,9 @@ export default {
   margin-bottom: var(--mdv-spazio-6);
   border-bottom: 1px solid var(--mdv-sabbia);
 }
+.sede:last-of-type {
+  border-bottom: none;
+}
 
 .sede__citta {
   margin: 0 0 var(--mdv-spazio-2);
@@ -163,13 +166,13 @@ export default {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--mdv-spazio-4);
+  gap: var(--mdv-spazio-5);
 }
 .sede__etichetta {
   display: flex;
   align-items: center;
   gap: var(--mdv-spazio-2);
-  margin-bottom: var(--mdv-spazio-1);
+  margin-bottom: var(--mdv-spazio-2);
   font-family: var(--mdv-font-navigazione);
   font-size: 0.72rem;
   letter-spacing: 0.18em;
@@ -183,12 +186,21 @@ export default {
   line-height: 1.7;
   color: var(--mdv-bruno-900);
 }
+.sede__valore .block + .block {
+  margin-top: var(--mdv-spazio-2);
+}
 .sede__a-chi {
   display: inline-block;
-  min-width: 4.5rem;
+  min-width: 5rem;
   font-family: var(--mdv-font-navigazione);
   font-size: 0.85rem;
   color: var(--mdv-grigio);
+}
+
+/* Il bottone chiude il blocco dei recapiti: gli serve aria sopra, o
+   sembra appiccicato all'ultimo indirizzo email. */
+.sede__indicazioni {
+  margin-top: var(--mdv-spazio-6);
 }
 
 /* La mappa ha una forma sua e non galleggia dentro una scheda. */
@@ -203,8 +215,11 @@ export default {
   min-height: 20rem;
 }
 
+/* Il modulo e' un'altra cosa rispetto alle sedi: lo stacco lo dice. */
 .modulo {
   margin-top: var(--mdv-spazio-6);
+  padding-top: var(--mdv-spazio-6);
+  border-top: 1px solid var(--mdv-sabbia);
 }
 
 @media (min-width: 56rem) {

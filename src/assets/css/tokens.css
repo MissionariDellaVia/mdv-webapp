@@ -257,12 +257,12 @@
     display: inline-flex;
     align-items: center;
     gap: var(--mdv-spazio-2);
-    padding: var(--mdv-spazio-3) var(--mdv-spazio-4);
+    padding: 0.6rem var(--mdv-spazio-4);
     border: 1px solid var(--mdv-sabbia);
     border-radius: 999px;
     font-family: var(--mdv-font-navigazione);
-    font-size: 0.82rem;
-    letter-spacing: 0.12em;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--mdv-oro-scuro);
     text-decoration: none;
