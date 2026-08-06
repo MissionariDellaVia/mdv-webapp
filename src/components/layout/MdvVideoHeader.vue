@@ -1,21 +1,15 @@
 <template>
-<!--  <header :class="'md-bg bg' + {rootImage}">-->
   <header class="video-wrapper">
     <video playsinline autoplay muted loop :poster="helper.getImgUrl('chiSiamo.jpg')">
       <source :src="helper.getImgUrl('intro-1440.mp4')" type="video/mp4">
     </video>
-    <!-- This will be positioned on top of our video background -->
+
+    <!-- Il ramo con il marchio e quello senza erano identici tranne una
+         classe sul titolo: erano due copie della stessa cosa. -->
     <div class="header">
-      <div class="row h-100 align-items-center">
-        <div v-if="brand" class="col-12 text-center">
-          <!--          <img src="../../assets/logo.png" class="mt-5" alt="logoHome"/>-->
-          <h1 class="main-title with-brand text-uppercase">{{ title }}</h1>
-          <p v-if="caption" class="lead headerSection">{{ caption }}</p>
-        </div>
-        <div v-else class="col-12 text-center">
-          <h1 class="main-title text-uppercase">{{ title }}</h1>
-          <p v-if="caption" class="lead headerSection">{{ caption }}</p>
-        </div>
+      <div class="header__contenuto">
+        <h1 :class="['main-title text-uppercase', { 'with-brand': brand }]">{{ title }}</h1>
+        <p v-if="caption" class="lead headerSection">{{ caption }}</p>
       </div>
     </div>
   </header>
@@ -34,6 +28,14 @@ export default {
 </script>
 
 <style scoped>
+.header__contenuto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
 
 @media only screen and (max-width: 480px) {
   .video-wrapper {

@@ -1,18 +1,8 @@
 <template>
-<!--  <header :class="'md-bg bg' + {rootImage}">-->
   <header :class="['md-bg', { 'md-bg--pronta': pronta }]" :style="inlineStyle">
-    <div class="container h-100">
-      <div class="row h-100 align-items-center">
-        <div v-if="brand" class="col-12 text-center">
-<!--          <img src="../../assets/logo.png" class="mt-5" alt="logoHome"/>-->
-          <h1 class="main-title with-brand text-uppercase">{{ title }}</h1>
-          <p v-if="caption" class="lead headerSection">{{ caption }}</p>
-        </div>
-        <div v-else class="col-12 text-center">
-          <h1 class="main-title text-uppercase">{{ title }}</h1>
-          <p v-if="caption" class="lead headerSection">{{ caption }}</p>
-        </div>
-      </div>
+    <div class="md-bg__contenuto">
+      <h1 :class="['main-title text-uppercase', { 'with-brand': brand }]">{{ title }}</h1>
+      <p v-if="caption" class="lead headerSection">{{ caption }}</p>
     </div>
   </header>
 </template>
@@ -80,6 +70,17 @@ export default {
 /* L'altezza e' fissa e non dipende dalla foto: lo spazio e' riservato dal
    primo fotogramma, quindi la pagina non cresce sotto gli occhi quando
    l'immagine arriva. Il fondo bruno regge la scritta anche prima. */
+.md-bg__contenuto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 var(--mdv-spazio-4);
+  text-align: center;
+}
+
 .md-bg {
   position: relative;
   isolation: isolate;

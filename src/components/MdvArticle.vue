@@ -6,8 +6,8 @@
 
     <image-dialog :show="!!image.show" :imageLink="image.link" @close="cleanImageDialog"></image-dialog>
 
-    <div v-if="imageUrl" class="row my-4">
-      <div class="col col-sm-12 text-center" :class="imgArticleClass.imgCssClass">
+    <div v-if="imageUrl" :class="['articolo', ...classiDisposizione]">
+      <div v-rivela :class="['articolo__figura', classeEntrata]">
         <BaseCarosello v-if="Array.isArray(imageUrl)" :autoplay="3000" ciclico>
           <img
             v-for="(img, index) in imageUrl"
@@ -18,21 +18,22 @@
             @click="showImage(img)"
           />
         </BaseCarosello>
-        <img v-else :src="helper.getImgUrl(imageUrl)" class="img-fluid" :class="{'small-img' : small}" alt="">
+        <span v-else class="articolo__cornice">
+          <img :src="helper.getImgUrl(imageUrl)" class="articolo__foto" alt="">
+        </span>
       </div>
-      <div class="col col-sm-12 text-start" :class="imgArticleClass.textCssClass">
-        <p v-for="(text, index) in texts" v-bind:key="index">
+
+      <div v-rivela class="articolo__testo" style="transition-delay: 160ms">
+        <p v-for="(text, index) in texts" :key="index">
           <Markdown :source="text" :html="true" class="markdown-mdv"></Markdown>
         </p>
       </div>
     </div>
 
-    <div v-else class="row my-4">
-      <div class="col col-sm-12 align-self-start">
-        <p v-for="(text, index) in texts" v-bind:key="index">
-          <Markdown :source="text" :breaks="true" class="markdown-mdv"></Markdown>
-        </p>
-      </div>
+    <div v-else class="articolo__testo">
+      <p v-for="(text, index) in texts" :key="index">
+        <Markdown :source="text" :breaks="true" class="markdown-mdv"></Markdown>
+      </p>
     </div>
   </BaseRiquadro>
 </template>
@@ -60,18 +61,21 @@ export default {
     allineamentoTitolo() {
       return 'right' === this.align ? 'text-md-start fs-3' : 'text-md-end fs-3';
     },
-    imgArticleClass() {
-      if (Array.isArray(this.imageUrl))
-        return {"imgCssClass" : "order-last"};
-      let imgCssClass = this.small ? "col-md-4 " : "col-md-6 ";
-      let textCssClass = this.small ? "col-md-8 " : "col-md-6 ";
-
-      imgCssClass += 'right' === this.align ? "order-md-last text-end" : "";
-
-      return {
-        "imgCssClass" : imgCssClass,
-        "textCssClass": textCssClass
-      }
+    // Erano quattro classi di griglia composte a mano in una stringa.
+    // Sono due sole decisioni: quanto e' larga la figura, e da che parte
+    // sta. Un carosello di foto va sempre in fondo, sotto al testo.
+    // La figura arriva dalla parte dove si fermera': il movimento
+    // racconta la disposizione invece di essere uguale per tutto.
+    classeEntrata() {
+      if (Array.isArray(this.imageUrl)) return '';
+      return 'right' === this.align ? 'da-rivelare--da-destra' : 'da-rivelare--da-sinistra';
+    },
+    classiDisposizione() {
+      if (Array.isArray(this.imageUrl)) return ['articolo--galleria'];
+      return [
+        this.small ? 'articolo--figura-stretta' : 'articolo--meta',
+        'right' === this.align ? 'articolo--figura-a-destra' : '',
+      ].filter(Boolean);
     }
   },
   methods: {
@@ -88,14 +92,43 @@ export default {
 </script>
 
 <style scoped>
-p {
+.articolo {
+  display: grid;
+  gap: var(--mdv-spazio-5);
+  margin: var(--mdv-spazio-5) 0;
+  align-items: center;
+}
+.articolo__figura {
+  text-align: center;
+}
+/* La cornice da' alla foto una forma stabile: prima ogni immagine
+   arrivava con le sue proporzioni e le sezioni si allineavano a caso.
+   Il ritaglio e' dentro la cornice, quindi la colonna non cambia altezza
+   a seconda di che foto ci finisce. */
+.articolo__cornice {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--mdv-raggio-m);
+  aspect-ratio: 4 / 3;
+  background-color: var(--mdv-fondo-scheda);
+}
+.articolo__foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms var(--mdv-curva-morbida);
+}
+@media (hover: hover) {
+  .articolo:hover .articolo__foto {
+    transform: scale(1.04);
+  }
+}
+.articolo__testo :deep(p),
+.articolo__testo p {
   font-family: var(--mdv-font-alternativo);
   font-size: 1.3rem;
 }
-.small-img {
-  max-width: 22rem;
-  margin: auto;
-}
+
 /* Le vecchie regole .carousel__slide con le rotazioni in 3D erano classi
    della libreria: sparita quella, non avevano piu' niente da colpire. */
 .anteprima {
@@ -106,11 +139,28 @@ p {
   cursor: pointer;
 }
 
+/* Sotto questa larghezza figura e testo stanno uno sopra l'altro: due
+   colonne su un telefono non sono due colonne, sono due strisce. */
+@media (min-width: 48rem) {
+  .articolo--meta {
+    grid-template-columns: 1fr 1fr;
+  }
+  .articolo--figura-stretta {
+    grid-template-columns: 1fr 2fr;
+  }
+  .articolo--figura-a-destra .articolo__figura {
+    order: 2;
+  }
+}
+/* La galleria occupa tutta la riga e sta sotto al testo. */
+.articolo--galleria .articolo__figura {
+  order: 2;
+}
+
 @media only screen and (max-width: 480px) {
-  img {
-    max-width: 19rem !important;
-    padding: 0 !important;
-    margin-bottom: 1rem !important;
+  .articolo__foto {
+    max-width: 19rem;
+    margin-bottom: var(--mdv-spazio-3);
   }
 }
 </style>

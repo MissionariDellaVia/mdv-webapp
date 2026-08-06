@@ -80,7 +80,7 @@ export default {
   components: { MdvArticle, MdvVideoHeader, MdvBlogCard },
   created () {
     this.loadPage("chi-siamo");
-    this.loadBlogPosts(3);
+    this.loadBlogPosts(6);
   },
   data() {
     return {
@@ -171,18 +171,25 @@ export default {
   margin: 0;
 }
 
-/* In colonna sul telefono; su schermo largo il primo occupa la colonna
-   grande e gli altri due si impilano accanto. */
+/* In colonna sul telefono, due colonne sul tablet, tre da schermo largo.
+   Il piu' recente occupa due caselle per due: gli altri gli si dispongono
+   intorno da soli, senza che nessuno debba contare quanti sono. */
 .griglia-blog {
   display: grid;
   gap: var(--mdv-spazio-6) var(--mdv-spazio-5);
 }
-@media (min-width: 62rem) {
+@media (min-width: 45rem) {
   .griglia-blog {
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: repeat(2, 1fr);
     align-items: start;
   }
+}
+@media (min-width: 62rem) {
+  .griglia-blog {
+    grid-template-columns: repeat(3, 1fr);
+  }
   .griglia-blog .in-rilievo {
+    grid-column: span 2;
     grid-row: span 2;
   }
 }

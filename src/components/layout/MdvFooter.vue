@@ -1,63 +1,54 @@
 <template>
-  <footer class="py-5 entra-velata">
-    <div class="container">
+  <footer class="pie entra-velata">
+    <div class="mx-auto w-full max-w-6xl px-4 py-12">
 
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <!-- Le bandiere erano una libreria da 259 paesi per i sei che
-               servono, e Vite le incorporava tutte nel foglio di stile.
-               Ora sono sei file, e sono bottoni: prima erano <span>, quindi
-               col tabulatore non si raggiungevano. -->
-          <button
-            v-for="lingua in lingue"
-            :key="lingua.codice"
-            type="button"
-            class="bandiera"
-            :class="{ 'bandiera--attiva': lingua.codice === linguaCorrente }"
-            :aria-label="lingua.nome"
-            :aria-current="lingua.codice === linguaCorrente ? 'true' : null"
-            @click="changeLang(lingua.codice)"
-          >
-            <img :src="helper.getImgUrl(`bandiere/${lingua.bandiera}.svg`)" alt="" />
-          </button>
-        </div>
+      <div class="pie__lingue">
+        <!-- Le bandiere erano una libreria da 259 paesi per le sei che
+             servono. Ora sono sei file, e sono bottoni: prima erano
+             <span>, quindi col tabulatore non si raggiungevano. -->
+        <button
+          v-for="lingua in lingue"
+          :key="lingua.codice"
+          type="button"
+          class="bandiera"
+          :class="{ 'bandiera--attiva': lingua.codice === linguaCorrente }"
+          :aria-label="lingua.nome"
+          :aria-current="lingua.codice === linguaCorrente ? 'true' : null"
+          @click="changeLang(lingua.codice)"
+        >
+          <img :src="helper.getImgUrl(`bandiere/${lingua.bandiera}.svg`)" alt="" />
+        </button>
       </div>
 
-      <div class="row mx-auto my-5 gy-3">
-        <div v-for="(footer, index) in footerList" v-bind:key="index" class="col-sm-3 hoverable">
-          <h5 class="text-center">{{ footer.title }}</h5>
-          <a target="_blank" :href="`${footer.to}`">
-            <img class="img-fluid" :src="helper.getImgUrl(`${footer.image}`)" :alt="footer.image"/>
+      <div class="pie__marchi">
+        <div v-for="(voce, index) in footerList" :key="index" class="pie__marchio">
+          <h2 class="pie__nome">{{ voce.title }}</h2>
+          <a target="_blank" rel="noopener noreferrer" :href="voce.to">
+            <img :src="helper.getImgUrl(voce.image)" :alt="voce.title" />
           </a>
         </div>
       </div>
 
-<!--      <div class="row">-->
-<!--        <div class="col-md-12">-->
-<!--          <p class="text-center">Puoi seguirci anche su:</p>-->
-<!--        </div>-->
-<!--      </div>-->
-      <div class="row mb-4 text-center">
-        <ul class="list-inline social-network social-circle">
-          <li><a target="_blank" rel="noopener noreferrer"
-                 href="https://www.facebook.com/people/Missionari-e-Missionarie-della-Via/100068706078801/"
-                 class="icoFacebook " title="Facebook"><i class="fa fa-facebook fa-xl"></i></a></li>
-          <li><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/missionaridellavia/"
-                 class="icoInstagram " title="Instagram"><i class="fa-brands fa-instagram fa-xl"></i></a></li>
-          <li><a target="_blank" rel="noopener noreferrer"
-                 href="https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA" class="icoYoutube " title="Youtube"><i
-              class="fa-brands fa-youtube fa-xl"></i></a></li>
-        </ul>
-      </div>
+      <ul class="pie__social">
+        <li v-for="rete in social" :key="rete.nome">
+          <a
+            :href="rete.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            :title="rete.nome"
+            :class="['pie__social-link', `pie__social-link--${rete.chiave}`]"
+          >
+            <i :class="rete.icona" aria-hidden="true"></i>
+            <span class="sr-only">{{ rete.nome }}</span>
+          </a>
+        </li>
+      </ul>
 
-      <div class="row mb-4">
-        <div class="col-md-12 copy">
-          <p class="text-center">&copy; Copyright 2022 - Missionari della Via. Tutti i diritti riservati.</p>
-        </div>
-      </div>
+      <p class="pie__firma">
+        &copy; Copyright 2022 - Missionari della Via. Tutti i diritti riservati.
+      </p>
     </div>
   </footer>
-
 </template>
 
 <script>
@@ -71,6 +62,14 @@ export default {
     return {
       helper: this.$util,
       isLoading: false,
+      social: [
+        { chiave: 'facebook', nome: 'Facebook', icona: 'fa-brands fa-facebook-f',
+          href: 'https://www.facebook.com/people/Missionari-e-Missionarie-della-Via/100068706078801/' },
+        { chiave: 'instagram', nome: 'Instagram', icona: 'fa-brands fa-instagram',
+          href: 'https://www.instagram.com/missionaridellavia/' },
+        { chiave: 'youtube', nome: 'YouTube', icona: 'fa-brands fa-youtube',
+          href: 'https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA' },
+      ],
       lingue: [
         { codice: 'it', bandiera: 'it', nome: 'Italiano' },
         { codice: 'en', bandiera: 'gb', nome: 'English' },
@@ -114,117 +113,75 @@ export default {
 </script>
 
 <style scoped>
-footer {
+.pie {
   background: var(--mdv-bruno-900-velato);
-  -webkit-box-shadow: inset 0 2px 13px 6px var(--mdv-bruno-900-velato);
-  -moz-box-shadow: inset 0 2px 13px 6px var(--mdv-bruno-900-velato);
   box-shadow: inset 0 2px 13px 6px var(--mdv-bruno-900-velato);
-  color: white;
-  position: relative;
-  bottom: 0;
+  color: var(--mdv-bianco);
 }
 
-.hoverable {
-  transition-duration: 0.2s;
-  transform: scale(0.95);
+.pie__lingue {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--mdv-spazio-2);
 }
 
-.hoverable:hover {
-  transform: scale(1.1);
-  color: var(--mdv-sabbia);
+.pie__marchi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: var(--mdv-spazio-5);
+  margin: var(--mdv-spazio-6) 0;
+}
+.pie__marchio {
+  text-align: center;
+  transition: transform 0.25s var(--mdv-curva-morbida);
+}
+.pie__nome {
+  font-family: var(--mdv-font-navigazione);
+  font-size: 1rem;
+  margin-bottom: var(--mdv-spazio-3);
+}
+.pie__marchio img {
+  max-width: 100%;
+  height: auto;
+  margin: auto;
 }
 
-.copy {
-  font-size: 0.8rem;
-  padding: 0.8rem;
-  border-top: 1px solid var(--mdv-bianco);
-}
-
-ul.social-network {
+.pie__social {
+  display: flex;
+  justify-content: center;
+  gap: var(--mdv-spazio-3);
   list-style: none;
-  display: inline;
-  margin-left: 0 !important;
   padding: 0;
+  margin: 0 0 var(--mdv-spazio-6);
 }
-
-ul.social-network li {
-  display: inline;
-  margin: 0 5px;
-}
-
-.social-network a.icoFacebook:hover {
-  background-color: var(--mdv-social-facebook);
-}
-
-.social-network a.icoInstagram:hover {
-  background-color: var(--mdv-social-instagram);
-}
-
-.social-network a.icoYoutube:hover {
-  background-color: var(--mdv-social-youtube);
-}
-
-.social-network a.icoFacebook:hover i,
-.social-network a.icoInstagram:hover i,
-.social-network a.icoYoutube:hover i {
-  color: var(--mdv-bianco);
-}
-
-.social-network a.socialIcon:hover,
-.socialHoverClass {
-  color: var(--mdv-social-telegram);
-}
-
-.social-circle li a {
-  display: inline-block;
-  position: relative;
-  margin: 0 auto 0 auto;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
+.pie__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2rem;
+  height: 3.2rem;
   border-radius: 50%;
-  text-align: center;
-  width: 3.5rem;
-  height: 3.5rem;
   font-size: 1.2rem;
-}
-
-.social-circle li i {
-  margin: 0;
-  line-height: 3.5rem;
   color: var(--mdv-bianco);
-  text-align: center;
-}
-
-.social-circle li a:hover i,
-.triggeredHover {
-  -moz-transform: rotate(360deg);
-  -webkit-transform: rotate(360deg);
-  -ms--transform: rotate(360deg);
-  transform: rotate(360deg);
-  -webkit-transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  -ms-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.social-circle i {
-  color: var(--mdv-grigio-scuro);
-  -webkit-transition: all 0.8s;
-  -moz-transition: all 0.8s;
-  -o-transition: all 0.8s;
-  -ms-transition: all 0.8s;
-  transition: all 0.8s;
-}
-
-.social-network a {
   background-color: var(--mdv-sabbia);
-  transition: all 0.8s;
+  transition: background-color 0.5s ease, transform 0.5s ease;
+}
+.pie__social-link:focus-visible {
+  outline: 2px solid var(--mdv-sabbia-chiara);
+  outline-offset: 3px;
+}
+
+.pie__firma {
+  padding-top: var(--mdv-spazio-4);
+  border-top: 1px solid var(--mdv-bianco);
+  font-size: 0.8rem;
+  text-align: center;
+  margin: 0;
 }
 
 .bandiera {
   padding: var(--mdv-spazio-1);
-  margin: 0 var(--mdv-spazio-2);
   border: none;
   background: none;
   cursor: pointer;
@@ -245,10 +202,26 @@ ul.social-network li {
   outline: 2px solid var(--mdv-sabbia);
   outline-offset: 3px;
 }
+
 @media (hover: hover) {
   .bandiera:hover {
     opacity: 1;
     transform: scale(1.25);
+  }
+  .pie__marchio:hover {
+    transform: scale(1.06);
+  }
+  .pie__social-link:hover {
+    transform: rotate(360deg);
+  }
+  .pie__social-link--facebook:hover {
+    background-color: var(--mdv-social-facebook);
+  }
+  .pie__social-link--instagram:hover {
+    background-color: var(--mdv-social-instagram);
+  }
+  .pie__social-link--youtube:hover {
+    background-color: var(--mdv-social-youtube);
   }
 }
 </style>

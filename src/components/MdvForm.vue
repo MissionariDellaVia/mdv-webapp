@@ -1,46 +1,44 @@
 <template>
-  <div class="card">
-
+  <BaseRiquadro class="modulo">
     <base-toast :show="!!toast.val" :type="toast.type">
       {{ toast.message }}
     </base-toast>
 
-    <div v-if="title" class="card-header">
-      <div class="text-center fs-3">{{ title }}</div>
-    </div>
-    <div class="card-body my-3">
-      <form class="mx-auto" @submit.prevent="submitForm">
-        <div class="row mb-3">
-          <div class="col">
-            <div class="form-floating">
-              <input type="text" class="form-control" v-model="name" id="name" placeholder="Mario">
-              <label for="floatingInput">{{ nameField }}</label>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-floating">
-              <input type="text" class="form-control" v-model="lastName" id="lastName" placeholder="Rossi">
-              <label for="floatingInput">{{ lastNameField }}</label>
-            </div>
-          </div>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="email" class="form-control" v-model="email" id="email" placeholder="name@example.com">
-          <label for="floatingInput">Email</label>
-        </div>
-        <div class="form-floating  mb-3">
-          <textarea class="form-control" v-model="textArea" id="textArea" placeholder="inserire una richiesta"
-                    rows="4"></textarea>
-          <label for="floatingInput">{{ textField }}</label>
-        </div>
-        <div class="row mb-3">
-          <div class="col-12 text-center">
-            <button type="submit" class="btn btn-contact"> {{ buttonName }}</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+    <template v-if="title" #testata>
+      <div class="text-center">{{ title }}</div>
+    </template>
+
+    <form class="modulo__campi" @submit.prevent="submitForm">
+      <!-- Le etichette puntavano tutte a "floatingInput", che non esiste:
+           cliccarle non metteva il fuoco in nessun campo, e un lettore di
+           schermo leggeva quattro volte lo stesso nome. Ora ognuna e'
+           legata al suo. -->
+      <div class="modulo__coppia">
+        <p class="modulo__campo">
+          <label for="nome">{{ nameField }}</label>
+          <input id="nome" v-model="name" type="text" autocomplete="given-name" />
+        </p>
+        <p class="modulo__campo">
+          <label for="cognome">{{ lastNameField }}</label>
+          <input id="cognome" v-model="lastName" type="text" autocomplete="family-name" />
+        </p>
+      </div>
+
+      <p class="modulo__campo">
+        <label for="posta">Email</label>
+        <input id="posta" v-model="email" type="email" autocomplete="email" />
+      </p>
+
+      <p class="modulo__campo">
+        <label for="messaggio">{{ textField }}</label>
+        <textarea id="messaggio" v-model="textArea" rows="5"></textarea>
+      </p>
+
+      <p class="modulo__invio">
+        <button type="submit" class="mdv-invito">{{ buttonName }}</button>
+      </p>
+    </form>
+  </BaseRiquadro>
 </template>
 
 <script>
@@ -113,62 +111,62 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  border: 0;
+.modulo {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+.modulo__campi {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mdv-spazio-4);
+}
+.modulo__coppia {
+  display: grid;
+  gap: var(--mdv-spazio-4);
 }
 
-.card-header {
+.modulo__campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mdv-spazio-2);
+  margin: 0;
+}
+.modulo__campo label {
+  font-family: var(--mdv-font-navigazione);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mdv-grigio);
+}
+.modulo__campo input,
+.modulo__campo textarea {
+  width: 100%;
+  padding: var(--mdv-spazio-3);
+  border: 1px solid var(--mdv-sabbia);
+  border-radius: var(--mdv-raggio-s);
+  background-color: var(--mdv-bianco);
   font-family: var(--mdv-font-corpo);
-  color: var(--mdv-bianco);
-  border: 0;
-  background: var(--mdv-bruno-900-velato);
+  font-size: 1rem;
+  color: var(--mdv-bruno-900);
+  transition: border-color 240ms ease;
+}
+.modulo__campo textarea {
+  resize: vertical;
+}
+.modulo__campo input:focus,
+.modulo__campo textarea:focus {
+  outline: none;
+  border-color: var(--mdv-oro);
 }
 
-p {
-  font-family: var(--mdv-font-alternativo);
-  font-size: 1.3rem;
+.modulo__invio {
+  margin: var(--mdv-spazio-2) 0 0;
+  text-align: center;
 }
 
-img {
-  max-width: 22rem;
-  margin: auto;
-}
-
-form {
-  width: 60%;
-  margin: auto;
-}
-
-.form-control {
-  background-color: var(--mdv-fondo-campo);
-  border-color: transparent;
-  color: var(--mdv-bruno-900-velato) !important;
-}
-
-.form-floating {
-  color: var(--mdv-bruno-900-velato) !important;
-}
-
-label {
-  margin-left: 0.75rem;
-}
-
-input:focus, textarea:focus, button:focus {
-  box-shadow: none;
-  background-color: var(--mdv-fondo-campo) !important;
-  border-color: transparent !important;
-}
-
-.btn-contact {
-  background-color: var(--mdv-bruno-900-velato);
-  color: var(--mdv-bianco);
-  font-size: 1.2rem;
-  border-radius: 0;
-}
-
-@media only screen and (max-width: 480px) {
-  form {
-    width: 100%;
+@media (min-width: 36rem) {
+  .modulo__coppia {
+    grid-template-columns: 1fr 1fr;
   }
 }
 </style>

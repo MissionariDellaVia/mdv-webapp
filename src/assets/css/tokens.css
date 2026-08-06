@@ -334,7 +334,16 @@
   .da-rivelare {
     opacity: 0;
     transform: translateY(8px);
-    transition: opacity 500ms ease, transform 500ms ease;
+    transition: opacity 700ms var(--mdv-curva-morbida), transform 700ms var(--mdv-curva-morbida);
+  }
+  /* Chi entra di lato invece che dal basso: serve a far arrivare una
+     figura dalla parte dove poi si ferma, cosi' il movimento racconta la
+     disposizione invece di essere uguale per tutto. */
+  .da-rivelare--da-sinistra {
+    transform: translateX(-2rem);
+  }
+  .da-rivelare--da-destra {
+    transform: translateX(2rem);
   }
   .rivelato {
     opacity: 1;
