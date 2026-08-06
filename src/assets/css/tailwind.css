@@ -1,0 +1,47 @@
+/* Tailwind, senza il preflight.
+ *
+ * Il preflight e' l'azzeramento degli stili di base: toglie i margini
+ * predefiniti a titoli e paragrafi, la punteggiatura agli elenchi, e
+ * riporta tutto a zero. E' giusto averlo — ma non finche' Bootstrap e'
+ * ancora caricato, perche' i due azzeramenti si contendono gli stessi
+ * elementi e chi vince dipende dall'ordine degli import. Le pagine non
+ * ancora migrate cambierebbero aspetto senza che nessuno le abbia toccate.
+ *
+ * Si aggiunge tornando qui e sostituendo queste righe con
+ * `@import "tailwindcss";`, il giorno in cui il foglio di Bootstrap esce
+ * da main.js. Quello e' anche il momento di guardarsi tutte le pagine.
+ */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+/* I token restano l'unica fonte dei valori visivi: qui si limitano a
+ * diventare anche nomi di utility. Scrivere text-oro significa leggere
+ * var(--mdv-oro), quindi l'atmosfera vocazionale continua a ribaltare
+ * tutto ridefinendo le stesse variabili — cosa che con dei colori copiati
+ * dentro Tailwind non funzionerebbe.
+ */
+@theme inline {
+  --color-bruno: var(--mdv-bruno-900);
+  --color-bruno-velato: var(--mdv-bruno-900-velato);
+  --color-terra: var(--mdv-terra);
+  --color-oro: var(--mdv-oro);
+  --color-oro-scuro: var(--mdv-oro-scuro);
+  --color-oro-chiaro: var(--mdv-oro-chiaro);
+  --color-sabbia: var(--mdv-sabbia);
+  --color-sabbia-chiara: var(--mdv-sabbia-chiara);
+  --color-crema: var(--mdv-crema);
+  --color-pietra: var(--mdv-pietra);
+  --color-panna: var(--mdv-bianco);
+  --color-grigio: var(--mdv-grigio);
+  --color-grigio-scuro: var(--mdv-grigio-scuro);
+  --color-scheda: var(--mdv-fondo-scheda);
+  --color-campo: var(--mdv-fondo-campo);
+
+  --font-titolo: var(--mdv-font-titolo);
+  --font-corpo: var(--mdv-font-corpo);
+  --font-navigazione: var(--mdv-font-navigazione);
+  --font-alternativo: var(--mdv-font-alternativo);
+
+  --ease-morbida: var(--mdv-curva-morbida);
+}

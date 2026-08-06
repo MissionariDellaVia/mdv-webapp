@@ -1,6 +1,7 @@
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import tailwind from '@tailwindcss/vite';
 import { rotteDaPubblicare } from './src/router/instradamento.mjs';
 
 const BASE_SITO = 'https://www.missionaridellavia.net';
@@ -42,7 +43,7 @@ export default defineConfig(({ command }) => ({
   // In sviluppo il sito sta sotto /mdv-webapp/ come prima, in produzione
   // alla radice: cambiarlo adesso spaccherebbe i segnalibri di chi lavora.
   base: command === 'build' ? '/' : '/mdv-webapp/',
-  plugins: [vue(), sitemap()],
+  plugins: [vue(), tailwind(), sitemap()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

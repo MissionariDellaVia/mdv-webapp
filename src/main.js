@@ -19,6 +19,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 // Token visivi: unica fonte di colori, font e spaziature
 import './assets/css/tokens.css';
+// Dopo i token: Tailwind ne fa anche dei nomi di utility.
+import './assets/css/tailwind.css';
 
 // Markdown
 import Markdown from 'vue3-markdown-it';
