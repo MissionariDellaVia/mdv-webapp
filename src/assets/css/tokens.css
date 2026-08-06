@@ -15,6 +15,14 @@
     --mdv-bruno-600: #4a3a0f;
     --mdv-terra: #6e4f3a;
 
+    /* Rame. E' la terra portata verso il rosso: stessa tinta di fondo,
+       piu' satura. Serve alla barra quando si entra nella sezione
+       vocazionale — un colore che si nota senza uscire dalla tavolozza,
+       e che sta bene accanto al tau della comunita'. */
+    --mdv-rame: #b0623c;
+    --mdv-rame-chiaro: #dd9a72;
+    --mdv-rame-acceso: #f6c5a3;
+
     /* Oro */
     --mdv-oro: #8c681c;
     --mdv-oro-scuro: #59411a;
@@ -188,13 +196,28 @@
      Vale solo dentro /vocazione: uscendo, la classe se ne va e la barra
      torna esattamente com'era. */
   .voc-atmosfera .mdv-navlink--chiaro {
-    color: var(--mdv-oro-chiaro);
+    color: var(--mdv-rame-chiaro);
   }
   .voc-atmosfera .mdv-navlink--chiaro::after {
-    background-color: var(--mdv-oro);
+    background-color: var(--mdv-rame-chiaro);
   }
+  /* La voce da cui si e' entrati resta accesa per tutto il tempo che si
+     sta dentro: un rame piu' chiaro e un alone, che e' l'unico bagliore
+     di tutta la barra e quindi non ha bisogno di essere forte. */
   .voc-atmosfera .mdv-navlink--chiaro.mdv-navlink--attivo {
-    color: var(--mdv-oro-brillante);
+    color: var(--mdv-rame-acceso);
+    text-shadow: 0 0 14px color-mix(in srgb, var(--mdv-rame-chiaro) 55%, transparent);
+  }
+  .voc-atmosfera .mdv-navlink--chiaro.mdv-navlink--attivo::after {
+    background-color: var(--mdv-rame-acceso);
+  }
+  /* L'alone si accende e si spegne con il resto, non di colpo. */
+  .mdv-navlink--chiaro {
+    text-shadow: 0 0 0 transparent;
+    transition:
+      opacity 220ms ease,
+      color 450ms ease,
+      text-shadow var(--mdv-transito-atmosfera) ease;
   }
 
   /* L'area di rimbalzo dello scroll resta bianca se non si tinge anche il

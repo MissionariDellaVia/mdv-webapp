@@ -31,7 +31,7 @@
             <router-link
               v-else
               :class="['mdv-navlink', 'mdv-navlink--chiaro', 'barra__link',
-                       { 'mdv-navlink--attivo': $route.path === item.to }]"
+                       { 'mdv-navlink--attivo': voceAttiva($route.path, item.to) }]"
               :to="item.to"
             >{{ item.title }}</router-link>
           </template>
@@ -157,6 +157,7 @@
 <script>
 import { usaPagina } from '@/store/pagina.mjs';
 import BaseCassetto from '@/components/ui/BaseCassetto.vue';
+import { voceAttiva } from '@/utility/voceAttiva.mjs';
 
 // Sotto questa larghezza le voci non ci stanno in riga e passano nel
 // cassetto. E' la stessa soglia che usava navbar-expand-lg.
@@ -193,6 +194,7 @@ export default {
     window.removeEventListener('keydown', this.chiudiConEsc);
   },
   methods: {
+    voceAttiva,
     updateScroll() {
       this.scrollPosition = window.scrollY;
     },
