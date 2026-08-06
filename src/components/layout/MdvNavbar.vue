@@ -23,7 +23,11 @@
               rel="noopener noreferrer"
               :href="item.to"
               class="barra__link"
-            >{{ item.title }}</a>
+            >
+              {{ item.title }}
+              <span class="fuori" aria-hidden="true">↗</span>
+              <span class="sr-only">(si apre in una nuova scheda)</span>
+            </a>
             <router-link v-else class="barra__link" :to="item.to">{{ item.title }}</router-link>
           </template>
 
@@ -46,7 +50,11 @@
                   :href="sotto.to"
                   class="barra__sottolink"
                   @click="apertoIndice = null"
-                >{{ sotto.title }}</a>
+                >
+                  {{ sotto.title }}
+                  <span class="fuori" aria-hidden="true">↗</span>
+                  <span class="sr-only">(si apre in una nuova scheda)</span>
+                </a>
                 <router-link
                   v-else
                   class="barra__sottolink"
@@ -80,7 +88,11 @@
                 :href="item.to"
                 class="menu__link"
                 @click="chiudi"
-              >{{ item.title }}</a>
+              >
+                {{ item.title }}
+                <span class="fuori" aria-hidden="true">↗</span>
+                <span class="sr-only">(si apre in una nuova scheda)</span>
+              </a>
               <router-link v-else class="menu__link" :to="item.to" @click="chiudi">
                 {{ item.title }}
               </router-link>
@@ -112,7 +124,11 @@
                     :href="sotto.to"
                     class="menu__link menu__link--sotto"
                     @click="chiudi"
-                  >{{ sotto.title }}</a>
+                  >
+                    {{ sotto.title }}
+                    <span class="fuori" aria-hidden="true">↗</span>
+                    <span class="sr-only">(si apre in una nuova scheda)</span>
+                  </a>
                   <router-link
                     v-else
                     class="menu__link menu__link--sotto"
@@ -275,25 +291,58 @@ export default {
   outline-offset: 3px;
 }
 
+/* Era un riquadro scuro appoggiato al bordo, senza forma e senza stacco:
+   sembrava un pezzo di barra caduto giu'. Ora e' una scheda, con un
+   respiro sopra e un'ombra che la stacca dalla pagina. */
 .barra__pannello {
   position: absolute;
-  top: 100%;
+  top: calc(100% + var(--mdv-spazio-2));
   right: 0;
-  min-width: 14rem;
+  min-width: 15rem;
   list-style: none;
-  padding: var(--mdv-spazio-2) 0;
+  padding: var(--mdv-spazio-2);
   margin: 0;
+  border: 1px solid color-mix(in srgb, var(--mdv-sabbia) 30%, transparent);
+  border-radius: var(--mdv-raggio-m);
   background: var(--mdv-bruno-900-velato);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1rem 2.5rem var(--mdv-ombra-media);
+  animation: pannello-entra 240ms var(--mdv-curva-morbida) both;
 }
+/* Una linguetta che lega il pannello alla voce da cui esce. */
+.barra__pannello::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--mdv-spazio-2) * -1);
+  right: 0;
+  left: 0;
+  height: var(--mdv-spazio-2);
+}
+@keyframes pannello-entra {
+  from { opacity: 0; transform: translateY(-0.4rem); }
+  to   { opacity: 1; transform: none; }
+}
+
 .barra__sottolink {
-  display: block;
-  padding: var(--mdv-spazio-2) var(--mdv-spazio-4);
+  display: flex;
+  align-items: center;
+  gap: var(--mdv-spazio-2);
+  padding: var(--mdv-spazio-3);
+  border-radius: var(--mdv-raggio-s);
   font-size: var(--mdv-testo-s);
   text-decoration: none;
   color: var(--mdv-sabbia-chiara);
   white-space: nowrap;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+/* Il segno di uscita: dice che quel link porta via dal sito, e con lui
+   la nota che i lettori di schermo annunciano. */
+.fuori {
+  font-size: 0.75em;
+  opacity: 0.55;
+  transition: opacity 200ms ease, transform 200ms ease;
 }
 .barra__sottolink:focus-visible {
   outline: 2px solid var(--mdv-sabbia);
@@ -335,6 +384,13 @@ export default {
   }
   .barra__sottolink:hover {
     color: var(--mdv-bianco);
+    background-color: color-mix(in srgb, var(--mdv-sabbia) 18%, transparent);
+  }
+  .barra__link:hover .fuori,
+  .barra__sottolink:hover .fuori,
+  .menu__link:hover .fuori {
+    opacity: 1;
+    transform: translate(1px, -1px);
   }
 }
 

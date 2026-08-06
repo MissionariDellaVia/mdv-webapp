@@ -28,21 +28,8 @@
     },
     {
       "type": "link",
-      "title": "blog",
-      "to": "https://blogdeipiccolidellavia.blogspot.com/",
-      "external": true
-    },
-    {
-      "type": "link",
-      "title": "Laity",
-      "to": "https://www.cristianidistrada.net",
-      "external": true
-    },
-    {
-      "type": "link",
-      "title": "Gospel Way",
-      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
-      "external": true
+      "title": "pray with us",
+      "to": "/prega-con-noi"
     },
     {
       "type": "link",
@@ -55,14 +42,27 @@
       "links": [
         {
           "type": "link",
-          "title": "Youtube channel",
-          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "title": "blog",
+          "to": "https://blogdeipiccolidellavia.blogspot.com/",
           "external": true
         },
         {
           "type": "link",
-          "title": "pray with us",
-          "to": "/prega-con-noi"
+          "title": "Laity",
+          "to": "https://www.cristianidistrada.net",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "Gospel Way",
+          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "Youtube channel",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
         }
       ]
     }
@@ -96,21 +96,8 @@
     },
     {
       "type": "link",
-      "title": "blog",
-      "to": "https://blogdeipiccolidellavia.blogspot.com/",
-      "external": true
-    },
-    {
-      "type": "link",
-      "title": "Calle del Evangelio",
-      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
-      "external": true
-    },
-    {
-      "type": "link",
-      "title": "Laicos",
-      "to": "https://www.cristianidistrada.net",
-      "external": true
+      "title": "reza con nosotros",
+      "to": "/prega-con-noi"
     },
     {
       "type": "link",
@@ -123,14 +110,27 @@
       "links": [
         {
           "type": "link",
-          "title": "canal de Youtube",
-          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "title": "blog",
+          "to": "https://blogdeipiccolidellavia.blogspot.com/",
           "external": true
         },
         {
           "type": "link",
-          "title": "reza con nosotros",
-          "to": "/prega-con-noi"
+          "title": "Calle del Evangelio",
+          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "Laicos",
+          "to": "https://www.cristianidistrada.net",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "canal de Youtube",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
         }
       ]
     }
@@ -164,21 +164,8 @@
     },
     {
       "type": "link",
-      "title": "blog",
-      "to": "https://blogdeipiccolidellavia.blogspot.com/",
-      "external": true
-    },
-    {
-      "type": "link",
-      "title": "Leigos",
-      "to": "https://www.cristianidistrada.net",
-      "external": true
-    },
-    {
-      "type": "link",
-      "title": "Rua do Evangelho",
-      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
-      "external": true
+      "title": "Ore conosco",
+      "to": "/prega-con-noi"
     },
     {
       "type": "link",
@@ -191,14 +178,27 @@
       "links": [
         {
           "type": "link",
-          "title": "canal do Youtube",
-          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "title": "blog",
+          "to": "https://blogdeipiccolidellavia.blogspot.com/",
           "external": true
         },
         {
           "type": "link",
-          "title": "Ore conosco",
-          "to": "/prega-con-noi"
+          "title": "Leigos",
+          "to": "https://www.cristianidistrada.net",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "Rua do Evangelho",
+          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "canal do Youtube",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
         }
       ]
     }
@@ -232,42 +232,41 @@
     },
     {
       "type": "link",
-      "title": "blog",
-      "to": "https://blogdeipiccolidellavia.blogspot.com/",
-      "external": true
-    },
-    {
-      "type": "link",
-      "title": "Laici",
-      "to": "https://www.cristianidistrada.net",
-      "external": true
-    },
-    {
-      "type": "link",
-      "title": "Via del Vangelo",
-      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
-      "external": true
+      "title": "prega con noi",
+      "to": "/prega-con-noi"
     },
     {
       "type": "link",
       "title": "contatti",
       "to": "/contatti"
     },
-
     {
       "type": "dropdown",
       "title": "altro",
       "links": [
         {
           "type": "link",
-          "title": "canale youtube",
-          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "title": "blog",
+          "to": "https://blogdeipiccolidellavia.blogspot.com/",
           "external": true
         },
         {
           "type": "link",
-          "title": "prega con noi",
-          "to": "/prega-con-noi"
+          "title": "Laici",
+          "to": "https://www.cristianidistrada.net",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "Via del Vangelo",
+          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "canale youtube",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
         }
       ]
     }
@@ -301,21 +300,8 @@
     },
     {
       "type": "link",
-      "title": "blog",
-      "to": "https://blogdeipiccolidellavia.blogspot.com/",
-      "external": true
-    },
-    {
-      "type": "link",
-      "title": "Laïcs",
-      "to": "https://www.cristianidistrada.net",
-      "external": true
-    },
-    {
-      "type": "link",
-      "title": "Rue de l'Évangile",
-      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
-      "external": true
+      "title": "Priez avec nous",
+      "to": "/prega-con-noi"
     },
     {
       "type": "link",
@@ -328,14 +314,27 @@
       "links": [
         {
           "type": "link",
-          "title": "Chaîne YouTube",
-          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "title": "blog",
+          "to": "https://blogdeipiccolidellavia.blogspot.com/",
           "external": true
         },
         {
           "type": "link",
-          "title": "Priez avec nous",
-          "to": "/prega-con-noi"
+          "title": "Laïcs",
+          "to": "https://www.cristianidistrada.net",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "Rue de l'Évangile",
+          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "Chaîne YouTube",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
         }
       ]
     }
@@ -369,21 +368,8 @@
     },
     {
       "type": "link",
-      "title": "blog",
-      "to": "https://blogdeipiccolidellavia.blogspot.com/",
-      "external": true
-    },
-    {
-      "type": "link",
-      "title": "świeccy",
-      "to": "https://www.cristianidistrada.net",
-      "external": true
-    },
-    {
-      "type": "link",
-      "title": "Ulica Ewangelii",
-      "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
-      "external": true
+      "title": "módlcie się z nami",
+      "to": "/prega-con-noi"
     },
     {
       "type": "link",
@@ -396,14 +382,27 @@
       "links": [
         {
           "type": "link",
-          "title": "kanał Youtube",
-          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "title": "blog",
+          "to": "https://blogdeipiccolidellavia.blogspot.com/",
           "external": true
         },
         {
           "type": "link",
-          "title": "módlcie się z nami",
-          "to": "/prega-con-noi"
+          "title": "świeccy",
+          "to": "https://www.cristianidistrada.net",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "Ulica Ewangelii",
+          "to": "https://missionaridellavia.github.io/mdv-gospel-way-app/#/",
+          "external": true
+        },
+        {
+          "type": "link",
+          "title": "kanał Youtube",
+          "to": "https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA",
+          "external": true
         }
       ]
     }
