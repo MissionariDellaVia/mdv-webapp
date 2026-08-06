@@ -32,7 +32,14 @@
       <span class="voc-intestazione__filo entra entra--4" aria-hidden="true"></span>
 
       <!-- Il menu resta montato: e' il punto fermo della sezione. -->
-      <nav v-if="voci.length" class="voc-intestazione__menu entra entra--5" :aria-label="etichettaMenu">
+      <nav
+        v-if="voci.length"
+        ref="menu"
+        :class="['voc-intestazione__menu', 'entra', 'entra--5', {
+          'voc-intestazione__menu--a-capo': menuACapo,
+        }]"
+        :aria-label="etichettaMenu"
+      >
         <router-link
           v-for="voce in voci"
           :key="voce.nome"
@@ -48,6 +55,8 @@
 </template>
 
 <script>
+import { adattamento } from '@/utility/adattaMenu.mjs';
+
 export default {
   name: 'VocIntestazione',
   props: {
@@ -61,9 +70,73 @@ export default {
     voci: { type: Array, default: () => [] },
     etichettaMenu: { type: String, default: 'Sezione' },
   },
+  data() {
+    return { menuACapo: false };
+  },
   computed: {
     fondale() {
       return this.immagine ? this.$util.getImgUrl(this.immagine) : '';
+    },
+  },
+  mounted() {
+    // Le voci si misurano da disegnate: quanto sono larghe dipende dal
+    // font, e il font puo' arrivare dopo il primo disegno.
+    this.adattaMenu();
+    if (typeof ResizeObserver === 'function') {
+      // Solo la larghezza: andare a capo cambia l'altezza del menu, e
+      // reagire anche a quella vorrebbe dire rimisurare per una cosa
+      // che abbiamo appena fatto noi — un anello senza fine.
+      this.osservatore = new ResizeObserver(([voce]) => {
+        const larghezza = voce && voce.contentRect.width;
+        if (larghezza === this.ultimaLarghezza) return;
+        this.ultimaLarghezza = larghezza;
+        this.adattaMenu();
+      });
+      if (this.$refs.menu) this.osservatore.observe(this.$refs.menu);
+    }
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => this.adattaMenu());
+    }
+  },
+  beforeUnmount() {
+    if (this.osservatore) this.osservatore.disconnect();
+  },
+  watch: {
+    voci() {
+      this.$nextTick(() => this.adattaMenu());
+    },
+  },
+  methods: {
+    // Quanto e' larga la riga a grandezza naturale. Si sommano le voci
+    // invece di leggere scrollWidth perche' senza overflow nascosto
+    // scrollWidth non conta quel che sborda, e qui non vogliamo piu'
+    // nascondere niente.
+    larghezzaVoci(menu) {
+      const voci = Array.from(menu.children);
+      if (!voci.length) return 0;
+      const spazio = parseFloat(getComputedStyle(menu).columnGap) || 0;
+      const somma = voci.reduce((tot, voce) => tot + voce.getBoundingClientRect().width, 0);
+      return somma + spazio * (voci.length - 1);
+    },
+    adattaMenu() {
+      const menu = this.$refs.menu;
+      if (!menu) return;
+
+      // Si misura sempre a grandezza naturale e su una riga sola,
+      // altrimenti si misurerebbe il risultato del giro precedente e il
+      // menu si rimpicciolirebbe a ogni ridimensionamento.
+      const capoPrecedente = menu.style.flexWrap;
+      menu.style.flexWrap = 'nowrap';
+      menu.style.setProperty('--fattore-menu', '1');
+
+      const stile = getComputedStyle(menu);
+      const disponibile = menu.clientWidth
+        - parseFloat(stile.paddingLeft) - parseFloat(stile.paddingRight);
+      const { fattore, aCapo } = adattamento(this.larghezzaVoci(menu), disponibile);
+
+      menu.style.flexWrap = capoPrecedente;
+      menu.style.setProperty('--fattore-menu', String(fattore));
+      this.menuACapo = aCapo;
     },
   },
 };
@@ -175,34 +248,24 @@ export default {
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  /* "safe" evita che, quando la riga non ci sta, il centraggio nasconda
-     la prima voce oltre il bordo sinistro dell'area che scorre. */
+  /* "safe" e' la rete: se una misura arrivasse sbagliata, il centraggio
+     spingerebbe la prima voce oltre il bordo sinistro, dove non si
+     raggiunge piu'. Cosi' invece resta dentro. */
   justify-content: safe center;
-  gap: clamp(var(--mdv-spazio-3), 2.4vw, var(--mdv-spazio-5));
+  /* Corpo del testo e spaziature scalano insieme, con lo stesso fattore:
+     e' per questo che una passata di misura basta e non serve iterare —
+     la larghezza della riga e' esattamente proporzionale al fattore. */
+  gap: calc(clamp(var(--mdv-spazio-3), 2.4vw, var(--mdv-spazio-5)) * var(--fattore-menu, 1));
   max-width: 100%;
   padding-inline: var(--mdv-spazio-2);
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  /* La riga scorre ma la barra e' nascosta, quindi quando non ci sta
-     l'ultima voce viene tagliata a meta' parola e basta: "Proposta" si
-     legge "Propost", e sembra un errore di battitura invece che un menu
-     che continua. Le due sfumature ai bordi dicono che c'e' dell'altro.
-     Quando la riga ci sta tutta cadono sullo spazio vuoto ai lati e non
-     si vedono, quindi non serve accenderle a mano.
-     "black" qui non e' un colore: di una maschera conta solo l'opacita'. */
-  --sfumatura: linear-gradient(
-    to right,
-    transparent 0,
-    black var(--mdv-spazio-5),
-    black calc(100% - var(--mdv-spazio-5)),
-    transparent 100%
-  );
-  -webkit-mask-image: var(--sfumatura);
-  mask-image: var(--sfumatura);
 }
-.voc-intestazione__menu::-webkit-scrollbar {
-  display: none;
+
+/* L'ultima spiaggia, quando nemmeno alla misura minima le voci ci
+   stanno: sotto quella soglia non si leggerebbero piu', e una riga che
+   va a capo e' meglio di una riga illeggibile. Non si taglia mai. */
+.voc-intestazione__menu--a-capo {
+  flex-wrap: wrap;
+  row-gap: var(--mdv-spazio-2);
 }
 
 /* Il gesto e' quello di .mdv-navlink, condiviso con tutto il sito. Qui
@@ -210,7 +273,7 @@ export default {
    capo e deve rimpicciolirsi quando lo schermo stringe. */
 .voc-intestazione__voce {
   flex: 0 0 auto;
-  font-size: clamp(0.78rem, 1.35vw, 0.92rem);
+  font-size: calc(clamp(0.78rem, 1.35vw, 0.92rem) * var(--fattore-menu, 1));
   white-space: nowrap;
 }
 
