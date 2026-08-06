@@ -1,104 +1,81 @@
 <template>
   <section>
-    <div v-if="isLoading">
-      <base-spinner></base-spinner>
-    </div>
+    <MDHeader
+      :image="pregaConNoiPage.header.backgroundImage"
+      :title="pregaConNoiPage.header.title"
+      :caption="pregaConNoiPage.header.caption"
+    />
 
-    <div v-else >
-      <MDHeader :image="pregaConNoiPage.header.backgroundImage"
-                :title="pregaConNoiPage.header.title"
-                :caption="pregaConNoiPage.header.caption"/>
-
-      <div class="container">
-        <!-- Main Section -->
-        <main>
-          <div class="row text-center my-5">
-            <div class="col-12 px-5">
-              <h1 class="main-title my-4"> {{ pregaConNoiPage.main.title }} </h1>
-              <h4 v-if="pregaConNoiPage.main.caption" class="caption"> <Markdown :source="pregaConNoiPage.main.caption" :html="true" class="markdown-mdv"></Markdown></h4>
-            </div>
-          </div>
-          <div v-if="pregaConNoiPage.main.strings" class="row text-center my-5">
-            <div class="col-md-12 col-sm-12 px-5">
-              <p v-for="(text, index) in pregaConNoiPage.main.strings" v-bind:key="index">
-                <Markdown :source="text" :html="true" class="markdown-mdv"></Markdown>
-              </p>
-            </div>
-          </div>
-        </main>
-
-        <div class="row text-center gy-4 my-5">
-          <div v-for="(image, index) in pregaConNoiPage.main.images" v-bind:key="index" class="col-md-6 col-sm-12" >
-            <img :src=helper.getImgUrl(image.url) class="img-fluid" :alt="image.alt"/>
-          </div>
+    <div class="mx-auto w-full max-w-6xl px-4">
+      <main class="my-12 px-4 text-center">
+        <h1 class="titolo my-6">{{ pregaConNoiPage.main.title }}</h1>
+        <div v-if="pregaConNoiPage.main.caption" class="occhiello">
+          <Markdown :source="pregaConNoiPage.main.caption" :html="true" class="markdown-mdv" />
         </div>
 
+        <div v-if="pregaConNoiPage.main.strings" class="prosa mt-12">
+          <p v-for="(testo, index) in pregaConNoiPage.main.strings" :key="index">
+            <Markdown :source="testo" :html="true" class="markdown-mdv" />
+          </p>
+        </div>
+      </main>
+
+      <div class="my-12 grid gap-6 sm:grid-cols-2">
+        <img
+          v-for="(image, index) in pregaConNoiPage.main.images"
+          :key="index"
+          :src="helper.getImgUrl(image.url)"
+          :alt="image.alt"
+          class="h-auto w-full"
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import { usaPagina } from '@/store/pagina.mjs';
 import MDHeader from "@/components/layout/MdvHeader.vue";
 import Markdown from 'vue3-markdown-it';
+import { usaPagina } from '@/store/pagina.mjs';
 
 export default {
   name: "PregaPerNoiPage",
   setup() {
     return { pagina: usaPagina() };
   },
-  components: { MDHeader, Markdown},
+  components: { MDHeader, Markdown },
+  // Questa pagina legge solo il JSON locale: il contenuto c'e' gia' al
+  // primo disegno. Lo spinner che la avvolgeva aspettava una promessa che
+  // si risolveva nello stesso istante, e faceva solo sparire la pagina.
   created() {
-    this.loadPage("prega-con-noi");
+    this.pagina.caricaPagina("prega-con-noi");
   },
   data() {
-    return {
-      helper: this.$util,
-      isLoading: false,
-    };
+    return { helper: this.$util };
   },
   computed: {
     pregaConNoiPage() {
       return this.pagina.pregaConNoi;
     },
   },
-  methods: {
-    async loadPage(page) {
-      this.isLoading = true;
-      try {
-        await this.pagina.caricaPagina(page);
-      } catch (error) {
-        console.error("Errore nel caricamento della pagina:", error);
-      }
-      this.isLoading = false;
-    },
-  }
 }
 </script>
 
 <style scoped>
-.main-title {
+.titolo {
   font-family: var(--mdv-font-corpo);
-  font-weight: 400 !important;
+  font-weight: 400;
   font-size: 2.8rem;
 }
-.caption {
+.occhiello {
   font-family: var(--mdv-font-corpo);
+  font-size: 1.4rem;
   line-height: 1.75;
   font-style: italic;
 }
-p {
+.prosa :deep(p),
+.prosa p {
   font-family: var(--mdv-font-alternativo);
   font-size: 1.2rem;
 }
-a {
-  text-decoration: none;
-  color: var(--mdv-oro) !important;
-  margin-bottom: 1.2rem;
-}
-.md a:hover, .md a:focus {
-  color: var(--mdv-oro-scuro);
-}
-
 </style>

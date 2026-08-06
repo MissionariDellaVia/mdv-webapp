@@ -155,10 +155,14 @@ export default {
   flex: 0 0 auto;
 }
 
+/* Frecce e punti stanno al centro, sotto le schede: i punti erano
+   spinti a sinistra da un margine automatico e l'insieme sembrava
+   appoggiato a un bordo invece che alla pista. */
 .carosello__comandi {
   display: flex;
   align-items: center;
-  gap: var(--mdv-spazio-3);
+  justify-content: center;
+  gap: var(--mdv-spazio-4);
   margin-top: var(--mdv-spazio-3);
 }
 .carosello__freccia {
@@ -183,7 +187,7 @@ export default {
   gap: var(--mdv-spazio-2);
   list-style: none;
   padding: 0;
-  margin: 0 auto 0 0;
+  margin: 0;
 }
 .carosello__punto {
   width: 1.6rem;
