@@ -1,13 +1,67 @@
 <template>
-  <nav class="navbar fixed-top navbar-expand-lg entra-velata" :class="{changeColor: scrollPosition > 50}">
-    <div class="container">
-      <router-link class="navbar-brand" :to="{ name: 'chi-siamo' }">
-        <img src="../../assets/logo.png" alt="Missionari della Via" class="logo-navbar"/>
+  <nav class="barra" :class="{ 'barra--tinta': scrollPosition > 50 }">
+    <div class="container barra__contenuto">
+      <router-link class="barra__marchio" :to="{ name: 'chi-siamo' }">
+        <img src="../../assets/logo.png" alt="Missionari della Via" class="barra__logo" />
       </router-link>
+
+      <!-- Su schermo largo le voci stanno in riga; sotto la soglia
+           passano nel cassetto. Sono lo stesso elenco: cambia solo dove
+           viene disegnato. -->
+      <ul class="barra__voci">
+        <li
+          v-for="(item, index) in navbarItems"
+          :key="index"
+          class="barra__voce"
+          @mouseenter="apriGruppo(item, index)"
+          @mouseleave="apertoIndice = null"
+        >
+          <template v-if="item.type === 'link'">
+            <a
+              v-if="item.external"
+              target="_blank"
+              rel="noopener noreferrer"
+              :href="item.to"
+              class="barra__link"
+            >{{ item.title }}</a>
+            <router-link v-else class="barra__link" :to="item.to">{{ item.title }}</router-link>
+          </template>
+
+          <template v-else-if="item.type === 'dropdown'">
+            <button
+              type="button"
+              class="barra__link barra__link--gruppo"
+              :aria-expanded="apertoIndice === index ? 'true' : 'false'"
+              @click="apertoIndice = apertoIndice === index ? null : index"
+            >
+              {{ item.title }}
+              <span class="barra__freccia" aria-hidden="true">⌄</span>
+            </button>
+            <ul v-show="apertoIndice === index" class="barra__pannello">
+              <li v-for="(sotto, idx) in item.links" :key="idx">
+                <a
+                  v-if="sotto.external"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  :href="sotto.to"
+                  class="barra__sottolink"
+                  @click="apertoIndice = null"
+                >{{ sotto.title }}</a>
+                <router-link
+                  v-else
+                  class="barra__sottolink"
+                  :to="sotto.to"
+                  @click="apertoIndice = null"
+                >{{ sotto.title }}</router-link>
+              </li>
+            </ul>
+          </template>
+        </li>
+      </ul>
 
       <button
         type="button"
-        class="navbar-toggler"
+        class="barra__apri"
         aria-label="Apri il menu"
         :aria-expanded="cassettoAperto ? 'true' : 'false'"
         @click="cassettoAperto = true"
@@ -33,20 +87,23 @@
             </template>
 
             <template v-else-if="item.type === 'dropdown'">
-              <!-- Il pannello a comparsa era un dropdown di Bootstrap.
-                   Qui e' un bottone che apre un elenco: dentro un cassetto
-                   che si legge dall'alto in basso, aprire in verticale e'
-                   anche piu' naturale che far spuntare un riquadro. -->
+              <!-- Dentro un cassetto che si legge dall'alto in basso,
+                   aprire in verticale e' piu' naturale che far spuntare
+                   un riquadro. -->
               <button
                 type="button"
                 class="menu__link menu__link--gruppo"
-                :aria-expanded="apertoIndice === index ? 'true' : 'false'"
-                @click="apertoIndice = apertoIndice === index ? null : index"
+                :aria-expanded="gruppoCassetto === index ? 'true' : 'false'"
+                @click="gruppoCassetto = gruppoCassetto === index ? null : index"
               >
                 {{ item.title }}
-                <span class="menu__freccia" :class="{ 'menu__freccia--su': apertoIndice === index }" aria-hidden="true">⌄</span>
+                <span
+                  class="menu__freccia"
+                  :class="{ 'menu__freccia--su': gruppoCassetto === index }"
+                  aria-hidden="true"
+                >⌄</span>
               </button>
-              <ul v-show="apertoIndice === index" class="menu__sottoelenco">
+              <ul v-show="gruppoCassetto === index" class="menu__sottoelenco">
                 <li v-for="(sotto, idx) in item.links" :key="idx">
                   <a
                     v-if="sotto.external"
@@ -76,6 +133,10 @@
 import { usaPagina } from '@/store/pagina.mjs';
 import BaseCassetto from '@/components/ui/BaseCassetto.vue';
 
+// Sotto questa larghezza le voci non ci stanno in riga e passano nel
+// cassetto. E' la stessa soglia che usava navbar-expand-lg.
+const SOGLIA_CASSETTO = '(max-width: 991.98px)';
+
 export default {
   name: "MdvNavbar",
   components: { BaseCassetto },
@@ -87,6 +148,7 @@ export default {
       scrollPosition: null,
       cassettoAperto: false,
       apertoIndice: null,
+      gruppoCassetto: null,
     }
   },
   computed: {
@@ -97,66 +159,183 @@ export default {
   // Niente watch su $route: la navbar spariva e riappariva a ogni
   // navigazione, ed e' quello a far sembrare che si ricarichi tutto.
   // Sta ferma, cambia solo il contenuto sotto.
-  created () {
+  created() {
     window.addEventListener('scroll', this.updateScroll);
+    window.addEventListener('keydown', this.chiudiConEsc);
   },
   beforeUnmount() {
     window.removeEventListener('scroll', this.updateScroll);
+    window.removeEventListener('keydown', this.chiudiConEsc);
   },
   methods: {
     updateScroll() {
-      this.scrollPosition = window.scrollY
+      this.scrollPosition = window.scrollY;
+    },
+    // Il passaggio del mouse apre il gruppo solo dove un mouse c'e'
+    // davvero: sul tocco resterebbe aperto dopo il tocco.
+    apriGruppo(item, index) {
+      if (item.type !== 'dropdown') return;
+      if (!window.matchMedia('(hover: hover)').matches) return;
+      if (window.matchMedia(SOGLIA_CASSETTO).matches) return;
+      this.apertoIndice = index;
+    },
+    chiudiConEsc(evento) {
+      if (evento.key === 'Escape') this.apertoIndice = null;
     },
     chiudi() {
       this.cassettoAperto = false;
-      this.apertoIndice = null;
+      this.gruppoCassetto = null;
     },
   },
 }
 </script>
 
 <style scoped>
-nav {
+.barra {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  height: var(--mdv-altezza-navbar);
+  display: flex;
+  align-items: center;
   font-family: var(--mdv-font-navigazione);
+  background: transparent;
+  transition: background 0.4s ease-in-out;
+}
+.barra--tinta {
+  background: var(--mdv-bruno-900-velato);
+}
+.barra__contenuto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mdv-spazio-4);
 }
 
 /* Il logo era un'immagine da 60x73 disegnata a grandezza naturale: su uno
    schermo a densita' doppia — cioe' su qualunque schermo di oggi — veniva
    ingrandita e si vedeva sfocata. Stessa grandezza a video, ma presa dal
-   file grande che era gia' in cartella: 313 pixel di sorgente per 72 a
-   video reggono anche gli schermi a densita' tripla. */
-.logo-navbar {
+   file grande che era gia' in cartella. */
+.barra__logo {
   height: 4.5rem;
   width: auto;
-  max-width: 100%;
+  display: block;
 }
 
-.navbar {
-  height: var(--mdv-altezza-navbar);
-  background: transparent;
-  transition: background .4s ease-in-out;
+/* ── Voci in riga, da schermo largo ──────────────────────────────────── */
+.barra__voci {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 auto;
+  gap: var(--mdv-spazio-5);
 }
-.changeColor {
-  background: var(--mdv-bruno-900-velato);
+.barra__voce {
+  position: relative;
 }
-
-.navbar-toggler {
+.barra__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mdv-spazio-2);
+  padding: var(--mdv-spazio-2) 0;
   border: none;
-  border-radius: 0;
+  background: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--mdv-sabbia-chiara);
+  cursor: pointer;
+  position: relative;
+}
+.barra__link::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: var(--mdv-sabbia);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.barra__link.router-link-active::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.barra__link:focus-visible {
+  outline: 2px solid var(--mdv-sabbia);
+  outline-offset: 3px;
+}
+
+.barra__pannello {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 14rem;
+  list-style: none;
+  padding: var(--mdv-spazio-2) 0;
+  margin: 0;
+  background: var(--mdv-bruno-900-velato);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.barra__sottolink {
+  display: block;
+  padding: var(--mdv-spazio-2) var(--mdv-spazio-4);
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--mdv-sabbia-chiara);
+  white-space: nowrap;
+}
+.barra__sottolink:focus-visible {
+  outline: 2px solid var(--mdv-sabbia);
+  outline-offset: -2px;
+}
+
+/* ── Pulsante del cassetto, fino a schermo largo ─────────────────────── */
+.barra__apri {
+  border: none;
   background: none;
   cursor: pointer;
+  line-height: 0;
 }
-.navbar-toggler > i {
+.barra__apri > i {
   color: var(--mdv-sabbia);
   font-size: 2rem;
 }
-.navbar-toggler:focus-visible {
+.barra__apri:focus-visible {
   outline: 2px solid var(--mdv-sabbia);
   outline-offset: 2px;
 }
 
-/* Il menu vive dentro il cassetto, che è teletrasportato sul body: gli
-   stili con ambito non lo raggiungerebbero, quindi passano da :deep. */
+@media (min-width: 992px) {
+  .barra__voci {
+    display: flex;
+  }
+  .barra__apri {
+    display: none;
+  }
+}
+
+@media (hover: hover) {
+  .barra__link:hover {
+    color: var(--mdv-bianco);
+  }
+  .barra__link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  .barra__sottolink:hover {
+    color: var(--mdv-bianco);
+  }
+}
+
+/* Il menu del cassetto e' teletrasportato sul body: gli stili con ambito
+   non lo raggiungerebbero, quindi passano da :deep. */
 :deep(.menu) {
   list-style: none;
   padding: 0;
