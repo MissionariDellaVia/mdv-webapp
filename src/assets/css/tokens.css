@@ -178,9 +178,15 @@ body:has(.voc-atmosfera) {
    ridefinisce. Gli stessi link funzionano sul chiaro e sullo scuro. */
 
 /* I link dentro il markdown sono la maggioranza dei link del sito e
-   nessuno puo' mettergli una classe: li si prende dal contenitore. */
+   nessuno puo' mettergli una classe: li si prende dal contenitore.
+
+   Un link senza nessuna classe e' un link nel testo, e prende lo stesso
+   trattamento: senza questa regola si becca il blu predefinito di
+   Bootstrap — succedeva ai numeri di telefono e agli indirizzi email dei
+   contatti. Con una classe qualunque, comanda quella. */
 .mdv-link,
-.markdown-mdv a {
+.markdown-mdv a,
+a:not([class]) {
   color: var(--mdv-oro-scuro);
   text-decoration: underline;
   /* Il filo c'e' gia', tenue: il link non si accende quando ti avvicini. */
@@ -194,7 +200,8 @@ body:has(.voc-atmosfera) {
     text-decoration-thickness 220ms ease;
 }
 .mdv-link:focus-visible,
-.markdown-mdv a:focus-visible {
+.markdown-mdv a:focus-visible,
+a:not([class]):focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 3px;
   border-radius: 2px;
@@ -265,7 +272,8 @@ body:has(.voc-atmosfera) {
    tocco restavano appiccicati addosso al link dopo averlo lasciato. */
 @media (hover: hover) {
   .mdv-link:hover,
-  .markdown-mdv a:hover {
+  .markdown-mdv a:hover,
+  a:not([class]):hover {
     color: var(--mdv-oro);
     text-decoration-color: currentColor;
     text-decoration-thickness: 2px;

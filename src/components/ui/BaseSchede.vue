@@ -36,9 +36,8 @@
 // Linguette al posto dei "pill" di Bootstrap, che avevano bisogno del suo
 // JavaScript. Il markup di prima dichiarava aria-controls="pills-home"
 // identico su ogni linguetta: per un lettore di schermo puntavano tutte
-// allo stesso pannello, e nessuna a quello giusto. Qui ogni linguetta e'
-// legata al suo, e le frecce spostano la selezione come previsto dalle
-// regole di accessibilita' per questo tipo di comando.
+// allo stesso pannello, e nessuna a quello giusto. Qui ognuna e' legata al
+// suo, e le frecce spostano la selezione come previsto per questo comando.
 let contatore = 0;
 
 export default {
@@ -77,30 +76,55 @@ export default {
 </script>
 
 <style scoped>
+/* Erano blocchi bruni pieni, uno per riga, a tutta larghezza: pesavano
+   quanto il contenuto che dovevano annunciare. Qui sono parole in fila su
+   un filo, e la sola scelta accesa e' quella attiva. */
 .schede__linguette {
   display: flex;
-  flex-direction: column;
-  gap: var(--mdv-spazio-2);
-  margin-bottom: var(--mdv-spazio-4);
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--mdv-spazio-2) var(--mdv-spazio-5);
+  border-bottom: 1px solid var(--mdv-sabbia);
+  margin-bottom: var(--mdv-spazio-6);
 }
 
 .schede__linguetta {
-  width: 100%;
-  padding: var(--mdv-spazio-3) var(--mdv-spazio-4);
+  position: relative;
+  padding: var(--mdv-spazio-3) var(--mdv-spazio-1);
   border: none;
-  font-family: var(--mdv-font-corpo);
-  font-size: 1.5rem;
-  color: var(--mdv-bianco);
-  background-color: var(--mdv-bruno-900-velato);
+  background: none;
+  font-family: var(--mdv-font-navigazione);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  color: var(--mdv-bruno-900);
+  opacity: 0.6;
   cursor: pointer;
-  transition: background-color 0.25s ease;
+  transition: opacity 260ms ease, color 260ms ease;
+}
+/* Il filo dell'attiva copre quello del contenitore: e' la stessa riga,
+   accesa nel punto in cui ti trovi. */
+.schede__linguetta::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 2px;
+  background-color: var(--mdv-oro);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 320ms var(--mdv-curva-morbida);
 }
 .schede__linguetta--attiva {
-  background-color: var(--mdv-sabbia);
+  opacity: 1;
+  color: var(--mdv-oro);
+}
+.schede__linguetta--attiva::after {
+  transform: scaleX(1);
 }
 .schede__linguetta:focus-visible {
   outline: 2px solid var(--mdv-oro);
-  outline-offset: -4px;
+  outline-offset: 2px;
 }
 .schede__pannello:focus-visible {
   outline: 2px solid var(--mdv-oro);
@@ -109,13 +133,17 @@ export default {
 
 @media (hover: hover) {
   .schede__linguetta:hover {
-    background-color: var(--mdv-sabbia);
+    opacity: 1;
+    color: var(--mdv-oro-scuro);
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media (max-width: 576px) {
+  .schede__linguette {
+    gap: var(--mdv-spazio-1) var(--mdv-spazio-4);
+  }
   .schede__linguetta {
-    font-size: 1.1rem;
+    font-size: 0.88rem;
   }
 }
 </style>
