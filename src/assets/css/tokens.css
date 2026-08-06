@@ -427,6 +427,8 @@
   .da-rivelare--da-destra {
     transform: translateX(2rem);
   }
+  /* Deve venire dopo .da-rivelare: la sovrascrive senza toglierla, cosi'
+     la transizione dichiarata li' resta e il passaggio si vede. */
   .rivelato {
     opacity: 1;
     transform: none;

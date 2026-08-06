@@ -41,7 +41,11 @@ function stacca(el) {
 }
 
 function rivela(el) {
-  el.classList.remove(CLASSE_NASCOSTO);
+  // La classe "nascosto" NON si toglie: e' lei a dichiarare la
+  // transizione. Togliendola, il browser non ha piu' niente da cui
+  // interpolare e l'elemento salta da trasparente a pieno di colpo.
+  // "rivelato" viene dopo nel foglio e ne sovrascrive i valori: la
+  // transizione resta e il passaggio si vede.
   el.classList.add(CLASSE_RIVELATO);
   stacca(el);
 }
