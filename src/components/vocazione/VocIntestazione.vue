@@ -184,6 +184,22 @@ export default {
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  /* La riga scorre ma la barra e' nascosta, quindi quando non ci sta
+     l'ultima voce viene tagliata a meta' parola e basta: "Proposta" si
+     legge "Propost", e sembra un errore di battitura invece che un menu
+     che continua. Le due sfumature ai bordi dicono che c'e' dell'altro.
+     Quando la riga ci sta tutta cadono sullo spazio vuoto ai lati e non
+     si vedono, quindi non serve accenderle a mano.
+     "black" qui non e' un colore: di una maschera conta solo l'opacita'. */
+  --sfumatura: linear-gradient(
+    to right,
+    transparent 0,
+    black var(--mdv-spazio-5),
+    black calc(100% - var(--mdv-spazio-5)),
+    transparent 100%
+  );
+  -webkit-mask-image: var(--sfumatura);
+  mask-image: var(--sfumatura);
 }
 .voc-intestazione__menu::-webkit-scrollbar {
   display: none;
