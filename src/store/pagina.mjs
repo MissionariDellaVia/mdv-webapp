@@ -41,23 +41,31 @@ function contenutoLocale(lingua, pagina) {
   return (data[lingua] && data[lingua][pagina]) || null;
 }
 
+// I luoghi arrivano da Supabase in forma grezza. Qui diventano il dato
+// che serve alla pagina — niente di piu'.
+//
+// Prima uscivano di qui gia' vestiti di markdown: l'indirizzo con il nome
+// in grassetto dentro l'elenco, le etichette scritte "**Telefono:**".
+// Erano scelte di grafica infilate nei dati perche' la vecchia pagina
+// passava tutto da un rendering markdown. Come si presenta un numero di
+// telefono lo decide la pagina, non lo store.
 function costruisciLuoghi(gruppi, lingua) {
   const etichette = ETICHETTE_CONTATTI[lingua] || ETICHETTE_CONTATTI.it;
-  return (gruppi || []).map((g) => {
-    const righeIndirizzo = String(g.address || '')
-      .split('\n').map((s) => s.trim()).filter(Boolean);
-    return {
-      title: g.city || g.title,
-      address: [`**${g.title}**`, ...righeIndirizzo],
-      phone: { title: `**${etichette.phone}:**`, number: g.phone || '' },
-      emails: (g.emails || []).map((e) => ({
-        title: `**${etichette[e.type] || e.type}:**`,
-        email: e.email,
-      })),
-      lat: g.latitude != null ? String(g.latitude) : null,
-      lng: g.longitude != null ? String(g.longitude) : null,
-    };
-  });
+  return (gruppi || []).map((g) => ({
+    chiave: g.key,
+    titolo: g.title,
+    citta: g.city || '',
+    indirizzo: String(g.address || '')
+      .split('\n').map((r) => r.trim()).filter(Boolean),
+    telefono: g.phone || '',
+    etichettaTelefono: etichette.phone,
+    posta: (g.emails || []).map((e) => ({
+      etichetta: etichette[e.type] || e.type,
+      indirizzo: e.email,
+    })),
+    lat: g.latitude != null ? String(g.latitude) : null,
+    lng: g.longitude != null ? String(g.longitude) : null,
+  }));
 }
 
 export const usaPagina = defineStore('pagina', {
@@ -105,11 +113,11 @@ export const usaPagina = defineStore('pagina', {
       }
 
       if (pagina === 'contatti') {
-        const base = contenutoLocale(lingua, 'contatti') || { header: {}, form: {}, places: [] };
-        this.riponi('contatti', { ...base, places: [] });
+        const base = contenutoLocale(lingua, 'contatti') || { header: {}, form: {}, luoghi: [] };
+        this.riponi('contatti', { ...base, luoghi: [] });
 
         const remoto = await fetchLocations(lingua);
-        this.riponi('contatti', { ...base, places: costruisciLuoghi(remoto.groups, lingua) });
+        this.riponi('contatti', { ...base, luoghi: costruisciLuoghi(remoto.groups, lingua) });
         return;
       }
 

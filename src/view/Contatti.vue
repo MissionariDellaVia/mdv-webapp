@@ -8,59 +8,86 @@
       :title="contattiPage.header.title"
     />
 
-    <div class="mx-auto w-full max-w-6xl px-4 py-12">
+    <div class="mx-auto w-full max-w-6xl px-4 py-16">
       <div v-if="isLoading" class="py-12">
         <base-spinner></base-spinner>
       </div>
 
-      <BaseRiquadro v-for="(sede, index) in contattiPage.places" :key="index" class="mb-12">
-        <template #testata>
-          <span class="nome-sede">{{ sede.title }}</span>
-        </template>
+      <!-- Ogni sede era una scheda dentro una colonna dentro una riga, con
+           dentro altre tre schede per indirizzo, telefono e posta. Per un
+           indirizzo, un numero e due email era tutta scatola e niente
+           contenuto. Qui la sede e' due colonne: da una parte cosa serve
+           sapere, dall'altra dove si trova. -->
+      <article
+        v-for="sede in contattiPage.luoghi"
+        :key="sede.chiave"
+        class="sede"
+        v-rivela
+      >
+        <div class="sede__dati">
+          <p v-if="sede.citta" class="sede__citta">{{ sede.citta }}</p>
+          <h2 class="sede__nome">{{ sede.titolo }}</h2>
 
-        <BaseMap :lat="sede.lat" :lng="sede.lng" />
+          <dl class="sede__elenco">
+            <div v-if="sede.indirizzo.length" class="sede__voce">
+              <dt class="sede__etichetta">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Indirizzo
+              </dt>
+              <dd class="sede__valore">
+                <span v-for="(riga, i) in sede.indirizzo" :key="i" class="block">{{ riga }}</span>
+              </dd>
+            </div>
 
-        <!-- Indirizzo, telefono e posta: tre riquadri affiancati dove ci
-             stanno, in colonna dove no. -->
-        <div class="mt-8 grid gap-6 md:grid-cols-3">
-          <MdvContactoButton>
-            <template #icona>
-              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-            </template>
-            <p v-for="(riga, i) in sede.address" :key="i">
-              <Markdown :source="riga" />
-            </p>
-          </MdvContactoButton>
+            <div v-if="sede.telefono" class="sede__voce">
+              <dt class="sede__etichetta">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i> {{ sede.etichettaTelefono }}
+              </dt>
+              <dd class="sede__valore">
+                <a :href="`tel:0039${sede.telefono}`">{{ sede.telefono }}</a>
+              </dd>
+            </div>
 
-          <MdvContactoButton>
-            <template #icona>
-              <i class="fa-solid fa-phone" aria-hidden="true"></i>
-            </template>
-            <p>
-              <Markdown :source="sede.phone.title" />
-              <a :href="`tel:0039${sede.phone.number}`">{{ sede.phone.number }}</a>
-            </p>
-          </MdvContactoButton>
+            <div v-if="sede.posta.length" class="sede__voce">
+              <dt class="sede__etichetta">
+                <i class="fa-regular fa-envelope" aria-hidden="true"></i> Scrivere
+              </dt>
+              <dd class="sede__valore">
+                <span v-for="(voce, i) in sede.posta" :key="i" class="block">
+                  <span class="sede__a-chi">{{ voce.etichetta }}</span>
+                  <a :href="`mailto:${voce.indirizzo}`">{{ voce.indirizzo }}</a>
+                </span>
+              </dd>
+            </div>
+          </dl>
 
-          <MdvContactoButton>
-            <template #icona>
-              <i class="fa-regular fa-envelope" aria-hidden="true"></i>
-            </template>
-            <p v-for="(posta, i) in sede.emails" :key="i">
-              <Markdown :source="posta.title" />
-              <a :href="`mailto:${posta.email}`">{{ posta.email }}</a>
-            </p>
-          </MdvContactoButton>
+          <!-- Su una pagina di contatti mancava la cosa piu' pratica: come
+               ci si arriva. -->
+          <a
+            v-if="sede.lat && sede.lng"
+            :href="`https://www.google.com/maps/dir/?api=1&destination=${sede.lat},${sede.lng}`"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mdv-invito mt-2"
+          >
+            Come arrivare
+            <span class="mdv-invito__freccia" aria-hidden="true">&rarr;</span>
+          </a>
         </div>
-      </BaseRiquadro>
 
-      <MdvForm
-        :title="contattiPage.form.title"
-        :button-name="contattiPage.form.buttonName"
-        :name-field="contattiPage.form.nameField"
-        :last-name-field="contattiPage.form.lastNameField"
-        :text-field="contattiPage.form.messageField"
-      />
+        <div class="sede__mappa">
+          <BaseMap :lat="sede.lat" :lng="sede.lng" />
+        </div>
+      </article>
+
+      <div class="modulo">
+        <MdvForm
+          :title="contattiPage.form.title"
+          :button-name="contattiPage.form.buttonName"
+          :name-field="contattiPage.form.nameField"
+          :last-name-field="contattiPage.form.lastNameField"
+          :text-field="contattiPage.form.messageField"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -68,10 +95,7 @@
 <script>
 import { usaPagina } from '@/store/pagina.mjs';
 import MDHeader from "@/components/layout/MdvHeader.vue";
-import MdvContactoButton from "@/components/MdvContactButton.vue";
 import MdvForm from "@/components/MdvForm.vue";
-import BaseRiquadro from "@/components/ui/BaseRiquadro.vue";
-import Markdown from 'vue3-markdown-it';
 import { defineAsyncComponent } from 'vue';
 
 // La mappa si porta dietro maplibre-gl, il pezzo piu' pesante di tutto il
@@ -84,15 +108,12 @@ export default {
   setup() {
     return { pagina: usaPagina() };
   },
-  components: {MdvForm, BaseMap, BaseRiquadro, MDHeader, MdvContactoButton, Markdown},
+  components: { MdvForm, BaseMap, MDHeader },
   created() {
     this.loadPage("contatti");
   },
   data() {
-    return {
-      helper: this.$util,
-      isLoading: false,
-    };
+    return { isLoading: false };
   },
   computed: {
     contattiPage() {
@@ -110,15 +131,87 @@ export default {
       this.isLoading = false;
     },
   }
-
 }
 </script>
 
 <style scoped>
-/* La scatola la disegna BaseRiquadro e i link li veste il sistema: qui
-   resta solo il nome della sede, che nella fascia sta piu' grande. */
-.nome-sede {
-  font-size: 1.8rem;
-  line-height: 1.3;
+.sede {
+  display: grid;
+  gap: var(--mdv-spazio-6);
+  padding-bottom: var(--mdv-spazio-6);
+  margin-bottom: var(--mdv-spazio-6);
+  border-bottom: 1px solid var(--mdv-sabbia);
+}
+
+.sede__citta {
+  margin: 0 0 var(--mdv-spazio-2);
+  font-family: var(--mdv-font-navigazione);
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--mdv-oro);
+}
+.sede__nome {
+  margin: 0 0 var(--mdv-spazio-5);
+  font-family: var(--mdv-font-corpo);
+  font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+  line-height: 1.25;
+  color: var(--mdv-bruno-900);
+}
+
+.sede__elenco {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--mdv-spazio-4);
+}
+.sede__etichetta {
+  display: flex;
+  align-items: center;
+  gap: var(--mdv-spazio-2);
+  margin-bottom: var(--mdv-spazio-1);
+  font-family: var(--mdv-font-navigazione);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mdv-grigio);
+}
+.sede__valore {
+  margin: 0;
+  font-family: var(--mdv-font-corpo);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--mdv-bruno-900);
+}
+.sede__a-chi {
+  display: inline-block;
+  min-width: 4.5rem;
+  font-family: var(--mdv-font-navigazione);
+  font-size: 0.85rem;
+  color: var(--mdv-grigio);
+}
+
+/* La mappa ha una forma sua e non galleggia dentro una scheda. */
+.sede__mappa {
+  overflow: hidden;
+  border-radius: var(--mdv-raggio-m);
+  border: 1px solid var(--mdv-sabbia);
+  min-height: 20rem;
+}
+.sede__mappa :deep(> *) {
+  height: 100%;
+  min-height: 20rem;
+}
+
+.modulo {
+  margin-top: var(--mdv-spazio-6);
+}
+
+@media (min-width: 56rem) {
+  .sede {
+    grid-template-columns: 5fr 6fr;
+    align-items: center;
+    gap: var(--mdv-spazio-6) var(--mdv-spazio-6);
+  }
 }
 </style>
