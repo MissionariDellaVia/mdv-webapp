@@ -1,10 +1,8 @@
-# This is a basic workflow to help you get started with Actions
-
 name: cicd-develop
 
 # Una proposta non pubblica. Fino ad agosto 2026 il deploy girava anche
-# su pull_request: aprire una PR sovrascriveva gh-pages con il build del
-# ramo proposto, prima ancora che qualcuno lo avesse guardato.
+# su pull_request: aprire una PR sovrascriveva l'ambiente di collaudo con
+# il build del ramo proposto, prima ancora che qualcuno lo avesse letto.
 #
 # Ora la PR fa i controlli, il push su develop pubblica.
 on:
@@ -13,12 +11,31 @@ on:
   pull_request:
     branches: [ "develop" ]
 
-  # Permette di lanciare il deploy a mano dalla scheda Actions.
+  # Permette di ripubblicare a mano dalla scheda Actions.
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# Il permesso minimo per pubblicare: scrivere il sito, e un token OIDC con
+# cui deploy-pages dimostra a Pages da quale workflow arriva l'artefatto.
+# Senza id-token il deployment viene creato e resta in coda per sempre.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Una pubblicazione alla volta, e in fila. Il 6 agosto 2026 tre deploy
+# partiti a pochi minuti l'uno dall'altro si sono annullati a vicenda e
+# hanno lasciato Pages in stato "errored". Qui non si annulla la corsa in
+# corso: pubblicare a meta' e' peggio che aspettare.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   # Su ogni proposta: lint, test e build. Non pubblica niente.
+  #
+  # Il build qui e' quello di produzione, cioe' quello che finisce su
+  # Aruba: e' l'unico modo di accorgersi se si rompe, visto che da questo
+  # repository non lo pubblica nessuno.
   controlli:
     name: Controlli
     runs-on: ubuntu-latest
@@ -27,9 +44,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22.x'
+          cache: npm
 
       - name: Install packages
-        run: npm ci || npm install
+        run: npm ci
 
       # Il build ha bisogno delle variabili: senza, non fallisce ma
       # produce un bundle senza configurazione.
@@ -51,28 +69,46 @@ jobs:
       - name: Build
         run: npm run build
 
-  # Solo su develop, o a mano: e' questo che pubblica.
-  gh-pages-deploy:
-    name: Deploying to Github Pages
+  # Solo su develop, o a mano: e' questo che pubblica l'ambiente di
+  # collaudo su https://missionaridellavia.github.io/mdv-webapp/.
+  #
+  # Fino ad agosto 2026 lo faceva scripts/gh-pages-deploy.js: costruiva un
+  # ramo orfano gh-pages, ci committava dentro dist e lo spingeva a forza.
+  # Erano tre cose sbagliate insieme — riscriveva la storia di un ramo,
+  # cambiava ramo dentro la CI (dove la testa e' staccata), e rifaceva il
+  # build senza che nessuno verificasse che fosse lo stesso che avevi
+  # provato. La via ufficiale carica un artefatto e lo consegna a Pages.
+  pubblica:
+    name: Pubblicazione di collaudo
     if: github.event_name != 'pull_request'
     needs: controlli
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    # L'URL pubblicato compare cosi' nella scheda del run e nella PR:
+    # e' il collegamento da mandare a chi deve guardare il lavoro.
+    environment:
+      name: github-pages
+      url: ${{ steps.pubblicazione.outputs.page_url }}
+
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-      - uses: fregante/setup-git-user@v1
+
+      # Dice a Pages che la sorgente e' questo workflow e non un ramo.
+      # Con enablement lo imposta da se': l'alternativa e' ricordarsi di
+      # cambiarlo a mano nelle impostazioni, e non ricordarselo.
+      - name: Prepara Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       - uses: actions/setup-node@v4
         with:
           node-version: '22.x'
+          cache: npm
 
-      # Runs install and build
       - name: Install packages
-        run: npm install
+        run: npm ci
 
-      # Le VITE_* non sono committate nel repo: si generano qui dai GitHub Secrets.
-      # (Sono valori client, finiscono nel bundle pubblico; i Secrets evitano di tenerli nel repo.)
       - name: Create .env from secrets
         run: |
           {
@@ -82,6 +118,18 @@ jobs:
             echo "VITE_BLOG_API_KEY=${{ secrets.VITE_BLOG_API_KEY }}"
           } > .env
 
-      - name: Deploy 🚀
-        run: npm run deploy
+      # --mode development: e' la modalita' che mette la base sotto
+      # /mdv-webapp/, che e' dove Pages serve il sito di progetto.
+      # Con la base sbagliata il sito si pubblica lo stesso e resta
+      # bianco, perche' ogni asset risponde 404.
+      - name: Build di collaudo
+        run: npm run stage
 
+      - name: Carica il sito come artefatto
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Pubblica su GitHub Pages
+        id: pubblicazione
+        uses: actions/deploy-pages@v4
