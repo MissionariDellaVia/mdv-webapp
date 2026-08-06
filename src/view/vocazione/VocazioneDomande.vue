@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="container voc-domande">
+    <div class="voc-domande">
       <p class="voc-domande__invito">
         Hai una domanda da fare o un pensiero da condividere?
         <router-link :to="{ name: 'contatti' }" class="mdv-link">Scrivici</router-link>: la tua domanda e la
@@ -27,6 +27,8 @@ export default {
 
 <style scoped>
 .voc-domande {
+  margin-inline: auto;
+  padding-inline: var(--mdv-spazio-4);
   max-width: 46rem;
   padding-top: var(--mdv-spazio-6);
   padding-bottom: var(--mdv-spazio-6);

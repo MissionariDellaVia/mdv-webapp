@@ -1,35 +1,37 @@
 <template>
   <section>
+    <MDHeader
+      :image="vocazionePage.header.backgroundImage"
+      :title="vocazionePage.header.title"
+      :caption="vocazionePage.header.caption"
+    />
 
-    <div v-if="isLoading">
-      <base-spinner></base-spinner>
-    </div>
-
-    <div v-else >
-      <MDHeader :image="vocazionePage.header.backgroundImage"
-                :title="vocazionePage.header.title"
-                :caption="vocazionePage.header.caption"/>
-
-      <div class="container">
-        <!-- Main Section -->
-        <div class="row text-center my-5">
-          <div class="col-12 px-5">
-            <h1 class="main-title my-2"> {{ vocazionePage.main.title }} </h1>
-            <h4 class="caption"> {{ vocazionePage.main.caption }} </h4>
-          </div>
-        </div>
-        <div class="row text-center gy-4 my-5">
-          <div class="col-md-6 col-sm-12" :class="{'order-last' : vocazionePage.main.image.align === 'right'}">
-            <img :src=helper.getImgUrl(vocazionePage.main.image.url) class="img-fluid" :alt="vocazionePage.main.image.url"/>
-          </div>
-          <div class="col-md-6 col-sm-12 px-5 text-start">
-            <p v-for="(text, index) in vocazionePage.main.strings" v-bind:key="index">
-              <Markdown :source="text" :html="true" class="markdown-mdv"></Markdown>
-            </p>
-          </div>
-        </div>
+    <div class="mx-auto w-full max-w-6xl px-4 py-12">
+      <div class="mb-12 px-4 text-center">
+        <h1 class="titolo my-2">{{ vocazionePage.main.title }}</h1>
+        <p class="occhiello">{{ vocazionePage.main.caption }}</p>
       </div>
 
+      <div class="corpo">
+        <div
+          v-rivela
+          :class="['corpo__figura', vocazionePage.main.image.align === 'right'
+            ? 'corpo__figura--destra da-rivelare--da-destra'
+            : 'da-rivelare--da-sinistra']"
+        >
+          <img
+            :src="helper.getImgUrl(vocazionePage.main.image.url)"
+            alt=""
+            class="corpo__foto"
+          />
+        </div>
+
+        <div v-rivela class="corpo__testo" style="transition-delay: 160ms">
+          <p v-for="(testo, index) in vocazionePage.main.strings" :key="index">
+            <Markdown :source="testo" :html="true" class="markdown-mdv"></Markdown>
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -49,10 +51,7 @@ export default {
     this.loadPage("vocazione");
   },
   data() {
-    return {
-      helper: this.$util,
-      isLoading: false,
-    };
+    return { helper: this.$util };
   },
   computed: {
     vocazionePage() {
@@ -61,13 +60,11 @@ export default {
   },
   methods: {
     async loadPage(page) {
-      this.isLoading = true;
       try {
         await this.pagina.caricaPagina(page);
       } catch (error) {
         console.error("Errore nel caricamento della pagina:", error);
       }
-      this.isLoading = false;
     },
   },
 
@@ -75,27 +72,45 @@ export default {
 </script>
 
 <style scoped>
-.main-title {
+.titolo {
   font-family: var(--mdv-font-corpo);
-  font-weight: 400 !important;
+  font-weight: 400;
   font-size: 2.8rem;
+  line-height: 1.2;
 }
-.caption {
+.occhiello {
   font-family: var(--mdv-font-corpo);
+  font-size: 1.4rem;
   line-height: 1.75;
   font-style: italic;
 }
-p {
+
+.corpo {
+  display: grid;
+  gap: var(--mdv-spazio-5);
+  align-items: center;
+}
+.corpo__figura {
+  text-align: center;
+}
+.corpo__foto {
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  border-radius: var(--mdv-raggio-m);
+}
+.corpo__testo :deep(p),
+.corpo__testo p {
   font-family: var(--mdv-font-alternativo);
   font-size: 1.2rem;
 }
-a {
-  text-decoration: none;
-  color: var(--mdv-oro) !important;
-  margin-bottom: 1.2rem;
-}
-.md a:hover, .md a:focus {
-  color: var(--mdv-oro-scuro);
-}
 
+@media (min-width: 48rem) {
+  .corpo {
+    grid-template-columns: 1fr 1fr;
+  }
+  .corpo__figura--destra {
+    order: 2;
+  }
+}
 </style>

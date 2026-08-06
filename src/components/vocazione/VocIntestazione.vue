@@ -10,7 +10,7 @@
       ></div>
     </transition>
 
-    <div class="container voc-intestazione__contenuto">
+    <div class="voc-intestazione__contenuto">
       <!-- Cambiando pagina cambia solo cio' che sta qui dentro. Lo spazio
            e' riservato e i due testi si danno il cambio sovrapposti,
            quindi il filo e il menu non si spostano di un pixel: la loro
@@ -112,6 +112,8 @@ export default {
 .voc-intestazione__contenuto {
   position: relative;
   max-width: 54rem;
+  margin-inline: auto;
+  padding-inline: var(--mdv-spazio-4);
 }
 
 /* Altezza riservata al titolo: e' il motivo per cui il menu non balla

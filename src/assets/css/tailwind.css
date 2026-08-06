@@ -1,11 +1,9 @@
 /* Ponte fra i token e i nomi delle utility. Gli import e l'ordine dei
  * layer stanno in stile.css, che e' il punto d'ingresso.
  *
- * Il preflight di Tailwind — l'azzeramento degli stili di base — non e'
- * incluso: finche' Bootstrap e' caricato sono due azzeramenti che si
- * contendono gli stessi elementi. Si aggiunge il giorno in cui la riga di
- * bootstrap esce da stile.css, ed e' anche il momento di guardarsi tutte
- * le pagine.
+ * Il preflight — l'azzeramento degli stili di base — e' acceso da quando
+ * Bootstrap e' uscito: prima erano due azzeramenti che si contendevano
+ * gli stessi elementi, e chi vinceva dipendeva dall'ordine degli import.
  */
 /* I token restano l'unica fonte dei valori visivi: qui si limitano a
  * diventare anche nomi di utility. Scrivere text-oro significa leggere

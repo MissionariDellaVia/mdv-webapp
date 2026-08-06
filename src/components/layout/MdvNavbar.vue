@@ -1,6 +1,6 @@
 <template>
   <nav class="barra" :class="{ 'barra--tinta': scrollPosition > 50 }">
-    <div class="container barra__contenuto">
+    <div class="barra__contenuto">
       <router-link class="barra__marchio" :to="{ name: 'chi-siamo' }">
         <img src="../../assets/logo.png" alt="Missionari della Via" class="barra__logo" />
       </router-link>
@@ -208,6 +208,10 @@ export default {
   background: var(--mdv-bruno-900-velato);
 }
 .barra__contenuto {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: var(--mdv-spazio-4);
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -1,20 +1,21 @@
 /* Punto d'ingresso degli stili del sito.
  *
- * La prima riga e' la piu' importante del file: dichiara l'ordine dei
- * layer. Fra layer diversi non conta la specificita' — conta l'ordine, e
- * chi sta piu' in basso perde sempre. Senza questa riga l'ordine sarebbe
- * quello di apparizione, e il nostro "base" finirebbe sotto a Bootstrap.
+ * La prima riga dichiara l'ordine dei layer. Fra layer diversi non conta
+ * la specificita' — conta l'ordine, e chi sta piu' in basso perde sempre.
+ * Senza questa riga varrebbe l'ordine di apparizione.
  *
- *   bootstrap   quel che resta del framework: ultimo a comandare
  *   theme       le variabili di Tailwind
- *   base        i nostri stili sugli elementi e i token
+ *   base        l'azzeramento di Tailwind, poi i nostri stili e i token
  *   components  le nostre classi condivise
  *   utilities   Tailwind: deve poter vincere su tutto il resto
+ *
+ * Bootstrap non c'e' piu'. Stava nel layer piu' basso da quando abbiamo
+ * cominciato a smontarlo, quindi toglierlo e' stato cancellare una riga.
  */
-@layer bootstrap, theme, base, components, utilities;
+@layer theme, base, components, utilities;
 
-@import 'bootstrap/dist/css/bootstrap.min.css' layer(bootstrap);
 @import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
 @import './tokens.css';
 @import './tailwind.css';
 @import 'tailwindcss/utilities.css' layer(utilities);

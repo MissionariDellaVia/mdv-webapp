@@ -8,7 +8,7 @@
          smette di comparire (vedi scripts/lib/radice-unica.js). -->
     <VocazioneLegacy v-if="!inItaliano" />
 
-    <div v-else class="container voc-hub">
+    <div v-else class="voc-hub">
       <blockquote class="voc-hub__citazione">{{ hub.citazione }}</blockquote>
 
       <Markdown :source="hub.intro" :html="true" class="markdown-mdv voc-hub__testo" />
@@ -59,6 +59,8 @@ export default {
 
 <style scoped>
 .voc-hub {
+  margin-inline: auto;
+  padding-inline: var(--mdv-spazio-4);
   max-width: 46rem;
   padding-top: var(--mdv-spazio-6);
   padding-bottom: var(--mdv-spazio-6);
