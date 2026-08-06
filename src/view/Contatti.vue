@@ -79,15 +79,15 @@
         </div>
       </article>
 
-      <div class="modulo">
-        <MdvForm
-          :title="contattiPage.form.title"
-          :button-name="contattiPage.form.buttonName"
-          :name-field="contattiPage.form.nameField"
-          :last-name-field="contattiPage.form.lastNameField"
-          :text-field="contattiPage.form.messageField"
-        />
-      </div>
+      <hr class="separatore" />
+
+      <MdvForm
+        :title="contattiPage.form.title"
+        :button-name="contattiPage.form.buttonName"
+        :name-field="contattiPage.form.nameField"
+        :last-name-field="contattiPage.form.lastNameField"
+        :text-field="contattiPage.form.messageField"
+      />
     </div>
   </section>
 </template>
@@ -215,11 +215,17 @@ export default {
   min-height: 20rem;
 }
 
-/* Il modulo e' un'altra cosa rispetto alle sedi: lo stacco lo dice. */
-.modulo {
-  margin-top: var(--mdv-spazio-6);
-  padding-top: var(--mdv-spazio-6);
+/* Il modulo e' un'altra cosa rispetto alle sedi, e una riga lo dice.
+   Era un <div class="modulo"> attorno a MdvForm — ma la radice di un
+   componente figlio eredita anche l'ambito del genitore, e la radice di
+   MdvForm si chiama anch'essa "modulo": la regola col bordo colpiva tutte
+   e due, e le righe diventavano due. Un separatore esplicito non puo'
+   collidere con il nome di nessuno. */
+.separatore {
+  border: none;
   border-top: 1px solid var(--mdv-sabbia);
+  margin: var(--mdv-spazio-6) 0;
+  opacity: 1;
 }
 
 @media (min-width: 56rem) {
