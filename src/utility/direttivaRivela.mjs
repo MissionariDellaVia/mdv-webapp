@@ -8,13 +8,18 @@
 import {
   CLASSE_NASCOSTO,
   CLASSE_RIVELATO,
+  MARGINE_OSSERVATORE,
   decidiRivelazione,
 } from './rivelazione.mjs';
 
 // Soglia zero: basta che ne compaia un pezzo. Con una soglia in
 // percentuale, un blocco piu' alto dello schermo non la raggiunge mai —
 // non se ne puo' vedere il 10% se nello schermo ce ne sta il 9%.
-const OPZIONI = { threshold: 0 };
+//
+// Il margine alza la linea di scatto rispetto al bordo inferiore: senza,
+// l'elemento si rivela mentre lo sfiora e quando lo si guarda ha gia'
+// finito. La frazione e' la stessa che decide chi nascondere.
+const OPZIONI = { threshold: 0, rootMargin: MARGINE_OSSERVATORE };
 
 const stati = new WeakMap();
 

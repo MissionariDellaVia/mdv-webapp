@@ -1,16 +1,25 @@
 import test from 'node:test';
 import assert from 'node:assert';
-import { deveNascondersi, decidiRivelazione } from './rivelazione.mjs';
+import {
+  deveNascondersi, decidiRivelazione, SOGLIA_VISTA, MARGINE_OSSERVATORE,
+} from './rivelazione.mjs';
 
-test('cio\' che e\' gia\' sullo schermo non si nasconde mai', () => {
+test('cio\' che e\' gia\' nel campo visivo non si nasconde mai', () => {
   assert.strictEqual(deveNascondersi(0, 900), false);
   assert.strictEqual(deveNascondersi(400, 900), false);
-  assert.strictEqual(deveNascondersi(899, 900), false);
+  assert.strictEqual(deveNascondersi(719, 900), false); // appena sopra la linea
 });
 
-test('si nasconde solo cio\' che comincia sotto il bordo', () => {
-  assert.strictEqual(deveNascondersi(901, 900), true);
+test('si nasconde cio\' che comincia oltre la linea di scatto', () => {
+  assert.strictEqual(deveNascondersi(721, 900), true);   // appena sotto
   assert.strictEqual(deveNascondersi(4000, 900), true);
+});
+
+test('la linea che nasconde e quella che rivela sono la stessa', () => {
+  // Se divergessero, un elemento potrebbe nascondersi e non rivelarsi
+  // mai, oppure rivelarsi prima di essersi nascosto.
+  const percentuale = Number(MARGINE_OSSERVATORE.match(/-(\d+)%/)[1]);
+  assert.strictEqual(percentuale, Math.round((1 - SOGLIA_VISTA) * 100));
 });
 
 test('un elemento gia\' scorso via resta visibile', () => {
@@ -34,7 +43,7 @@ test('senza osservatore o con movimento ridotto si rivela e basta', () => {
   );
 });
 
-test('con l\'osservatore si nasconde solo quel che sta sotto', () => {
+test('con l\'osservatore si nasconde solo quel che sta oltre la linea', () => {
   const opzioni = { altezzaFinestra: 900, osservabile: true, movimentoRidotto: false };
   assert.strictEqual(decidiRivelazione({ ...opzioni, cima: 5000 }), 'nascondi');
   assert.strictEqual(decidiRivelazione({ ...opzioni, cima: 300 }), 'rivela');
