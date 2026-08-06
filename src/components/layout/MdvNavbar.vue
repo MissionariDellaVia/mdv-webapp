@@ -251,8 +251,17 @@ export default {
   inset-inline: 0;
   top: 0;
   z-index: -1;
-  height: calc(var(--mdv-altezza-navbar) * 1.9);
-  background: linear-gradient(180deg, var(--mdv-velo-alto) 0%, transparent 100%);
+  height: calc(var(--mdv-altezza-navbar) * 2.2);
+  /* Tre fermate invece di due: pieno sotto la barra, ancora percepibile a
+     meta', spento in fondo. Con una sfumatura lineare secca il velo si
+     alleggerisce troppo presto, proprio all'altezza del testo. */
+  background: linear-gradient(
+    180deg,
+    var(--mdv-velo-alto) 0%,
+    var(--mdv-velo-alto) 38%,
+    var(--mdv-velo-alto-coda) 62%,
+    transparent 100%
+  );
   pointer-events: none;
   transition: opacity 400ms ease;
 }
@@ -388,13 +397,21 @@ export default {
   to   { opacity: 1; transform: none; }
 }
 
+/* Stessa forma delle voci della barra: maiuscolo e stessa spaziatura.
+   Non e' solo uniformita' — i titoli nei dati sono scritti in modo
+   incoerente ("blog", "Laici", "Via del Vangelo", "canale youtube"), e in
+   sei lingue. Il maiuscolo li pareggia tutti. La regola "capitalize" del
+   CSS no: alza la prima lettera di ogni parola, e in italiano
+   produrrebbe "Via Del Vangelo". */
 .barra__sottolink {
   display: flex;
   align-items: center;
   gap: var(--mdv-spazio-2);
   padding: var(--mdv-spazio-3);
   border-radius: var(--mdv-raggio-s);
-  font-size: var(--mdv-testo-s);
+  font-size: var(--mdv-testo-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-decoration: none;
   color: var(--mdv-sabbia-chiara);
   white-space: nowrap;
