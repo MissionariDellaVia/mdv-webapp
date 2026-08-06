@@ -9,7 +9,14 @@
 
     <div class="mx-auto w-full max-w-6xl px-4 pb-12">
       <main class="my-12 px-4 text-center">
-        <span class="filo entra entra--2" aria-hidden="true"></span>
+        <!-- Lo stemma della comunita'. Il file si chiamava "hr.png" e la
+             classe ".hr-img", nomi da linea orizzontale: l'avevo scambiato
+             per un divisore decorativo e tolto. -->
+        <img
+          src="../assets/img/emblema.png"
+          alt="Missionari della Via"
+          class="emblema entra entra--2"
+        />
         <h1 class="titolo my-6 entra entra--3">{{ chiSiamoPage.main.title }}</h1>
         <p v-if="chiSiamoPage.main.caption" class="occhiello entra entra--4">
           {{ chiSiamoPage.main.caption }}
@@ -135,12 +142,11 @@ export default {
 </script>
 
 <style scoped>
-.filo {
-  display: block;
-  width: 9rem;
-  height: 1px;
+.emblema {
+  width: 15rem;
+  max-width: 60vw;
+  height: auto;
   margin: 0 auto;
-  background: linear-gradient(90deg, transparent, var(--mdv-sabbia), transparent);
 }
 .titolo {
   font-family: var(--mdv-font-corpo);
