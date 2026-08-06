@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import tailwind from '@tailwindcss/vite';
 import { rotteDaPubblicare } from './src/router/instradamento.mjs';
+import { basePer } from './src/utility/pubblicazione.mjs';
 
 const BASE_SITO = 'https://www.missionaridellavia.net';
 
@@ -39,10 +40,11 @@ function sitemap() {
   };
 }
 
-export default defineConfig(({ command }) => ({
-  // In sviluppo il sito sta sotto /mdv-webapp/ come prima, in produzione
-  // alla radice: cambiarlo adesso spaccherebbe i segnalibri di chi lavora.
-  base: command === 'build' ? '/' : '/mdv-webapp/',
+export default defineConfig(({ mode }) => ({
+  // Quale radice, e perche', sta scritto in pubblicazione.mjs: il build
+  // di produzione e quello di collaudo sono lo stesso comando, e solo la
+  // modalita' li distingue.
+  base: basePer(mode),
   plugins: [vue(), tailwind(), sitemap()],
   resolve: {
     alias: {
@@ -53,7 +55,8 @@ export default defineConfig(({ command }) => ({
     port: 9191,
   },
   build: {
-    // Stessa cartella di prima: lo script di deploy la cerca per nome.
+    // La pubblicazione carica questa cartella cosi' com'e': il nome sta
+    // scritto anche in .github/workflows/cicd.yml.
     outDir: 'dist',
   },
 }));
