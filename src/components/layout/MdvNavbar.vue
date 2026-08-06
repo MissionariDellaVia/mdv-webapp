@@ -218,10 +218,15 @@ export default {
   align-items: center;
   font-family: var(--mdv-font-navigazione);
   background: transparent;
-  transition: background 0.4s ease-in-out;
+  transition:
+    height 400ms var(--mdv-curva-morbida),
+    background 400ms ease-in-out,
+    box-shadow 400ms ease;
 }
 .barra--tinta {
+  height: var(--mdv-altezza-navbar-compatta);
   background: var(--mdv-bruno-900-velato);
+  box-shadow: 0 0.5rem 1.5rem var(--mdv-ombra-lieve);
 }
 .barra__contenuto {
   width: 100%;
@@ -242,6 +247,11 @@ export default {
   height: 4.5rem;
   width: auto;
   display: block;
+  transition: height 400ms var(--mdv-curva-morbida);
+}
+/* Il marchio si stringe con la barra: restando grande la schiaccerebbe. */
+.barra--tinta .barra__logo {
+  height: 3rem;
 }
 
 /* ── Voci in riga, da schermo largo ──────────────────────────────────── */

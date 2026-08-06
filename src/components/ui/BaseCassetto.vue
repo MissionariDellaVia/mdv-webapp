@@ -96,10 +96,13 @@ export default {
   background-color: var(--mdv-velo-scuro);
 }
 
+/* Si apre dal lato del bottone che lo chiama. Prima il bottone stava a
+   destra e il cassetto entrava da sinistra: il pollice attraversava lo
+   schermo per raggiungere quello che aveva appena aperto. */
 .cassetto {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   bottom: 0;
   z-index: 1045;
   display: flex;
@@ -113,6 +116,8 @@ export default {
   outline: none;
 }
 
+/* La chiusura sta dove stava il bottone che ha aperto: si tocca due
+   volte nello stesso punto. */
 .cassetto__testa {
   display: flex;
   justify-content: flex-end;
@@ -146,7 +151,7 @@ export default {
 }
 .cassetto-enter-from,
 .cassetto-leave-to {
-  transform: translateX(-100%);
+  transform: translateX(100%);
 }
 
 .velo-enter-active,

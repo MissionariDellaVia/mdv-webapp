@@ -49,8 +49,12 @@
     --mdv-ombra-media: rgba(0, 0, 0, 0.26);
     --mdv-ombra-lieve: rgba(0, 0, 0, 0.2);
 
-    /* Misure condivise */
+    /* Misure condivise. La barra e' alta finche' sei in cima e si
+       compatta scendendo: sull'intestazione puo' permettersi lo spazio,
+       nel testo no. Le due misure servono anche alle pagine, che ci
+       calcolano il proprio riempimento in alto. */
     --mdv-altezza-navbar: 6.5rem;
+    --mdv-altezza-navbar-compatta: 4.25rem;
 
     /* Marchi di terzi. Non sono colori nostri e non si scelgono: sono
        quelli delle piattaforme. Ognuno compariva in due o tre sfumature
