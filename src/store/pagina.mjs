@@ -3,6 +3,7 @@ import data from '@/assets/data/data.json';
 import navbar from '@/assets/data/navbar.json';
 import footer from '@/assets/data/footer.json';
 import { fetchLocations } from '@/services/locationsApi';
+import { linguaDaUsare } from '@/utility/lingue.mjs';
 
 // Etichette dei contatti per lingua: i luoghi sono dinamici, queste no.
 const ETICHETTE_CONTATTI = {
@@ -26,12 +27,8 @@ const PROPRIETA = {
   contatti: 'contatti',
 };
 
-const LINGUA_PREDEFINITA = 'it';
-
 function linguaSalvata() {
-  return localStorage.getItem('lang')
-    || navigator.language.substring(0, 2)
-    || LINGUA_PREDEFINITA;
+  return linguaDaUsare(localStorage.getItem('lang'), navigator.language);
 }
 
 // data.json e' indicizzato prima per lingua: leggerlo senza passare da li'

@@ -53,10 +53,11 @@
 
 <script>
 import { usaPagina } from '@/store/pagina.mjs';
+import { LINGUE } from '@/utility/lingue.mjs';
 export default {
   name: "MdvFooter",
   setup() {
-    return { pagina: usaPagina() };
+    return { lingue: LINGUE, pagina: usaPagina() };
   },
   data() {
     return {
@@ -70,14 +71,6 @@ export default {
         { chiave: 'youtube', nome: 'YouTube', icona: 'fa-brands fa-youtube',
           href: 'https://www.youtube.com/channel/UCI-KljGpZAOQlazH5vuRlfA' },
       ],
-      lingue: [
-        { codice: 'it', bandiera: 'it', nome: 'Italiano' },
-        { codice: 'en', bandiera: 'gb', nome: 'English' },
-        { codice: 'es', bandiera: 'es', nome: 'Español' },
-        { codice: 'pt', bandiera: 'pt', nome: 'Português' },
-        { codice: 'fr', bandiera: 'fr', nome: 'Français' },
-        { codice: 'pl', bandiera: 'pl', nome: 'Polski' },
-      ]
     }
   },
   computed: {

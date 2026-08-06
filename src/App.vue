@@ -27,8 +27,8 @@ import VocSoglia from "@/components/vocazione/VocSoglia.vue";
 import { inVocazione } from "@/utility/inVocazione.mjs";
 import { attraversaSoglia } from "@/utility/soglia.mjs";
 import { USCITA_PAGINA_MS } from "@/utility/tempiTransizione.mjs";
+import { linguaDaUsare } from "@/utility/lingue.mjs";
 
-const supportedLang = ['it', 'en', 'pl', 'es', 'fr']
 
 export default {
   name: 'App',
@@ -77,36 +77,13 @@ export default {
     calcolaSezione() {
       return this.pagina.lingua === 'it' && inVocazione(this.$route.path);
     },
+    // Era una sessantina di righe fra normalizzazione, controlli e
+    // messaggi di traccia. La regola sta ora in lingue.mjs, con i suoi
+    // test: qui resta scriverla dove il resto del sito la cerca.
     checkAndSetLang() {
-      if (localStorage.getItem('lang')) {
-        let currentLang = localStorage.getItem('lang');
-        console.debug( "lang found in storage: " + localStorage.getItem('lang'));
-
-        if (currentLang.length > 2) {
-          currentLang = currentLang.substring(0,2).toLowerCase();
-          localStorage.setItem('lang', currentLang);
-          console.debug( "normalized lang in storage: " + currentLang);
-        }
-
-        if (!supportedLang.includes(currentLang)) {
-          console.debug( "lang: " + currentLang + " is not supported, setting default web-app language");
-          localStorage.setItem('lang', 'it')
-          return;
-        }
-        return;
-      }
-
-      console.debug( "lang not found in storage, try to set locale: " + navigator.language);
-      let localLang = navigator.language.substring(0, 2);
-      if (supportedLang.includes(localLang)) {
-        console.debug( "lang: " + localLang + " is supported");
-        localStorage.setItem('lang', localLang)
-      } else {
-        console.debug( "lang: " + localLang + " is not supported, setting default web-app language");
-        localStorage.setItem('lang', 'it');
-      }
-
-    }
+      const scelta = linguaDaUsare(localStorage.getItem('lang'), navigator.language);
+      localStorage.setItem('lang', scelta);
+    },
   }
 }
 </script>
