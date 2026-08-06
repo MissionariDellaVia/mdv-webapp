@@ -76,41 +76,36 @@ export default {
 </script>
 
 <style scoped>
-/* Erano blocchi bruni pieni, uno per riga, a tutta larghezza: pesavano
-   quanto il contenuto che dovevano annunciare. Ora sono pastiglie in fila,
-   della grandezza di un bottone normale. */
+/* Fasce piene a tutta larghezza, come prima: qui la linguetta non e' un
+   comando discreto in mezzo al testo, e' l'insegna del luogo di cui stai
+   leggendo. Con un luogo solo fa da titolo, con piu' luoghi si sceglie.
+   Lo stacco dal contenuto resta corto: la fascia e cio' che annuncia sono
+   la stessa cosa, allontanarli li fa sembrare due. */
 .schede__linguette {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   gap: var(--mdv-spazio-2);
-  margin-bottom: var(--mdv-spazio-6);
+  margin-bottom: var(--mdv-spazio-3);
 }
 
 .schede__linguetta {
-  padding: var(--mdv-spazio-2) var(--mdv-spazio-4);
-  border: 1px solid var(--mdv-sabbia);
-  border-radius: 999px;
-  background: none;
-  font-family: var(--mdv-font-navigazione);
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  line-height: 1.5;
-  color: var(--mdv-grigio-scuro);
+  width: 100%;
+  padding: var(--mdv-spazio-3) var(--mdv-spazio-4);
+  border: none;
+  font-family: var(--mdv-font-corpo);
+  font-size: 2rem;
+  line-height: 1.3;
+  color: var(--mdv-bianco);
+  background-color: var(--mdv-bruno-900-velato);
   cursor: pointer;
-  transition:
-    background-color 240ms ease,
-    border-color 240ms ease,
-    color 240ms ease;
+  transition: background-color 240ms ease;
 }
 .schede__linguetta--attiva {
-  border-color: var(--mdv-oro);
-  background-color: var(--mdv-oro);
-  color: var(--mdv-bianco);
+  background-color: var(--mdv-sabbia);
 }
 .schede__linguetta:focus-visible {
   outline: 2px solid var(--mdv-oro);
-  outline-offset: 2px;
+  outline-offset: -4px;
 }
 .schede__pannello:focus-visible {
   outline: 2px solid var(--mdv-oro);
@@ -118,9 +113,14 @@ export default {
 }
 
 @media (hover: hover) {
-  .schede__linguetta:not(.schede__linguetta--attiva):hover {
-    border-color: var(--mdv-oro-scuro);
-    color: var(--mdv-oro-scuro);
+  .schede__linguetta:hover {
+    background-color: var(--mdv-sabbia);
+  }
+}
+
+@media (max-width: 576px) {
+  .schede__linguetta {
+    font-size: 1.4rem;
   }
 }
 

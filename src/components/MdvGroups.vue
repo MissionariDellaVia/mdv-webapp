@@ -1,14 +1,18 @@
 <template>
-  <div v-if="groups && groups.length" class="container">
-    <BaseSchede :voci="voci" etichetta="Gruppi di attività" v-slot="{ voce }">
+  <div v-if="luoghi.length" class="container">
+    <!-- I gruppi sono i luoghi in cui la comunita' e' presente, non
+         categorie di attivita': oggi ce n'e' uno, domani ce ne saranno
+         altri. La fascia porta il nome del posto — con un luogo solo fa da
+         titolo, con piu' luoghi diventa la scelta. -->
+    <BaseSchede :voci="luoghi" etichetta="Luoghi" v-slot="{ voce }">
       <MdvArticle
-        v-for="(section, index) in voce.sections"
-        :key="index"
+        v-for="(sezione, i) in voce.sezioni"
+        :key="i"
         small="true"
-        :image-url="section.image ? section.image.url : null"
-        :align="section.image ? section.image.align : null"
-        :title="section.title"
-        :texts="section.articles"
+        :image-url="sezione.image ? sezione.image.url : null"
+        :align="sezione.image ? sezione.image.align : null"
+        :title="sezione.title"
+        :texts="sezione.articles"
       />
     </BaseSchede>
   </div>
@@ -19,24 +23,24 @@
 </template>
 
 <script>
-import MdvArticle from "@/components/MdvArticle.vue";
 import BaseSchede from "@/components/ui/BaseSchede.vue";
+import MdvArticle from "@/components/MdvArticle.vue";
 
 export default {
   name: "MdvGroups",
-  components: { MdvArticle, BaseSchede },
+  components: { BaseSchede, MdvArticle },
   props: {
     groups: Array
   },
   computed: {
-    // Il primo gruppo faceva riga a se' con un carattere piu' grande e un
-    // ramo di markup tutto suo, duplicato dal ciclo sottostante. E' un
-    // gruppo come gli altri: qui sono un elenco solo.
-    voci() {
+    // Il primo gruppo aveva un ramo di markup tutto suo, copiato dal ciclo
+    // sottostante con un carattere piu' grande. E' un luogo come gli altri.
+    luoghi() {
       return (this.groups || []).map((gruppo) => ({
         chiave: gruppo.key,
         titolo: gruppo.title,
-        sections: gruppo.sections,
+        citta: gruppo.city,
+        sezioni: gruppo.sections || [],
       }));
     }
   }

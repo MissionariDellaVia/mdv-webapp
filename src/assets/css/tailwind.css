@@ -1,20 +1,12 @@
-/* Tailwind, senza il preflight.
+/* Ponte fra i token e i nomi delle utility. Gli import e l'ordine dei
+ * layer stanno in stile.css, che e' il punto d'ingresso.
  *
- * Il preflight e' l'azzeramento degli stili di base: toglie i margini
- * predefiniti a titoli e paragrafi, la punteggiatura agli elenchi, e
- * riporta tutto a zero. E' giusto averlo — ma non finche' Bootstrap e'
- * ancora caricato, perche' i due azzeramenti si contendono gli stessi
- * elementi e chi vince dipende dall'ordine degli import. Le pagine non
- * ancora migrate cambierebbero aspetto senza che nessuno le abbia toccate.
- *
- * Si aggiunge tornando qui e sostituendo queste righe con
- * `@import "tailwindcss";`, il giorno in cui il foglio di Bootstrap esce
- * da main.js. Quello e' anche il momento di guardarsi tutte le pagine.
+ * Il preflight di Tailwind — l'azzeramento degli stili di base — non e'
+ * incluso: finche' Bootstrap e' caricato sono due azzeramenti che si
+ * contendono gli stessi elementi. Si aggiunge il giorno in cui la riga di
+ * bootstrap esce da stile.css, ed e' anche il momento di guardarsi tutte
+ * le pagine.
  */
-@layer theme, base, components, utilities;
-@import 'tailwindcss/theme.css' layer(theme);
-@import 'tailwindcss/utilities.css' layer(utilities);
-
 /* I token restano l'unica fonte dei valori visivi: qui si limitano a
  * diventare anche nomi di utility. Scrivere text-oro significa leggere
  * var(--mdv-oro), quindi l'atmosfera vocazionale continua a ribaltare

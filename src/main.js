@@ -12,15 +12,10 @@ import BaseButton from "@/components/ui/BaseButton.vue";
 import BackButton from "@/components/ui/BackButton.vue";
 import ImageDialog from "@/components/ui/ImageDialog.vue";
 
-// Di Bootstrap resta solo il foglio di stile — griglia e utility — finche'
-// non passiamo a Tailwind. Il suo JavaScript non serve piu' a nessuno: il
-// cassetto del menu e le linguette delle attivita' sono componenti nostri.
-import "bootstrap/dist/css/bootstrap.min.css";
 
-// Token visivi: unica fonte di colori, font e spaziature
-import './assets/css/tokens.css';
-// Dopo i token: Tailwind ne fa anche dei nomi di utility.
-import './assets/css/tailwind.css';
+// Un solo foglio d'ingresso: dichiara l'ordine dei layer e tira dentro
+// token, Tailwind e quel che resta di Bootstrap.
+import './assets/css/stile.css';
 
 // Markdown
 import Markdown from 'vue3-markdown-it';

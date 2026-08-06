@@ -3,16 +3,16 @@
     <div class="sfondo fixed inset-0 -z-10"></div>
 
     <div class="mx-auto w-full max-w-lg">
-      <header class="apparizione mb-12 text-center">
+      <header class="apparizione mb-8 text-center">
         <img
           src="../assets/standalone.png"
           alt="Missionari della Via"
-          class="logo mx-auto mb-6 w-30"
+          class="logo mx-auto mb-5 w-24"
         />
-        <h1 class="mb-2 font-corpo text-4xl font-semibold text-sabbia-chiara">
+        <h1 class="mb-2 font-corpo text-3xl font-semibold text-sabbia-chiara">
           Missionari della Via
         </h1>
-        <p class="m-0 text-lg italic tracking-wide text-sabbia">
+        <p class="m-0 text-base italic tracking-wide text-sabbia">
           Tutti i nostri collegamenti
         </p>
       </header>
@@ -20,21 +20,21 @@
       <!-- Le nove voci erano nove blocchi identici copiati a mano, con il
            ritardo dell'animazione scritto dentro l'attributo style. Ora
            sono dati: aggiungerne una e' una riga. -->
-      <nav class="flex flex-col gap-4" aria-label="Collegamenti">
+      <nav class="flex flex-col gap-3" aria-label="Collegamenti">
         <a
           v-for="(voce, i) in collegamenti"
           :key="voce.href"
           :href="voce.href"
           target="_blank"
           rel="noopener noreferrer"
-          class="voce relative flex items-center overflow-hidden rounded-full border-2 px-6 py-5 text-panna no-underline"
+          class="voce relative flex items-center gap-4 overflow-hidden rounded-full border px-5 py-3 text-panna no-underline"
           :style="{ animationDelay: `${0.1 + i * 0.05}s` }"
         >
           <span :class="['icona', voce.marchio && `icona--${voce.marchio}`]">
             <i :class="voce.icona" aria-hidden="true"></i>
           </span>
-          <span class="flex-1 text-base font-medium">{{ voce.titolo }}</span>
-          <span class="freccia text-sm opacity-60">
+          <span class="flex-1 text-[0.95rem]">{{ voce.titolo }}</span>
+          <span class="freccia text-xs opacity-50">
             <i class="fas fa-external-link-alt" aria-hidden="true"></i>
           </span>
         </a>
@@ -121,11 +121,10 @@ export default {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 2.8rem;
-  height: 2.8rem;
-  margin-right: var(--mdv-spazio-4);
+  width: 2.1rem;
+  height: 2.1rem;
   border-radius: 50%;
-  font-size: 1.3rem;
+  font-size: 0.95rem;
   color: var(--mdv-sabbia-chiara);
   background: color-mix(in srgb, var(--mdv-sabbia) 25%, transparent);
   transition: all 0.3s ease;
