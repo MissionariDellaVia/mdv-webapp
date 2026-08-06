@@ -1,8 +1,6 @@
 <template>
   <BaseRiquadro>
-    <template v-if="title" #testata>
-      <div :class="allineamentoTitolo">{{ title }}</div>
-    </template>
+    <template v-if="title" #testata>{{ title }}</template>
 
     <image-dialog :show="!!image.show" :imageLink="image.link" @close="cleanImageDialog"></image-dialog>
 
@@ -58,11 +56,6 @@ export default {
   },
   computed: {
     // Il titolo si accosta al lato opposto all'immagine.
-    // Erano "text-md-start fs-3": due classi di Bootstrap. La misura sta
-    // ora nella fascia di BaseRiquadro, l'allineamento qui.
-    allineamentoTitolo() {
-      return 'right' === this.align ? 'md:text-left' : 'md:text-right';
-    },
     // Erano quattro classi di griglia composte a mano in una stringa.
     // Sono due sole decisioni: quanto e' larga la figura, e da che parte
     // sta. Un carosello di foto va sempre in fondo, sotto al testo.
