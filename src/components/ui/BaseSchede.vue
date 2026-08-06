@@ -1,6 +1,15 @@
 <template>
   <div class="schede">
-    <div class="schede__linguette" role="tablist" :aria-label="etichetta">
+    <!-- Con una voce sola non c'e' niente da scegliere: la fascia resta
+         identica ma torna a essere un titolo. Prima era un bottone che
+         si poteva premere, mettere a fuoco col tabulatore, e che un
+         lettore di schermo annunciava come "scheda 1 di 1, selezionata":
+         un comando che invita a premerlo e non fa succedere nulla. -->
+    <h2 v-if="voci.length === 1" class="schede__linguetta schede__linguetta--attiva schede__insegna">
+      {{ voci[0].titolo }}
+    </h2>
+
+    <div v-else class="schede__linguette" role="tablist" :aria-label="etichetta">
       <button
         v-for="(voce, i) in voci"
         :key="voce.chiave"
@@ -21,10 +30,10 @@
       v-for="(voce, i) in voci"
       :key="voce.chiave"
       v-show="i === attiva"
-      role="tabpanel"
-      :id="`pannello-${identificativo}-${voce.chiave}`"
-      :aria-labelledby="`linguetta-${identificativo}-${voce.chiave}`"
-      :tabindex="0"
+      :role="voci.length > 1 ? 'tabpanel' : null"
+      :id="voci.length > 1 ? `pannello-${identificativo}-${voce.chiave}` : null"
+      :aria-labelledby="voci.length > 1 ? `linguetta-${identificativo}-${voce.chiave}` : null"
+      :tabindex="voci.length > 1 ? 0 : null"
       class="schede__pannello"
     >
       <slot :voce="voce" :indice="i" />
@@ -112,8 +121,15 @@ export default {
   outline-offset: 4px;
 }
 
+/* L'insegna ha l'aspetto della linguetta ma non e' un comando: niente
+   dito del mouse, niente reazione al passaggio. */
+.schede__insegna {
+  margin: 0;
+  cursor: default;
+}
+
 @media (hover: hover) {
-  .schede__linguetta:hover {
+  .schede__linguetta:not(.schede__insegna):hover {
     background-color: var(--mdv-sabbia);
   }
 }
