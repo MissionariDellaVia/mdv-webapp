@@ -50,11 +50,16 @@ export default {
     box-shadow 320ms ease;
 }
 
+/* La fascia porta un titolo, e la misura era quella di "fs-3" — una
+   classe di Bootstrap. Sparito il framework i titoli erano scesi alla
+   grandezza del testo normale: adesso la misura sta qui. */
 .riquadro__testata {
   padding: var(--mdv-spazio-3) var(--mdv-spazio-4);
   background-color: var(--mdv-bruno-900-velato);
   color: var(--mdv-bianco);
   font-family: var(--mdv-font-corpo);
+  font-size: clamp(1.4rem, 2.6vw, 1.75rem);
+  line-height: 1.3;
   text-align: center;
 }
 

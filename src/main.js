@@ -8,8 +8,6 @@ import { createPinia } from 'pinia';
 import App from './App.vue';
 import BaseSpinner from './components/ui/BaseSpinner.vue'
 import BaseToast from './components/ui/BaseToast.vue'
-import BaseButton from "@/components/ui/BaseButton.vue";
-import BackButton from "@/components/ui/BackButton.vue";
 import ImageDialog from "@/components/ui/ImageDialog.vue";
 
 
@@ -38,8 +36,6 @@ app.directive('rivela', direttivaRivela);
 
 app.component('base-spinner', BaseSpinner);
 app.component('base-toast', BaseToast);
-app.component('base-button', BaseButton);
-app.component('back-button', BackButton);
 app.component('image-dialog', ImageDialog);
 
 app.mount('#app');

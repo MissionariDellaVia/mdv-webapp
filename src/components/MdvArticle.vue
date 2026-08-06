@@ -58,8 +58,10 @@ export default {
   },
   computed: {
     // Il titolo si accosta al lato opposto all'immagine.
+    // Erano "text-md-start fs-3": due classi di Bootstrap. La misura sta
+    // ora nella fascia di BaseRiquadro, l'allineamento qui.
     allineamentoTitolo() {
-      return 'right' === this.align ? 'text-md-start fs-3' : 'text-md-end fs-3';
+      return 'right' === this.align ? 'md:text-left' : 'md:text-right';
     },
     // Erano quattro classi di griglia composte a mano in una stringa.
     // Sono due sole decisioni: quanto e' larga la figura, e da che parte

@@ -1,7 +1,7 @@
 <template>
   <header :class="['md-bg', { 'md-bg--pronta': pronta }]" :style="inlineStyle">
     <div class="md-bg__contenuto">
-      <h1 :class="['main-title text-uppercase', { 'with-brand': brand }]">{{ title }}</h1>
+      <h1 :class="['main-title uppercase', { 'with-brand': brand }]">{{ title }}</h1>
       <p v-if="caption" class="lead headerSection">{{ caption }}</p>
     </div>
   </header>

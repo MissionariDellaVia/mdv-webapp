@@ -8,7 +8,7 @@
          classe sul titolo: erano due copie della stessa cosa. -->
     <div class="header">
       <div class="header__contenuto">
-        <h1 :class="['main-title text-uppercase', { 'with-brand': brand }]">{{ title }}</h1>
+        <h1 :class="['main-title uppercase', { 'with-brand': brand }]">{{ title }}</h1>
         <p v-if="caption" class="lead headerSection">{{ caption }}</p>
       </div>
     </div>
