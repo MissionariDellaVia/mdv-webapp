@@ -224,6 +224,7 @@ export default {
 <style scoped>
 .barra {
   position: fixed;
+  isolation: isolate;
   top: 0;
   right: 0;
   left: 0;
@@ -238,6 +239,27 @@ export default {
     background 400ms ease-in-out,
     box-shadow 400ms ease;
 }
+/* Finche' la barra e' trasparente sta sopra una fotografia, e le
+   fotografie non sono tutte scure: sopra un edificio bianco il testo
+   sabbia sparisce. Un velo sfumato scende dal bordo alto e si esaurisce
+   poco sotto la barra — si vede il testo, non si vede il velo.
+   Quando la barra si tinge il velo non serve piu' e si spegne, se no i
+   due scuri si sommano. */
+.barra::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  z-index: -1;
+  height: calc(var(--mdv-altezza-navbar) * 1.9);
+  background: linear-gradient(180deg, var(--mdv-velo-alto) 0%, transparent 100%);
+  pointer-events: none;
+  transition: opacity 400ms ease;
+}
+.barra--tinta::before {
+  opacity: 0;
+}
+
 .barra--tinta {
   height: var(--mdv-altezza-navbar-compatta);
   background: var(--mdv-bruno-900-velato);
@@ -293,9 +315,9 @@ export default {
   top: 50%;
   left: 0;
   width: 1px;
-  height: 1.1rem;
+  height: 1.4rem;
   transform: translateY(-50%);
-  background-color: color-mix(in srgb, var(--mdv-sabbia) 45%, transparent);
+  background-color: color-mix(in srgb, var(--mdv-sabbia) 70%, transparent);
 }
 .barra__link {
   display: inline-flex;

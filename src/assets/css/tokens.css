@@ -48,6 +48,10 @@
     --mdv-velo-scuro: rgba(0, 0, 0, 0.75);
     --mdv-ombra-media: rgba(0, 0, 0, 0.26);
     --mdv-ombra-lieve: rgba(0, 0, 0, 0.2);
+    /* Velo sotto la barra trasparente: le fotografie delle intestazioni
+       non sono tutte scure, e sopra un edificio bianco il testo color
+       sabbia non si legge. */
+    --mdv-velo-alto: rgba(0, 0, 0, 0.42);
 
     /* Misure condivise. La barra e' alta finche' sei in cima e si
        compatta scendendo: sull'intestazione puo' permettersi lo spazio,
