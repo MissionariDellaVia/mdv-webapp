@@ -44,7 +44,7 @@
               @click="apertoIndice = apertoIndice === index ? null : index"
             >
               {{ item.title }}
-              <span class="barra__freccia" aria-hidden="true">⌄</span>
+              <span class="barra__freccia" aria-hidden="true"></span>
             </button>
             <ul v-show="apertoIndice === index" class="barra__pannello">
               <li v-for="(sotto, idx) in item.links" :key="idx">
@@ -122,7 +122,7 @@
                   class="menu__freccia"
                   :class="{ 'menu__freccia--su': gruppoCassetto === index }"
                   aria-hidden="true"
-                >⌄</span>
+                ></span>
               </button>
               <ul v-show="gruppoCassetto === index" class="menu__sottoelenco">
                 <li v-for="(sotto, idx) in item.links" :key="idx">
@@ -352,6 +352,35 @@ export default {
   cursor: pointer;
 }
 
+/* La freccetta era il carattere "⌄" (U+2304). Quel glifo e' disegnato in
+   basso nella sua cella, sotto la linea di base delle maiuscole: nessun
+   allineamento lo rimette a posto, perche' non e' il riquadro a essere
+   fuori posto ma il disegno dentro il riquadro. Sembrava sempre caduta
+   sotto la parola.
+   Disegnarla con due bordi costa meno di un'icona, la mette dove
+   diciamo noi, e le permette di girare quando il pannello si apre —
+   nello stesso tempo dell'apertura, cosi' sono un gesto solo. */
+.barra__freccia {
+  width: 0.34em;
+  height: 0.34em;
+  /* Il vertice della V, non il centro del quadrato, va sulla riga del
+     testo: e' quello che l'occhio legge come "punta in basso". */
+  margin-block-start: -0.16em;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 240ms var(--mdv-curva-morbida);
+}
+.barra__link--gruppo[aria-expanded='true'] .barra__freccia {
+  transform: rotate(225deg);
+  margin-block-start: 0.16em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .barra__freccia {
+    transition: none;
+  }
+}
+
 .barra__pannello {
   position: absolute;
   top: calc(100% + var(--mdv-spazio-2));
@@ -496,11 +525,24 @@ export default {
   padding-top: var(--mdv-spazio-2);
   border-top: 1px solid var(--mdv-oro-scuro) !important;
 }
+/* Stessa freccetta disegnata della barra, per gli stessi motivi: il
+   glifo "⌄" cadeva sotto la parola. Qui la punta e' gia' in basso di
+   suo, quindi non serve rialzarla come nella riga orizzontale. */
 :deep(.menu__freccia) {
-  transition: transform 0.3s var(--mdv-curva-morbida);
+  width: 0.34em;
+  height: 0.34em;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 300ms var(--mdv-curva-morbida);
 }
 :deep(.menu__freccia--su) {
-  transform: rotate(180deg);
+  transform: rotate(225deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  :deep(.menu__freccia) {
+    transition: none;
+  }
 }
 :deep(.menu__sottoelenco) {
   list-style: none;
