@@ -330,45 +330,28 @@ export default {
   transform: translateY(-50%);
   background-color: color-mix(in srgb, var(--mdv-sabbia) 70%, transparent);
 }
+/* Il gesto e' quello di .mdv-navlink, lo stesso del menu della sezione
+   vocazionale: la riga si apre dal centro. Qui restano solo le misure di
+   questa fila.
+
+   Attenzione a non rimettere qui colore o ::after: gli stili con ambito
+   stanno fuori dai layer, e il CSS senza layer batte qualunque regola dei
+   token — anche a parita' di specificita', e anche se i token vengono
+   dopo. Bastava questa dichiarazione perche' l'atmosfera vocazionale non
+   riuscisse a cambiare il colore delle voci. */
 .barra__link {
   display: inline-flex;
   align-items: center;
   gap: var(--mdv-spazio-2);
-  padding: var(--mdv-spazio-2) 0;
   border: none;
   background: none;
   font-family: inherit;
-  font-size: 0.95rem;
-  letter-spacing: 0.06em;
+  font-size: var(--mdv-testo-s);
   text-transform: uppercase;
-  text-decoration: none;
-  color: var(--mdv-sabbia-chiara);
+  white-space: nowrap;
   cursor: pointer;
-  position: relative;
-}
-.barra__link::after {
-  content: '';
-  position: absolute;
-  inset-inline: 0;
-  bottom: 0;
-  height: 2px;
-  background-color: var(--mdv-sabbia);
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-.barra__link.router-link-active::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-.barra__link:focus-visible {
-  outline: 2px solid var(--mdv-sabbia);
-  outline-offset: 3px;
 }
 
-/* Era un riquadro scuro appoggiato al bordo, senza forma e senza stacco:
-   sembrava un pezzo di barra caduto giu'. Ora e' una scheda, con un
-   respiro sopra e un'ombra che la stacca dalla pagina. */
 .barra__pannello {
   position: absolute;
   top: calc(100% + var(--mdv-spazio-2));
