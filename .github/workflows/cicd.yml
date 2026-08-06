@@ -2,23 +2,60 @@
 
 name: cicd-develop
 
-# Controls when the workflow will run
+# Una proposta non pubblica. Fino ad agosto 2026 il deploy girava anche
+# su pull_request: aprire una PR sovrascriveva gh-pages con il build del
+# ramo proposto, prima ancora che qualcuno lo avesse guardato.
+#
+# Ora la PR fa i controlli, il push su develop pubblica.
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "develop" ]
   pull_request:
     branches: [ "develop" ]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Permette di lanciare il deploy a mano dalla scheda Actions.
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  # Su ogni proposta: lint, test e build. Non pubblica niente.
+  controlli:
+    name: Controlli
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+
+      - name: Install packages
+        run: npm ci || npm install
+
+      # Il build ha bisogno delle variabili: senza, non fallisce ma
+      # produce un bundle senza configurazione.
+      - name: Create .env from secrets
+        run: |
+          {
+            echo "VITE_SUPABASE_URL=${{ secrets.VITE_SUPABASE_URL }}"
+            echo "VITE_SUPABASE_ANON_KEY=${{ secrets.VITE_SUPABASE_ANON_KEY }}"
+            echo "VITE_API_BLOG_BASE_URL=${{ secrets.VITE_API_BLOG_BASE_URL }}"
+            echo "VITE_BLOG_API_KEY=${{ secrets.VITE_BLOG_API_KEY }}"
+          } > .env
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+  # Solo su develop, o a mano: e' questo che pubblica.
   gh-pages-deploy:
     name: Deploying to Github Pages
-    # The type of runner that the job will run on
+    if: github.event_name != 'pull_request'
+    needs: controlli
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
