@@ -236,7 +236,7 @@ export default {
   background: transparent;
   transition:
     height 400ms var(--mdv-curva-morbida),
-    background 400ms ease-in-out,
+    background var(--mdv-transito-atmosfera) ease,
     box-shadow 400ms ease;
 }
 /* Finche' la barra e' trasparente sta sopra una fotografia, e le

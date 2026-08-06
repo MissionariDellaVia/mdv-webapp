@@ -121,6 +121,9 @@
     --mdv-curva-morbida: cubic-bezier(0.22, 0.61, 0.36, 1);
     /* Durata complessiva del velo di soglia, dal clic al velo alzato. */
     --mdv-soglia: 1200ms;
+    /* Il passaggio d'atmosfera: fondo, barra e voci si muovono con questo
+       tempo, se no si vedono tre cambi invece di uno. */
+    --mdv-transito-atmosfera: 900ms;
 
     /* Raggi */
     --mdv-raggio-s: 0.5rem;
@@ -141,7 +144,9 @@
   .app-sfondo {
     min-height: 100vh;
     background-color: var(--mdv-bianco);
-    transition: background-color 900ms ease, color 900ms ease;
+    transition:
+      background-color var(--mdv-transito-atmosfera) ease,
+      color var(--mdv-transito-atmosfera) ease;
   }
 
   /* Entrare in /vocazione deve somigliare a entrare in un altro posto: il
@@ -158,6 +163,9 @@
     --mdv-oro: #e2ba6c;
     --mdv-oro-scuro: #d0a458;
     --mdv-oro-chiaro: #f2d8a2;
+    /* La pagina in cui ti trovi: il punto piu' chiaro della tavolozza,
+       perche' sull'oro caldo delle altre voci un oro si perderebbe. */
+    --mdv-oro-brillante: #fdf3dc;
 
     --mdv-sabbia: #6f5b38;
     --mdv-sabbia-chiara: #e8d4a8;
@@ -171,11 +179,29 @@
     color: var(--mdv-bruno-900);
   }
 
+  /* La barra entra nell'atmosfera insieme al resto: le voci passano dal
+     sabbia rosato all'oro caldo della sezione, e quella su cui ti trovi
+     si accende. Non e' un effetto collaterale della ridefinizione dei
+     token — quella da sola avrebbe reso la riga sotto le voci di un bruno
+     scuro, cioe' meno visibile proprio sulla barra scura.
+
+     Vale solo dentro /vocazione: uscendo, la classe se ne va e la barra
+     torna esattamente com'era. */
+  .voc-atmosfera .mdv-navlink--chiaro {
+    color: var(--mdv-oro-chiaro);
+  }
+  .voc-atmosfera .mdv-navlink--chiaro::after {
+    background-color: var(--mdv-oro);
+  }
+  .voc-atmosfera .mdv-navlink--chiaro.mdv-navlink--attivo {
+    color: var(--mdv-oro-brillante);
+  }
+
   /* L'area di rimbalzo dello scroll resta bianca se non si tinge anche il
      body, e il salto si vede sui trackpad. */
   body:has(.voc-atmosfera) {
     background-color: var(--voc-fondo);
-    transition: background-color 900ms ease;
+    transition: background-color var(--mdv-transito-atmosfera) ease;
   }
 
   /* I controlli di modulo non ereditano il colore del testo: il browser
@@ -265,7 +291,7 @@
     color: var(--mdv-oro-scuro);
     text-decoration: none;
     opacity: 0.72;
-    transition: opacity 220ms ease, color 220ms ease;
+    transition: opacity 220ms ease, color 450ms ease;
   }
   .mdv-navlink::after {
     content: '';
