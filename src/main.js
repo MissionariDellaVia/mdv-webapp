@@ -6,7 +6,6 @@ import router from './router';
 import { createPinia } from 'pinia';
 
 import App from './App.vue';
-import BaseSpinner from './components/ui/BaseSpinner.vue'
 import BaseToast from './components/ui/BaseToast.vue'
 import ImageDialog from "@/components/ui/ImageDialog.vue";
 
@@ -34,7 +33,6 @@ app.config.globalProperties.$util = utilityFunction;
 
 app.directive('rivela', direttivaRivela);
 
-app.component('base-spinner', BaseSpinner);
 app.component('base-toast', BaseToast);
 app.component('image-dialog', ImageDialog);
 

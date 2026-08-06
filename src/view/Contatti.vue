@@ -9,8 +9,19 @@
     />
 
     <div class="mx-auto w-full max-w-6xl px-4 py-16">
-      <div v-if="isLoading" class="py-12">
-        <base-spinner></base-spinner>
+      <!-- La sagoma di una sede: i recapiti a sinistra, la mappa a
+           destra. Quando arriva prende esattamente questo posto. -->
+      <div v-if="isLoading" class="attesa" role="status" aria-busy="true">
+        <span class="sr-only">Caricamento delle sedi in corso</span>
+        <div class="attesa__dati">
+          <BaseScheletro altezza="0.8rem" larghezza="35%" />
+          <BaseScheletro altezza="2.2rem" larghezza="75%" />
+          <div v-for="i in 3" :key="i" class="attesa__voce">
+            <BaseScheletro altezza="0.7rem" larghezza="30%" />
+            <BaseScheletro altezza="1.2rem" larghezza="80%" />
+          </div>
+        </div>
+        <BaseScheletro altezza="20rem" />
       </div>
 
       <!-- Ogni sede era una scheda dentro una colonna dentro una riga, con
@@ -96,6 +107,7 @@
 import { usaPagina } from '@/store/pagina.mjs';
 import MDHeader from "@/components/layout/MdvHeader.vue";
 import MdvForm from "@/components/MdvForm.vue";
+import BaseScheletro from "@/components/ui/BaseScheletro.vue";
 import { defineAsyncComponent } from 'vue';
 
 // La mappa si porta dietro maplibre-gl, il pezzo piu' pesante di tutto il
@@ -108,7 +120,7 @@ export default {
   setup() {
     return { pagina: usaPagina() };
   },
-  components: { MdvForm, BaseMap, MDHeader },
+  components: { MdvForm, BaseMap, BaseScheletro, MDHeader },
   created() {
     this.loadPage("contatti");
   },
@@ -135,6 +147,29 @@ export default {
 </script>
 
 <style scoped>
+.attesa {
+  display: grid;
+  gap: var(--mdv-spazio-6);
+  padding-bottom: var(--mdv-ritmo-sezione);
+}
+.attesa__dati {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mdv-spazio-3);
+}
+.attesa__voce {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mdv-spazio-2);
+  margin-top: var(--mdv-spazio-3);
+}
+@media (min-width: 56rem) {
+  .attesa {
+    grid-template-columns: 5fr 6fr;
+    align-items: center;
+  }
+}
+
 .sede {
   display: grid;
   gap: var(--mdv-spazio-6);

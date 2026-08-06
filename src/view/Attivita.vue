@@ -13,8 +13,21 @@
         <Markdown :source="attivitaPage.main.caption" class="occhiello markdown-mdv" :html="true" />
       </div>
 
-      <div v-if="isLoading" class="py-12">
-        <base-spinner></base-spinner>
+      <!-- Mentre le attivita' arrivano si vede la loro forma: la fascia
+           del luogo e due articoli. Al posto di una rotella in mezzo allo
+           schermo, che dice solo "aspetta". -->
+      <div v-if="isLoading" class="attesa" role="status" aria-busy="true">
+        <span class="sr-only">Caricamento delle attività in corso</span>
+        <BaseScheletro altezza="4rem" />
+        <div v-for="i in 2" :key="i" class="attesa__articolo">
+          <BaseScheletro altezza="14rem" />
+          <div class="attesa__righe">
+            <BaseScheletro altezza="1.6rem" larghezza="70%" />
+            <BaseScheletro />
+            <BaseScheletro />
+            <BaseScheletro larghezza="85%" />
+          </div>
+        </div>
       </div>
       <MdvGroups v-else :groups="attivitaPage.groups"/>
     </div>
@@ -26,13 +39,14 @@ import { usaPagina } from '@/store/pagina.mjs';
 import MDHeader from "@/components/layout/MdvHeader.vue";
 import MdvGroups from "@/components/MdvGroups.vue";
 import Markdown from 'vue3-markdown-it';
+import BaseScheletro from "@/components/ui/BaseScheletro.vue";
 
 export default {
   name: "AttivitaPage",
   setup() {
     return { pagina: usaPagina() };
   },
-  components: {MdvGroups, MDHeader, Markdown},
+  components: {MdvGroups, MDHeader, Markdown, BaseScheletro},
   created() {
     this.loadPage("attivita");
   },
@@ -63,6 +77,28 @@ export default {
 </script>
 
 <style scoped>
+.attesa {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mdv-spazio-6);
+  padding-bottom: var(--mdv-ritmo-sezione);
+}
+.attesa__articolo {
+  display: grid;
+  gap: var(--mdv-spazio-5);
+}
+.attesa__righe {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mdv-spazio-3);
+}
+@media (min-width: 48rem) {
+  .attesa__articolo {
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+  }
+}
+
 .titolo {
   font-family: var(--mdv-font-titolo);
   font-size: var(--mdv-testo-3xl);

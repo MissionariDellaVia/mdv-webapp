@@ -412,7 +412,10 @@
   /* Rivelazione allo scroll: la direttiva v-rivela aggiunge le classi. */
   .da-rivelare {
     opacity: 0;
-    transform: translateY(8px);
+    /* Otto pixel non si vedono: il movimento c'era e nessuno se ne
+       accorgeva. Sotto il paio di centimetri l'occhio legge una
+       comparsa, non un arrivo. */
+    transform: translateY(1.75rem);
     transition: opacity 700ms var(--mdv-curva-morbida), transform 700ms var(--mdv-curva-morbida);
   }
   /* Chi entra di lato invece che dal basso: serve a far arrivare una

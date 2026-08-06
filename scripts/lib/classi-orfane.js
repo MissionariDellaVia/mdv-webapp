@@ -29,6 +29,8 @@ const SOLO_BOOTSTRAP = [
   'offcanvas', 'offcanvas-header', 'offcanvas-body',
   'dropdown', 'dropdown-menu', 'dropdown-item', 'dropdown-toggle',
   'text-muted', 'shadow-sm', 'pe-3', 'ps-3',
+  'position-absolute', 'position-relative', 'position-fixed',
+  'top-50', 'start-50', 'translate-middle',
 ];
 
 const RE_COLONNA = /^col-(?:sm|md|lg|xl|xxl)?-?\d{1,2}$/;
