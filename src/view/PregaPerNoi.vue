@@ -1,100 +1,76 @@
 <template>
   <section>
-    <div v-if="isLoading">
-      <base-spinner></base-spinner>
-    </div>
+    <MDHeader
+      :image="pregaConNoiPage.header.backgroundImage"
+      :title="pregaConNoiPage.header.title"
+      :caption="pregaConNoiPage.header.caption"
+    />
 
-    <div v-else >
-      <MDHeader :image="pregaConNoiPage.header.backgroundImage"
-                :title="pregaConNoiPage.header.title"
-                :caption="pregaConNoiPage.header.caption"/>
-
-      <div class="container">
-        <!-- Main Section -->
-        <main>
-          <div class="row text-center my-5">
-            <div class="col-12 px-5">
-              <h1 class="main-title my-4"> {{ pregaConNoiPage.main.title }} </h1>
-              <h4 v-if="pregaConNoiPage.main.caption" class="caption"> <Markdown :source="pregaConNoiPage.main.caption" :html="true" class="markdown-mdv"></Markdown></h4>
-            </div>
-          </div>
-          <div v-if="pregaConNoiPage.main.strings" class="row text-center my-5">
-            <div class="col-md-12 col-sm-12 px-5">
-              <p v-for="(text, index) in pregaConNoiPage.main.strings" v-bind:key="index">
-                <Markdown :source="text" :html="true" class="markdown-mdv"></Markdown>
-              </p>
-            </div>
-          </div>
-        </main>
-
-        <div class="row text-center gy-4 my-5">
-          <div v-for="(image, index) in pregaConNoiPage.main.images" v-bind:key="index" class="col-md-6 col-sm-12" >
-            <img :src=helper.getImgUrl(image.url) class="img-fluid" :alt="image.alt"/>
-          </div>
+    <div class="mx-auto w-full max-w-6xl px-4">
+      <main class="my-12 px-4 text-center">
+        <h1 class="mdv-titolo-pagina my-6">{{ pregaConNoiPage.main.title }}</h1>
+        <div v-if="pregaConNoiPage.main.caption" class="mdv-sottotitolo">
+          <Markdown :source="pregaConNoiPage.main.caption" :html="true" class="markdown-mdv" />
         </div>
 
+        <div v-if="pregaConNoiPage.main.strings" v-rivela class="prosa mt-12">
+          <p v-for="(testo, index) in pregaConNoiPage.main.strings" :key="index">
+            <Markdown :source="testo" :html="true" class="markdown-mdv" />
+          </p>
+        </div>
+      </main>
+
+      <div class="griglia-immagini grid gap-6 sm:grid-cols-2">
+        <img
+          v-for="(image, index) in pregaConNoiPage.main.images"
+          :key="index"
+          v-rivela
+          :style="{ transitionDelay: `${index * 120}ms` }"
+          :src="helper.getImgUrl(image.url)"
+          :alt="image.alt"
+          class="h-auto w-full"
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import MDHeader from "@/components/layout/MdvHeader";
+import MDHeader from "@/components/layout/MdvHeader.vue";
 import Markdown from 'vue3-markdown-it';
+import { usaPagina } from '@/store/pagina.mjs';
 
 export default {
   name: "PregaPerNoiPage",
-  components: { MDHeader, Markdown},
+  setup() {
+    return { pagina: usaPagina() };
+  },
+  components: { MDHeader, Markdown },
+  // Questa pagina legge solo il JSON locale: il contenuto c'e' gia' al
+  // primo disegno. Lo spinner che la avvolgeva aspettava una promessa che
+  // si risolveva nello stesso istante, e faceva solo sparire la pagina.
   created() {
-    this.loadPage("prega-con-noi");
+    this.pagina.caricaPagina("prega-con-noi");
   },
   data() {
-    return {
-      helper: this.$util,
-      isLoading: false,
-    };
+    return { helper: this.$util };
   },
   computed: {
     pregaConNoiPage() {
-      return this.$store.getters['page/pregaConNoi'];
+      return this.pagina.pregaConNoi;
     },
   },
-  methods: {
-    async loadPage(page) {
-      this.isLoading = true;
-      try {
-        await this.$store.dispatch('page/loadPage', page);
-      } catch (error) {
-        // this.showToast(error.message || 'Errore caricamento pagina!');
-      }
-      this.isLoading = false;
-    },
-  }
 }
 </script>
 
 <style scoped>
-.main-title {
-  font-family: 'Playfair Display', sans-serif;
-  font-weight: 400 !important;
-  font-size: 2.8rem;
-}
-.caption {
-  font-family: 'Playfair Display', serif;
-  line-height: 1.75;
-  font-style: italic;
-}
-p {
-  font-family: 'Old Standard TT', sans-serif;
-  font-size: 1.2rem;
-}
-a {
-  text-decoration: none;
-  color: #8c681c !important;
-  margin-bottom: 1.2rem;
-}
-.md a:hover, .md a:focus {
-  color: #59411a;
+.griglia-immagini {
+  margin-block: var(--mdv-ritmo-sezione);
 }
 
+.prosa :deep(p),
+.prosa p {
+  font-family: var(--mdv-font-alternativo);
+  font-size: var(--mdv-testo-l);
+}
 </style>

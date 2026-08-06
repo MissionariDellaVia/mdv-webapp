@@ -1,0 +1,37 @@
+/* Ponte fra i token e i nomi delle utility. Gli import e l'ordine dei
+ * layer stanno in stile.css, che e' il punto d'ingresso.
+ *
+ * Il preflight — l'azzeramento degli stili di base — e' acceso da quando
+ * Bootstrap e' uscito: prima erano due azzeramenti che si contendevano
+ * gli stessi elementi, e chi vinceva dipendeva dall'ordine degli import.
+ */
+/* I token restano l'unica fonte dei valori visivi: qui si limitano a
+ * diventare anche nomi di utility. Scrivere text-oro significa leggere
+ * var(--mdv-oro), quindi l'atmosfera vocazionale continua a ribaltare
+ * tutto ridefinendo le stesse variabili — cosa che con dei colori copiati
+ * dentro Tailwind non funzionerebbe.
+ */
+@theme inline {
+  --color-bruno: var(--mdv-bruno-900);
+  --color-bruno-velato: var(--mdv-bruno-900-velato);
+  --color-terra: var(--mdv-terra);
+  --color-oro: var(--mdv-oro);
+  --color-oro-scuro: var(--mdv-oro-scuro);
+  --color-oro-chiaro: var(--mdv-oro-chiaro);
+  --color-sabbia: var(--mdv-sabbia);
+  --color-sabbia-chiara: var(--mdv-sabbia-chiara);
+  --color-crema: var(--mdv-crema);
+  --color-pietra: var(--mdv-pietra);
+  --color-panna: var(--mdv-bianco);
+  --color-grigio: var(--mdv-grigio);
+  --color-grigio-scuro: var(--mdv-grigio-scuro);
+  --color-scheda: var(--mdv-fondo-scheda);
+  --color-campo: var(--mdv-fondo-campo);
+
+  --font-titolo: var(--mdv-font-titolo);
+  --font-corpo: var(--mdv-font-corpo);
+  --font-navigazione: var(--mdv-font-navigazione);
+  --font-alternativo: var(--mdv-font-alternativo);
+
+  --ease-morbida: var(--mdv-curva-morbida);
+}

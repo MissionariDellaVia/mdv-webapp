@@ -1,21 +1,15 @@
 <template>
-<!--  <header :class="'md-bg bg' + {rootImage}">-->
   <header class="video-wrapper">
     <video playsinline autoplay muted loop :poster="helper.getImgUrl('chiSiamo.jpg')">
       <source :src="helper.getImgUrl('intro-1440.mp4')" type="video/mp4">
     </video>
-    <!-- This will be positioned on top of our video background -->
+
+    <!-- Il ramo con il marchio e quello senza erano identici tranne una
+         classe sul titolo: erano due copie della stessa cosa. -->
     <div class="header">
-      <div class="row h-100 align-items-center">
-        <div v-if="brand" class="col-12 text-center">
-          <!--          <img src="../../assets/logo.png" class="mt-5" alt="logoHome"/>-->
-          <h1 class="main-title with-brand text-uppercase">{{ title }}</h1>
-          <p v-if="caption" class="lead headerSection">{{ caption }}</p>
-        </div>
-        <div v-else class="col-12 text-center">
-          <h1 class="main-title text-uppercase">{{ title }}</h1>
-          <p v-if="caption" class="lead headerSection">{{ caption }}</p>
-        </div>
+      <div class="header__contenuto">
+        <h1 :class="['main-title uppercase', { 'with-brand': brand }]">{{ title }}</h1>
+        <p v-if="caption" class="lead headerSection">{{ caption }}</p>
       </div>
     </div>
   </header>
@@ -34,6 +28,14 @@ export default {
 </script>
 
 <style scoped>
+.header__contenuto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+
 
 @media only screen and (max-width: 480px) {
   .video-wrapper {
@@ -86,7 +88,7 @@ export default {
   width: 100%;
   height: 100%;
   content: '';
-  background: linear-gradient(180deg, rgba(28,24,10,0.7989262599571079) 0%, rgba(43,37,16,0) 32%);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--mdv-bruno-900) 80%, transparent) 0%, transparent 32%);
 }
 video {
   object-fit: cover;
@@ -99,9 +101,9 @@ video {
 }
 .header{
   position: relative;
-  font-family: 'Bubbler One', sans-serif;
-  color: #FFFFFF;
-  text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+  font-family: var(--mdv-font-titolo);
+  color: var(--mdv-bianco);
+  text-shadow: 1px 1px 8px var(--mdv-velo-scuro);
 }
 
 .lead.headerSection {
@@ -109,7 +111,7 @@ video {
   text-transform: uppercase;
   width: 80%;
   margin: auto;
-  color: #d7d7d7;
+  color: var(--mdv-argento);
 }
 
 img {

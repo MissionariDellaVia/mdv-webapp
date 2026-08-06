@@ -1,45 +1,39 @@
 import { createApp } from 'vue';
 import { utilityFunction } from './utility/utility.js';
+import { direttivaRivela } from './utility/direttivaRivela.mjs';
 import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 import router from './router';
-import store from './store/index.js';
+import { createPinia } from 'pinia';
 
 import App from './App.vue';
-import BaseSpinner from './components/ui/BaseSpinner'
-import BaseToast from './components/ui/BaseToast'
-import BaseCard from './components/ui/BaseCard'
-import BaseDashboard from "@/components/ui/BaseDashboard";
-import BaseButton from "@/components/ui/BaseButton";
-import BackButton from "@/components/ui/BackButton";
-import ImageDialog from "@/components/ui/ImageDialog";
+import BaseToast from './components/ui/BaseToast.vue'
+import ImageDialog from "@/components/ui/ImageDialog.vue";
 
-// Bootstrap Style
-import "bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap';
+
+// Un solo foglio d'ingresso: dichiara l'ordine dei layer e tira dentro
+// token, Tailwind e quel che resta di Bootstrap.
+import './assets/css/stile.css';
 
 // Markdown
 import Markdown from 'vue3-markdown-it';
 
 // Css
-import 'animate.css';
-import "/node_modules/flag-icons/css/flag-icons.min.css";
-import 'highlight.js/styles/monokai.css';
-import 'vue3-carousel/dist/carousel.css';
+// animate.css e il tema di highlight.js erano importati ma non usati da
+// nessuno: 71 KB di CSS scaricati da ogni visitatore per niente. Il tema
+// di highlight serve solo ai blocchi di codice, che nei contenuti del
+// sito non esistono.
 
 const app = createApp(App)
 app.use(router);
-app.use(store);
+app.use(createPinia());
 app.use(autoAnimatePlugin);
 app.use(Markdown);
 
 app.config.globalProperties.$util = utilityFunction;
 
-app.component('base-spinner', BaseSpinner);
+app.directive('rivela', direttivaRivela);
+
 app.component('base-toast', BaseToast);
-app.component('base-card', BaseCard);
-app.component('base-dashboard', BaseDashboard);
-app.component('base-button', BaseButton);
-app.component('back-button', BackButton);
 app.component('image-dialog', ImageDialog);
 
 app.mount('#app');

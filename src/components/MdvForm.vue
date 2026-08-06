@@ -1,46 +1,49 @@
 <template>
-  <div class="card">
-
+  <section class="modulo">
     <base-toast :show="!!toast.val" :type="toast.type">
       {{ toast.message }}
     </base-toast>
 
-    <div v-if="title" class="card-header">
-      <div class="text-center fs-3">{{ title }}</div>
-    </div>
-    <div class="card-body my-3">
-      <form class="mx-auto" @submit.prevent="submitForm">
-        <div class="row mb-3">
-          <div class="col">
-            <div class="form-floating">
-              <input type="text" class="form-control" v-model="name" id="name" placeholder="Mario">
-              <label for="floatingInput">{{ nameField }}</label>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-floating">
-              <input type="text" class="form-control" v-model="lastName" id="lastName" placeholder="Rossi">
-              <label for="floatingInput">{{ lastNameField }}</label>
-            </div>
-          </div>
-        </div>
-        <div class="form-floating mb-3">
-          <input type="email" class="form-control" v-model="email" id="email" placeholder="name@example.com">
-          <label for="floatingInput">Email</label>
-        </div>
-        <div class="form-floating  mb-3">
-          <textarea class="form-control" v-model="textArea" id="textArea" placeholder="inserire una richiesta"
-                    rows="4"></textarea>
-          <label for="floatingInput">{{ textField }}</label>
-        </div>
-        <div class="row mb-3">
-          <div class="col-12 text-center">
-            <button type="submit" class="btn btn-contact"> {{ buttonName }}</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+    <!-- Il titolo stava dentro la fascia scura della scheda: una frase
+         intera in una banda bruna non si legge come un titolo, si legge
+         come un'insegna. Qui e' un'intestazione, con sopra chi sta
+         parlando e sotto cosa fare. -->
+    <header v-if="title" class="modulo__intestazione">
+      <p class="mdv-sopratitolo">Scrivici</p>
+      <h2 class="modulo__titolo">{{ title }}</h2>
+    </header>
+
+    <form class="modulo__campi" @submit.prevent="submitForm">
+      <!-- Le etichette puntavano tutte a "floatingInput", che non esiste:
+           cliccarle non metteva il fuoco in nessun campo, e un lettore di
+           schermo leggeva quattro volte lo stesso nome. Ora ognuna e'
+           legata al suo. -->
+      <div class="modulo__coppia">
+        <p class="modulo__campo">
+          <label for="nome">{{ nameField }}</label>
+          <input id="nome" v-model="name" type="text" autocomplete="given-name" />
+        </p>
+        <p class="modulo__campo">
+          <label for="cognome">{{ lastNameField }}</label>
+          <input id="cognome" v-model="lastName" type="text" autocomplete="family-name" />
+        </p>
+      </div>
+
+      <p class="modulo__campo">
+        <label for="posta">Email</label>
+        <input id="posta" v-model="email" type="email" autocomplete="email" />
+      </p>
+
+      <p class="modulo__campo">
+        <label for="messaggio">{{ textField }}</label>
+        <textarea id="messaggio" v-model="textArea" rows="5"></textarea>
+      </p>
+
+      <p class="modulo__invio">
+        <button type="submit" class="mdv-invito">{{ buttonName }}</button>
+      </p>
+    </form>
+  </section>
 </template>
 
 <script>
@@ -113,62 +116,73 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  border: 0;
+.modulo {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+.modulo__intestazione {
+  margin-bottom: var(--mdv-spazio-6);
+  text-align: center;
+}
+.modulo__titolo {
+  margin: 0;
+  font-family: var(--mdv-font-corpo);
+  font-size: var(--mdv-testo-xl);
+  line-height: 1.35;
+  color: var(--mdv-bruno-900);
+}
+.modulo__campi {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mdv-spazio-4);
+}
+.modulo__coppia {
+  display: grid;
+  gap: var(--mdv-spazio-4);
 }
 
-.card-header {
-  font-family: 'Playfair Display', sans-serif;
-  color: #ffffff;
-  border: 0;
-  background: rgb(40, 29, 2, 0.9);
+.modulo__campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mdv-spazio-2);
+  margin: 0;
+}
+.modulo__campo label {
+  font-family: var(--mdv-font-navigazione);
+  font-size: var(--mdv-testo-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mdv-grigio);
+}
+.modulo__campo input,
+.modulo__campo textarea {
+  width: 100%;
+  padding: var(--mdv-spazio-3);
+  border: 1px solid var(--mdv-sabbia);
+  border-radius: var(--mdv-raggio-s);
+  background-color: var(--mdv-bianco);
+  font-family: var(--mdv-font-corpo);
+  font-size: 1rem;
+  color: var(--mdv-bruno-900);
+  transition: border-color 240ms ease;
+}
+.modulo__campo textarea {
+  resize: vertical;
+}
+.modulo__campo input:focus,
+.modulo__campo textarea:focus {
+  outline: none;
+  border-color: var(--mdv-oro);
 }
 
-p {
-  font-family: 'Old Standard TT', sans-serif;
-  font-size: 1.3rem;
+.modulo__invio {
+  margin: var(--mdv-spazio-2) 0 0;
+  text-align: center;
 }
 
-img {
-  max-width: 22rem;
-  margin: auto;
-}
-
-form {
-  width: 60%;
-  margin: auto;
-}
-
-.form-control {
-  background-color: #e5e4df;
-  border-color: transparent;
-  color: rgb(40, 29, 2, 0.9) !important;
-}
-
-.form-floating {
-  color: rgb(40, 29, 2, 0.9) !important;
-}
-
-label {
-  margin-left: 0.75rem;
-}
-
-input:focus, textarea:focus, button:focus {
-  box-shadow: none;
-  background-color: #e5e4df !important;
-  border-color: transparent !important;
-}
-
-.btn-contact {
-  background-color: rgb(40, 29, 2, 0.9);
-  color: #FFFFFF;
-  font-size: 1.2rem;
-  border-radius: 0;
-}
-
-@media only screen and (max-width: 480px) {
-  form {
-    width: 100%;
+@media (min-width: 36rem) {
+  .modulo__coppia {
+    grid-template-columns: 1fr 1fr;
   }
 }
 </style>

@@ -1,18 +1,8 @@
 <template>
-<!--  <header :class="'md-bg bg' + {rootImage}">-->
-  <header class="md-bg" :style="inlineStyle">
-    <div class="container h-100">
-      <div class="row h-100 align-items-center">
-        <div v-if="brand" class="col-12 text-center">
-<!--          <img src="../../assets/logo.png" class="mt-5" alt="logoHome"/>-->
-          <h1 class="main-title with-brand text-uppercase">{{ title }}</h1>
-          <p v-if="caption" class="lead headerSection">{{ caption }}</p>
-        </div>
-        <div v-else class="col-12 text-center">
-          <h1 class="main-title text-uppercase">{{ title }}</h1>
-          <p v-if="caption" class="lead headerSection">{{ caption }}</p>
-        </div>
-      </div>
+  <header :class="['md-bg', { 'md-bg--pronta': pronta }]" :style="inlineStyle">
+    <div class="md-bg__contenuto">
+      <h1 :class="['main-title uppercase', { 'with-brand': brand }]">{{ title }}</h1>
+      <p v-if="caption" class="lead headerSection">{{ caption }}</p>
     </div>
   </header>
 </template>
@@ -23,13 +13,33 @@ export default {
   props: ['image', 'brand', 'title', 'caption'],
   data(){
     return {
-      helper: this.$util
+      helper: this.$util,
+      // Finche' la foto non e' pronta, l'intestazione resta del suo bruno:
+      // lo spazio e' gia' riservato, quindi non c'e' niente che si sposta.
+      pronta: false
     }
   },
   computed: {
+    indirizzoFoto () {
+      return this.$util.getImgUrl(this.image ? this.image : 'default.jpg')
+    },
     inlineStyle () {
-      return {
-        backgroundImage: `url(${this.$util.getImgUrl(this.image ? this.image : 'default.jpg')})`
+      return { '--mdv-header-foto': `url(${this.indirizzoFoto})` }
+    }
+  },
+  watch: {
+    // Nelle pagine ibride l'indirizzo puo' cambiare dopo il primo disegno.
+    indirizzoFoto: {
+      immediate: true,
+      handler (indirizzo) {
+        this.pronta = false;
+        if (!indirizzo) return;
+        const foto = new Image();
+        // In entrambi i casi si smette di aspettare: un'immagine che non
+        // arriva non deve lasciare l'intestazione vuota per sempre.
+        foto.onload = () => { this.pronta = true; };
+        foto.onerror = () => { this.pronta = true; };
+        foto.src = indirizzo;
       }
     }
   },
@@ -57,22 +67,54 @@ export default {
   }
 }
 
+/* L'altezza e' fissa e non dipende dalla foto: lo spazio e' riservato dal
+   primo fotogramma, quindi la pagina non cresce sotto gli occhi quando
+   l'immagine arriva. Il fondo bruno regge la scritta anche prima. */
+.md-bg__contenuto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 var(--mdv-spazio-4);
+  text-align: center;
+}
+
 .md-bg {
-  font-family: 'Bubbler One', sans-serif;
+  position: relative;
+  isolation: isolate;
+  font-family: var(--mdv-font-titolo);
   height: 45rem;
+  margin-bottom: 3%;
+  background-color: var(--mdv-bruno-900);
+  color: var(--mdv-bianco);
+}
+
+/* La foto sta su un livello suo per poterla far entrare in dissolvenza:
+   un'immagine di fondo non si puo' animare, un livello si'. */
+.md-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: var(--mdv-header-foto);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.30);
-  margin-bottom: 3%;
-  color: #FFFFFF;
+  box-shadow: inset 0 0 0 2000px var(--mdv-ombra-media);
+  opacity: 0;
+  transition: opacity 600ms var(--mdv-curva-morbida);
+}
+.md-bg--pronta::before {
+  opacity: 1;
 }
 
 .lead.headerSection {
   font-size: 2rem;
   width: 80%;
   margin: auto;
-  color: #a8a8a8;
+  color: var(--mdv-grigio-chiaro);
 }
 
 img {

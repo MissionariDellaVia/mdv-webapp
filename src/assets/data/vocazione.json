@@ -1,0 +1,420 @@
+{
+  "hub": {
+    "header": {
+      "titolo": "Vocazione",
+      "sottotitolo": "Alla ricerca del grande tesoro",
+      "immagine": "vocazione/hub.jpg"
+    },
+    "citazione": "«Il regno dei cieli è simile a un tesoro nascosto nel campo; un uomo lo trova e lo nasconde; poi va, pieno di gioia, vende tutti i suoi averi e compra quel campo» (Mt 13,44).",
+    "intro": "**Caro fratello, cara sorella, benvenuto!**\n\nForse sei arrivato qui perché ti porti dentro una domanda. Una domanda che, prima o poi, attraversa il cuore di ogni persona: **che cosa vuole Dio dalla mia vita?** Oppure: **come posso essere davvero felice?**\n\nLa vocazione nasce proprio da qui.\n\nNon è anzitutto la scelta tra matrimonio, sacerdozio o vita consacrata. Non è una rinuncia, né una strada riservata a pochi. La vocazione è il progetto unico e irripetibile che Dio ha pensato per te. È il modo concreto con cui sei chiamato ad amare, a donarti e a realizzare pienamente la tua vita.\n\nDio non chiama tutti alla stessa strada, ma chiama tutti alla felicità e alla santità.\n\nPer questo la vocazione è come un tesoro nascosto: c'è già, ma occorre cercarlo, riconoscerlo e custodirlo.",
+    "invito": "Da dove cominciare? Scegli la voce che ti interessa",
+    "porte": [
+      {
+        "titolo": "Sto cercando la mia strada",
+        "testo": "Se senti il desiderio di capire meglio ciò che Dio vuole da te, inizia dal percorso sul discernimento vocazionale.",
+        "rotta": "vocazione-discernimento"
+      },
+      {
+        "titolo": "Penso al matrimonio",
+        "testo": "Se stai vivendo un fidanzamento o desideri formare una famiglia cristiana, scopri la bellezza della vocazione matrimoniale.",
+        "rotta": "vocazione-matrimonio"
+      },
+      {
+        "titolo": "Mi interrogo sul sacerdozio",
+        "testo": "Se avverti nel cuore il desiderio di seguire Gesù come sacerdote e servire il suo popolo, approfondisci questa chiamata.",
+        "rotta": "vocazione-sacerdozio"
+      },
+      {
+        "titolo": "Mi sento attratto dalla vita consacrata",
+        "testo": "Se percepisci il desiderio di appartenere totalmente a Cristo e di seguirlo più da vicino, esplora il cammino della vita consacrata.",
+        "rotta": "vocazione-vita-consacrata"
+      }
+    ],
+    "chiusura": "**E ricorda, si tratta di un cammino, non di una corsa!**\n\nLa vocazione non si scopre in un giorno. Né seduti ad un tavolino.\n\nCome ogni tesoro prezioso, richiede tempo, ascolto, preghiera, accompagnamento, ritiri e coraggio. Dio non ha fretta. Egli guida con pazienza chi si mette sinceramente alla sua ricerca.\n\nNon avere paura delle domande, dei dubbi o delle fatiche. Anche i grandi santi hanno attraversato momenti di incertezza. Ciò che conta è non smettere di cercare.\n\nSe Dio ha posto nel tuo cuore il desiderio di capire la sua volontà, puoi essere certo di una cosa: non ti lascerà solo.\n\nChi cerca sinceramente il Signore scoprirà che era Lui, da sempre, a cercare per primo.\n\n*Buon cammino.*"
+  },
+  "percorsi": {
+    "discernimento": {
+      "header": {
+        "titolo": "Sto cercando la mia strada",
+        "sottotitolo": "Il discernimento vocazionale",
+        "immagine": "vocazione/discernimento.jpg"
+      },
+      "blocchi": [
+        {
+          "tipo": "elenco",
+          "titolo": "Forse ti stai chiedendo",
+          "voci": [
+            "Che cosa farò della mia vita?",
+            "Quale sarà il mio futuro?",
+            "Come posso essere felice?",
+            "Dio ha un progetto per me?"
+          ]
+        },
+        {
+          "tipo": "prosa",
+          "testo": "Sono domande importanti. Non indicano confusione. Indicano che stai crescendo.\n\nOgni persona, prima o poi, si trova davanti a queste domande.\n\nLa fede cristiana offre una risposta sorprendente: la tua vita non è un caso. Sei stato pensato, amato e chiamato da Dio."
+        },
+        {
+          "tipo": "prosa",
+          "titolo": "La tua vita è una vocazione",
+          "testo": "La parola «vocazione» significa chiamata.\n\nDio chiama ogni persona per nome. Non chiama soltanto sacerdoti o religiose. Chiama ogni uomo e ogni donna a vivere una vita piena, bella e feconda."
+        },
+        {
+          "tipo": "elenco",
+          "titolo": "Prima ancora di una vocazione particolare, siamo chiamati",
+          "voci": [
+            "alla vita",
+            "a vivere nell'amore",
+            "a crescere nella santità",
+            "a mettere i propri doni al servizio degli altri"
+          ]
+        },
+        {
+          "tipo": "prosa",
+          "testo": "La vocazione non è un peso. È il modo unico in cui puoi diventare pienamente te stesso."
+        },
+        {
+          "tipo": "prosa",
+          "titolo": "Dio parla ancora oggi",
+          "testo": "Forse immagini che la vocazione debba arrivare attraverso segni straordinari.\n\nNella maggior parte dei casi non accade così. Dio parla attraverso:"
+        },
+        {
+          "tipo": "elenco",
+          "voci": [
+            "la sua Parola",
+            "la preghiera",
+            "gli incontri",
+            "i desideri profondi",
+            "gli avvenimenti della vita",
+            "le persone che ci accompagnano"
+          ]
+        },
+        {
+          "tipo": "prosa",
+          "testo": "Per questo la vocazione si scopre poco alla volta. Come un tesoro nascosto."
+        },
+        {
+          "tipo": "prosa",
+          "titolo": "Come faccio a capire?",
+          "testo": "Questa ricerca prende il nome di discernimento vocazionale.\n\nDiscernere significa imparare a riconoscere la voce di Dio tra le tante voci che abitano il nostro cuore.\n\nNon è una tecnica. È un cammino."
+        },
+        {
+          "tipo": "passi",
+          "titolo": "Sei passi per discernere",
+          "passi": [
+            {
+              "titolo": "Cerca sinceramente la verità",
+              "testo": "Non chiederti soltanto: che cosa mi piace? Chiediti: come posso servire di più e meglio? E soprattutto: Signore, che cosa desideri da me?"
+            },
+            {
+              "titolo": "Coltiva l'amicizia con Gesù",
+              "testo": "La vocazione nasce dall'incontro con Lui."
+            },
+            {
+              "titolo": "Ascolta il tuo cuore",
+              "testo": "Quali desideri ritornano? In che direzione va la gioia profonda?"
+            },
+            {
+              "titolo": "Rileggi la tua storia",
+              "testo": "Dio ha già lasciato molte tracce nella tua vita."
+            },
+            {
+              "titolo": "Conosci te stesso",
+              "testo": "Talenti, limiti, paure e sogni fanno parte del discernimento."
+            },
+            {
+              "titolo": "Non camminare da solo",
+              "testo": "Una guida spirituale può aiutarti a vedere più chiaramente."
+            }
+          ]
+        },
+        {
+          "tipo": "segni",
+          "titolo": "Alcuni segnali importanti",
+          "voci": [
+            "gioia profonda",
+            "inquietudine, percezione di incompiutezza",
+            "desiderio di donarsi",
+            "perseveranza nel tempo",
+            "crescita nell'amore"
+          ]
+        },
+        {
+          "tipo": "prosa",
+          "titolo": "Non avere paura",
+          "testo": "Molti pensano: «e se sbagliassi?»\n\nAnche i santi hanno avuto dubbi. La vocazione non consiste nell'avere subito tutte le risposte. Consiste nel fidarsi di Dio un passo alla volta. Dio ti ama e desidera più di te che tu realizzi al meglio la tua vita."
+        },
+        {
+          "tipo": "prosa",
+          "titolo": "E adesso?",
+          "testo": "Forse stai iniziando a intuire quale strada ti attira maggiormente. Puoi continuare il tuo cammino approfondendo le diverse vocazioni nella Chiesa."
+        },
+        {
+          "tipo": "rimandi",
+          "voci": [
+            {
+              "etichetta": "Matrimonio",
+              "rotta": "vocazione-matrimonio"
+            },
+            {
+              "etichetta": "Sacerdozio",
+              "rotta": "vocazione-sacerdozio"
+            },
+            {
+              "etichetta": "Vita consacrata",
+              "rotta": "vocazione-vita-consacrata"
+            }
+          ]
+        }
+      ]
+    },
+    "matrimonio": {
+      "header": {
+        "titolo": "Vocazione al matrimonio",
+        "sottotitolo": "Una chiamata ad amare",
+        "immagine": "vocazione/matrimonio.jpg"
+      },
+      "blocchi": [
+        {
+          "tipo": "prosa",
+          "testo": "Quando si parla di vocazione, molti pensano subito al sacerdozio o alla vita consacrata. Eppure, per la maggior parte dei cristiani, la strada attraverso cui Dio chiama a vivere l'amore è il matrimonio.\n\nIl matrimonio non è semplicemente una scelta affettiva o un progetto di vita comune. Per il credente è una vera vocazione: una chiamata di Dio ad amarsi, sostenersi e aiutarsi reciprocamente, per diventare veramente «una sola carne», camminando insieme verso la santità.\n\nDio non chiama due persone a vivere una favola perfetta, ma a costruire insieme una comunione di vita fondata sull'amore, sulla fedeltà e sul dono reciproco."
+        },
+        {
+          "tipo": "prosa",
+          "titolo": "Come capire se questa è la tua strada?",
+          "testo": "Nessuno può rispondere al tuo posto. Tuttavia ci sono alcuni segni che meritano attenzione."
+        },
+        {
+          "tipo": "segni",
+          "voci": [
+            "il desiderio di condividere la vita con quella persona concreta",
+            "la capacità di progettare il futuro insieme",
+            "la disponibilità al dono reciproco",
+            "la capacità di affrontare insieme gioie e difficoltà"
+          ]
+        },
+        {
+          "tipo": "prosa",
+          "testo": "L'amore autentico non cerca semplicemente qualcuno che colmi i propri bisogni, ma una persona con cui imparare a donarsi."
+        },
+        {
+          "tipo": "prosa",
+          "titolo": "Il tempo del fidanzamento",
+          "testo": "Il fidanzamento non è soltanto una preparazione alle nozze. È un tempo di discernimento.\n\nÈ il periodo in cui due persone imparano a conoscersi nella verità, a verificare la solidità del loro amore e a comprendere se il Signore le chiama realmente a condividere tutta la vita.\n\nPer questo il fidanzamento richiede dialogo, preghiera, sincerità e pazienza."
+        },
+        {
+          "tipo": "prosa",
+          "titolo": "Un amore che diventa segno",
+          "testo": "Nel sacramento del matrimonio gli sposi diventano segno visibile dell'amore di Cristo per la Chiesa.\n\nAttraverso il loro amore, Dio continua a manifestare la sua presenza nel mondo.\n\nPer questo il matrimonio cristiano non è soltanto una meta da raggiungere, ma una missione da vivere ogni giorno."
+        },
+        {
+          "tipo": "riflessioni",
+          "titolo": "Per riflettere",
+          "domande": [
+            "Questa relazione mi aiuta a crescere come persona e come credente?",
+            "Riesco a immaginare il mio futuro accanto a questa persona?",
+            "Il nostro amore ci apre agli altri o ci chiude in noi stessi?",
+            "Stiamo costruendo un progetto fondato soltanto sui sentimenti o anche sulla fede?"
+          ]
+        },
+        {
+          "tipo": "testimonianze",
+          "titolo": "Testimonianze",
+          "voci": [
+            {
+              "nome": "Mattia e Viviana",
+              "foto": null,
+              "testo": "Con queste poche righe vorremmo testimoniare l'importanza della vocazione al matrimonio, la bellezza della vita da sposati e l'arricchimento proveniente dall'appartenenza ad una comunità cristiana.\nL'incontro con i missionari e le missionarie della Via é stato per noi fondamentale; la loro gioiosa povertà, il servizio reso agli altri e la profonda sequela di Cristo hanno stravolto i nostri schermi, molto spesso legati a logiche e problematiche \"del mondo\" e ci è stata di esempio per fare spazio a Gesù sempre di più nella nostra quotidianità.\nLa cosa più bella e importante che portiamo della nostra esperienza con i missionari è quella di averci aiutato a fare verità sull'amore e fare verità su di noi: non possiamo essere noi, Mattia e Viviana, la sorgente dell'amore, l'amare \"a modo mio\", secondo i miei canoni, potrebbe rendere infelice l'altro. Ognuno di noi porta con sé un bagaglio di ferite e di atteggiamenti che possono sviare rispetto al modo di vivere l'amore.\n\nQuesta consapevolezza e la ritrovata libertà nei pensieri ci ha permesso di ascoltare nel profondo i nostri cuori e, dopo 9 anni di fidanzamento, abbiamo capito che Dio ci chiamava a qualcosa in più, a un salto di qualità: il matrimonio. Al di là della precarietà lavorativa, oltre difficoltà del quotidiano, più di tutto sentivamo il bisogno di unire le nostre vite e portare su un unico binario due percorsi che, per tanto tempo, camminavano in direzione parallela.\nSiamo consapevoli della importanza di questo sacramento, della sua indissolubilità e delle responsabilità reciproche, ma questo non può e non deve essere motivo di spavento. L'essere complementari e non simili permette di moltiplicare le nostre forze, diventando qualcosa di diverso rispetto a quello che eravamo.\nCerchiamo infatti di camminare in 3 : Viviana Mattia e Gesù. Il giorno del nostro matrimonio abbiamo accolto l'altro con la grazia di Cristo e senza questa non possiamo fare nulla perché solo Lui é la vera fonte dell'amore e solo con Lui il nostro amore potrà durare per sempre.\n\nCosa facciamo nelle nostre vite? Niente di speciale,oltre il lavoro e la routine quotidiana, cerchiamo di dare spazio a Gesù con la preghiera, a pranzo o a cena (quando siamo insieme) spegnendo il televisore e raccontandoci la giornata, coltivando dei momenti di preghiera molto belli, come nei punti luce comunitari, accostandoci ai sacramenti insieme , ascoltando e seguendo una guida spirituale comune...cerchiamo cioè di vivere bene il quotidiano, mantenendo lo stupore per le cose che ci vengono regalate, con richieste e proposte e non pretese.\nNon mancano ovviamente i momenti di difficoltà o di divergenza, ma ci ispiriamo a quello che dice Papa Francesco: \n\n> \"ai novelli sposi io dico sempre: litigate pure, arrivate anche a tirarvi i piatti addosso. Ma non finite mai la giornata senza fare la pace»\n\nCerchiamo di vivere la fede non come qualcosa di esclusivo, personale ma insieme cercando di camminare nella stessa direzione verso la stessa meta...perchè siamo convinti che il matrimonio non é un punto di arrivo ma di partenza e solo con Gesù possiamo andare lontano, crescere in sapienza , grazia e numero... Lui non toglie nulla anzi\n... dona pace e gioia!"
+            }
+          ]
+        }
+      ]
+    },
+    "sacerdozio": {
+      "header": {
+        "titolo": "Vocazione al sacerdozio",
+        "sottotitolo": "«Vieni e seguimi»",
+        "immagine": "vocazione/sacerdozio.jpg"
+      },
+      "blocchi": [
+        {
+          "tipo": "prosa",
+          "testo": "Nel Vangelo Gesù continua a rivolgere a uomini concreti l'invito che rivolse ai primi discepoli: «Vieni e seguimi».\n\nLa vocazione sacerdotale nasce da questo incontro personale con Cristo.\n\nPrima di essere una missione, è una relazione. Prima di essere un servizio, è un'amicizia.\n\nGesù chiama alcuni uomini a condividere in modo particolare la sua vita e la sua missione, perché siano segno della sua presenza in mezzo al popolo di Dio."
+        },
+        {
+          "tipo": "prosa",
+          "titolo": "Come nasce una vocazione sacerdotale?",
+          "testo": "Non esiste uno schema uguale per tutti.\n\nPer alcuni la chiamata si manifesta fin dall'adolescenza. Per altri emerge lentamente nel corso degli anni.\n\nSpesso inizia come una semplice domanda che ritorna nel cuore: «e se il Signore mi chiamasse a seguirlo più da vicino?»\n\nNon sempre questa domanda porta immediatamente chiarezza. Talvolta suscita timore, resistenze e dubbi."
+        },
+        {
+          "tipo": "segni",
+          "titolo": "Alcuni segni possibili",
+          "voci": [
+            "cresce il desiderio di stare con Gesù",
+            "nasce la gioia di servire la comunità",
+            "il pensiero del sacerdozio ritorna nel tempo",
+            "si avverte il desiderio di dedicare la propria vita al Vangelo",
+            "la chiamata continua ad affacciarsi nonostante paure e incertezze"
+          ]
+        },
+        {
+          "tipo": "prosa",
+          "testo": "Non sono prove certe, ma indizi da prendere sul serio."
+        },
+        {
+          "tipo": "prosa",
+          "titolo": "Un dono per gli altri",
+          "testo": "Il sacerdote non è chiamato a vivere per se stesso.\n\nÈ chiamato a essere pastore, a predicare il Vangelo, a celebrare i sacramenti. Ad accompagnare le persone nei momenti più importanti della loro vita.\n\nIl cuore del ministero sacerdotale è la carità pastorale: amare il popolo di Dio con il cuore stesso di Cristo."
+        },
+        {
+          "tipo": "prosa",
+          "titolo": "Il seminario",
+          "testo": "Il seminario non è il punto di arrivo, ma il luogo del discernimento e della formazione.\n\nChi entra in seminario decide di verificare seriamente la possibilità di questa vocazione, accompagnato dalla Chiesa."
+        },
+        {
+          "tipo": "riflessioni",
+          "titolo": "Per riflettere",
+          "domande": [
+            "Mi sento attratto dalla figura di Gesù Buon Pastore?",
+            "Il servizio agli altri mi dona gioia?",
+            "Il pensiero del sacerdozio ritorna nel tempo?",
+            "Ho il desiderio di dedicare la mia vita al Vangelo?"
+          ]
+        }
+      ]
+    },
+    "vita-consacrata": {
+      "header": {
+        "titolo": "Vocazione alla vita consacrata",
+        "sottotitolo": "«Tu solo mi basti»",
+        "immagine": "vocazione/vita-consacrata.jpg"
+      },
+      "blocchi": [
+        {
+          "tipo": "prosa",
+          "testo": "Nel corso della storia della Chiesa molte donne e molti uomini hanno sentito nel cuore una chiamata particolare: appartenere totalmente a Cristo.\n\nDa questa esperienza sono nate le diverse forme di vita consacrata. Monaci e monache. Religiosi e religiose. Fratelli e sorelle impegnati nella missione.\n\nPersone che hanno scelto di testimoniare che Dio è il bene più grande della vita."
+        },
+        {
+          "tipo": "prosa",
+          "titolo": "Che cos'è la vita consacrata?",
+          "testo": "La vita consacrata è una risposta d'amore.\n\nAttraverso la professione dei consigli evangelici di povertà, castità e obbedienza, una persona sceglie di seguire Cristo in modo più radicale.\n\nSi sente chiamata a manifestare, con tutta la propria esistenza, che solo Dio basta."
+        },
+        {
+          "tipo": "prosa",
+          "titolo": "Come riconoscere questa chiamata?",
+          "testo": "Ogni storia è unica. Tuttavia alcuni segni ritornano frequentemente."
+        },
+        {
+          "tipo": "segni",
+          "voci": [
+            "un forte desiderio di appartenere totalmente al Signore",
+            "l'attrazione per una vita di preghiera",
+            "il desiderio di vivere in fraternità",
+            "la disponibilità alla missione e al servizio",
+            "una gioia particolare nel pensare di consacrare tutta la vita a Cristo in quella particolare famiglia religiosa"
+          ]
+        },
+        {
+          "tipo": "prosa",
+          "titolo": "Una vita per il Regno",
+          "testo": "La vita consacrata non è fuga dal mondo. È un modo particolare di amare il mondo.\n\nAttraverso la preghiera, la fraternità e il servizio, i consacrati testimoniano che il Regno di Dio è già presente in mezzo a noi.\n\nLa loro vita ricorda a tutti che siamo fatti per qualcosa di più grande delle realtà che passano."
+        },
+        {
+          "tipo": "prosa",
+          "titolo": "La bellezza della fraternità",
+          "testo": "Molte forme di vita consacrata si vivono in comunità.\n\nFratelli e sorelle, provenienti da storie diverse, imparano a condividere la fede, la preghiera, il lavoro e la missione.\n\nLa fraternità non elimina le difficoltà, ma diventa il luogo concreto in cui il Vangelo prende forma."
+        },
+        {
+          "tipo": "riflessioni",
+          "titolo": "Per riflettere",
+          "domande": [
+            "Mi attira l'idea di appartenere totalmente a Cristo?",
+            "Sento gioia nella preghiera e nell'incontro con il Signore?",
+            "Mi sento chiamato a una vita semplice, fraterna e missionaria?",
+            "Questa possibilità ritorna nel mio cuore nel corso del tempo?"
+          ]
+        },
+        {
+          "tipo": "testimonianze",
+          "titolo": "Testimonianze",
+          "voci": [
+            {
+              "nome": "Suor Stella",
+              "foto": "stella.jpg",
+              "testo": "Pace e bene il mio nome è Suor Stella e sono consacrata nelle Missionarie della Via da 10 anni. Ho incontrato Gesù quando avevo circa 27 anni e ora ne ho 37.  Nel mondo ero una ragazza come tante, sono nata a Roma e dopo il diploma ho iniziato a fare qualche lavoretto. Avevo molti sogni e desideri... c’era il mio fidanzato, il mio stipendio e i miei amici. Viaggiavo, ed avevo dalla mia famiglia grande libertà e autonomia. In questa vita normale, di ragazza, c'era però in fondo al cuore sotto sotto una crepa. Questa crepa diceva spesso: _\"Sei veramente sicura che questa è la tua strada? Sei veramente sicura che questo è il ragazzo con cui vuoi stare per sempre? E’ questo ciò che vuoi?\"_ È difficile a volte ammettere che la strada intrapresa non ci fa felici ma era la verità, quello che vivevo\ne che facevo non mi riempiva il cuore e come molti cercavo di soffocare quell’ insoddisfazione. Non volevo ammetterlo e facevo tante cose, mi buttavo in progetti che iniziavano ma poi finivano, scelte di vita che da me partivano e poi con me finivano, decolli senza vere partenze: un’inconcludenza cronica. E forse molti mi capiranno...\n\nIo all'inizio facevo finta di niente, ma con il tempo però quella crepa diventava sempre più grande finché è iventata una voragine e non ho potuto più ignorarla. \nL’ora era giunta e i miei falsi equilibri crollavano, il fidanzato non andava più bene l'università aveva perso il suo interesse il lavoro la vita non bastavano più, e il tutto avveniva dentro me nella più assoluta inconsapevolezza di chi avevo accanto! La crisi era forte: non c’era da scherzare, e una domanda in particolare batteva dentro: _perché mi sento così? Cosa devo fare della mia vita?_ Nessuno però poteva rispondere a ciò, né genitori né amici. Chi aveva la risposta della mia vita se io stessa non ce l’avevo? \nOra qui c'è il colpo di scena: quello che doveva essere il momento più difficile, la crisi profonda, la resa dei conti è diventato invece il trampolino di lancio per l'esperienza più bella, meravigliosa e inimmaginabile della mia vita! Perchè _una luce improvvisamente si accese_: una Luce che in verità stava lì, dentro me da sempre, solo che dovevano spegnersi tutte le false luci della mia esistenza per vederla, doveva calare la notte! Quella “Luce” mi suggerì di chiedere a Dio, quel Dio che avevo tenuto fuori e ignorato fin da allora. Ma esisteva veramente? E siccome la questione era importante, vitale, non potendo più andare avanti così mi sono giocata il tutto per tutto e ho ascoltato quella voce: L'ho cercato. Io non pregavo e non andavo in chiesa, nessuno della mia famiglia lo faceva. Non si parlava di Dio nella mia casa, ma mi sono rivolta al Signore e parlando come con un amico o qualcuno che\nfosse lì con me nell'intimità del mio animo gli chiesi se esisteva veramente e se poteva aiutarmi,\ndarmi un segno. E Lui ascoltò. \n\nUn passo della scrittura dice: _\"mi cercherete e mi troverete perché mi cercherete con tutto il cuore\"_ (Ger 29, 13). È vero. Se tu hai un cuore sincero, se hai un cuore aperto, riesci a capire come Dio ti parla, puoi incontrarlo: attraverso quello che ascolti, quello che ti accade, attraverso gli altri, “misteriosamente” e nello stesso momento semplicemente Dio ti parla, e spesso siamo noi a non farci attenzione!\nTra i diversi segni della sua presenza accanto a me, IL SEGNO FORTE che Dio mi ha donato per farmi comprendere che c’era, mi amava e che mi ha fatto legare alla sua Parola (il luogo per eccellenza dove Lui ci parla) è stato quello che ho ricevuto un pomeriggio in una chiesa. \nEro entrata per fare un ‘’A TU PER TU’’ di nascosto, perché io non avevo rivelato a nessuno ciò che stavo vivendo: le domande profonde che mi erano sorte dentro, la crisi e il desiderio forte e ostinato di comprendere chi fossi veramente... per cosa fossi nata. Non c'era nessuno in quella cappellina quel giorno, e mi rivolsi a Lui piangendo, sull'altare c'era un libro e qualcosa dentro mi suggerì di aprirlo, non sapendo minimamente cosa contenesse. Ho iniziato a leggere e quelle parole mi entrarono dentro, come un dardo nel cuore; in quell’attimo ho vissuto _un momento di Dio fortissimo_, ho percepito profondamente la sua presenza il Suo essere lì accanto a me e rispondermi e Iniziai a piangere, ma di gioia: Dio mi amava e lo percepivo forte! un’emozione indescrivibile...\n\nQuella nuova misteriosa amicizia con Gesù mi cambiava, io incominciai ad andare a messa, ma di nascosto, non dicevo a nessuno che pregavo Dio, era come un innamoramento segreto. Gli altri però si accorgevano attorno a me di un cambiamento: ero diversa, non ero più quella ragazza pungente, rabbiosa che rispondeva subito, ero serena, allegra, pacificata... Un amore grande mi pervadeva l’anima, e succede quando incontri Dio! Quando Lui entra nella tua vita gradualmente ti trasforma e molti intorno a me se ne erano accorti nonostante inizialmente io non facessi parola della mia segreta e splendida amicizia.\nNon per coincidenza ma per DIOINCIDENZA (come piace dire a noi Missionari) Dio ha messo poi sulla mia strada persone che mi hanno aiutato a leggere i suoi segni, a comprendere più chiaramente le risposte che cercavo... capire per cosa fossi nata. Avevo bisogno che qualcuno mi accompagnasse, la Chiesa infatti esiste per questo: ti porta Gesù, ti porta a Gesù e ti aiuta a fare luce sul progetto meraviglioso che Dio ti ha messo dentro, e quanti hanno una paura folle di farsi illuminare e si perdono il meglio, la propria felicità...\nPer capire dunque avevo bisogno di mettermi in ascolto e fare discernimento (una parola strana ma preziosa), dovevo dare del tempo a Dio: occorreva che mi affidassi e facessi dei ritiri, e così ho fatto. Non senza timore, lo ammetto, ma con grande desiderio e curiosità di cosa Dio mi avesse preparato mi sono lasciata guidare nel cammino. Dei consacrati mi aiutarono a leggere e montare i pezzi del puzzle, ad affinare l’orecchio del mio cuore per comprendere dove mettere i passi della mia esistenza e a trovare la forza, in Lui, per spiccare il volo. E questo non vale solo per la vita consacrata, copiatelo bene. Nel tempo attraverso i ritiri, l’accompagnamento spirituale e soprattutto il sincero desiderio di ascolto capii la mia chiamata e si schiuse davanti a me il sentiero meraviglioso, che ancora sto percorrendo, della Missione dietro a Gesù, Via verità e Vita. Auguri di santità fratelli e sorelle vi auguro di avere il desiderio sincero, oltre ogni paura, di scoprire a quale capolavoro il Signore vi ha chiamato...d'altronde la santità è essere se stessi. E poi perché mai avere paura dell’AMORE?"
+            },
+            {
+              "nome": "Sorella Ilaria",
+              "foto": "ilaria.jpg",
+              "testo": "Pace e bene a tutti,\nsono sorella Ilaria, ho ventidue anni e faccio parte dell’Istituto religioso delle “Missionarie della Via”.\nInizio col raccontarvi un pò di me fino ad arrivare alla mia rinascita grazie al Buon Gesù.\nSono nata in una famiglia che, come tante altre, si professa cristiana cattolica ma non praticante, vivevo in un paesino molto piccolo, con poche case un forno e una chiesetta, dove non c’era un gran che da fare...ricordo che i miei genitori quando iniziai ad essere più grande mi incitavano ad andare a messa la domenica e io lo facevo non perché capissi il senso vero (non capivo nulla), ma perché era almeno una cosa che mi occupava del tempo. Vivevo una vita normale, come tutte le ragazze della mia età: scuola, fidanzato, amici.\n\nDopo due anni dalla fase “riscaldamento banco”, arrivano i missionari e le missionarie: il Vescovo gli aveva chiesto la cura della parrocchia, che stava andando a rotoli...per poco tempo però.\nLa prima cosa che subito mi colpì fu l’accoglienza che avevano: ci venivano a salutare, come dice San Paolo, col bacio Santo, cosa che nessun altro sacerdote aveva mai fatto prima, anzi si dimostravano un po’ distaccati.\n\nLa seconda cosa che mi colpì tanto fu ascoltarli parlare di Gesù; li mi resi conto che avevo una visione totalmente sbagliata: io credevo e pensavo che Gesù se non mi comportavo bene mi puniva, mi castigava; pensavo che se anche per sbaglio andavo fuori dalle sue regolette da seguire avevo chiuso con lui, ero destinata all’inferno. Invece i Missionari mi parlavano di un Dio che è amore, di un Dio che è sempre pronto ad accogliermi a braccia aperte, di un Dio che mi chiamava figlia e mi diceva che ero molto preziosa per Lui.\nIniziano le prime catechesi, i primi incontri e in me qualcosa era cambiato, non ci andavo più per passare il tempo ma perché c’era qualcosa che mi attraeva, il tempo passava e io mi avvicinavo, in modo graduale , a questo “nuovo mondo”, a Gesù. Oltre a quello che facevo (coro e lettrice), un frate mi propose di iniziare anche un percorso da catechista...mi divertiva, mi piaceva, ma non pensavo a nulla di più. La cosa che più di tutte ha acceso il fuoco nel petto è stata una missione di evangelizzazione fatta con i Missionari e alcuni laici (famiglie e giovani in cammino) in un paesino, è stata la mia prima esperienza forte, lì ho capito quanto fosse bello donarsi, dedicare del tempo alle persone; da qui è nata la mia prima seria riflessione: non mi importava niente dei rimproveri dei miei genitori per essere stata fuori di casa troppe ore, io ero felice, gioiosa, sarei rimasta lì volentieri...mi sentivo davvero in pace.\n\nGrazie a questo, come ho detto prima, nasce in me il desiderio di seguire meglio Gesù, così decisi che, raggiunto il diploma mi sarei iscritta a scienza religiose convinta che lo studio me l’ avrebbe fatto conoscere meglio. Cosi feci, accadde però che dopo un anno di studi mi sentivo sempre più inquieta, confusa...mi arrabbiavo con Gesù dicendogli:”Signore, ma che vuoi? Vorrei conoscerti si ma non capisco come fare...”. In realtà però dentro di me la risposta già c’era, avevo capito grazie ad un sogno che avevo bisogno di stare con Lui, che mi chiamava a fare un po’ di silenzio, ma non volevo ammetterlo...per me fu davvero una cosa spiazzante, anche perché solo il pensiero di dover dire una cosa del genere ai miei mi faceva raggelare il sangue...avevo paura così feci finta che nulla fosse successo fino a quando un bel giorno incontrai Suor Lucia che parlava della sua chiamata e delle sue sensazioni inerenti ad essa. Più raccontava e più mi sentivo simile a lei, Così decisi di aprire il cuore raccontandole ciò che mi stava succedendo; era come se si fosse tolto un blocco...il tempo passava e mi rendevo conto che quello che prima per me era molto attraente adesso non mi importava più, avevo tutto molto chiaro ma mi frenava il fatto di dover affrontare i miei genitori..dovevo solo prendere l’iniziativa e affrontarli ma ero totalmente incastrata tra le mie paure.\n\nLa svolta decisiva e il coraggio mi vennero grazie ad un altro segno che mi faceva vivere Gesù: una notte, come può accadere ad un bambino, sognai che mi trovavo in un edificio dove tutte le porte erano chiuse, io volevo stare un pò in preghiera ma non sapevo come fare, “vado in giardino”, pensai, ma con mia grande sorpresa aprendo il portone mi trovai di fronte ad un burrone profondissimo! Era chiaro, dovevo lanciarmi fiduciosa tra le braccia del padre. Tutto iniziava ad incastrarsi e a farmi capire cosa dovevo fare e quali erano i miei ostacoli. Dopo questi avvenimenti provai più volte a dirlo ai miei ma mi bloccavo, così decisi di scrivere una lettera che lasciai sul comodino della loro camera...avevo finalmente messo il mio cuore nelle loro mani. Varie furono le reazioni, nessuno voleva lasciarmi provare, iniziò così la battaglia: “se esci non sai che succede ecc...”, fin quando un bel giorno ho detto: “domani parto.” Il 17 luglio 2017, giorno dopo la Madonnina del Carmelo, iniziai la mia prima esperienza. Quel giorno leggendo il vangelo ebbi una DIO-INCIDENZA: era il vangelo di Matteo: “chi ama padre e madre più di me non è degno di me; chi ama figlio o figlia più di me, non è degno di me. Chi avrà tenuto per sé la propria vita, la perderà, e chi avrà perduto la propria vita per causa mia, la troverà”(Mt 10,37-39). Il Signore mi stava proprio accompagnando.\n\nTra altre esperienze e ritiri, la situazione a casa, soprattutto con mio padre, stava peggiorando, era diventata ingestibile. Così il 2 ottobre decisi di uscire di casa senza nulla, solo con i sandali ai piedi, mia mamma guardandomi immaginò... l’ aveva capito ma non mi fermò. Uscì e tra autobus e passaggi che mi diedero arrivai a Lamezia. L’amore del e per il Signore fu più forte della paura, vi risparmio il proseguo di tutti i combattimenti che abbiamo avuto, addirittura erano venuti per portarmi via, un po’ come Santa Chiara. Adesso il Signore li sta lavorando, non capiscono ma li affido nelle sue mani.\n\nCon questa mia testimonianza, soprattutto per tanti giovani, traggo due conclusioni:\n\n1. Mai dire mai nella vita, non avrei mai pensato di fare il cammino per consacrarmi.\n\n2. Non avrei mai pensato di essere capace di uscire di casa ed impormi, perché la mentalità del mio paese è molto forte: i genitori vedono i figli come un qualcosa di loro proprietà e non come un dono di Dio, fanno più i padroni che i custodi...ma ho capito e posso dire che, quando uno è sincero, malgrado tutte le paure che posso esserci, il Buon Gesù da sempre la forza per fare la sua volontà.\n\nDunque non abbiate paura e chiedete al Signore ciò che vuole, perché non toglie ma dona, anzi valorizza quello che abbiamo nel cuore, diversamente questo rimane nascosto, non sbocciato!\n\n> “Non avere paura di puntare in alto, di lasciarti amare e liberare da Dio. Non avere paura di lasciarti guidare dallo Spirito Santo. La santità non ti rende meno umano, perché è l’incontro della tua debolezza con la forza della grazia. In fondo, come diceva Leòn Bloy, nella vita «¬non c’è che una tristezza, [...] quella di non essere santi». (Papa Francesco, Gaudete et exsultate n.34)"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "domande": [
+    {
+      "id": 1,
+      "domanda": "Un giovane che sente la chiamata ma trova forti ostacoli in famiglia come deve comportarsi?",
+      "risposta": "Pace e bene carissimo.<br />Può capitare che diversi genitori preghino per le vocazioni alla vita consacrata, ma l’importante è che non siano i loro figli! Infatti su questi stanno riponendo le loro aspirazioni, i loro sogni, i loro desideri e ciò che magari, per un motivo o per un altro, loro non hanno potuto realizzare. Accade così che quando un figlio o una figlia viene chiamato/a dal Signore alla vita consacrata, spesso pensano che sia solo una semplice infatuazione, uno scappare dalle responsabilità della vita o un ripiego dovuto a qualche delusione! Peggio ancora se il genitore non crede o è avverso alla Chiesa!<br /><br />E questo è quello che sta accadendo anche a te! Cosa devi fare? Beh, inizia a spiegare con attenzione ai tuoi genitori che non hai mica deciso già di consacrarti, altrimenti non c’è mica bisogno di fare discernimento, ma che vai a fare piccoli momenti di preghiera e piccoli ritiri anche solo di uno o due giorni, senza già dire che hai deciso di consacrarti! Le cose avvengono in modo molto graduale per te e per loro! E poi loro mica non ti vogliono bene! Semplicemente pensano di doverti custodire da qualcosa che non comprendono e che di conseguenza vedono come una minaccia.<br /><br />E poi anche dopo i primi brevi tempi di discernimento, quando inizi quelli più lunghi mica è già tutto chiaro! E continua a spiegare loro che non hai ancora maturato e deciso nulla di definitivo, infatti stai continuando il tuo discernimento per comprendere veramente ciò che ti rende felice! Stai sereno perché la tua felicità e quello che a loro sta più a cuore, anche se ancora non accettano ciò che non comprendono.<br /><br />Se poi lungo il tuo cammino di discernimento, matura sempre più la chiamata alla vita consacrata, cerca di spiegare loro con molta pazienza che è ciò che ti rende felice, Se poi i tuoi genitori dovessero rimanere nella stessa posizione iniziale di ostacolo, tu con dolcezza ma anche con fermezza ricorda ai tuoi genitori che “L’amore verso di loro è un comandamento sacro, ma per essere vissuto in modo autentico non può mai essere anteposto all’amore di Dio e di Cristo” (Benedetto XVI).<br /><br />Se poi sei ancora minorenne stai loro sottomesso rispettando la loro decisione fino a quando non diventerai maggiorenne. Questo ovviamente nel caso in cui essi non ti chiedano di fare del male o delle azioni che ti allontanerebbero da Dio (come per esempio impedirti di pregare o di andare a Messa la domenica).<br /><br />Dunque coraggio, non demoralizzarti per le prove che il Signore permette che ti giungono, è anche questo un modo per tastare e verificare la tua vocazione e la tua elezione, infatti S. Teresina che di ostacoli ne incontrò diversi - anche se di diverso tipo - così a nostro insegnamento ed edificazione ci ha lasciato scritto: “…se non avessi avuto davvero la vocazione, mi sarei fermata fin dall'inizio, perché incontravo ostacoli appena cominciavo a rispondere alla chiamata di Gesù (S. Teresina di Lisieux)!<br /><br />Ti benedico di cuore.<br />"
+    },
+    {
+      "id": 2,
+      "domanda": "Un giovane appena diplomato in una scuola tecnica ha una bella predisposizione alla vita consacrata ma non volendo studiare in seminario latino e greco come deve orientare le sue scelte?",
+      "risposta": "Carissimo,<br />innanzitutto è doveroso precisare che una chiamata alla vita consacrata non include necessariamente il sacerdozio ministeriale. Prima di una eventuale chiamata al sacerdozio, sappi che la prima chiamata è quella alla vita religiosa in qualsiasi comunità sia.<br /><br />Nel caso poi in cui tu senti la chiamata al sacerdozio, cosa da discernere con chi ti accompagna, penso che non siano il latino e del greco il problema principale! Magari non sarai un bravo latinista o un bravo grecista, dato che queste lingue ti risultano indigeste per tanti motivi, uno tra tanti quello di provenire da un istituto tecnico, ma il Signore ti darà la grazia, con la tua buona volontà, a superare questo ostacolo. Avrai di certo tanti altri doni! Stai sereno, se Lui ti vuole sacerdote, con il tuo SI sacerdote sarai.<br /><br />Comunque ricorda che lo studio non è mai un fine ma un mezzo!<br /><br />Ti benedico di vero cuore.<br />"
+    },
+    {
+      "id": 3,
+      "domanda": "Un età adulta può rappresentare un ostacolo per la vocazione alla vita consacrata?",
+      "risposta": "Carissimo,<br />sicuramente oggi assistiamo ad un incremento di vocazioni adulte e i motivi sono tanti. Sicuramente se Dio ha permesso che tu non ti sia sposato può essere un segno che egli ti chiami alla consacrazione. Ma questo - se è così - non sarà sicuramente l’unico segno indicatore di ciò, ma ve ne saranno altri più o meno evidenti, ti basterà fermarti e farti aiutare da un bravo direttore spirituale a ricostruire il cammino della tua vita!<br /><br />Il buon Dio, che sa chiamarci rispettando la nostra libertà senza forzarla, ha magari atteso la tua maturazione perché ancora non eri pronto per lavorare nella Sua vigna, come quegli operai di cui parla Gesù nel Vangelo (cfr Mt 20,1-16); o forse hai percorso strade non tue inseguendo i tuoi desideri e i tuoi progetti (cfr Ger 18,12).<br /><br />Cosa fare adesso? Con la tua guida cerca prima di capire se hai questa vocazione alla vita consacrata, certo un’età troppo avanzata, rappresenta un ostacolo, anche se alcuni ordine hanno alzato il limite di età per poter iniziare a fare un primo discernimento.<br /><br />Poi con la tua guida spirituale cerca appunto degli ordini religiosi che accolgono anche in età adulta (certo non troppo!); o rivolgiti al tuo Vescovo. Alla fine tutto passa per il discernimento della nostra mamma Chiesa!<br /><br />Ti benedico di vero cuore.<br />"
+    },
+    {
+      "id": 4,
+      "domanda": "Vorrei diventare suora di vita attiva (non di clausura), ma ho paura – a causa di vecchie ferite e questo mi blocca - di trovarmi in un ambiente poco sereno. Vorrei avere maggiori informazioni sui rapporti umani che si instaurano fra sorelle nei conventi o comunque nelle comunità. Quali sono gli ordini che permettono alle appartenenti di trascorrere una vita serena, nella preghiera, nella letizia e nella fratellanza?",
+      "risposta": "Cara sorella in Cristo,<br />è una grazia che tu vuoi rispondere a una chiamata alla vita consacrata, infatti il desiderio che avverti nel tuo cuore è sicuramente una cosa meravigliosa.<br /><br />Tu dici che hai una certa paura che ti frena provocata dal fatto di aver sofferto in passato, ora questa è una cosa abbastanza delicata, perché se certe ferite non si sono ancora rimarginate, se tu non ti sei ancora riconciliata col tuo passato, queste paure ti impediranno - come già stanno facendo - di metterti in cammino verso la piena volontà di Dio.<br /><br />Ora tutti quanti, chi più chi meno, portiamo le ferite della nostra storia. Il cammino di discernimento, di conoscenza di sé, con una buona guida spirituale, ci aiutano in un cammino di rielaborazione e di guarigione, condizione fondamentale per iniziare in cammino di consacrazione con altre sorelle.<br /><br />Vedi, le sorelle che sono in una comunità non sono delle rivali o delle nemiche, ma sono il dono di Dio per te. Certo, è naturale che la diversità, porti a dei conflitti, ma questo non per forza devono essere distruttivi, anzi i conflitti ci servono per crescere; ricordandoci che “la vita fraterna è la rivelazione delle tenebre che sono in noi!”<br /><br />Sappi che la comunità ideale non esiste, esiste quella reale che ci chiama personalmente e in modo responsabile a renderla sempre più bella, imparando a perdonarci, a non sparlarci, a edificarci nel bene.<br /><br />Perciò cara sorella prega il Signore che ti confermi nel tuo desiderio e con il consiglio e l’aiuto di un padre spirituale mettiti in cammino, perché ti è necessario conoscere e tastare di persona queste realtà che da fuori ti mettono paura, ma che all’interno imparerai ad amare, anche se a volte ci sarà da soffrire, e dove non si soffre nella vita? Ricordalo: la paura ci blocca ma l’amore ci fa volare!<br /><br />Ti benedico di vero cuore.<br />"
+    },
+    {
+      "id": 5,
+      "domanda": "Sono un giovane di 21 anni, sento forte nel cuore la chiamata di servire il Signore, mia madre mi ha detto di completare prima gli studi universitari . Aspettando ho paura di distruggere la mia vocazione: come mi devo comportare con l’università?",
+      "risposta": "Pace e bene caro fratello in Cristo,<br />innanzitutto ti dico che son proprio contento che senti da un po' di tempo questa chiamata alla vita consacrata; di questi tempi è davvero una grande grazia trovare un giovane disposto a rinunciare ai propri desideri, per scoprire quello che Dio vuole, e dare così il giusto senso e significato alla propria vita!<br /><br />Passando subito alla tua domanda, mi chiedi se ha senso continuare gli studi universitari visto il desiderio che hai nel cuore di consacrarti al Signore.<br /><br />Alla luce di ciò che hai scritto, considerando il fatto che hai già conosciuto delle realtà religiose che ti hanno aiutato a discernere in parte la tua vocazione a seguire Cristo vivendo un carisma francescano, per non ignorare appunto questo desiderio che il Signore ha messo nel tuo cuore, penso che potrebbe essere cosa buona se tu - senza abbandonare l'università - iniziassi a fare già qualche piccola esperienza in qualche comunità, così da iniziare a “saggiare” la tua vocazione sul campo.<br /><br />Infatti, qualche esperienza in più - anche se non ancora lunga - di ulteriore discernimento, ti darà luce sui prossimi passi da fare, e soprattutto ti permetterà di alimentare questa fiammella che si è accesa nel tuo cuore, finché questo fuoco non divamperà, incendiando e assorbendo completamente il tuo cuore e quello di coloro che il Signore ti farà incontrare.<br /><br />Ti benedico di vero cuore<br />"
+    },
+    {
+      "id": 6,
+      "domanda": "Sono una donna di 38 anni, a un certo momento della mia vita ho 'sentito' quella che credevo fosse la vocazione a diventare suora di vita attiva. Vorrei chiedere se la mia salute 'cagionevole' , sia indizio di una diversa volontà di Dio.",
+      "risposta": "Pace e bene cara sorella in Cristo,<br />innanzitutto ti ringrazio per la fiducia accordataci nel chiedere un consiglio per il tuo cammino spirituale; preghiamo e speriamo di poterti essere d'aiuto.<br /><br />Hai scritto che a un certo momento della tua vita hai 'sentito' una chiamata alla via consacrata. Hai fatto bene a scrivere la parola 'sentito' tra virgolette per chiarire innanzitutto che la vocazione non è solo un nostro sentire, ma una chiamata dall'alto e la conseguente nostra risposta, sempre accompagnata da una guida spirituale, necessaria in un cammino di discernimento.<br /><br />Mi chiedi e ti chiedi se la tua salute cagionevole sia una risposta al fatto di aver “sentito male”. Beh, innanzitutto dipende dal fatto di sapere quanto gravi siano i tuoi problemi di salute.<br /><br />È importante che valuti bene le tue possibilità, evitando gli eccessi; né voler “strafare”, né rassegnarti prima del tempo. Penso che potrebbe servirti l’iniziare a conoscere qualche istituto religioso con il proprio statuto; prega il Signore che orienti i tuoi passi, e ricorda che ogni statuto - come uno dei criteri nel discernimento vocazionale – richiede che gli aspiranti abbiano una discreta salute così da poter vivere il carisma proprio dell’istituto. Solo dopo un primo positivo “discernimento di salute corporale” ti sarà possibile fare qualche esperienza così da verificare con i fatti ciò che si muove nel tuo cuore.<br /><br />Ti consiglio dunque di non scoraggiarti e di non tirare conclusioni senza aver prima chiesto e provato. Il fatto di avere una salute cagionevole (dipende poi -come ti ho già detto - di che entità), non è certo un indizio sicuro sul fatto che il Signore non ti voglia come sua sposa! Sai, anche Santa Bernadette, che al momento della professione religiosa non ricevette nessun incarico dalla superiora - con la scusa che era un’incapace - alla domanda del vescovo se ciò era vero, rispose di sì e che era capace solo di essere ammalata! E il vescovo, colpito da tanta umiltà, le disse di pregare tanto, e così lei fece; al punto che è diventata santa!<br /><br />Consolata da queste parole e che dunque nulla è impossibile a Dio, ti assicuriamo le nostre preghiere.<br /><br />Ti benedico di vero cuore.<br />"
+    },
+    {
+      "id": 7,
+      "domanda": "Sono un ragazzo di 25 anni, laureato. Tempo fa sono entrato in convento convinto di avere la vocazione, ero felicissimo, ma a causa di un mio problema , sono uscito dal convento. Oggi questo problema persiste, ma sento ancora di avere la vocazione alla vita consacrata: cosa devo fare?",
+      "risposta": "Pace e bene caro fratello in Cristo,<br />come prima cosa, sappi che preghiamo per te e per la tua vocazione, affinché tu possa realizzare la tua vita secondo il progetto d’amore di Dio.<br /><br />Dici che sei uscito dal convento per un tuo problema che ancora persiste. Sei uscito di tua iniziativa o i superiori hanno ritenuto utile non farti continuare il tuo cammino di discernimento vocazionale? Questa è la prima domanda alla quale devi darti una risposta.<br /><br />Questo problema che ancora persiste di che natura è? È di natura spirituale o corporale? Si può curare o no? Hai provato a farti seguire, per comprendere se questo problema è davvero invalidante per il tuo cammino di consacrazione? Vedi ci sono tante domande che chiedono una risposta.<br /><br />Le risposte sincere a queste domande, accompagnato da una buona guida spirituale, ti aiuteranno a fare un po' più di luce per il tuo futuro cammino, così da comprendere se questo desiderio che hai nel cuore è attuabile o meno, anche considerando che alcuni Gesù li chiama e rispondono, alcuni pur chiamati non rispondono, un altro pur volendolo seguire si sente dire un no da Gesù.<br /><br />Pregherò per te.<br /><br />Ti benedico di vero cuore.<br />"
+    },
+    {
+      "id": 8,
+      "domanda": "Come scegliere una buona guida spirituale?",
+      "risposta": "Per scegliere bene la guida spirituale è importante conoscere la persona e rendersi conto che vive il Vangelo, che è formata nella dottrina e nei fondamenti della spiritualità.<br /><br />La guida spirituale deve, come ci indicano i santi, (che ci sono maestri e guide perché hanno tracciato per noi il sentiero verso la santità), avere determinati requisiti:<br /><br /><blockquote>Per questo l'anima che vuole progredire nella perfezione, deve, secondo il consiglio di san Giovanni della Croce, 'guardare attentamente in quali mani si mette perché il discepolo sarà uguale al maestro, il figlio al padre'. E ancora: 'E' necessario che [la guida] sia saggia, prudente e ricca di esperienza... Se i direttori non hanno anche l'esperienza di quanto è più sublime, mai riusciranno ad incamminarvi le anime, allorché Dio ve le vorrà condurre', anzi non le comprenderanno neppure <span>(San Giovanni della Croce, Fiamma viva d'amore, strofa 3)</span></blockquote>.<br /><br />Il giovane dunque non deve scegliere in base a:<br />• Quel sacerdote /frate/ suora / laico è mio amico<br />• Quel sacerdote /frate/ suora / laico è simpatico e sa stare con la gente<br />• Quel sacerdote/frate/suora / laico è carismatico<br />• Quel sacerdote/ frate / laico è il mio parroco<br />• Quel sacerdote /frate/ suora / laico mi sa ascoltare<br />• Quel sacerdote /frate/ suora / laico anima le messe in modo attivo ed eclatante<br /><br />Ma deve scegliere in base a:<br />• Quel sacerdote /frate/ suora / laico è una persona di umile preghiera<br />• Quel sacerdote /frate/ suora / laico mi da dei consigli secondo il Vangelo<br />• Quel sacerdote /frate/ suora / laico è una persona saggia<br />• Quel sacerdote /frate/ suora / laico ascolta ciò che ho nel cuore e lo traduce nel linguaggio del Vangelo<br />• Quel sacerdote /frate/ suora / laico non mi indica strade comode ma vuole che io sia santo.<br /><br />Perché spesso si scelgono delle guide sbagliate:<br />• Ci piace quello che ci dicono, perché vogliamo vivere comodamente e dunque se qualcuno ci conferma di vivere rilassati ci sentiamo meglio<br />• La nostra giovinezza o sincerità ci fa fidare o scegliere per guida la prima persona che troviamo, dunque senza giusti criteri<br /><br />Perché non accogliamo le guide giuste?<br />• Una guida seria spesso ci dice cose contrarie a ciò che noi lontani dal Vangelo e spesso con una conformazione fin troppo umana o spiritualista cerchiamo, perciò rifiutiamo i consigli con la famosa espressione : “Non mi capisce, perché io gli dico che il Signore mi ha dato tanti doni e carismi e lui mi dice che devo fare questo o quello, ma sembra dare poca importanza ai miei doni, forse non mi crede… hanno proprio ragione i santi a dire che spesso le guide non li capivano”(capolavoro di sottile superbia ma frase purtroppo ricorrente)<br />• Ci indicano strade giuste ma noi non vogliamo ascoltarle, perché non ci siamo affidati ad una guida ma a noi stessi e purtroppo nemmeno a Dio<br />• Non ci siamo affidati a Dio e non cerchiamo sinceramente la sua volontà ma ci piace che qualcuno confermi la nostra volontà<br />• Vogliamo amare Dio a parole e non nei fatti perciò utilizziamo un'altra frase capolavoro: 'L’importante è amare, io AMO Dio è questo per Lui è importante” . Ditemi da quando l’amore passa solo attraverso le parole e non attraverso un cuore che si mette in movimento per agire. Amiamo se agiamo, non si può amare a parole, Gesù disse nel Vangelo : perché MI DITE Signore Signore e non fate quello che vi comando?<br /><br />Che il Signore guidi i tuoi passi"
+    }
+  ],
+  "proposta": {
+    "header": {
+      "titolo": "La nostra proposta",
+      "sottotitolo": "Per coloro che vogliono capire meglio",
+      "immagine": "vocazione/proposta.jpg"
+    },
+    "blocchi": [
+      {
+        "tipo": "prosa",
+        "testo": "Caro fratello che cerchi, cara sorella che ti interroghi,\n\nnoi missionari e missionarie offriamo la possibilità di accompagnare spiritualmente quanti sono in ricerca vocazionale e di vivere dei ritiri, cercando di aiutare nel discernimento."
+      },
+      {
+        "tipo": "prosa",
+        "titolo": "Per le coppie di sposi",
+        "testo": "La Comunità offre un percorso formativo per le coppie di sposi, sottoforma di laboratorio. Una domenica al mese, per un totale di 8 incontri, è un cammino di riscoperta della propria vocazione e dei fondamenti umani e spirituali per crescere nell'amore."
+      },
+      {
+        "tipo": "prosa",
+        "testo": "*Che il buon Dio ti benedica e ti dia pace e bene!*"
+      }
+    ]
+  }
+}

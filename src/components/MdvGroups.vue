@@ -1,107 +1,65 @@
 <template>
-  <div class="container" v-if="groups && groups.length">
+  <div v-if="luoghi.length">
+    <!-- I gruppi sono i luoghi in cui la comunita' e' presente, non
+         categorie di attivita': oggi ce n'e' uno, domani ce ne saranno
+         altri. La fascia porta il nome del posto — con un luogo solo fa da
+         titolo, con piu' luoghi diventa la scelta. -->
+    <!-- Senza un'etichetta, "Santuario Madonna della Catena" in una
+         fascia bruna puo' essere il titolo di una sezione, il nome di
+         un'attivita', qualunque cosa. Questa riga dice che e' un luogo —
+         e quando i luoghi saranno piu' d'uno, dira' che si sceglie. -->
+    <p class="mdv-sopratitolo dove">Dove siamo</p>
 
-    <div class="nav nav-pills mb-3 text-center" id="pills-tab" role="tablist">
-      <div class="nav-item shadow-sm col-12 mb-2" role="presentation">
-        <div class="nav-link fs-2 active main-group" :id=" 'pills-' + mainGroup.key + '-tab'" data-bs-toggle="pill" :data-bs-target="'#' + mainGroup.key" role="tab" aria-controls="pills-home" aria-selected="true"
-             @click="tabLog(mainGroup.key)">
-          {{ mainGroup.title }}</div>
-      </div>
-
-      <div v-for="(group, index) in subGroups" v-bind:key="index" class="nav-item shadow-sm col-12 mb-2" role="presentation">
-        <div class="nav-link fs-3 main-group" :id=" 'pills-' + group.key + '-tab'" data-bs-toggle="pill" :data-bs-target="'#' + group.key" role="tab" aria-controls="pills-home" aria-selected="true"
-             @click="tabLog(group.key)">
-          {{ group.title }}</div>
-      </div>
-    </div>
-    <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" :id="mainGroup.key"  @click="articleLog(mainGroup.key)">
-          <MdvArticle v-for="(section, index) in mainGroup.sections" v-bind:key="index" small="true"
-                      :image-url="section.image ? section.image.url : null"
-                      :align="section.image ? section.image.align : null"
-                      :title="section.title"
-                      :texts="section.articles"/>
-        </div>
-        <div v-for="(group, index) in subGroups" v-bind:key="index" class="tab-pane fade" :id="group.key" >
-          <MdvArticle v-for="(section, index) in group.sections" v-bind:key="index" small="true"
-                      :image-url="section.image ? section.image.url : null"
-                      :align="section.image ? section.image.align : null"
-                      :title="section.title"
-                      :texts="section.articles"/>
-        </div>
-    </div>
-
+    <BaseSchede :voci="luoghi" etichetta="Luoghi" v-slot="{ voce }">
+      <MdvArticle
+        v-for="(sezione, i) in voce.sezioni"
+        :key="i"
+        small="true"
+        :image-url="sezione.image ? sezione.image.url : null"
+        :align="sezione.image ? sezione.image.align : null"
+        :title="sezione.title"
+        :texts="sezione.articles"
+      />
+    </BaseSchede>
   </div>
-  <div v-else class="text-center my-5 py-5 text-muted">Nessuna attività disponibile al momento.</div>
+
+  <p v-else class="nessuna-attivita my-12 py-12 text-center">
+    Nessuna attività disponibile al momento.
+  </p>
 </template>
 
 <script>
-import MdvArticle from "@/components/MdvArticle";
+import BaseSchede from "@/components/ui/BaseSchede.vue";
+import MdvArticle from "@/components/MdvArticle.vue";
+
 export default {
   name: "MdvGroups",
-  components: {MdvArticle},
+  components: { BaseSchede, MdvArticle },
   props: {
     groups: Array
   },
   computed: {
-    mainGroup() {
-      return this.groups[0];
-    },
-    subGroups() {
-      return this.groups.slice(1);
-    }
-  },
-  methods: {
-    articleLog(string) {
-      console.log("from article " + string);
-    },
-    tabLog(string) {
-      console.log("from tab" + string);
+    // Il primo gruppo aveva un ramo di markup tutto suo, copiato dal ciclo
+    // sottostante con un carattere piu' grande. E' un luogo come gli altri.
+    luoghi() {
+      return (this.groups || []).map((gruppo) => ({
+        chiave: gruppo.key,
+        titolo: gruppo.title,
+        citta: gruppo.city,
+        sezioni: gruppo.sections || [],
+      }));
     }
   }
 }
 </script>
 
 <style scoped>
-
-.nav-link {
-  font-family: 'Playfair Display', sans-serif;
-  background: rgb(40, 29, 2, 0.9) !important;
-  color: #fff !important;
-  border-radius: 0 !important;
-  border-color: #fff !important;
-  box-shadow: none !important;
-  cursor: pointer;
-  -webkit-transition: all .2s;
-  -moz-transition: all .2s;
-  -o-transition: all .2s;
-  transition: all .2s;
-  transition-timing-function: ease;
-  -moz-transition-timing-function: ease;
-  -webkit-transition-timing-function: ease;
-  -o-transition-timing-function: ease;
-
+.dove {
+  text-align: center;
+  margin-bottom: var(--mdv-spazio-3);
 }
-.nav-link.active, .nav-link:hover, .nav-link:focus, .nav-link:active  {
-  background: #c3ac7d !important;
-  color: #fff;
+.nessuna-attivita {
+  font-family: var(--mdv-font-corpo);
+  color: var(--mdv-grigio);
 }
-.nav-link:hover {
-  background: #c3ac7d !important;
-}
-.subgroup {
-  height: 6.5rem;
-}
-
-@media only screen and (max-width: 480px) {
-  .subgroup {
-    height: 9rem;
-    font-size: 1.1rem !important;
-  }
-}
-
-.main-group {
-  min-width: 100% !important;
-}
-
 </style>

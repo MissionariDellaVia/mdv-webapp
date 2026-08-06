@@ -30,7 +30,7 @@ export default {
         zoom: initialState.zoom
       }));
       map.value.addControl(new NavigationControl(), 'top-right');
-      new Marker({color: "#8c681c"})
+      new Marker({color: "var(--mdv-oro)"})
           .setLngLat([props.lng,props.lat])
           .addTo(map.value);
     }),
@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style scoped>
-@import '~maplibre-gl/dist/maplibre-gl.css';
+@import 'maplibre-gl/dist/maplibre-gl.css';
 
 .map-wrap {
   position: relative;

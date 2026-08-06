@@ -1,69 +1,70 @@
 <template>
   <section>
+    <MDHeader
+      :image="vocazionePage.header.backgroundImage"
+      :title="vocazionePage.header.title"
+      :caption="vocazionePage.header.caption"
+    />
 
-    <div v-if="isLoading">
-      <base-spinner></base-spinner>
-    </div>
-
-    <div v-else >
-      <MDHeader :image="vocazionePage.header.backgroundImage"
-                :title="vocazionePage.header.title"
-                :caption="vocazionePage.header.caption"/>
-
-      <div class="container">
-        <!-- Main Section -->
-        <div class="row text-center my-5">
-          <div class="col-12 px-5">
-            <h1 class="main-title my-2"> {{ vocazionePage.main.title }} </h1>
-            <h4 class="caption"> {{ vocazionePage.main.caption }} </h4>
-          </div>
-        </div>
-        <div class="row text-center gy-4 my-5">
-          <div class="col-md-6 col-sm-12" :class="{'order-last' : vocazionePage.main.image.align === 'right'}">
-            <img :src=helper.getImgUrl(vocazionePage.main.image.url) class="img-fluid" :alt="vocazionePage.main.image.url"/>
-          </div>
-          <div class="col-md-6 col-sm-12 px-5 text-start">
-            <p v-for="(text, index) in vocazionePage.main.strings" v-bind:key="index">
-              <Markdown :source="text" :html="true" class="markdown-mdv"></Markdown>
-            </p>
-          </div>
-        </div>
+    <div class="mx-auto w-full max-w-6xl px-4 py-12">
+      <div class="mb-12 px-4 text-center">
+        <h1 class="mdv-titolo-pagina my-2">{{ vocazionePage.main.title }}</h1>
+        <p class="mdv-sottotitolo">{{ vocazionePage.main.caption }}</p>
       </div>
 
+      <div class="corpo">
+        <div
+          v-rivela
+          :class="['corpo__figura', vocazionePage.main.image.align === 'right'
+            ? 'corpo__figura--destra da-rivelare--da-destra'
+            : 'da-rivelare--da-sinistra']"
+        >
+          <img
+            :src="helper.getImgUrl(vocazionePage.main.image.url)"
+            alt=""
+            class="corpo__foto"
+          />
+        </div>
+
+        <div v-rivela class="corpo__testo" style="transition-delay: 160ms">
+          <p v-for="(testo, index) in vocazionePage.main.strings" :key="index">
+            <Markdown :source="testo" :html="true" class="markdown-mdv"></Markdown>
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
-import MDHeader from "@/components/layout/MdvHeader";
+import { usaPagina } from '@/store/pagina.mjs';
+import MDHeader from "@/components/layout/MdvHeader.vue";
 import Markdown from 'vue3-markdown-it';
 
 export default {
   name: "VocazioniPage",
+  setup() {
+    return { pagina: usaPagina() };
+  },
   components: { MDHeader, Markdown},
   created() {
     this.loadPage("vocazione");
   },
   data() {
-    return {
-      helper: this.$util,
-      isLoading: false,
-    };
+    return { helper: this.$util };
   },
   computed: {
     vocazionePage() {
-      return this.$store.getters['page/vocazione'];
+      return this.pagina.vocazione;
     },
   },
   methods: {
     async loadPage(page) {
-      this.isLoading = true;
       try {
-        await this.$store.dispatch('page/loadPage', page);
+        await this.pagina.caricaPagina(page);
       } catch (error) {
-        // this.showToast(error.message || 'Errore caricamento pagina!');
+        console.error("Errore nel caricamento della pagina:", error);
       }
-      this.isLoading = false;
     },
   },
 
@@ -71,27 +72,33 @@ export default {
 </script>
 
 <style scoped>
-.main-title {
-  font-family: 'Playfair Display', sans-serif;
-  font-weight: 400 !important;
-  font-size: 2.8rem;
+
+.corpo {
+  display: grid;
+  gap: var(--mdv-spazio-5);
+  align-items: center;
 }
-.caption {
-  font-family: 'Playfair Display', serif;
-  line-height: 1.75;
-  font-style: italic;
+.corpo__figura {
+  text-align: center;
 }
-p {
-  font-family: 'Old Standard TT', sans-serif;
-  font-size: 1.2rem;
+.corpo__foto {
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  border-radius: var(--mdv-raggio-m);
 }
-a {
-  text-decoration: none;
-  color: #8c681c !important;
-  margin-bottom: 1.2rem;
-}
-.md a:hover, .md a:focus {
-  color: #59411a;
+.corpo__testo :deep(p),
+.corpo__testo p {
+  font-family: var(--mdv-font-alternativo);
+  font-size: var(--mdv-testo-l);
 }
 
+@media (min-width: 48rem) {
+  .corpo {
+    grid-template-columns: 1fr 1fr;
+  }
+  .corpo__figura--destra {
+    order: 2;
+  }
+}
 </style>

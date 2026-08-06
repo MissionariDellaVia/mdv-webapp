@@ -30,18 +30,18 @@ export default {
     margin-top: 130px;
 }
 .toast-alert {
-    font-family: 'Playfair Display', sans-serif;
+    font-family: var(--mdv-font-corpo);
     padding: 20px;
     /*border-radius: 10px;*/
-    box-shadow: 1px 3px 5px rgba(0,0,0,0.2);
+    box-shadow: 1px 3px 5px var(--mdv-ombra-lieve);
     max-width: 450px;
-    font-size: 1.2rem;
+    font-size: var(--mdv-testo-l);
     color: white;
-    background: #417a5a;
+    background: var(--mdv-successo);
 }
 .toast-alert.danger {
     color: white;
-    background-color: #773737 !important;
+    background-color: var(--mdv-errore) !important;
 }
 
 /* enter transitions */

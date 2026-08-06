@@ -1,0 +1,558 @@
+/* src/assets/css/tokens.css
+   Unica fonte dei valori visivi del sito. Nessun componente deve contenere
+   colori, font o spaziature scritti a mano: la guardia in
+   scripts/lib/style-guard.test.js lo verifica a ogni `npm test`. */
+
+@layer base {
+  :root {
+    /* Bruni */
+    --mdv-bruno-900: #281d02;
+    --mdv-bruno-900-velato: #281d02e5;
+    --mdv-bruno-850: #29140b;
+    --mdv-bruno-800: #3f2a02;
+    --mdv-bruno-700: #655640;
+    /* Estremo chiaro del bruno: serve al gradiente della pagina /links. */
+    --mdv-bruno-600: #4a3a0f;
+    --mdv-terra: #6e4f3a;
+
+    /* Rame. E' la terra portata verso il rosso: stessa tinta di fondo,
+       piu' satura. Serve alla barra quando si entra nella sezione
+       vocazionale — un colore che si nota senza uscire dalla tavolozza,
+       e che sta bene accanto al tau della comunita'. */
+    --mdv-rame: #b0623c;
+    --mdv-rame-chiaro: #dd9a72;
+    --mdv-rame-acceso: #f6c5a3;
+
+    /* Oro */
+    --mdv-oro: #8c681c;
+    --mdv-oro-scuro: #59411a;
+    --mdv-oro-chiaro: #b6974e;
+    --mdv-oro-brillante: #deb865;
+
+    /* Sabbie */
+    --mdv-sabbia: #c3ac7d;
+    --mdv-sabbia-chiara: #dcbca8;
+    --mdv-crema: #e1d9cb;
+    --mdv-pietra: #c5c1b9;
+    --mdv-pietra-rosata: #c3b5b9;
+
+    /* Neutri */
+    --mdv-bianco: #ffffff;
+    --mdv-grigio: #7e7e7e;
+    --mdv-grigio-scuro: #595959;
+    --mdv-grigio-chiaro: #a8a8a8;
+    --mdv-argento: #d7d7d7;
+    --mdv-nebbia: #dddddd;
+    /* Fondi appena staccati dal bianco: schede e campi di modulo. */
+    --mdv-fondo-scheda: #f5f1ed;
+    --mdv-fondo-campo: #e5e4df;
+
+    /* Stati */
+    --mdv-successo: #417a5a;
+    --mdv-errore: #773737;
+
+    /* Veli e ombre — il nero non e' un colore di marca: token propri */
+    --mdv-bianco-velato: rgba(248, 248, 248, 0.9);
+    --mdv-velo-scuro: rgba(0, 0, 0, 0.75);
+    --mdv-ombra-media: rgba(0, 0, 0, 0.26);
+    --mdv-ombra-lieve: rgba(0, 0, 0, 0.2);
+    /* Velo sotto la barra trasparente: le fotografie delle intestazioni
+       non sono tutte scure, e sopra un edificio bianco il testo color
+       sabbia non si legge. */
+    --mdv-velo-alto: rgba(0, 0, 0, 0.68);
+    --mdv-velo-alto-coda: rgba(0, 0, 0, 0.32);
+
+    /* Misure condivise. La barra e' alta finche' sei in cima e si
+       compatta scendendo: sull'intestazione puo' permettersi lo spazio,
+       nel testo no. Le due misure servono anche alle pagine, che ci
+       calcolano il proprio riempimento in alto. */
+    --mdv-altezza-navbar: 6.5rem;
+    --mdv-altezza-navbar-compatta: 4.25rem;
+
+    /* Marchi di terzi. Non sono colori nostri e non si scelgono: sono
+       quelli delle piattaforme. Ognuno compariva in due o tre sfumature
+       diverse sparse nel codice — qui ce n'e' una sola per marchio. */
+    --mdv-social-facebook: #1877f2;
+    --mdv-social-telegram: #44bcdd;
+    --mdv-social-instagram: #e1306c;
+    --mdv-social-instagram-viola: #833ab4;
+    --mdv-social-instagram-rosa: #fb3958;
+    --mdv-social-youtube: #ff0000;
+
+    /* Tipografia */
+    --mdv-font-titolo: 'Bubbler One', sans-serif;
+    --mdv-font-corpo: 'Playfair Display', serif;
+    --mdv-font-navigazione: 'Questrial', sans-serif;
+    --mdv-font-alternativo: 'Old Standard TT', serif;
+
+    /* Scala tipografica.
+       Ogni pagina sceglieva le sue misure — 2,8rem qui, 3,5rem la',
+       clamp(1.4rem, 3vw, 1.9rem) altrove — decise una alla volta e mai
+       confrontate fra loro. E' anche il motivo per cui i titoli delle
+       sezioni erano "un po' piu' piccoli" e nessuno sapeva dire quanto
+       avrebbero dovuto essere: non c'era un quanto.
+       I passi crescono di circa un quarto per volta, e i tre piu' grandi
+       si adattano allo schermo invece di avere una misura per il telefono
+       e una per il monitor. */
+    --mdv-testo-xs: 0.75rem;
+    --mdv-testo-s: 0.88rem;
+    --mdv-testo-m: 1.05rem;
+    --mdv-testo-l: 1.25rem;
+    --mdv-testo-xl: clamp(1.4rem, 2.4vw, 1.75rem);
+    --mdv-testo-2xl: clamp(1.75rem, 3.4vw, 2.4rem);
+    --mdv-testo-3xl: clamp(2.2rem, 5vw, 3.4rem);
+
+    /* Interlinee: stretta per i titoli, larga per la lettura. */
+    --mdv-interlinea-titolo: 1.2;
+    --mdv-interlinea-corpo: 1.7;
+    --mdv-interlinea-prosa: 1.9;
+
+    /* Ritmo verticale. Lo stacco fra due sezioni e' una misura sola per
+       tutto il sito: quando ogni pagina se lo sceglieva, scorrendo il
+       sito le distanze cambiavano senza motivo. */
+    --mdv-ritmo-sezione: clamp(3rem, 7vw, 6rem);
+    --mdv-ritmo-blocco: var(--mdv-spazio-6);
+
+    /* Spaziature */
+    --mdv-spazio-1: 0.25rem;
+    --mdv-spazio-2: 0.5rem;
+    --mdv-spazio-3: 1rem;
+    --mdv-spazio-4: 1.5rem;
+    --mdv-spazio-5: 2rem;
+    --mdv-spazio-6: 3rem;
+
+    /* Tempi del passaggio fra pagine. Sono token perche' il router deve
+       sapere quanto dura l'uscita: vedi src/utility/tempiTransizione.mjs,
+       tenuto allineato da un test. */
+    --mdv-uscita-pagina: 260ms;
+    --mdv-entrata-pagina: 520ms;
+    --mdv-curva-morbida: cubic-bezier(0.22, 0.61, 0.36, 1);
+    /* Durata complessiva del velo di soglia, dal clic al velo alzato. */
+    --mdv-soglia: 1200ms;
+    /* Il passaggio d'atmosfera: fondo, barra e voci si muovono con questo
+       tempo, se no si vedono tre cambi invece di uno. */
+    --mdv-transito-atmosfera: 900ms;
+
+    /* Raggi */
+    --mdv-raggio-s: 0.5rem;
+    --mdv-raggio-m: 1rem;
+    --mdv-raggio-l: 1.563rem;
+
+    /* Tavolozza della sezione vocazionale: notte calda. Vive qui e non
+       dentro .voc-atmosfera perche' serve anche al <body>, che non e'
+       dentro l'applicazione. */
+    --voc-fondo: #17110a;
+    --voc-fondo-alto: #241a0f;
+    --voc-campo: #0f0b06;
+    --voc-alone: rgba(226, 186, 108, 0.16);
+  }
+
+  /* Fondo dell'applicazione: e' qui che avviene il passaggio di atmosfera.
+     Una sola proprieta' in transizione, su un solo elemento. */
+  .app-sfondo {
+    min-height: 100vh;
+    background-color: var(--mdv-bianco);
+    transition:
+      background-color var(--mdv-transito-atmosfera) ease,
+      color var(--mdv-transito-atmosfera) ease;
+  }
+
+  /* Entrare in /vocazione deve somigliare a entrare in un altro posto: il
+     fondo diventa notte, l'oro sale, il testo si schiarisce. Non si scrivono
+     regole nuove — si ridefiniscono i token gia' usati dai componenti, che
+     cambiano senza saperlo. Navbar e footer inclusi. */
+  .voc-atmosfera {
+    --mdv-bruno-900: #ece1cd;
+    --mdv-bruno-900-velato: rgba(23, 17, 10, 0.94);
+    --mdv-bruno-800: #d8c9ab;
+    --mdv-bruno-700: #b9a98c;
+    --mdv-terra: #b98a63;
+
+    --mdv-oro: #e2ba6c;
+    --mdv-oro-scuro: #d0a458;
+    --mdv-oro-chiaro: #f2d8a2;
+    /* La pagina in cui ti trovi: il punto piu' chiaro della tavolozza,
+       perche' sull'oro caldo delle altre voci un oro si perderebbe. */
+    --mdv-oro-brillante: #fdf3dc;
+
+    --mdv-sabbia: #6f5b38;
+    --mdv-sabbia-chiara: #e8d4a8;
+    --mdv-crema: #241a0f;
+    --mdv-pietra: #b9ad97;
+
+    --mdv-grigio: #a2937b;
+    --mdv-grigio-scuro: #b8ab94;
+
+    background-color: var(--voc-fondo);
+    color: var(--mdv-bruno-900);
+  }
+
+  /* La barra entra nell'atmosfera insieme al resto: le voci passano dal
+     sabbia rosato all'oro caldo della sezione, e quella su cui ti trovi
+     si accende. Non e' un effetto collaterale della ridefinizione dei
+     token — quella da sola avrebbe reso la riga sotto le voci di un bruno
+     scuro, cioe' meno visibile proprio sulla barra scura.
+
+     Vale solo dentro /vocazione: uscendo, la classe se ne va e la barra
+     torna esattamente com'era. */
+  .voc-atmosfera .mdv-navlink--chiaro {
+    color: var(--mdv-rame-chiaro);
+  }
+  .voc-atmosfera .mdv-navlink--chiaro::after {
+    background-color: var(--mdv-rame-chiaro);
+  }
+  /* La voce da cui si e' entrati resta accesa per tutto il tempo che si
+     sta dentro: un rame piu' chiaro e un alone, che e' l'unico bagliore
+     di tutta la barra e quindi non ha bisogno di essere forte. */
+  .voc-atmosfera .mdv-navlink--chiaro.mdv-navlink--attivo {
+    color: var(--mdv-rame-acceso);
+    text-shadow: 0 0 14px color-mix(in srgb, var(--mdv-rame-chiaro) 55%, transparent);
+  }
+  .voc-atmosfera .mdv-navlink--chiaro.mdv-navlink--attivo::after {
+    background-color: var(--mdv-rame-acceso);
+  }
+  /* L'alone si accende e si spegne con il resto, non di colpo. */
+  .mdv-navlink--chiaro {
+    text-shadow: 0 0 0 transparent;
+    transition:
+      opacity 220ms ease,
+      color 450ms ease,
+      text-shadow var(--mdv-transito-atmosfera) ease;
+  }
+
+  /* L'area di rimbalzo dello scroll resta bianca se non si tinge anche il
+     body, e il salto si vede sui trackpad. */
+  body:has(.voc-atmosfera) {
+    background-color: var(--voc-fondo);
+    transition: background-color var(--mdv-transito-atmosfera) ease;
+  }
+
+  /* I controlli di modulo non ereditano il colore del testo: il browser
+     applica il suo, che e' scuro. In un'atmosfera invertita spariscono
+     tutti insieme. Si corregge qui una volta, non componente per
+     componente, perche' il difetto e' della regola non del componente. */
+  .voc-atmosfera button,
+  .voc-atmosfera input,
+  .voc-atmosfera textarea,
+  .voc-atmosfera select {
+    color: var(--mdv-bruno-900);
+  }
+
+  /* Il markdown arriva da data.json e da Supabase: nessuno puo' mettere una
+     classe ai suoi elementi, quindi si stilano dal contenitore. Stava tutto
+     in App.vue con i colori scritti a mano; qui i colori vengono dai token e
+     quindi la sezione vocazionale li ribalta da sola. */
+  .markdown-mdv blockquote {
+    color: var(--mdv-oro);
+    font-style: italic;
+  }
+  .markdown-mdv em {
+    font-size: smaller;
+    color: var(--mdv-grigio-scuro);
+  }
+
+  /* ── Link ──────────────────────────────────────────────────────────────
+     Un link puo' chiedere tre cose diverse, e ognuna ha il suo gesto:
+     accompagnare una frase, dire dove sei, invitarti a un passo. Tre ruoli,
+     tre regole, qui dentro. Nei componenti si applica la classe e basta:
+     ogni trattamento inventato sul posto ci riporta ai venti di prima.
+
+     Tutti e tre usano text-decoration invece di border-bottom. Un bordo
+     appartiene al riquadro: quando il link va a capo la riga passa sotto
+     l'intero blocco invece che sotto le parole. text-decoration segue il
+     testo, evita le lettere discendenti e si stacca dalla base quanto serve.
+
+     Il colore non e' scritto: viene dai token, che l'atmosfera vocazionale
+     ridefinisce. Gli stessi link funzionano sul chiaro e sullo scuro. */
+
+  /* Nessun link di questo sito e' blu. Bootstrap colora ogni <a> col suo
+     #0d6efd, e bastava un anchor che nessuna delle regole qui sotto
+     raggiungesse per vederlo spuntare in mezzo ai bruni. Invece di inseguire
+     caso per caso quali anchor scoprire, si spegne la fonte: un link senza
+     uno stile suo prende il colore del testo intorno. Le regole seguenti
+     dicono poi come devono apparire quelli veri. */
+  a {
+    color: inherit;
+  }
+
+  /* I link dentro il markdown sono la maggioranza dei link del sito e
+     nessuno puo' mettergli una classe: li si prende dal contenitore.
+
+     Un link senza nessuna classe e' un link nel testo, e prende lo stesso
+     trattamento — i numeri di telefono e gli indirizzi email dei contatti
+     sono cosi'. Con una classe qualunque, comanda quella. */
+  .mdv-link,
+  .markdown-mdv a,
+  a:not([class]) {
+    color: var(--mdv-oro-scuro);
+    text-decoration: underline;
+    /* Il filo c'e' gia', tenue: il link non si accende quando ti avvicini. */
+    text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+    text-decoration-skip-ink: auto;
+    transition:
+      color 220ms ease,
+      text-decoration-color 220ms ease,
+      text-decoration-thickness 220ms ease;
+  }
+  .mdv-link:focus-visible,
+  .markdown-mdv a:focus-visible,
+  a:not([class]):focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .mdv-navlink {
+    position: relative;
+    display: inline-block;
+    padding: var(--mdv-spazio-2) 0;
+    font-family: var(--mdv-font-navigazione);
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    color: var(--mdv-oro-scuro);
+    text-decoration: none;
+    opacity: 0.72;
+    transition: opacity 220ms ease, color 450ms ease;
+  }
+  .mdv-navlink::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 320ms var(--mdv-curva-morbida);
+  }
+  .mdv-navlink--attivo {
+    opacity: 1;
+    color: var(--mdv-oro);
+  }
+  /* Stesso gesto, su fondo scuro: la barra e il cassetto stanno sul
+     bruno o sopra una fotografia, dove l'oro scuro non si legge. */
+  .mdv-navlink--chiaro {
+    color: var(--mdv-sabbia-chiara);
+  }
+  .mdv-navlink--chiaro.mdv-navlink--attivo {
+    color: var(--mdv-bianco);
+  }
+  .mdv-navlink--chiaro::after {
+    background-color: var(--mdv-sabbia);
+  }
+  .mdv-navlink--attivo::after {
+    transform: scaleX(1);
+  }
+  .mdv-navlink:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+
+  .mdv-invito {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--mdv-spazio-2);
+    padding: 0.6rem var(--mdv-spazio-4);
+    border: 1px solid var(--mdv-sabbia);
+    border-radius: 999px;
+    font-family: var(--mdv-font-navigazione);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mdv-oro-scuro);
+    text-decoration: none;
+    background: none;
+    cursor: pointer;
+    transition: border-color 260ms ease, color 260ms ease, background-color 260ms ease;
+  }
+  .mdv-invito__freccia {
+    display: inline-block;
+    transition: transform 320ms var(--mdv-curva-morbida);
+  }
+  .mdv-invito:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+
+  /* Gli effetti di passaggio valgono solo dove esiste un puntatore: sul
+     tocco restavano appiccicati addosso al link dopo averlo lasciato. */
+  @media (hover: hover) {
+    .mdv-link:hover,
+    .markdown-mdv a:hover,
+    a:not([class]):hover {
+      color: var(--mdv-oro);
+      text-decoration-color: currentColor;
+      text-decoration-thickness: 2px;
+    }
+    .mdv-navlink:hover {
+      opacity: 1;
+      color: var(--mdv-oro);
+    }
+    .mdv-navlink--chiaro:hover {
+      color: var(--mdv-bianco);
+    }
+    .mdv-navlink:hover::after {
+      transform: scaleX(1);
+    }
+    .mdv-invito:hover {
+      border-color: var(--mdv-oro);
+      color: var(--mdv-oro);
+      background-color: color-mix(in srgb, var(--mdv-oro) 8%, transparent);
+    }
+    .mdv-invito:hover .mdv-invito__freccia {
+      transform: translateX(0.3rem);
+    }
+  }
+
+  /* ── Intestazioni di sezione ────────────────────────────────────────
+     Tre pezzi, e ognuno ha un posto fisso:
+
+       sopratitolo   la riga piccola in maiuscoletto d'oro, sopra
+       titolo        il titolo
+       sottotitolo   la frase in corsivo, sotto
+
+     Il nome conta piu' del solito, qui. Prima "occhiello" indicava il
+     sottotitolo in quattro pagine e il sopratitolo in altre tre, e il
+     sopratitolo aveva cinque nomi diversi — sopratitolo, sede__citta,
+     modulo__occhiello, articolo__data, voc-modale__occhiello. Chi apriva
+     un file non poteva sapere di quale dei due si parlasse. */
+  .mdv-sopratitolo {
+    margin: 0 0 var(--mdv-spazio-2);
+    font-family: var(--mdv-font-navigazione);
+    font-size: var(--mdv-testo-xs);
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--mdv-oro);
+  }
+  .mdv-titolo-sezione {
+    margin: 0;
+    font-family: var(--mdv-font-corpo);
+    font-weight: 400;
+    font-size: var(--mdv-testo-2xl);
+    line-height: var(--mdv-interlinea-titolo);
+    color: var(--mdv-bruno-900);
+  }
+  /* Il titolo che apre una pagina, non una sezione al suo interno. */
+  .mdv-titolo-pagina {
+    margin: 0;
+    font-family: var(--mdv-font-corpo);
+    font-weight: 400;
+    font-size: var(--mdv-testo-3xl);
+    line-height: var(--mdv-interlinea-titolo);
+    color: var(--mdv-bruno-900);
+  }
+  .mdv-sottotitolo {
+    margin: var(--mdv-spazio-3) auto 0;
+    max-width: 40rem;
+    font-family: var(--mdv-font-corpo);
+    font-size: var(--mdv-testo-l);
+    line-height: var(--mdv-interlinea-corpo);
+    font-style: italic;
+  }
+
+  /* Entrata condivisa. Ogni sezione entra allo stesso modo: una salita
+     breve con la curva che decelera. Le classi stanno qui e non nei
+     componenti proprio perche' l'animazione dev'essere una sola. */
+  @keyframes mdv-entrata {
+    from { opacity: 0; transform: translateY(1.4rem); }
+    to   { opacity: 1; transform: none; }
+  }
+  /* Per gli elementi che non devono muoversi — la navbar fissa, il footer:
+     spostarli farebbe ballare tutto il resto. */
+  @keyframes mdv-apparizione {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .entra {
+    animation: mdv-entrata var(--mdv-entrata-pagina) var(--mdv-curva-morbida) both;
+  }
+  .entra-velata {
+    animation: mdv-apparizione var(--mdv-entrata-pagina) var(--mdv-curva-morbida) both;
+  }
+  .entra--2 { animation-delay: 120ms; }
+  .entra--3 { animation-delay: 240ms; }
+  .entra--4 { animation-delay: 360ms; }
+  .entra--5 { animation-delay: 480ms; }
+
+  /* Rivelazione allo scroll: la direttiva v-rivela aggiunge le classi. */
+  .da-rivelare {
+    opacity: 0;
+    /* Otto pixel non si vedono: il movimento c'era e nessuno se ne
+       accorgeva. Sotto il paio di centimetri l'occhio legge una
+       comparsa, non un arrivo. */
+    transform: translateY(1.75rem);
+    transition: opacity 700ms var(--mdv-curva-morbida), transform 700ms var(--mdv-curva-morbida);
+  }
+  /* Chi entra di lato invece che dal basso: serve a far arrivare una
+     figura dalla parte dove poi si ferma, cosi' il movimento racconta la
+     disposizione invece di essere uguale per tutto. */
+  .da-rivelare--da-sinistra {
+    transform: translateX(-2rem);
+  }
+  .da-rivelare--da-destra {
+    transform: translateX(2rem);
+  }
+  /* Deve venire dopo .da-rivelare: la sovrascrive senza toglierla, cosi'
+     la transizione dichiarata li' resta e il passaggio si vede. */
+  .rivelato {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Passaggio fra le pagine: lo stesso gesto con cui si scambiano i
+     titoli dentro la sezione vocazionale — la pagina nuova non compare
+     gia' fatta, si mette a fuoco.
+
+     La sfocatura e' 6px e non 12 come sul titolo, e la ragione e' il
+     costo: sfocare una scritta e' quasi gratis, sfocare una pagina intera
+     obbliga il browser a ridisegnarla per intero a ogni fotogramma.
+     Con will-change il livello viene preparato una volta e il lavoro
+     passa alla scheda grafica; oltre i pochi pixel, pero', anche cosi' si
+     comincia a sentire.
+
+     Niente scorrimento verticale: il testo non deve scivolare sotto agli
+     occhi mentre lo si sta gia' leggendo. */
+  .dissolvenza-enter-active {
+    transition:
+      opacity var(--mdv-entrata-pagina) var(--mdv-curva-morbida),
+      filter var(--mdv-entrata-pagina) var(--mdv-curva-morbida);
+    will-change: opacity, filter;
+  }
+  .dissolvenza-leave-active {
+    transition:
+      opacity var(--mdv-uscita-pagina) ease-in,
+      filter var(--mdv-uscita-pagina) ease-in;
+    will-change: opacity, filter;
+  }
+  .dissolvenza-enter-from,
+  .dissolvenza-leave-to {
+    opacity: 0;
+    filter: blur(6px);
+  }
+  /* Finita la transizione il livello non serve piu' preparato: tenerlo
+     costerebbe memoria su ogni pagina, per sempre. */
+  .dissolvenza-enter-to,
+  .dissolvenza-leave-from {
+    will-change: auto;
+  }
+
+  /* Chi ha attivato "riduci movimento" spesso lo ha fatto per disturbi
+     vestibolari: velo e dissolvenze sono precisamente cio' che li scatena. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      /* Senza azzerare anche il ritardo, un elemento che parte da opacity 0
+         con animazione differita resta invisibile per tutta l'attesa. */
+      animation-delay: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .da-rivelare {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}

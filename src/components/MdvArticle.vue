@@ -1,49 +1,49 @@
 <template>
-<div class="card">
-  <image-dialog :show="!!image.show" :imageLink="image.link" @close="cleanImageDialog"></image-dialog>
-  <div v-if="title" class="card-header">
-    <div v-show="'right' === align" class="text-md-start fs-3">{{ title }}</div>
-    <div v-show="'left' === align" class="text-md-end fs-3">{{ title }}</div>
-  </div>
-  <div class="card-body">
-    <div v-if="imageUrl" class="row my-4">
-      <div class="col col-sm-12 text-center" :class="imgArticleClass.imgCssClass">
-        <Carousel v-if="Array.isArray(imageUrl)" :pauseAutoplayOnHover="true" :transition="800" :autoplay="3000" :wrap-around="true" :breakpoints="breakpoints" class="mb-3" >
-          <Slide v-for="(img, index) in imageUrl" :key="index">
-            <div class="carousel__item ">
-              <img :src=helper.getImgUrl(img) @click="showImage(img)" class="shadow carousel-preview-img" alt="imageUrl">
-            </div>
-          </Slide>
-          <template #addons>
-            <Navigation />
-          </template>
-        </Carousel>
-        <img v-else :src=helper.getImgUrl(imageUrl) class="img-fluid" :class="{'small-img' : small}" alt="imageUrl">
+  <BaseRiquadro>
+    <template v-if="title" #testata>{{ title }}</template>
+
+    <image-dialog :show="!!image.show" :imageLink="image.link" @close="cleanImageDialog"></image-dialog>
+
+    <div v-if="imageUrl" :class="['articolo', ...classiDisposizione]">
+      <div v-rivela :class="['articolo__figura', classeEntrata]">
+        <BaseCarosello v-if="Array.isArray(imageUrl)" :autoplay="3000" ciclico>
+          <img
+            v-for="(img, index) in imageUrl"
+            :key="index"
+            :src="helper.getImgUrl(img)"
+            class="anteprima"
+            alt=""
+            @click="showImage(img)"
+          />
+        </BaseCarosello>
+        <span v-else class="articolo__cornice">
+          <img :src="helper.getImgUrl(imageUrl)" class="articolo__foto" alt="">
+        </span>
       </div>
-      <div class="col col-sm-12 text-start" :class="imgArticleClass.textCssClass" >
-        <p v-for="(text, index) in texts" v-bind:key="index" >
+
+      <div v-rivela class="articolo__testo" style="transition-delay: 160ms">
+        <p v-for="(text, index) in texts" :key="index">
           <Markdown :source="text" :html="true" class="markdown-mdv"></Markdown>
         </p>
       </div>
     </div>
-    <div v-else class="row my-4">
-      <div class="col col-sm-12 align-self-start">
-        <p v-for="(text, index) in texts" v-bind:key="index" >
-          <Markdown :source="text" :breaks="true" class="markdown-mdv"></Markdown>
-        </p>
-      </div>
+
+    <div v-else class="articolo__testo">
+      <p v-for="(text, index) in texts" :key="index">
+        <Markdown :source="text" :breaks="true" class="markdown-mdv"></Markdown>
+      </p>
     </div>
-  </div>
-</div>
+  </BaseRiquadro>
 </template>
 
 <script>
 import Markdown from 'vue3-markdown-it';
-import { Carousel, Navigation, Slide } from 'vue3-carousel'
+import BaseRiquadro from '@/components/ui/BaseRiquadro.vue';
+import BaseCarosello from '@/components/ui/BaseCarosello.vue';
 
 export default {
   name: "MdvArticle",
-  components: {Markdown, Carousel, Navigation, Slide},
+  components: {Markdown, BaseRiquadro, BaseCarosello},
   props: ['title', 'texts', 'align', 'imageUrl', 'small'],
   data(){
     return {
@@ -51,37 +51,26 @@ export default {
       image: {
         show: null,
         link: ''
-      },
-      breakpoints: {
-        // 700px and up
-        400: {
-          itemsToShow: 1,
-        },
-        // 1024 and up
-        1280: {
-          itemsToShow: 2,
-        },
-        // 1024 and up
-        1440: {
-          itemsToShow: 3,
-        }
       }
-
     }
   },
   computed: {
-    imgArticleClass() {
-      if (Array.isArray(this.imageUrl))
-        return {"imgCssClass" : "order-last"};
-      let imgCssClass = this.small ? "col-md-4 " : "col-md-6 ";
-      let textCssClass = this.small ? "col-md-8 " : "col-md-6 ";
-
-      imgCssClass += 'right' === this.align ? "order-md-last text-end" : "";
-
-      return {
-        "imgCssClass" : imgCssClass,
-        "textCssClass": textCssClass
-      }
+    // Il titolo si accosta al lato opposto all'immagine.
+    // Erano quattro classi di griglia composte a mano in una stringa.
+    // Sono due sole decisioni: quanto e' larga la figura, e da che parte
+    // sta. Un carosello di foto va sempre in fondo, sotto al testo.
+    // La figura arriva dalla parte dove si fermera': il movimento
+    // racconta la disposizione invece di essere uguale per tutto.
+    classeEntrata() {
+      if (Array.isArray(this.imageUrl)) return '';
+      return 'right' === this.align ? 'da-rivelare--da-destra' : 'da-rivelare--da-sinistra';
+    },
+    classiDisposizione() {
+      if (Array.isArray(this.imageUrl)) return ['articolo--galleria'];
+      return [
+        this.small ? 'articolo--figura-stretta' : 'articolo--meta',
+        'right' === this.align ? 'articolo--figura-a-destra' : '',
+      ].filter(Boolean);
     }
   },
   methods: {
@@ -98,69 +87,75 @@ export default {
 </script>
 
 <style scoped>
-.card {
-  border: 0;
+.articolo {
+  display: grid;
+  gap: var(--mdv-spazio-5);
+  margin: var(--mdv-spazio-5) 0;
+  align-items: center;
 }
-.card-header{
-  font-family: 'Playfair Display', sans-serif;
-  color: #fff;
-  border: 0;
-  background: rgb(40, 29, 2, 0.9);
+.articolo__figura {
+  text-align: center;
 }
-p {
-  font-family: 'Old Standard TT', sans-serif;
-  font-size: 1.3rem;
+/* La cornice non impone una forma: ritaglia soltanto, perche' la foto
+   possa respirare all'over senza uscire dagli angoli. Le proporzioni
+   restano quelle dell'immagine — forzarle a 4:3 tagliava fotografie che
+   erano state inquadrate come sono. */
+.articolo__cornice {
+  display: inline-block;
+  overflow: hidden;
+  border-radius: var(--mdv-raggio-m);
+  max-width: 100%;
+  line-height: 0;
 }
-.small-img {
-  max-width: 22rem;
-  margin: auto;
+.articolo__foto {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  transition: transform 900ms var(--mdv-curva-morbida);
 }
-.carousel__item {
-  object-fit: cover !important;
+@media (hover: hover) {
+  .articolo:hover .articolo__foto {
+    transform: scale(1.04);
+  }
 }
-.carousel-preview-img{
-  max-width: 15rem;
+.articolo__testo :deep(p),
+.articolo__testo p {
+  font-family: var(--mdv-font-alternativo);
+  font-size: var(--mdv-testo-l);
+}
+
+/* Le vecchie regole .carousel__slide con le rotazioni in 3D erano classi
+   della libreria: sparita quella, non avevano piu' niente da colpire. */
+.anteprima {
+  width: 15rem;
+  height: 11rem;
+  object-fit: cover;
+  border-radius: var(--mdv-raggio-s);
   cursor: pointer;
 }
 
-.carousel__slide {
-  padding: 1.4rem;
+/* Sotto questa larghezza figura e testo stanno uno sopra l'altro: due
+   colonne su un telefono non sono due colonne, sono due strisce. */
+@media (min-width: 48rem) {
+  .articolo--meta {
+    grid-template-columns: 1fr 1fr;
+  }
+  .articolo--figura-stretta {
+    grid-template-columns: 1fr 2fr;
+  }
+  .articolo--figura-a-destra .articolo__figura {
+    order: 2;
+  }
 }
-.carousel__track {
-  transform-style: preserve-3d;
+/* La galleria occupa tutta la riga e sta sotto al testo. */
+.articolo--galleria .articolo__figura {
+  order: 2;
 }
-.carousel__slide--sliding {
-  transition: 0.5s;
-}
-.carousel__slide {
-  opacity: 0.9;
-  transform: rotateY(-20deg) scale(0.8);
-}
-.carousel__slide--active ~ .carousel__slide {
-  transform: rotateY(20deg) scale(0.8);
-}
-.carousel__slide--prev {
-  opacity: 1;
-  transform: rotateY(-10deg) scale(0.85);
-}
-.carousel__slide--next {
-  opacity: 1;
-  transform: rotateY(10deg) scale(0.85);
-}
-.carousel__slide--active {
-  opacity: 1;
-  transform: rotateY(0) scale(1);
-}
-
 
 @media only screen and (max-width: 480px) {
-  img {
-    max-width: 19rem !important;
-    padding: 0 !important;
-    margin-bottom: 1rem !important;
-  }
-  .card-header {
-    text-align: center;
+  .articolo__foto {
+    max-width: 19rem;
+    margin-bottom: var(--mdv-spazio-3);
   }
 }
 </style>

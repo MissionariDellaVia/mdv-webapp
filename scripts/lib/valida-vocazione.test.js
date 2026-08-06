@@ -1,0 +1,168 @@
+const test = require('node:test');
+const assert = require('node:assert');
+const fs = require('node:fs');
+const path = require('node:path');
+const { validaContenuto, TIPI_BLOCCO } = require('./valida-vocazione');
+
+const opzioni = {
+  rotteNote: ['vocazione-matrimonio'],
+  immagineEsiste: (n) => n === 'stella.jpg',
+  immagineSitoEsiste: (n) => n === 'esistente.jpg',
+};
+
+const valido = {
+  hub: { header: { titolo: 'Vocazione' }, intro: 'x', porte: [], chiusura: 'y' },
+  percorsi: {
+    matrimonio: { header: { titolo: 'Matrimonio' }, blocchi: [{ tipo: 'prosa', testo: 'x' }] },
+  },
+  domande: [{ id: 1, domanda: 'a', risposta: 'b' }],
+  proposta: { header: { titolo: 'Proposta' }, blocchi: [] },
+};
+
+const copia = (o) => JSON.parse(JSON.stringify(o));
+
+test('un contenuto ben formato non produce errori', () => {
+  assert.deepStrictEqual(validaContenuto(valido, opzioni), []);
+});
+
+test('i tipi di blocco riconosciuti sono sette', () => {
+  assert.strictEqual(TIPI_BLOCCO.length, 7);
+});
+
+test('un tipo di blocco sconosciuto viene segnalato', () => {
+  const c = copia(valido);
+  c.percorsi.matrimonio.blocchi.push({ tipo: 'carosello' });
+  assert.deepStrictEqual(
+    validaContenuto(c, opzioni),
+    ['percorsi.matrimonio.blocchi[1]: tipo sconosciuto "carosello"'],
+  );
+});
+
+test('un rimando verso una rotta inesistente viene segnalato', () => {
+  const c = copia(valido);
+  c.percorsi.matrimonio.blocchi.push({
+    tipo: 'rimandi', voci: [{ etichetta: 'x', rotta: 'inventata' }],
+  });
+  assert.deepStrictEqual(
+    validaContenuto(c, opzioni),
+    ['percorsi.matrimonio.blocchi[1].voci[0]: rotta inesistente "inventata"'],
+  );
+});
+
+test('una porta dell\'hub verso una rotta inesistente viene segnalata', () => {
+  const c = copia(valido);
+  c.hub.porte.push({ titolo: 'x', testo: 'y', rotta: 'inventata' });
+  assert.deepStrictEqual(
+    validaContenuto(c, opzioni),
+    ['hub.porte[0]: rotta inesistente "inventata"'],
+  );
+});
+
+test('una foto mancante viene segnalata', () => {
+  const c = copia(valido);
+  c.percorsi.matrimonio.blocchi.push({
+    tipo: 'testimonianze', voci: [{ nome: 'X', foto: 'assente.jpg', testo: 't' }],
+  });
+  assert.deepStrictEqual(
+    validaContenuto(c, opzioni),
+    ['percorsi.matrimonio.blocchi[1].voci[0]: immagine assente "assente.jpg"'],
+  );
+});
+
+test('un campo obbligatorio mancante viene segnalato', () => {
+  const c = copia(valido);
+  c.percorsi.matrimonio.blocchi.push({ tipo: 'elenco', titolo: 'senza voci' });
+  assert.deepStrictEqual(
+    validaContenuto(c, opzioni),
+    ['percorsi.matrimonio.blocchi[1]: manca il campo obbligatorio "voci" per tipo "elenco"'],
+  );
+});
+
+test('un passo senza titolo o testo viene segnalato', () => {
+  const c = copia(valido);
+  c.percorsi.matrimonio.blocchi.push({
+    tipo: 'passi', passi: [{ titolo: 'ok', testo: 'ok' }, { titolo: 'monco' }],
+  });
+  assert.deepStrictEqual(
+    validaContenuto(c, opzioni),
+    ['percorsi.matrimonio.blocchi[1].passi[1]: titolo o testo mancante'],
+  );
+});
+
+test('un\'immagine di intestazione assente viene segnalata', () => {
+  const c = copia(valido);
+  c.percorsi.matrimonio.header.immagine = 'sparita.jpg';
+  assert.deepStrictEqual(
+    validaContenuto(c, opzioni),
+    ['percorsi.matrimonio.header.immagine: immagine assente "sparita.jpg"'],
+  );
+});
+
+test('una sezione di primo livello mancante viene segnalata', () => {
+  const c = copia(valido);
+  delete c.domande;
+  assert.deepStrictEqual(validaContenuto(c, opzioni), ['manca la sezione "domande"']);
+});
+
+// --- Contenuto reale ---------------------------------------------------
+
+const FILE_CONTENUTO = 'src/assets/data/vocazione.json';
+const CARTELLA_IMG = 'src/assets/img/vocazione';
+const FILE_INDICE = 'src/assets/data/indice-vocazione.json';
+const indice = JSON.parse(fs.readFileSync(FILE_INDICE, 'utf8'));
+// L'hub non e' nell'indice: e' raggiunto dalla freccia della barra.
+const ROTTE_NOTE = ['vocazione', ...indice.map((v) => v.nome)];
+
+const leggiContenuto = () => JSON.parse(fs.readFileSync(FILE_CONTENUTO, 'utf8'));
+
+test('vocazione.json e\' valido', () => {
+  const errori = validaContenuto(leggiContenuto(), {
+    rotteNote: ROTTE_NOTE,
+    immagineEsiste: (n) => fs.existsSync(path.join(CARTELLA_IMG, n)),
+    immagineSitoEsiste: (n) => fs.existsSync(path.join('src/assets/img', n)),
+  });
+  assert.deepStrictEqual(errori, []);
+});
+
+test('i quattro percorsi del documento sono presenti', () => {
+  assert.deepStrictEqual(
+    Object.keys(leggiContenuto().percorsi).sort(),
+    ['discernimento', 'matrimonio', 'sacerdozio', 'vita-consacrata'],
+  );
+});
+
+test('le domande del documento sono otto', () => {
+  assert.strictEqual(leggiContenuto().domande.length, 8);
+});
+
+test('l\'hub ha le quattro porte del documento', () => {
+  assert.strictEqual(leggiContenuto().hub.porte.length, 4);
+});
+
+test('l\'indice elenca le sei pagine non-hub', () => {
+  assert.strictEqual(indice.length, 6);
+  assert.deepStrictEqual(
+    indice.map((v) => v.nome).sort(),
+    [
+      'vocazione-discernimento', 'vocazione-domande', 'vocazione-matrimonio',
+      'vocazione-proposta', 'vocazione-sacerdozio', 'vocazione-vita-consacrata',
+    ],
+  );
+});
+
+test('ogni voce dell\'indice ha etichetta, forma breve e gruppo', () => {
+  for (const voce of indice) {
+    assert.ok(voce.etichetta, `manca etichetta per ${voce.nome}`);
+    // La forma breve sta nel menu dell'intestazione, su una riga sola:
+    // se si allunga, il menu va a capo e smette di leggersi come menu.
+    assert.ok(voce.breve, `manca forma breve per ${voce.nome}`);
+    assert.ok(voce.breve.length <= 16, `forma breve troppo lunga per ${voce.nome}`);
+    assert.ok(['percorsi', 'altro'].includes(voce.gruppo), `gruppo non valido per ${voce.nome}`);
+  }
+});
+
+test('nessun indirizzo email nel contenuto: i contatti stanno in /contatti', () => {
+  const grezzo = fs.readFileSync(FILE_CONTENUTO, 'utf8');
+  const trovati = grezzo.match(/[\w.+-]+@[\w-]+\.[\w.]+/g) || [];
+  assert.deepStrictEqual(trovati, []);
+});

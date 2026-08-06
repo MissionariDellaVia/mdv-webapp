@@ -1,67 +1,52 @@
 <template>
   <section>
+    <MDHeader
+      :image="approfondimentiPage.header.backgroundImage"
+      :title="approfondimentiPage.header.title"
+      :caption="approfondimentiPage.header.caption"
+    />
 
-    <div v-if="isLoading">
-      <base-spinner></base-spinner>
+    <div class="corpo mx-auto flex w-full max-w-6xl flex-col px-4">
+      <MdvLongArticle
+        v-for="(sezione, index) in approfondimentiPage.sections"
+        :key="index"
+        v-rivela
+        :title="sezione.title"
+        :align="sezione.image.align"
+        :imageUrl="sezione.image.url"
+        :texts="sezione.articles"
+      />
     </div>
-    <div v-else >
-      <MDHeader :image="approfondimentiPage.header.backgroundImage"
-                :title="approfondimentiPage.header.title"
-                :caption="approfondimentiPage.header.caption"/>
-
-      <div class="container">
-        <!-- Article Section -->
-        <MdvLongArticle v-for="(section, index) in approfondimentiPage.sections" v-bind:key="index"
-                        :title="section.title"
-                        :align="section.image.align"
-                        :imageUrl="section.image.url"
-                        :texts="section.articles"
-        />
-      </div>
-    </div>
-
   </section>
 </template>
 
 <script>
-import MDHeader from "@/components/layout/MdvHeader";
-import MdvLongArticle from "@/components/MdvLongArticle";
+import MDHeader from "@/components/layout/MdvHeader.vue";
+import MdvLongArticle from "@/components/MdvLongArticle.vue";
+import { usaPagina } from '@/store/pagina.mjs';
 
 export default {
   name: "ApprofondimentiPage",
-  components: {MdvLongArticle, MDHeader},
-  created() {
-    this.loadPage("approfondimenti");
+  setup() {
+    return { pagina: usaPagina() };
   },
-  data() {
-    return {
-      helper: this.$util,
-      isLoading: false,
-    };
+  components: { MDHeader, MdvLongArticle },
+  // Solo JSON locale: il contenuto c'e' gia' al primo disegno, quindi
+  // niente spinner ad aspettare una promessa gia' risolta.
+  created() {
+    this.pagina.caricaPagina("approfondimenti");
   },
   computed: {
     approfondimentiPage() {
-      return this.$store.getters['page/approfondimenti'];
+      return this.pagina.approfondimenti;
     },
   },
-  methods: {
-    async loadPage(page) {
-      this.isLoading = true;
-      try {
-        await this.$store.dispatch('page/loadPage', page);
-      } catch (error) {
-        // this.showToast(error.message || 'Errore caricamento pagina!');
-      }
-      this.isLoading = false;
-    },
-  }
-
 }
 </script>
 
 <style scoped>
-.hr-img {
-  width: 30%;
-  margin: auto;
+.corpo {
+  gap: var(--mdv-ritmo-sezione);
+  padding-block: var(--mdv-ritmo-sezione);
 }
 </style>
