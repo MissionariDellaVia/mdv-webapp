@@ -77,50 +77,36 @@ export default {
 
 <style scoped>
 /* Erano blocchi bruni pieni, uno per riga, a tutta larghezza: pesavano
-   quanto il contenuto che dovevano annunciare. Qui sono parole in fila su
-   un filo, e la sola scelta accesa e' quella attiva. */
+   quanto il contenuto che dovevano annunciare. Ora sono pastiglie in fila,
+   della grandezza di un bottone normale. */
 .schede__linguette {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--mdv-spazio-2) var(--mdv-spazio-5);
-  border-bottom: 1px solid var(--mdv-sabbia);
+  gap: var(--mdv-spazio-2);
   margin-bottom: var(--mdv-spazio-6);
 }
 
 .schede__linguetta {
-  position: relative;
-  padding: var(--mdv-spazio-3) var(--mdv-spazio-1);
-  border: none;
+  padding: var(--mdv-spazio-2) var(--mdv-spazio-4);
+  border: 1px solid var(--mdv-sabbia);
+  border-radius: 999px;
   background: none;
   font-family: var(--mdv-font-navigazione);
-  font-size: 0.95rem;
-  letter-spacing: 0.06em;
-  line-height: 1.4;
-  color: var(--mdv-bruno-900);
-  opacity: 0.6;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  color: var(--mdv-grigio-scuro);
   cursor: pointer;
-  transition: opacity 260ms ease, color 260ms ease;
-}
-/* Il filo dell'attiva copre quello del contenitore: e' la stessa riga,
-   accesa nel punto in cui ti trovi. */
-.schede__linguetta::after {
-  content: '';
-  position: absolute;
-  inset-inline: 0;
-  bottom: -1px;
-  height: 2px;
-  background-color: var(--mdv-oro);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 320ms var(--mdv-curva-morbida);
+  transition:
+    background-color 240ms ease,
+    border-color 240ms ease,
+    color 240ms ease;
 }
 .schede__linguetta--attiva {
-  opacity: 1;
-  color: var(--mdv-oro);
-}
-.schede__linguetta--attiva::after {
-  transform: scaleX(1);
+  border-color: var(--mdv-oro);
+  background-color: var(--mdv-oro);
+  color: var(--mdv-bianco);
 }
 .schede__linguetta:focus-visible {
   outline: 2px solid var(--mdv-oro);
@@ -132,18 +118,10 @@ export default {
 }
 
 @media (hover: hover) {
-  .schede__linguetta:hover {
-    opacity: 1;
+  .schede__linguetta:not(.schede__linguetta--attiva):hover {
+    border-color: var(--mdv-oro-scuro);
     color: var(--mdv-oro-scuro);
   }
 }
 
-@media (max-width: 576px) {
-  .schede__linguette {
-    gap: var(--mdv-spazio-1) var(--mdv-spazio-4);
-  }
-  .schede__linguetta {
-    font-size: 0.88rem;
-  }
-}
 </style>

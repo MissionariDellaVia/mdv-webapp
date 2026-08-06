@@ -177,13 +177,22 @@ body:has(.voc-atmosfera) {
    Il colore non e' scritto: viene dai token, che l'atmosfera vocazionale
    ridefinisce. Gli stessi link funzionano sul chiaro e sullo scuro. */
 
+/* Nessun link di questo sito e' blu. Bootstrap colora ogni <a> col suo
+   #0d6efd, e bastava un anchor che nessuna delle regole qui sotto
+   raggiungesse per vederlo spuntare in mezzo ai bruni. Invece di inseguire
+   caso per caso quali anchor scoprire, si spegne la fonte: un link senza
+   uno stile suo prende il colore del testo intorno. Le regole seguenti
+   dicono poi come devono apparire quelli veri. */
+a {
+  color: inherit;
+}
+
 /* I link dentro il markdown sono la maggioranza dei link del sito e
    nessuno puo' mettergli una classe: li si prende dal contenitore.
 
    Un link senza nessuna classe e' un link nel testo, e prende lo stesso
-   trattamento: senza questa regola si becca il blu predefinito di
-   Bootstrap — succedeva ai numeri di telefono e agli indirizzi email dei
-   contatti. Con una classe qualunque, comanda quella. */
+   trattamento — i numeri di telefono e gli indirizzi email dei contatti
+   sono cosi'. Con una classe qualunque, comanda quella. */
 .mdv-link,
 .markdown-mdv a,
 a:not([class]) {
