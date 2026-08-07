@@ -152,12 +152,11 @@ export default {
    fosse piu' alta, il menu si troverebbe ogni volta a un'altezza diversa
    e il passaggio da una pagina all'altra si vedrebbe come uno scarto. */
 .voc-intestazione {
-  /* Quanto dura l'alba: la fascia in cui la notte diventa sabbia. Sotto
-     i quattro centimetri il passaggio si legge come una riga; sopra gli
-     otto diventa una fascia vuota in fondo all'intestazione. In mezzo
-     segue l'altezza dello schermo, perche' su uno schermo alto la stessa
-     misura in centimetri sembra piu' corta. */
-  --voc-alba: clamp(4.5rem, 10vh, 8rem);
+  /* Quanto dura l'alba: la fascia in cui la notte diventa sabbia. Piu'
+     e' lunga, meno ripida e' la salita e meno si vede. Segue l'altezza
+     dello schermo, perche' su uno schermo alto la stessa misura in
+     centimetri sembra piu' corta. */
+  --voc-alba: clamp(6rem, 14vh, 11rem);
   position: relative;
   isolation: isolate;
   display: flex;
@@ -171,21 +170,27 @@ export default {
   padding-bottom: calc(var(--voc-alba) + var(--mdv-spazio-3));
   overflow: hidden;
   text-align: center;
-  /* L'alba.
-     Prima durava tre centimetri, e si vedeva come una riga: fra
-     --voc-notte e --voc-fondo c'e' quasi tutta la scala della luce, e
-     schiacciarla in tre centimetri la fa leggere come un bordo invece
-     che come un passaggio.
+  /* L'alba, e perche' si vedeva una riga.
+     Non era una questione di colori: erano continui anche prima. Era la
+     PENDENZA a non esserlo. Il buio stava fermo e poi, di colpo, un
+     punto preciso in cui cominciava a cambiare. L'occhio quel punto lo
+     esalta da se' — e' l'effetto Mach, lo stesso per cui due grigi
+     accostati sembrano avere un bordo luminoso che non esiste.
 
-     Ora dura il triplo, e soprattutto non e' una rampa dritta. Le tappe
-     seguono una curva a esse — 16%, 50%, 84% — quindi il chiaro entra
-     piano, attraversa in fretta e si posa piano: e' come si comporta la
-     luce vera, e non lascia il gradino che l'occhio cerca sempre agli
-     estremi di una rampa lineare.
+     Le tappe qui sotto seguono smootherstep, 6t^5-15t^4+10t^3: una curva
+     con derivata prima E seconda nulle a tutt'e due gli estremi. Vuol
+     dire che accanto al buio la variazione e' dello 0,86%, e accanto
+     alla sabbia altrettanto: non c'e' nessun punto in cui "comincia"
+     qualcosa. Una curva a esse normale annulla solo la prima derivata, e
+     lascia un cambio di accelerazione che si vede ancora.
+
+     Undici tappe e non cinque: fra una tappa e l'altra il browser
+     interpola dritto, quindi con poche tappe la curva torna a essere una
+     spezzata, con i suoi angoli.
 
      I passaggi si mescolano in oklab e non in sRGB: fra un colore molto
-     scuro e uno molto chiaro l'sRGB passa da un mezzotono spento e
-     grigiastro, che e' esattamente cio' che rende artificiale una
+     scuro e uno molto chiaro l'sRGB attraversa un mezzotono spento e
+     grigiastro, che e' precisamente cio' che rende artificiale una
      sfumatura lunga. */
   background:
     radial-gradient(90% 70% at 50% 18%, var(--voc-alone) 0%, transparent 68%),
@@ -193,14 +198,48 @@ export default {
       180deg,
       var(--voc-notte) 0%,
       var(--voc-notte) calc(100% - var(--voc-alba)),
-      color-mix(in oklab, var(--voc-fondo) 16%, var(--voc-notte))
-        calc(100% - var(--voc-alba) * 0.75),
+      color-mix(in oklab, var(--voc-fondo) 0.86%, var(--voc-notte))
+        calc(100% - var(--voc-alba) * 0.9),
+      color-mix(in oklab, var(--voc-fondo) 5.79%, var(--voc-notte))
+        calc(100% - var(--voc-alba) * 0.8),
+      color-mix(in oklab, var(--voc-fondo) 16.31%, var(--voc-notte))
+        calc(100% - var(--voc-alba) * 0.7),
+      color-mix(in oklab, var(--voc-fondo) 31.74%, var(--voc-notte))
+        calc(100% - var(--voc-alba) * 0.6),
       color-mix(in oklab, var(--voc-fondo) 50%, var(--voc-notte))
         calc(100% - var(--voc-alba) * 0.5),
-      color-mix(in oklab, var(--voc-fondo) 84%, var(--voc-notte))
-        calc(100% - var(--voc-alba) * 0.25),
+      color-mix(in oklab, var(--voc-fondo) 68.26%, var(--voc-notte))
+        calc(100% - var(--voc-alba) * 0.4),
+      color-mix(in oklab, var(--voc-fondo) 83.69%, var(--voc-notte))
+        calc(100% - var(--voc-alba) * 0.3),
+      color-mix(in oklab, var(--voc-fondo) 94.21%, var(--voc-notte))
+        calc(100% - var(--voc-alba) * 0.2),
+      color-mix(in oklab, var(--voc-fondo) 99.14%, var(--voc-notte))
+        calc(100% - var(--voc-alba) * 0.1),
       var(--voc-fondo) 100%
     );
+}
+
+/* La grana.
+   Anche con la curva giusta restano le fasce: uno schermo a 8 bit ha 256
+   livelli per canale, e una sfumatura lunga ne chiede di piu' di quanti
+   ne esistano. Dove non ce ne sono, il colore resta fermo per qualche
+   pixel e poi scatta: sono quelle le strisce orizzontali.
+   Un velo di rumore quasi invisibile le rompe, perche' sposta ogni pixel
+   di una frazione di livello in su o in giu' e il salto si distribuisce
+   invece di allinearsi. E' lo stesso principio del retino in tipografia,
+   ed e' come lo fanno oggi i gradienti che sembrano perfetti.
+   L'immagine e' un filtro SVG scritto qui dentro: nessun file da
+   scaricare, e nessun colore — e' rumore grigio. */
+.voc-intestazione::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  opacity: 0.055;
 }
 
 .voc-intestazione__fondale {
