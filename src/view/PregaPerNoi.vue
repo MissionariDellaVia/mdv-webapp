@@ -20,18 +20,27 @@
         </div>
       </main>
 
-      <div class="griglia-immagini grid gap-6 sm:grid-cols-2">
-        <img
+      <div class="griglia-immagini">
+        <!-- Il contenitore porta la comparsa allo scorrimento, l'immagine
+             porta il suo aspetto. Tenerli separati non e' pignoleria:
+             .da-rivelare dichiara transform e transition, e uno stile con
+             ambito — che sta fuori dai layer — li batterebbe entrambi,
+             spegnendo la comparsa senza nessun errore. -->
+        <div
           v-for="(image, index) in pregaConNoiPage.main.images"
           :key="index"
           v-rivela
           :style="{ transitionDelay: `${index * 120}ms` }"
-          :src="helper.getImgUrl(image.url)"
-          :alt="image.alt"
-          loading="lazy"
-          decoding="async"
-          class="copertina h-auto w-full"
-        />
+          class="copertina"
+        >
+          <img
+            :src="helper.getImgUrl(image.url)"
+            :alt="image.alt"
+            loading="lazy"
+            decoding="async"
+            class="copertina__foglio"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -66,19 +75,62 @@ export default {
 </script>
 
 <style scoped>
+/* Erano due rettangoli a mezza pagina l'uno, e a quella misura una
+   copertina smette di essere un oggetto e diventa uno sfondo. Piccole e
+   affiancate al centro si leggono per quello che sono: due libretti
+   posati sulla pagina. */
 .griglia-immagini {
   margin-block: var(--mdv-ritmo-sezione);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(var(--mdv-spazio-5), 7vw, var(--mdv-spazio-6));
+}
+
+.copertina {
+  width: clamp(9.5rem, 22vw, 13rem);
+  max-width: 100%;
 }
 
 /* Sono copertine, e le copertine sono in formato A: dichiararne la
    proporzione fa riservare lo spazio prima che l'immagine arrivi, cosi'
-   la pagina non salta al caricamento e la rivelazione allo scorrimento
-   non parte su un riquadro ancora alto zero.
+   la pagina non salta al caricamento e la comparsa allo scorrimento non
+   parte su un riquadro ancora alto zero.
    "contain" e' la rete: se un giorno arriva un'immagine di un'altra
    forma, resta bordata invece di essere stirata. */
-.copertina {
+.copertina__foglio {
+  display: block;
+  width: 100%;
   aspect-ratio: 1 / 1.414;
   object-fit: contain;
+  border-radius: var(--mdv-raggio-s);
+  /* Due ombre, non una: quella corta e stretta e' il contatto con la
+     pagina, quella lunga e diffusa e' la luce dell'ambiente. E' la
+     differenza fra un'immagine incollata e un oggetto appoggiato. */
+  box-shadow:
+    0 0.15rem 0.4rem var(--mdv-ombra-lieve),
+    0 1rem 2.25rem var(--mdv-ombra-lieve);
+  transition:
+    transform 420ms var(--mdv-curva-morbida),
+    box-shadow 420ms var(--mdv-curva-morbida);
+}
+
+/* Solo dove c'e' davvero un puntatore: su un telefono lo stato di
+   passaggio resta appiccicato dopo il tocco. */
+@media (hover: hover) {
+  .copertina__foglio:hover {
+    transform: translateY(-0.5rem);
+    box-shadow:
+      0 0.25rem 0.6rem var(--mdv-ombra-lieve),
+      0 1.75rem 3.25rem var(--mdv-ombra-media);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copertina__foglio {
+    transition: none;
+  }
 }
 
 .prosa :deep(p),
