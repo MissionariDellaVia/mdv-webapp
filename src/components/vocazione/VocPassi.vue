@@ -1,7 +1,11 @@
 <template>
   <section class="voc-passi">
     <h2 v-if="titolo" class="voc-passi__titolo">{{ titolo }}</h2>
-    <p class="voc-passi__avanzamento">{{ letti.length }} di {{ passi.length }} · tocca una carta per girarla</p>
+    <!-- "aperte" e' la parola che mancava: senza, il numero segnato non
+         si spiegava e sembrava una svista. -->
+    <p class="voc-passi__avanzamento">
+      {{ letti.length }} di {{ passi.length }} aperte · tocca una carta per girarla
+    </p>
 
     <BaseCarosello>
       <button
@@ -145,9 +149,14 @@ export default {
   color: var(--mdv-oro);
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
+/* La carta gia' girata resta segnata: e' una memoria utile, si vede a
+   colpo d'occhio dove si era arrivati. Ma era segnata invertendo il
+   numero — pallino pieno, cifra chiara — e a quel punto una sola carta
+   girata sembrava un errore di stampa invece che un segno.
+   Ora il segno e' un velo dello stesso oro e un bordo piu' deciso: dice
+   "questa l'hai gia' aperta" senza gridarlo. */
 .voc-passi__numero--letto {
-  background-color: var(--mdv-oro);
-  color: var(--voc-fondo);
+  background-color: color-mix(in oklab, var(--mdv-oro) 15%, transparent);
   border-color: var(--mdv-oro);
 }
 .voc-passi__nome {

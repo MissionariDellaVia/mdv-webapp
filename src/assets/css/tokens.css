@@ -204,9 +204,16 @@
     --mdv-bruno-700: #5d4630;
     --mdv-terra: #8a5a34;
 
-    --mdv-oro: #8a5e1c;
-    --mdv-oro-scuro: #6d4a14;
-    --mdv-oro-chiaro: #b98a3e;
+    /* Agosto 2026, dopo una lettura della comunita': i titoli erano
+       troppo chiari. Tutta la scala dell'oro scende di un gradino.
+       --mdv-oro-chiaro non era solo chiaro, era sotto soglia: 2,9:1 sui
+       pannelli, contro il 4,5:1 richiesto. E' il testo secondario delle
+       carte, cioe' proprio quello che si faticava a leggere. Mi era
+       sfuggito quando la sezione e' passata alla carta chiara: avevo
+       verificato --mdv-oro e non lui. */
+    --mdv-oro: #714c12;
+    --mdv-oro-scuro: #5b3c0e;
+    --mdv-oro-chiaro: #8a6526;
     /* La pagina in cui ti trovi: qui il punto piu' scuro e saturo della
        tavolozza — sulla carta chiara e' il peso a distinguere, non la
        luce. Era il contrario quando la sezione era notte. */

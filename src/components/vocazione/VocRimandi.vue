@@ -22,7 +22,12 @@ export default {
 </script>
 
 <style scoped>
+/* I rimandi non sono la coda del discorso, sono un'altra cosa che viene
+   dopo: nell'hub arrivano subito sotto il "Buon cammino." che chiude, e
+   attaccati sembravano parte della chiusura. Lo stacco e' quello fra due
+   sezioni, non fra due paragrafi. */
 .voc-rimandi {
+  margin-top: var(--mdv-ritmo-sezione);
   margin-bottom: var(--mdv-spazio-6);
 }
 .voc-rimandi__titolo {

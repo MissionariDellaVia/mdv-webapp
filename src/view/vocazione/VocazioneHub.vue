@@ -19,7 +19,7 @@
       <Markdown :source="hub.chiusura" :html="true" class="markdown-mdv voc-hub__testo" />
 
       <VocRimandi
-        titolo="Puoi anche"
+        titolo="Vedi anche"
         :voci="[
           { etichetta: 'Le vostre domande', rotta: 'vocazione-domande' },
           { etichetta: 'La nostra proposta', rotta: 'vocazione-proposta' },
