@@ -28,7 +28,9 @@
           :style="{ transitionDelay: `${index * 120}ms` }"
           :src="helper.getImgUrl(image.url)"
           :alt="image.alt"
-          class="h-auto w-full"
+          loading="lazy"
+          decoding="async"
+          class="copertina h-auto w-full"
         />
       </div>
     </div>
@@ -66,6 +68,17 @@ export default {
 <style scoped>
 .griglia-immagini {
   margin-block: var(--mdv-ritmo-sezione);
+}
+
+/* Sono copertine, e le copertine sono in formato A: dichiararne la
+   proporzione fa riservare lo spazio prima che l'immagine arrivi, cosi'
+   la pagina non salta al caricamento e la rivelazione allo scorrimento
+   non parte su un riquadro ancora alto zero.
+   "contain" e' la rete: se un giorno arriva un'immagine di un'altra
+   forma, resta bordata invece di essere stirata. */
+.copertina {
+  aspect-ratio: 1 / 1.414;
+  object-fit: contain;
 }
 
 .prosa :deep(p),
