@@ -139,7 +139,7 @@ export default {
   border: 1px solid var(--mdv-sabbia);
   border-radius: var(--mdv-raggio-m);
   background:
-    radial-gradient(120% 80% at 50% 0%, var(--voc-alone) 0%, transparent 60%),
+    radial-gradient(120% 80% at 50% 0%, var(--voc-riflesso) 0%, transparent 60%),
     var(--voc-fondo-alto);
   cursor: pointer;
   transition:
@@ -163,7 +163,7 @@ export default {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(105deg, transparent 35%, var(--voc-alone) 50%, transparent 65%);
+  background: linear-gradient(105deg, transparent 35%, var(--voc-riflesso) 50%, transparent 65%);
   background-size: 260% 100%;
   background-position: 130% 0;
   opacity: 0;

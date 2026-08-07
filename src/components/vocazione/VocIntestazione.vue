@@ -159,12 +159,25 @@ export default {
   justify-content: center;
   min-height: 42vh;
   padding-top: calc(var(--mdv-altezza-navbar) + var(--mdv-spazio-4));
-  padding-bottom: var(--mdv-spazio-5);
+  /* Il fondo scende sotto il contenuto esattamente quanto dura la
+     dissolvenza qui sotto: cosi' il menu, che e' l'ultima cosa, resta
+     sul buio e non finisce a meta' del passaggio — dove non sarebbe
+     leggibile ne' chiaro ne' scuro. */
+  padding-bottom: var(--mdv-spazio-6);
   overflow: hidden;
   text-align: center;
+  /* L'alba. La notte tiene per tutta l'intestazione e cede solo negli
+     ultimi tre centimetri, dove non c'e' piu' niente scritto: da li' in
+     giu' la pagina e' sabbia, e non c'e' nessun bordo fra le due —
+     l'hero si scioglie nella pagina come faceva prima nel buio. */
   background:
     radial-gradient(90% 70% at 50% 18%, var(--voc-alone) 0%, transparent 68%),
-    linear-gradient(180deg, var(--voc-fondo-alto) 0%, var(--voc-fondo) 82%);
+    linear-gradient(
+      180deg,
+      var(--voc-notte) 0%,
+      var(--voc-notte) calc(100% - var(--mdv-spazio-6)),
+      var(--voc-fondo) 100%
+    );
 }
 
 .voc-intestazione__fondale {

@@ -41,7 +41,7 @@ export default {
   pointer-events: none;
   background:
     radial-gradient(70% 55% at 50% 45%, var(--voc-alone) 0%, transparent 70%),
-    var(--voc-fondo);
+    var(--voc-notte);
   animation: voc-velo var(--mdv-soglia) var(--mdv-curva-morbida) forwards;
 }
 

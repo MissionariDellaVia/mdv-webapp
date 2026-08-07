@@ -141,16 +141,29 @@
     /* Tavolozza della sezione vocazionale: notte calda. Vive qui e non
        dentro .voc-atmosfera perche' serve anche al <body>, che non e'
        dentro l'applicazione. */
-    /* Agosto 2026: schiarita. Era quasi nera (#17110a) e la sezione
-       pesava; ora e' una terra bruna di sera. Cambia il carattere, non
-       la leggibilita': il testo resta a 12:1 di contrasto, ben oltre il
-       7:1 del livello piu' severo.
-       I tre livelli si muovono insieme perche' e' la loro distanza a
-       dare il rilievo — il campo rientra, i pannelli sporgono. */
-    --voc-fondo: #2b2119;
-    --voc-fondo-alto: #392b1f;
-    --voc-campo: #1e1610;
+    /* Agosto 2026: dalla notte all'alba.
+       La sezione era tutta notte, e restava cupa anche schiarendola: il
+       problema non era quanto fosse scura ma che lo fosse ovunque. Ora
+       la notte e' rimasta dov'e' un momento — il velo d'ingresso e la
+       cima dell'hero — e da li' la pagina sorge in sabbia calda.
+       L'effetto "sono entrato in un altro posto" non ha bisogno del
+       buio: gli basta la differenza. E per una sezione che parla di
+       vocazione, la luce dice piu' della notte. */
+
+    /* La notte: solo il velo di soglia, la cima dell'hero, la barra e il
+       piede. Sono la cornice, e restano scuri come nel resto del sito. */
+    --voc-notte: #241a0f;
+    --voc-notte-velata: rgba(36, 26, 15, 0.94);
+    /* Alone d'oro sul buio. Sul chiaro sparirebbe: li' serve --voc-riflesso. */
     --voc-alone: rgba(226, 186, 108, 0.16);
+
+    /* L'alba: la pagina. I tre livelli si muovono insieme perche' e' la
+       loro distanza a dare il rilievo — il campo rientra, i pannelli
+       sporgono. */
+    --voc-fondo: #f3ead8;
+    --voc-fondo-alto: #fbf5e8;
+    --voc-campo: #e6d8bd;
+    --voc-riflesso: rgba(138, 94, 28, 0.12);
   }
 
   /* Fondo dell'applicazione: e' qui che avviene il passaggio di atmosfera.
@@ -163,17 +176,65 @@
       color var(--mdv-transito-atmosfera) ease;
   }
 
-  /* Entrare in /vocazione deve somigliare a entrare in un altro posto: il
-     fondo diventa notte, l'oro sale, il testo si schiarisce. Non si scrivono
-     regole nuove — si ridefiniscono i token gia' usati dai componenti, che
-     cambiano senza saperlo. Navbar e footer inclusi. */
+  /* Entrare in /vocazione deve somigliare a entrare in un altro posto. La
+     differenza non la fa il buio, la fa il colore: qui la carta e' sabbia
+     calda invece che bianca, e l'oro e' terroso invece che brillante. Non
+     si scrivono regole nuove — si ridefiniscono i token gia' usati dai
+     componenti, che cambiano senza saperlo.
+
+     Barra e piede restano notte, come nel resto del sito: sono la cornice,
+     e li' il contrasto si legge al contrario. Tutti i valori qui sotto
+     sono verificati sulle soglie di contrasto — chi ne cambia uno le
+     rifaccia, perche' su una carta chiara sbagliare di poco basta a
+     rendere illeggibile un testo secondario. */
   .voc-atmosfera {
+    --mdv-bruno-900: #2e2116;
+    /* La notte velata: e' il fondo della barra quando si tinge, del piede
+       e dei pannelli che si aprono. NON segue --voc-fondo: se seguisse,
+       la barra sparirebbe sopra l'hero scuro. */
+    --mdv-bruno-900-velato: var(--voc-notte-velata);
+    --mdv-bruno-800: #45321f;
+    --mdv-bruno-700: #5d4630;
+    --mdv-terra: #8a5a34;
+
+    --mdv-oro: #8a5e1c;
+    --mdv-oro-scuro: #6d4a14;
+    --mdv-oro-chiaro: #b98a3e;
+    /* La pagina in cui ti trovi: qui il punto piu' scuro e saturo della
+       tavolozza — sulla carta chiara e' il peso a distinguere, non la
+       luce. Era il contrario quando la sezione era notte. */
+    --mdv-oro-brillante: #5e3f10;
+
+    /* Chiara: fa i bordi sulla carta, e il menu a panino sulla barra
+       scura. Deve leggersi su tutt'e due. */
+    --mdv-sabbia: #cbb894;
+    --mdv-sabbia-chiara: #6b5636;
+    /* Fuori dalla sezione la crema e' un pannello appena staccato dal
+       bianco; qui fa lo stesso mestiere sulla sabbia, e va tenuta uguale
+       a --voc-fondo-alto. */
+    --mdv-crema: #fbf5e8;
+    --mdv-pietra: #7d6a4e;
+
+    /* Scuri, ora che la carta e' chiara. Il testo secondario e' quello
+       con meno margine: qui sta a 5,5:1, contro il 4,5:1 richiesto. */
+    --mdv-grigio: #6a5b46;
+    --mdv-grigio-scuro: #52462f;
+
+    background-color: var(--voc-fondo);
+    color: var(--mdv-bruno-900);
+  }
+
+  /* L'isola di notte.
+     L'intestazione della sezione e' l'ultimo pezzo di buio prima che la
+     pagina sorga, e li' dentro il contrasto si legge al contrario: i
+     token tornano quelli chiari. I componenti figli non ne sanno niente,
+     continuano a chiedere --mdv-oro e --mdv-bruno-900 come sempre.
+
+     Sta qui e non in VocIntestazione.vue perche' un .vue non puo'
+     contenere colori scritti a mano: c'e' una guardia che lo verifica, e
+     la lista di deroga e' vuota. */
+  .voc-atmosfera .voc-intestazione {
     --mdv-bruno-900: #ece1cd;
-    /* Lo stesso colore di --voc-fondo, ma velato: e' il fondo dei
-       pannelli che si aprono sopra la pagina. Va tenuto in accordo a
-       mano — se resta indietro quando il fondo si schiarisce, i menu
-       diventano piu' scuri della pagina su cui stanno. */
-    --mdv-bruno-900-velato: rgba(43, 33, 25, 0.94);
     --mdv-bruno-800: #d8c9ab;
     --mdv-bruno-700: #b9a98c;
     --mdv-terra: #b98a63;
@@ -181,25 +242,14 @@
     --mdv-oro: #e2ba6c;
     --mdv-oro-scuro: #d0a458;
     --mdv-oro-chiaro: #f2d8a2;
-    /* La pagina in cui ti trovi: il punto piu' chiaro della tavolozza,
-       perche' sull'oro caldo delle altre voci un oro si perderebbe. */
     --mdv-oro-brillante: #fdf3dc;
 
     --mdv-sabbia: #6f5b38;
     --mdv-sabbia-chiara: #e8d4a8;
-    /* Fuori dalla sezione la crema e' un pannello appena staccato dal
-       bianco; qui fa lo stesso mestiere al contrario, e va tenuta uguale
-       a --voc-fondo-alto. */
-    --mdv-crema: #392b1f;
     --mdv-pietra: #b9ad97;
-
-    /* Alzati insieme al fondo: su una terra piu' chiara lo stesso grigio
-       perdeva un punto di contrasto, e il testo secondario e' quello che
-       ne ha meno da perdere. */
     --mdv-grigio: #b0a189;
     --mdv-grigio-scuro: #c2b59e;
 
-    background-color: var(--voc-fondo);
     color: var(--mdv-bruno-900);
   }
 
