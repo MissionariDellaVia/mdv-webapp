@@ -164,6 +164,13 @@
     --voc-fondo-alto: #fbf5e8;
     --voc-campo: #e6d8bd;
     --voc-riflesso: rgba(138, 94, 28, 0.12);
+
+    /* L'incenso. Due densita': la foschia che sta nell'aria di tutta la
+       sezione, tenuissima perche' copre lo schermo intero e non deve mai
+       diventare una macchia; e il filo che sale dal pulsante, che e'
+       piccolo e puo' permettersi qualcosa in piu'. */
+    --voc-incenso: rgba(138, 94, 28, 0.045);
+    --voc-incenso-filo: rgba(138, 94, 28, 0.16);
   }
 
   /* Fondo dell'applicazione: e' qui che avviene il passaggio di atmosfera.
@@ -222,6 +229,103 @@
 
     background-color: var(--voc-fondo);
     color: var(--mdv-bruno-900);
+    /* Serve all'incenso qui sotto. Senza, i due veli stanno a z-index -1
+       nel contesto della radice: li' verrebbero disegnati PRIMA di questo
+       elemento, che ha uno sfondo opaco, e sparirebbero sotto.
+       Non cambia niente d'altro: barra, velo di soglia e contenuto stanno
+       tutti dentro questo stesso elemento, quindi il loro ordine
+       reciproco resta quello di prima. */
+    isolation: isolate;
+  }
+
+  /* L'incenso nell'aria della sezione.
+     Due veli fissi che scorrono lentissimi in direzioni diverse: uno in
+     su e a destra in settantasei secondi, l'altro in su e a sinistra in
+     centoquattro. Le due durate non sono multiple apposta — se lo
+     fossero, i due veli tornerebbero a sovrapporsi sempre uguali e si
+     vedrebbe il ciclo.
+
+     Non costa quasi niente, e il motivo e' preciso: si animano solo
+     "transform" e nient'altro, quindi il browser sposta due livelli gia'
+     disegnati senza ridisegnare un pixel. La sfocatura non e' un filtro
+     — che invece costerebbe caro — ma la sfumatura stessa dei gradienti,
+     che nascono gia' morbidi.
+
+     "fixed" perche' la foschia sta nell'aria, non sulla pagina: scorrendo
+     resta dov'e', e non sfila via col contenuto. */
+  .voc-atmosfera::before,
+  .voc-atmosfera::after {
+    content: '';
+    position: fixed;
+    inset: -20%;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .voc-atmosfera::before {
+    background:
+      radial-gradient(34% 24% at 24% 30%, var(--voc-incenso) 0%, transparent 62%),
+      radial-gradient(28% 32% at 76% 62%, var(--voc-incenso) 0%, transparent 64%);
+    animation: voc-incenso-a 76s ease-in-out infinite alternate;
+  }
+  .voc-atmosfera::after {
+    background:
+      radial-gradient(40% 22% at 58% 18%, var(--voc-incenso) 0%, transparent 60%),
+      radial-gradient(30% 28% at 38% 84%, var(--voc-incenso) 0%, transparent 62%);
+    animation: voc-incenso-b 104s ease-in-out infinite alternate;
+  }
+  @keyframes voc-incenso-a {
+    from { transform: translate3d(0, 0, 0) scale(1); }
+    to   { transform: translate3d(3%, -5%, 0) scale(1.14); }
+  }
+  @keyframes voc-incenso-b {
+    from { transform: translate3d(0, 0, 0) scale(1.1); }
+    to   { transform: translate3d(-4%, -3%, 0) scale(1); }
+  }
+
+  /* Il filo che sale dal pulsante.
+     Il pulsante da fermo non faceva niente: si accendeva solo al
+     passaggio del mouse, che sul telefono non esiste. Ora ha un filo di
+     fumo che sale, si allarga e si perde — poi tre secondi di niente,
+     perche' un filo che sale senza sosta e' una fiamma, non un incenso.
+
+     Sta sotto al testo e sopra al fondo: il pulsante non ha sfondo
+     proprio, quindi il filo si vede attraverso. */
+  .voc-atmosfera .mdv-invito {
+    position: relative;
+    isolation: isolate;
+  }
+  .voc-atmosfera .mdv-invito::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    bottom: 35%;
+    width: 55%;
+    aspect-ratio: 1 / 2.4;
+    pointer-events: none;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, var(--voc-incenso-filo) 0%, transparent 74%);
+    opacity: 0;
+    animation: voc-filo 11s var(--mdv-curva-morbida) infinite;
+  }
+  @keyframes voc-filo {
+    0%   { opacity: 0; transform: translate(-50%, 0) scale(0.55); }
+    14%  { opacity: 1; }
+    62%  { opacity: 0; transform: translate(-50%, -2.6rem) scale(1.7); }
+    100% { opacity: 0; transform: translate(-50%, -2.6rem) scale(1.7); }
+  }
+
+  /* Chi ha chiesto meno movimento non ha ne' foschia ne' filo: erano
+     l'unica cosa che si muoveva da sola in tutta la pagina. */
+  @media (prefers-reduced-motion: reduce) {
+    .voc-atmosfera::before,
+    .voc-atmosfera::after,
+    .voc-atmosfera .mdv-invito::before {
+      animation: none;
+    }
+    .voc-atmosfera .mdv-invito::before {
+      display: none;
+    }
   }
 
   /* L'isola di notte.
