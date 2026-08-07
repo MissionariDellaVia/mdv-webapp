@@ -274,9 +274,40 @@
     color: var(--mdv-rame-acceso);
     text-shadow: 0 0 14px color-mix(in srgb, var(--mdv-rame-chiaro) 55%, transparent);
   }
+  /* Un riflesso che ogni tanto attraversa la riga sotto la voce accesa.
+     E' l'unica cosa che si muove da sola in tutta la barra, quindi deve
+     chiedere pochissimo: la riga e' alta un pixel, la luce e' bianca al
+     55% e passa una volta ogni sei secondi lasciando quasi quattro
+     secondi di quiete.
+     La pausa e' la parte importante. Un'animazione senza pause diventa
+     un battito, e un battito in un angolo dello schermo si nota anche
+     quando non lo si guarda — che e' esattamente cio' che non deve
+     fare. Cosi' invece si vede se la si guarda, e altrimenti no. */
   .voc-atmosfera .mdv-navlink--chiaro.mdv-navlink--attivo::after {
     background-color: var(--mdv-rame-acceso);
+    background-image: linear-gradient(
+      90deg,
+      transparent 38%,
+      color-mix(in oklab, var(--mdv-bianco) 55%, transparent) 50%,
+      transparent 62%
+    );
+    background-size: 220% 100%;
+    background-repeat: no-repeat;
+    animation: voc-riflesso 6s var(--mdv-curva-morbida) infinite;
   }
+  @keyframes voc-riflesso {
+    0%   { background-position: -70% 0; }
+    36%  { background-position: 170% 0; }
+    100% { background-position: 170% 0; }
+  }
+  /* Chi ha chiesto meno movimento tiene la voce accesa, senza il passaggio. */
+  @media (prefers-reduced-motion: reduce) {
+    .voc-atmosfera .mdv-navlink--chiaro.mdv-navlink--attivo::after {
+      background-image: none;
+      animation: none;
+    }
+  }
+
   /* L'alone si accende e si spegne con il resto, non di colpo. */
   .mdv-navlink--chiaro {
     text-shadow: 0 0 0 transparent;
