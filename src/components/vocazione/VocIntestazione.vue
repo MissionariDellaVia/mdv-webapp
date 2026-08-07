@@ -152,6 +152,12 @@ export default {
    fosse piu' alta, il menu si troverebbe ogni volta a un'altezza diversa
    e il passaggio da una pagina all'altra si vedrebbe come uno scarto. */
 .voc-intestazione {
+  /* Quanto dura l'alba: la fascia in cui la notte diventa sabbia. Sotto
+     i quattro centimetri il passaggio si legge come una riga; sopra gli
+     otto diventa una fascia vuota in fondo all'intestazione. In mezzo
+     segue l'altezza dello schermo, perche' su uno schermo alto la stessa
+     misura in centimetri sembra piu' corta. */
+  --voc-alba: clamp(4.5rem, 10vh, 8rem);
   position: relative;
   isolation: isolate;
   display: flex;
@@ -159,23 +165,40 @@ export default {
   justify-content: center;
   min-height: 42vh;
   padding-top: calc(var(--mdv-altezza-navbar) + var(--mdv-spazio-4));
-  /* Il fondo scende sotto il contenuto esattamente quanto dura la
-     dissolvenza qui sotto: cosi' il menu, che e' l'ultima cosa, resta
-     sul buio e non finisce a meta' del passaggio — dove non sarebbe
-     leggibile ne' chiaro ne' scuro. */
-  padding-bottom: var(--mdv-spazio-6);
+  /* Il contenuto finisce sopra l'alba, mai dentro: il menu e' l'ultima
+     cosa, e a meta' del passaggio non sarebbe leggibile ne' chiaro ne'
+     scuro. Un centimetro di margine perche' non ci si appoggi sopra. */
+  padding-bottom: calc(var(--voc-alba) + var(--mdv-spazio-3));
   overflow: hidden;
   text-align: center;
-  /* L'alba. La notte tiene per tutta l'intestazione e cede solo negli
-     ultimi tre centimetri, dove non c'e' piu' niente scritto: da li' in
-     giu' la pagina e' sabbia, e non c'e' nessun bordo fra le due —
-     l'hero si scioglie nella pagina come faceva prima nel buio. */
+  /* L'alba.
+     Prima durava tre centimetri, e si vedeva come una riga: fra
+     --voc-notte e --voc-fondo c'e' quasi tutta la scala della luce, e
+     schiacciarla in tre centimetri la fa leggere come un bordo invece
+     che come un passaggio.
+
+     Ora dura il triplo, e soprattutto non e' una rampa dritta. Le tappe
+     seguono una curva a esse — 16%, 50%, 84% — quindi il chiaro entra
+     piano, attraversa in fretta e si posa piano: e' come si comporta la
+     luce vera, e non lascia il gradino che l'occhio cerca sempre agli
+     estremi di una rampa lineare.
+
+     I passaggi si mescolano in oklab e non in sRGB: fra un colore molto
+     scuro e uno molto chiaro l'sRGB passa da un mezzotono spento e
+     grigiastro, che e' esattamente cio' che rende artificiale una
+     sfumatura lunga. */
   background:
     radial-gradient(90% 70% at 50% 18%, var(--voc-alone) 0%, transparent 68%),
     linear-gradient(
       180deg,
       var(--voc-notte) 0%,
-      var(--voc-notte) calc(100% - var(--mdv-spazio-6)),
+      var(--voc-notte) calc(100% - var(--voc-alba)),
+      color-mix(in oklab, var(--voc-fondo) 16%, var(--voc-notte))
+        calc(100% - var(--voc-alba) * 0.75),
+      color-mix(in oklab, var(--voc-fondo) 50%, var(--voc-notte))
+        calc(100% - var(--voc-alba) * 0.5),
+      color-mix(in oklab, var(--voc-fondo) 84%, var(--voc-notte))
+        calc(100% - var(--voc-alba) * 0.25),
       var(--voc-fondo) 100%
     );
 }
