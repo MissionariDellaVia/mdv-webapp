@@ -141,9 +141,15 @@
     /* Tavolozza della sezione vocazionale: notte calda. Vive qui e non
        dentro .voc-atmosfera perche' serve anche al <body>, che non e'
        dentro l'applicazione. */
-    --voc-fondo: #17110a;
-    --voc-fondo-alto: #241a0f;
-    --voc-campo: #0f0b06;
+    /* Agosto 2026: schiarita. Era quasi nera (#17110a) e la sezione
+       pesava; ora e' una terra bruna di sera. Cambia il carattere, non
+       la leggibilita': il testo resta a 12:1 di contrasto, ben oltre il
+       7:1 del livello piu' severo.
+       I tre livelli si muovono insieme perche' e' la loro distanza a
+       dare il rilievo — il campo rientra, i pannelli sporgono. */
+    --voc-fondo: #2b2119;
+    --voc-fondo-alto: #392b1f;
+    --voc-campo: #1e1610;
     --voc-alone: rgba(226, 186, 108, 0.16);
   }
 
@@ -163,7 +169,11 @@
      cambiano senza saperlo. Navbar e footer inclusi. */
   .voc-atmosfera {
     --mdv-bruno-900: #ece1cd;
-    --mdv-bruno-900-velato: rgba(23, 17, 10, 0.94);
+    /* Lo stesso colore di --voc-fondo, ma velato: e' il fondo dei
+       pannelli che si aprono sopra la pagina. Va tenuto in accordo a
+       mano — se resta indietro quando il fondo si schiarisce, i menu
+       diventano piu' scuri della pagina su cui stanno. */
+    --mdv-bruno-900-velato: rgba(43, 33, 25, 0.94);
     --mdv-bruno-800: #d8c9ab;
     --mdv-bruno-700: #b9a98c;
     --mdv-terra: #b98a63;
@@ -177,11 +187,17 @@
 
     --mdv-sabbia: #6f5b38;
     --mdv-sabbia-chiara: #e8d4a8;
-    --mdv-crema: #241a0f;
+    /* Fuori dalla sezione la crema e' un pannello appena staccato dal
+       bianco; qui fa lo stesso mestiere al contrario, e va tenuta uguale
+       a --voc-fondo-alto. */
+    --mdv-crema: #392b1f;
     --mdv-pietra: #b9ad97;
 
-    --mdv-grigio: #a2937b;
-    --mdv-grigio-scuro: #b8ab94;
+    /* Alzati insieme al fondo: su una terra piu' chiara lo stesso grigio
+       perdeva un punto di contrasto, e il testo secondario e' quello che
+       ne ha meno da perdere. */
+    --mdv-grigio: #b0a189;
+    --mdv-grigio-scuro: #c2b59e;
 
     background-color: var(--voc-fondo);
     color: var(--mdv-bruno-900);
