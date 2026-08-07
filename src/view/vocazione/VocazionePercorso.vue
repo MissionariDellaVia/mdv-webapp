@@ -85,7 +85,7 @@ export default {
   margin-inline: auto;
   padding-inline: var(--mdv-spazio-4);
   max-width: 46rem;
-  padding-top: var(--mdv-spazio-6);
+  padding-top: var(--mdv-spazio-4);
   padding-bottom: var(--mdv-spazio-6);
 }
 .voc-percorso__proposta {

@@ -153,10 +153,13 @@ export default {
    e il passaggio da una pagina all'altra si vedrebbe come uno scarto. */
 .voc-intestazione {
   /* Quanto dura l'alba: la fascia in cui la notte diventa sabbia. Piu'
-     e' lunga, meno ripida e' la salita e meno si vede. Segue l'altezza
-     dello schermo, perche' su uno schermo alto la stessa misura in
-     centimetri sembra piu' corta. */
-  --voc-alba: clamp(6rem, 14vh, 11rem);
+     e' lunga, meno ripida e' la salita — ma quella fascia e' anche spazio
+     vuoto fra il menu e il contenuto, e a undici centimetri se ne vedeva
+     troppo. Accorciata a meta': la curva e la grana bastano da sole a
+     tenerla senza righe, e prima di averle serviva la lunghezza per
+     compensare. Segue l'altezza dello schermo, perche' su uno schermo
+     alto la stessa misura in centimetri sembra piu' corta. */
+  --voc-alba: clamp(4.5rem, 9vh, 7.5rem);
   position: relative;
   isolation: isolate;
   display: flex;
@@ -164,10 +167,14 @@ export default {
   justify-content: center;
   min-height: 42vh;
   padding-top: calc(var(--mdv-altezza-navbar) + var(--mdv-spazio-4));
-  /* Il contenuto finisce sopra l'alba, mai dentro: il menu e' l'ultima
-     cosa, e a meta' del passaggio non sarebbe leggibile ne' chiaro ne'
-     scuro. Un centimetro di margine perche' non ci si appoggi sopra. */
-  padding-bottom: calc(var(--voc-alba) + var(--mdv-spazio-3));
+  /* Il menu puo' entrare nel primo pezzo dell'alba, e non nel resto.
+     Con smootherstep al 18% del percorso e' arrivato il 4% della sabbia:
+     dietro al menu e' ancora notte, e non si distingue. Piu' avanti no —
+     a meta' passaggio il testo non sarebbe leggibile ne' su chiaro ne'
+     su scuro.
+     Sono i due centimetri che rendono lo stacco fra menu e contenuto
+     ragionevole invece che enorme. */
+  padding-bottom: calc(var(--voc-alba) * 0.82);
   overflow: hidden;
   text-align: center;
   /* L'alba, e perche' si vedeva una riga.
