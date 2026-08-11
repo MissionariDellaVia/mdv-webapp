@@ -253,15 +253,23 @@ export default {
   inset-inline: 0;
   top: 0;
   z-index: -1;
-  height: calc(var(--mdv-altezza-navbar) * 2.2);
-  /* Tre fermate invece di due: pieno sotto la barra, ancora percepibile a
-     meta', spento in fondo. Con una sfumatura lineare secca il velo si
-     alleggerisce troppo presto, proprio all'altezza del testo. */
+  /* Era alto due volte e mezzo la barra e strascicava sulla foto molto
+     oltre le voci: quella coda e' cio' che si leggeva come una fascia
+     scura in cima alla pagina. Ora finisce poco sotto la barra.
+     Il pieno arriva al 60%, che e' quanto basta a coprire tutta la
+     barra: e' li' che stanno le voci, e li' il velo non puo' cedere. */
+  height: calc(var(--mdv-altezza-navbar) * 1.45);
+  /* Da li' in giu' si spegne su una curva a esse, non su una rampa: una
+     rampa lascia un gradino dove comincia e dove finisce, e su una
+     fotografia quel gradino si vede come un bordo dritto attraverso
+     l'immagine. Stesso motivo, e stessa curva, dell'alba vocazionale. */
   background: linear-gradient(
     180deg,
     var(--mdv-velo-alto) 0%,
-    var(--mdv-velo-alto) 38%,
-    var(--mdv-velo-alto-coda) 62%,
+    var(--mdv-velo-alto) 60%,
+    color-mix(in srgb, var(--mdv-velo-alto) 90%, transparent) 70%,
+    color-mix(in srgb, var(--mdv-velo-alto) 50%, transparent) 80%,
+    color-mix(in srgb, var(--mdv-velo-alto) 10%, transparent) 90%,
     transparent 100%
   );
   pointer-events: none;

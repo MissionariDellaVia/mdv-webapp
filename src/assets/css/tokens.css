@@ -57,10 +57,20 @@
     --mdv-ombra-media: rgba(0, 0, 0, 0.26);
     --mdv-ombra-lieve: rgba(0, 0, 0, 0.2);
     /* Velo sotto la barra trasparente: le fotografie delle intestazioni
-       non sono tutte scure, e sopra un edificio bianco il testo color
-       sabbia non si legge. */
-    --mdv-velo-alto: rgba(0, 0, 0, 0.68);
-    --mdv-velo-alto-coda: rgba(0, 0, 0, 0.32);
+       non sono tutte scure. Misurate ad agosto 2026, quattro delle sei
+       hanno pixel bianchi pieni proprio nella fascia della barra — non e'
+       un caso teorico, e' quello che c'e'.
+       Il velo si e' schiarito, ma poco: sopra il bianco ogni centesimo
+       conta. Cio' che lo fa sembrare molto piu' leggero e' che ora e'
+       corto e finisce presto, invece di strascicare sulla foto per due
+       volte l'altezza della barra (vedi .barra::before). */
+    --mdv-velo-alto: rgba(0, 0, 0, 0.64);
+
+    /* Il colore delle voci sopra una fotografia. Non e' --mdv-sabbia-chiara
+       perche' quella serve a mezzo sito e qui deve poter salire senza
+       trascinarsi dietro il resto: sopra il bianco, il sabbia di prima
+       stava a 3,07:1 contro i 4,5:1 richiesti. */
+    --mdv-voce-chiara: #f6ebe2;
 
     /* Misure condivise. La barra e' alta finche' sei in cima e si
        compatta scendendo: sull'intestazione puo' permettersi lo spazio,
@@ -541,11 +551,17 @@
   }
   /* Stesso gesto, su fondo scuro: la barra e il cassetto stanno sul
      bruno o sopra una fotografia, dove l'oro scuro non si legge. */
+  /* L'opacita' non e' 0,72 come per le altre voci del sito: qui sotto
+     c'e' una fotografia, e un testo semitrasparente ci si stempera
+     dentro invece di starci sopra. Erano quei 28 punti di trasparenza a
+     tenere le voci sotto soglia, non il velo. */
   .mdv-navlink--chiaro {
-    color: var(--mdv-sabbia-chiara);
+    color: var(--mdv-voce-chiara);
+    opacity: 0.9;
   }
   .mdv-navlink--chiaro.mdv-navlink--attivo {
     color: var(--mdv-bianco);
+    opacity: 1;
   }
   .mdv-navlink--chiaro::after {
     background-color: var(--mdv-sabbia);
