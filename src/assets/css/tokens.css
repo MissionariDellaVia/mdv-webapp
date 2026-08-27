@@ -541,13 +541,13 @@
   }
   /* Stesso gesto, su fondo scuro: la barra e il cassetto stanno sul
      bruno o sopra una fotografia, dove l'oro scuro non si legge. */
-  /* L'opacita' non e' 0,72 come per le altre voci del sito: qui sotto
-     c'e' una fotografia, e un testo semitrasparente ci si stempera
-     dentro invece di starci sopra. Erano quei 28 punti di trasparenza a
-     tenere le voci sotto soglia, non il velo. */
+  /* Piena, non 0,72 come le altre voci del sito e nemmeno 0,9 come qui
+     prima: sopra una fotografia un testo semitrasparente ci si stempera
+     dentro invece di starci sopra, ed e' il margine che serve per poter
+     tenere il vetro sotto molto piu' leggero — vedi .barra::before. */
   .mdv-navlink--chiaro {
     color: var(--mdv-voce-chiara);
-    opacity: 0.9;
+    opacity: 1;
   }
   .mdv-navlink--chiaro.mdv-navlink--attivo {
     color: var(--mdv-bianco);

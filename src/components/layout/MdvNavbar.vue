@@ -243,70 +243,61 @@ export default {
 }
 /* Finche' la barra e' trasparente sta sopra una fotografia, e le
    fotografie non sono tutte scure: sopra un edificio bianco il testo
-   sabbia sparisce. Un velo sfumato scende dal bordo alto e si esaurisce
-   poco sotto la barra — si vede il testo, non si vede il velo.
-   Quando la barra si tinge il velo non serve piu' e si spegne, se no i
-   due scuri si sommano. */
-/* Due correzioni di seguito avevano gia' cambiato l'intensita' e la
-   lunghezza di un velo scuro piatto, e restava comunque "troppo scuro,
-   poco morbido": il segnale che il meccanismo, non i numeri, era
-   sbagliato.
+   sabbia sparisce. Sotto la barra si tinge di vetro smerigliato -- la
+   stessa tecnica gia' in uso in quattro punti del sito per tutto cio'
+   che deve restare leggibile sopra qualcosa di imprevedibile (il
+   pannello a tendina, la galleria immagini, il cassetto, il modale
+   vocazionale). "brightness()" scurisce la foto stessa in proporzione a
+   quanto e' gia' chiara -- una foto scura passa quasi intatta, una foto
+   chiara si attenua sul serio -- che e' la differenza con un velo
+   colorato piatto, additivo e cieco a cosa c'ha sotto: due correzioni
+   in quella direzione erano gia' passate, e restava comunque pesante.
+   Quando la barra si tinge da sola (.barra--tinta) il vetro non serve
+   piu' e si spegne, se no i due scuri si sommano.
 
-   Un velo scuro aggiunge la STESSA quantita' di nero a ogni fotografia,
-   qualunque cosa ci sia sotto — e siccome deve reggere anche la piu'
-   chiara delle sei (il cielo di vocazioni.jpg), finiva per schiacciare
-   anche le altre quattro, gia' scure per conto loro, dove quel nero non
-   serviva a nessuno ed era solo peso.
-
-   Qui sotto la barra si tinge invece di vetro smerigliato — la stessa
-   tecnica gia' in uso nel resto del sito per tutto cio' che deve restare
-   leggibile sopra qualcosa di imprevedibile (il pannello a tendina, la
-   galleria immagini, il cassetto, il modale vocazionale). "brightness()"
-   scurisce la foto stessa, in proporzione a quanto e' gia' chiara: una
-   foto scura passa quasi intatta, una foto chiara si attenua sul serio.
-   E' un fattore MOLTIPLICATIVO, non un'aggiunta — la differenza esatta
-   con un velo, che invece e' additivo e ignora cosa c'ha sotto.
-
-   Verificato sulle sei fasce reali misurate ad agosto 2026: con
-   brightness(.45) le voci restano leggibili anche sul cielo di
-   vocazioni.jpg (4,9:1) e su quello, piu' tenue, di chiSiamo.jpg
-   (5,3:1) — e le quattro foto scure arrivano fra 5,3:1 e 14:1, molto
-   sopra soglia, senza bisogno di scurirle oltre. */
+   27 agosto: "molto molto leggero", e senza bisogno di scendere oltre
+   la barra piu' che il minimo. Brightness sale da 0.45 a 0.55 -- da
+   sola avrebbe scavalcato la soglia di leggibilita' sulle due
+   fotografie piu' chiare (chiSiamo, vocazioni), e il margine mancante
+   viene dal testo sopra, passato a opacita' piena (vedi
+   .mdv-navlink--chiaro): non e' un compromesso sulla soglia, e' un
+   altro modo di arrivarci. Verificato sulle sei fasce reali misurate ad
+   agosto 2026: la piu' chiara (vocazioni.jpg) resta a 4,6:1, sopra il
+   4,5:1 richiesto; le altre cinque restano piu' in alto.
+   E la coda scende da 2,5rem a 0,75rem: sotto le voci non c'e' testo da
+   proteggere, quindi non c'e' ragione di farla durare piu' a lungo --
+   basta a non tagliare la foto di netto, non di piu'. */
 .barra::before {
   content: '';
   position: absolute;
   inset-inline: 0;
   top: 0;
   z-index: -1;
-  height: calc(var(--mdv-altezza-navbar) + 2.5rem);
-  -webkit-backdrop-filter: blur(18px) brightness(0.45) saturate(1.1);
-  backdrop-filter: blur(18px) brightness(0.45) saturate(1.1);
+  height: calc(var(--mdv-altezza-navbar) + 0.75rem);
+  -webkit-backdrop-filter: blur(14px) brightness(0.55) saturate(1.1);
+  backdrop-filter: blur(14px) brightness(0.55) saturate(1.1);
   /* Un tocco della tavolozza del sito, non un grigio neutro: e' quel che
      rende il vetro "di questo sito" e non un pannello generico -- e
      alza anche un poco il contrasto sulle foto piu' chiare (la tinta e'
      inclusa nei numeri verificati sopra). */
   background: color-mix(in srgb, var(--mdv-bruno-900) 10%, transparent);
   /* Il pieno dura esattamente quanto la barra, poi si spegne su una
-     curva morbida invece che su una rampa: e' la stessa ragione, e la
-     stessa forma, dell'alba dentro /vocazione — una rampa lascia un
-     gradino dove la sfumatura comincia, e su una fotografia quel gradino
-     si vede come un bordo dritto. Qui la distanza e' un decimo di
-     quella, e bastano quattro tappe invece di undici. */
+     curva morbida invece che su una rampa: una rampa lascia un gradino
+     dove la sfumatura comincia, e su una fotografia si vede come un
+     bordo dritto -- anche su una coda corta come questa. */
   -webkit-mask-image: linear-gradient(
     180deg,
     black 0,
     black var(--mdv-altezza-navbar),
-    color-mix(in srgb, black 65%, transparent) calc(var(--mdv-altezza-navbar) + 0.9rem),
-    color-mix(in srgb, black 20%, transparent) calc(var(--mdv-altezza-navbar) + 1.8rem),
-    transparent calc(var(--mdv-altezza-navbar) + 2.5rem)
+    color-mix(in srgb, black 55%, transparent) calc(var(--mdv-altezza-navbar) + 0.4rem),
+    transparent calc(var(--mdv-altezza-navbar) + 0.75rem)
   );
   mask-image: linear-gradient(
     180deg,
     black 0,
     black var(--mdv-altezza-navbar),
-    color-mix(in srgb, black 65%, transparent) calc(var(--mdv-altezza-navbar) + 0.9rem),
-    color-mix(in srgb, black 20%, transparent) calc(var(--mdv-altezza-navbar) + 1.8rem),
-    transparent calc(var(--mdv-altezza-navbar) + 2.5rem)
+    color-mix(in srgb, black 55%, transparent) calc(var(--mdv-altezza-navbar) + 0.4rem),
+    transparent calc(var(--mdv-altezza-navbar) + 0.75rem)
   );
   pointer-events: none;
   transition: opacity 400ms ease;
