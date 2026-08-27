@@ -6,39 +6,48 @@
     @focusin="ferma"
     @focusout="riparti"
   >
-    <div ref="pista" class="carosello__pista" @scroll.passive="aggiorna">
-      <slot />
-    </div>
+    <div class="carosello__palco">
+      <div ref="pista" class="carosello__pista" @scroll.passive="aggiorna">
+        <slot />
+      </div>
 
-    <div v-if="totale > 1" class="carosello__comandi">
+      <!-- Vetro smerigliato, come il velo sopra le fotografie di
+           intestazione: la stessa idea, "un controllo che deve restare
+           leggibile sopra qualcosa di imprevedibile", risolta con lo
+           stesso linguaggio. Sui lati della pista invece che in coda
+           sotto i punti — e' li' che li mette qualunque slider che si
+           guarda oggi, ed e' anche il motivo per cui prima sembravano
+           un'aggiunta invece che un comando. -->
       <button
+        v-if="totale > 1"
         type="button"
-        class="carosello__freccia"
+        class="carosello__freccia carosello__freccia--sinistra"
         :disabled="!ciclico && corrente === 0"
         aria-label="Precedente"
         @click="scorri(-1)"
-      >←</button>
-
-      <ol class="carosello__punti">
-        <li v-for="i in totale" :key="i">
-          <button
-            type="button"
-            :class="['carosello__punto', { 'carosello__punto--attivo': i - 1 === corrente }]"
-            :aria-label="`Vai a ${i} di ${totale}`"
-            :aria-current="i - 1 === corrente ? 'true' : null"
-            @click="vaiA(i - 1)"
-          ></button>
-        </li>
-      </ol>
+      ><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
 
       <button
+        v-if="totale > 1"
         type="button"
-        class="carosello__freccia"
+        class="carosello__freccia carosello__freccia--destra"
         :disabled="!ciclico && corrente >= totale - 1"
         aria-label="Successivo"
         @click="scorri(1)"
-      >→</button>
+      ><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
     </div>
+
+    <ol v-if="totale > 1" class="carosello__punti">
+      <li v-for="i in totale" :key="i">
+        <button
+          type="button"
+          :class="['carosello__punto', { 'carosello__punto--attivo': i - 1 === corrente }]"
+          :aria-label="`Vai a ${i} di ${totale}`"
+          :aria-current="i - 1 === corrente ? 'true' : null"
+          @click="vaiA(i - 1)"
+        ></button>
+      </li>
+    </ol>
   </div>
 </template>
 
@@ -128,6 +137,13 @@ export default {
 </script>
 
 <style scoped>
+/* Il palco e' solo la pista: le frecce si centrano sulla sua altezza, non
+   su quella del carosello intero, che includerebbe anche la riga dei
+   punti sotto e le sbilancerebbe verso l'alto. */
+.carosello__palco {
+  position: relative;
+}
+
 .carosello__pista {
   display: flex;
   /* Le schede stanno al centro quando ci stanno tutte, e scorrono da
@@ -136,7 +152,6 @@ export default {
   justify-content: center;
   justify-content: safe center;
   gap: var(--mdv-spazio-4);
-  scroll-padding-inline: var(--mdv-spazio-4);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -146,6 +161,12 @@ export default {
      spazio, il rilievo delle schede e la sporgenza di quelle che girano
      vengono tagliati sopra e sotto. */
   padding-block: var(--mdv-spazio-4);
+  /* Ai lati, uno spazio vuoto grande quanto le frecce: senza, le frecce
+     galleggerebbero sopra l'ultima scheda invece che accanto, e su un
+     carosello con poche schede coprirebbero proprio quella che manca di
+     meno per essere vista tutta. */
+  padding-inline: clamp(2.75rem, 7vw, 3.5rem);
+  scroll-padding-inline: clamp(2.75rem, 7vw, 3.5rem);
 }
 .carosello__pista::-webkit-scrollbar {
   display: none;
@@ -155,39 +176,76 @@ export default {
   flex: 0 0 auto;
 }
 
-/* Frecce e punti stanno al centro, sotto le schede: i punti erano
-   spinti a sinistra da un margine automatico e l'insieme sembrava
-   appoggiato a un bordo invece che alla pista. */
-.carosello__comandi {
-  display: flex;
+/* Le frecce: vetro smerigliato che sposta sui lati un comando che prima
+   stava in coda sotto i punti. Tinta chiara e non scura -- a differenza
+   del velo della barra, qui sotto puo' esserci una scheda chiara quanto
+   una fotografia scura, e un vetro chiaro funziona ragionevolmente bene
+   in entrambi i casi: aggiunge luce e leggibilita' invece di scommettere
+   su quale sia il colore sotto. */
+.carosello__freccia {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--mdv-spazio-4);
-  margin-top: var(--mdv-spazio-3);
-}
-.carosello__freccia {
-  width: 2.5rem;
-  height: 2.5rem;
-  border: 1px solid var(--mdv-sabbia);
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid color-mix(in srgb, var(--mdv-sabbia) 45%, transparent);
   border-radius: 50%;
-  background: none;
-  color: var(--mdv-oro);
-  font-size: 1.1rem;
-  line-height: 1;
+  background: color-mix(in srgb, var(--mdv-bianco) 62%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0.35rem 1rem var(--mdv-ombra-lieve);
+  color: var(--mdv-oro-scuro);
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: border-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+  transition:
+    border-color 260ms ease,
+    color 260ms ease,
+    opacity 260ms ease,
+    box-shadow 260ms ease,
+    transform 260ms var(--mdv-curva-morbida);
+}
+.carosello__freccia--sinistra {
+  left: 0.4rem;
+}
+.carosello__freccia--destra {
+  right: 0.4rem;
 }
 .carosello__freccia:disabled {
-  opacity: 0.3;
-  cursor: default;
+  opacity: 0;
+  pointer-events: none;
 }
+
+@media (hover: hover) {
+  .carosello__freccia:hover:not(:disabled) {
+    border-color: var(--mdv-oro);
+    color: var(--mdv-oro);
+    box-shadow: 0 0.5rem 1.25rem var(--mdv-ombra-media);
+  }
+  .carosello__freccia--sinistra:hover:not(:disabled) {
+    transform: translateY(-50%) translateX(-2px);
+  }
+  .carosello__freccia--destra:hover:not(:disabled) {
+    transform: translateY(-50%) translateX(2px);
+  }
+}
+
+/* I punti, ora soli: prima condividevano la riga con due cerchi di
+   2,75rem, e quella riga pesava quanto le frecce anche quando l'unica
+   informazione utile erano i punti. Restando solo loro lo spazio prima
+   del testo che segue si e' accorciato da se', senza bisogno di
+   staccarlo a mano dalla misura giusta. */
 .carosello__punti {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--mdv-spazio-2);
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: var(--mdv-spazio-2) 0 0 0;
 }
 .carosello__punto {
   width: 1.6rem;
@@ -207,12 +265,5 @@ export default {
 .carosello__punto:focus-visible {
   outline: 2px solid var(--mdv-oro);
   outline-offset: 3px;
-}
-
-@media (hover: hover) {
-  .carosello__freccia:hover:not(:disabled) {
-    border-color: var(--mdv-oro);
-    color: var(--mdv-oro-chiaro);
-  }
 }
 </style>
