@@ -590,17 +590,45 @@
      introduce un colore nuovo: anticipa quello che c'e' dietro la
      porta.
 
-     Prima c'era anche una riga permanente sotto la voce, con sopra lo
-     stesso riflesso della sezione: tolta su richiesta, ed e' stata
-     l'occasione per rivedere il colore. --mdv-rame-chiaro, la tinta
-     piu' viva della famiglia, risultava sgargiante da sola: qui resta
-     solo --mdv-rame, la base piu' terrosa — si nota comunque, senza
-     gridare. Il piu' vivo (--mdv-rame-acceso) resta per l'interazione,
-     qui sotto: un tocco in piu' quando lo si tocca davvero, non
-     mentre sta fermo. */
+     Tre tentativi sul colore. --mdv-rame-chiaro da solo era sgargiante;
+     --mdv-rame da solo era terroso, un marrone a se stante invece che
+     una voce della stessa famiglia delle altre. --mdv-rame-acceso,
+     preso com'e' senza mescolarlo, e' quello giusto: la sua luminanza
+     (0,62) sta a meta' strada fra --mdv-voce-chiara delle altre voci
+     (0,85) e --mdv-rame (0,18) — leggermente piu' scura delle altre,
+     non un colore diverso, ancora calda invece che scura.
+
+     E l'animazione, tolta insieme alla riga e richiesta di nuovo: non
+     torna come riga, ma come respiro. Un alone che si allarga e si
+     restringe molto lentamente, sugli stessi due strati di ombra che
+     tengono leggibile ogni voce della barra (vedi .mdv-navlink--chiaro
+     qui sopra) — quei due restano fissi in ogni istante
+     dell'animazione, cambia solo il terzo strato, il piu' esterno. */
   .barra__link--vocazione,
   .menu__link--vocazione {
-    color: var(--mdv-rame);
+    color: var(--mdv-rame-acceso);
+  }
+  .barra__link--vocazione {
+    animation: voc-porta-respiro 5s ease-in-out infinite;
+  }
+  @keyframes voc-porta-respiro {
+    0%, 100% {
+      text-shadow:
+        0 0 2px var(--mdv-velo-scuro),
+        0 0 8px var(--mdv-velo-scuro),
+        0 0 3px color-mix(in oklab, var(--mdv-rame-acceso) 30%, transparent);
+    }
+    50% {
+      text-shadow:
+        0 0 2px var(--mdv-velo-scuro),
+        0 0 8px var(--mdv-velo-scuro),
+        0 0 11px color-mix(in oklab, var(--mdv-rame-acceso) 75%, transparent);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .barra__link--vocazione {
+      animation: none;
+    }
   }
   .mdv-navlink:focus-visible {
     outline: 2px solid currentColor;
@@ -652,14 +680,6 @@
     }
     .mdv-navlink:hover::after {
       transform: scaleX(1);
-    }
-    /* Non verso il bianco delle altre voci: resta nella sua famiglia di
-       colore e si accende, come quando e' davvero attiva dentro la
-       sezione. Vale anche nel cassetto: stesso nome di classe, stessa
-       eccezione, un solo posto (qui) dove sta scritta. */
-    .barra__link--vocazione:hover,
-    .menu__link--vocazione:hover {
-      color: var(--mdv-rame-acceso);
     }
     .mdv-invito:hover {
       border-color: var(--mdv-oro);
