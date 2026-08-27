@@ -590,34 +590,17 @@
      introduce un colore nuovo: anticipa quello che c'e' dietro la
      porta.
 
-     La riga sotto e' permanente, non compare solo al passaggio del
-     mouse come le altre voci: e' quella che si nota senza bisogno di
-     toccare niente. E ci scorre sopra lo stesso riflesso della voce
-     accesa dentro la sezione -- stesso @keyframes voc-riflesso, non
-     un secondo effetto in piu' -- ma piu' lento, nove secondi contro
-     sei, perche' qui e' un invito, non un "sei arrivato". */
+     Prima c'era anche una riga permanente sotto la voce, con sopra lo
+     stesso riflesso della sezione: tolta su richiesta, ed e' stata
+     l'occasione per rivedere il colore. --mdv-rame-chiaro, la tinta
+     piu' viva della famiglia, risultava sgargiante da sola: qui resta
+     solo --mdv-rame, la base piu' terrosa — si nota comunque, senza
+     gridare. Il piu' vivo (--mdv-rame-acceso) resta per l'interazione,
+     qui sotto: un tocco in piu' quando lo si tocca davvero, non
+     mentre sta fermo. */
   .barra__link--vocazione,
   .menu__link--vocazione {
-    color: var(--mdv-rame-chiaro);
-  }
-  .barra__link--vocazione::after {
-    transform: scaleX(1);
-    background-color: var(--mdv-rame);
-    background-image: linear-gradient(
-      90deg,
-      transparent 38%,
-      color-mix(in oklab, var(--mdv-rame-acceso) 75%, transparent) 50%,
-      transparent 62%
-    );
-    background-size: 220% 100%;
-    background-repeat: no-repeat;
-    animation: voc-riflesso 9s var(--mdv-curva-morbida) infinite;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .barra__link--vocazione::after {
-      background-image: none;
-      animation: none;
-    }
+    color: var(--mdv-rame);
   }
   .mdv-navlink:focus-visible {
     outline: 2px solid currentColor;
