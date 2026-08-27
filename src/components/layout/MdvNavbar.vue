@@ -253,24 +253,28 @@ export default {
   inset-inline: 0;
   top: 0;
   z-index: -1;
-  /* Era alto due volte e mezzo la barra e strascicava sulla foto molto
-     oltre le voci: quella coda e' cio' che si leggeva come una fascia
-     scura in cima alla pagina. Ora finisce poco sotto la barra.
-     Il pieno arriva al 60%, che e' quanto basta a coprire tutta la
-     barra: e' li' che stanno le voci, e li' il velo non puo' cedere. */
-  height: calc(var(--mdv-altezza-navbar) * 1.45);
-  /* Da li' in giu' si spegne su una curva a esse, non su una rampa: una
-     rampa lascia un gradino dove comincia e dove finisce, e su una
-     fotografia quel gradino si vede come un bordo dritto attraverso
-     l'immagine. Stesso motivo, e stessa curva, dell'alba vocazionale. */
+  /* Era alto due volte e mezzo la barra, poi una volta e mezzo: restava
+     comunque una fascia scura che si sentiva pesante, e misurandola il
+     motivo si e' capito -- "il pieno arriva al 60%" era scritto qui, ma
+     il 60% di quell'altezza sono 90px, meno dei 104px della barra: il
+     velo cedeva un poco proprio sull'ultima riga della barra, mentre nel
+     resto scendeva via via piu' lentamente su una coda lunga quasi
+     quanto la barra stessa. E' quella coda a leggersi come "pesante": un
+     lungo strascico si nota, un taglio corto no.
+
+     Ora le due misure sono in lunghezza assoluta, non in percentuale di
+     un totale: il pieno dura esattamente quanto la barra — non un pelo
+     di meno — e poi si spegne in fretta, in un quarto della sua
+     altezza. Niente sotto le voci ha bisogno del velo: da li' in giu'
+     serve solo a non tagliare la foto di netto. */
+  height: calc(var(--mdv-altezza-navbar) + 1.75rem);
   background: linear-gradient(
     180deg,
-    var(--mdv-velo-alto) 0%,
-    var(--mdv-velo-alto) 60%,
-    color-mix(in srgb, var(--mdv-velo-alto) 90%, transparent) 70%,
-    color-mix(in srgb, var(--mdv-velo-alto) 50%, transparent) 80%,
-    color-mix(in srgb, var(--mdv-velo-alto) 10%, transparent) 90%,
-    transparent 100%
+    var(--mdv-velo-alto) 0,
+    var(--mdv-velo-alto) var(--mdv-altezza-navbar),
+    color-mix(in srgb, var(--mdv-velo-alto) 35%, transparent)
+      calc(var(--mdv-altezza-navbar) + 1rem),
+    transparent calc(var(--mdv-altezza-navbar) + 1.75rem)
   );
   pointer-events: none;
   transition: opacity 400ms ease;
