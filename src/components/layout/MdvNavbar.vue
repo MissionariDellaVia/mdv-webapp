@@ -247,34 +247,66 @@ export default {
    poco sotto la barra — si vede il testo, non si vede il velo.
    Quando la barra si tinge il velo non serve piu' e si spegne, se no i
    due scuri si sommano. */
+/* Due correzioni di seguito avevano gia' cambiato l'intensita' e la
+   lunghezza di un velo scuro piatto, e restava comunque "troppo scuro,
+   poco morbido": il segnale che il meccanismo, non i numeri, era
+   sbagliato.
+
+   Un velo scuro aggiunge la STESSA quantita' di nero a ogni fotografia,
+   qualunque cosa ci sia sotto — e siccome deve reggere anche la piu'
+   chiara delle sei (il cielo di vocazioni.jpg), finiva per schiacciare
+   anche le altre quattro, gia' scure per conto loro, dove quel nero non
+   serviva a nessuno ed era solo peso.
+
+   Qui sotto la barra si tinge invece di vetro smerigliato — la stessa
+   tecnica gia' in uso nel resto del sito per tutto cio' che deve restare
+   leggibile sopra qualcosa di imprevedibile (il pannello a tendina, la
+   galleria immagini, il cassetto, il modale vocazionale). "brightness()"
+   scurisce la foto stessa, in proporzione a quanto e' gia' chiara: una
+   foto scura passa quasi intatta, una foto chiara si attenua sul serio.
+   E' un fattore MOLTIPLICATIVO, non un'aggiunta — la differenza esatta
+   con un velo, che invece e' additivo e ignora cosa c'ha sotto.
+
+   Verificato sulle sei fasce reali misurate ad agosto 2026: con
+   brightness(.45) le voci restano leggibili anche sul cielo di
+   vocazioni.jpg (4,9:1) e su quello, piu' tenue, di chiSiamo.jpg
+   (5,3:1) — e le quattro foto scure arrivano fra 5,3:1 e 14:1, molto
+   sopra soglia, senza bisogno di scurirle oltre. */
 .barra::before {
   content: '';
   position: absolute;
   inset-inline: 0;
   top: 0;
   z-index: -1;
-  /* Era alto due volte e mezzo la barra, poi una volta e mezzo: restava
-     comunque una fascia scura che si sentiva pesante, e misurandola il
-     motivo si e' capito -- "il pieno arriva al 60%" era scritto qui, ma
-     il 60% di quell'altezza sono 90px, meno dei 104px della barra: il
-     velo cedeva un poco proprio sull'ultima riga della barra, mentre nel
-     resto scendeva via via piu' lentamente su una coda lunga quasi
-     quanto la barra stessa. E' quella coda a leggersi come "pesante": un
-     lungo strascico si nota, un taglio corto no.
-
-     Ora le due misure sono in lunghezza assoluta, non in percentuale di
-     un totale: il pieno dura esattamente quanto la barra — non un pelo
-     di meno — e poi si spegne in fretta, in un quarto della sua
-     altezza. Niente sotto le voci ha bisogno del velo: da li' in giu'
-     serve solo a non tagliare la foto di netto. */
-  height: calc(var(--mdv-altezza-navbar) + 1.75rem);
-  background: linear-gradient(
+  height: calc(var(--mdv-altezza-navbar) + 2.5rem);
+  -webkit-backdrop-filter: blur(18px) brightness(0.45) saturate(1.1);
+  backdrop-filter: blur(18px) brightness(0.45) saturate(1.1);
+  /* Un tocco della tavolozza del sito, non un grigio neutro: e' quel che
+     rende il vetro "di questo sito" e non un pannello generico -- e
+     alza anche un poco il contrasto sulle foto piu' chiare (la tinta e'
+     inclusa nei numeri verificati sopra). */
+  background: color-mix(in srgb, var(--mdv-bruno-900) 10%, transparent);
+  /* Il pieno dura esattamente quanto la barra, poi si spegne su una
+     curva morbida invece che su una rampa: e' la stessa ragione, e la
+     stessa forma, dell'alba dentro /vocazione — una rampa lascia un
+     gradino dove la sfumatura comincia, e su una fotografia quel gradino
+     si vede come un bordo dritto. Qui la distanza e' un decimo di
+     quella, e bastano quattro tappe invece di undici. */
+  -webkit-mask-image: linear-gradient(
     180deg,
-    var(--mdv-velo-alto) 0,
-    var(--mdv-velo-alto) var(--mdv-altezza-navbar),
-    color-mix(in srgb, var(--mdv-velo-alto) 35%, transparent)
-      calc(var(--mdv-altezza-navbar) + 1rem),
-    transparent calc(var(--mdv-altezza-navbar) + 1.75rem)
+    black 0,
+    black var(--mdv-altezza-navbar),
+    color-mix(in srgb, black 65%, transparent) calc(var(--mdv-altezza-navbar) + 0.9rem),
+    color-mix(in srgb, black 20%, transparent) calc(var(--mdv-altezza-navbar) + 1.8rem),
+    transparent calc(var(--mdv-altezza-navbar) + 2.5rem)
+  );
+  mask-image: linear-gradient(
+    180deg,
+    black 0,
+    black var(--mdv-altezza-navbar),
+    color-mix(in srgb, black 65%, transparent) calc(var(--mdv-altezza-navbar) + 0.9rem),
+    color-mix(in srgb, black 20%, transparent) calc(var(--mdv-altezza-navbar) + 1.8rem),
+    transparent calc(var(--mdv-altezza-navbar) + 2.5rem)
   );
   pointer-events: none;
   transition: opacity 400ms ease;

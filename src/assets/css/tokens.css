@@ -56,16 +56,6 @@
     --mdv-velo-scuro: rgba(0, 0, 0, 0.75);
     --mdv-ombra-media: rgba(0, 0, 0, 0.26);
     --mdv-ombra-lieve: rgba(0, 0, 0, 0.2);
-    /* Velo sotto la barra trasparente: le fotografie delle intestazioni
-       non sono tutte scure. Misurate ad agosto 2026, quattro delle sei
-       hanno pixel bianchi pieni proprio nella fascia della barra — non e'
-       un caso teorico, e' quello che c'e'.
-       Il velo si e' schiarito, ma poco: sopra il bianco ogni centesimo
-       conta. Cio' che lo fa sembrare molto piu' leggero e' che ora e'
-       corto e finisce presto, invece di strascicare sulla foto per due
-       volte l'altezza della barra (vedi .barra::before). */
-    --mdv-velo-alto: rgba(0, 0, 0, 0.64);
-
     /* Il colore delle voci sopra una fotografia. Non e' --mdv-sabbia-chiara
        perche' quella serve a mezzo sito e qui deve poter salire senza
        trascinarsi dietro il resto: sopra il bianco, il sabbia di prima
