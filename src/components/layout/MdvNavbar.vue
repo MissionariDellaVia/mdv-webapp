@@ -241,79 +241,6 @@ export default {
     background var(--mdv-transito-atmosfera) ease,
     box-shadow 400ms ease;
 }
-/* Finche' la barra e' trasparente sta sopra una fotografia, e le
-   fotografie non sono tutte scure: sopra un edificio bianco il testo
-   sabbia sparisce. Sotto la barra si tinge di vetro smerigliato -- la
-   stessa tecnica gia' in uso in quattro punti del sito per tutto cio'
-   che deve restare leggibile sopra qualcosa di imprevedibile (il
-   pannello a tendina, la galleria immagini, il cassetto, il modale
-   vocazionale). "brightness()" scurisce la foto stessa in proporzione a
-   quanto e' gia' chiara -- una foto scura passa quasi intatta, una foto
-   chiara si attenua sul serio -- che e' la differenza con un velo
-   colorato piatto, additivo e cieco a cosa c'ha sotto.
-   Quando la barra si tinge da sola (.barra--tinta) il vetro non serve
-   piu' e si spegne, se no i due scuri si sommano.
-
-   28 agosto: "troppo grosso e importante... perche' la barra e' molto
-   grossa". Aveva ragione: il riquadro copriva tutti i 6,5rem della
-   barra, ma il testo ne occupa molto meno. Misurato dai valori
-   dichiarati -- font 0,88rem, interlinea 1,4, piu' il suo stesso
-   padding -- il blocco del testo e' alto circa 36px e sta centrato
-   nella barra, da 34px a 70px. Il riquadro ora e' alto 4rem (64px),
-   centrato allo stesso modo con una formula (non un numero fisso, cosi'
-   si aggiusta da solo se --mdv-altezza-navbar cambia), e non tocca piu'
-   ne' il bordo alto ne' quello basso della barra: la fotografia si vede
-   scoperta sopra e sotto, il vetro protegge solo la fascia del testo.
-
-   Essendo staccato da entrambi i bordi, il riquadro ha bisogno di una
-   maschera che sfuma su tutt'e due i lati e non piu' solo in basso:
-   altrimenti si vedrebbe un rettangolo con lo spigolo vivo appoggiato a
-   meta' della fotografia -- piu' evidente di prima, non meno.
-
-   Il logo (72px, quasi quanto la barra intera) resta in parte fuori dal
-   riquadro nuovo: e' un segno grafico, non testo fine, e le linee guida
-   di accessibilita' chiedono per la grafica un contrasto minimo di
-   3:1 contro il 4,5:1 del testo -- una soglia che il suo stesso colore
-   scuro supera gia' da solo sulla maggior parte delle fotografie.
-
-   Intensita' e proporzioni (brightness, tinta, opacita' del testo)
-   restano quelle verificate il 27 agosto: cambia solo dove il riquadro
-   viene disegnato, non quanto scurisce quel che c'e' sotto. */
-.barra::before {
-  content: '';
-  position: absolute;
-  inset-inline: 0;
-  top: calc((var(--mdv-altezza-navbar) - 4rem) / 2);
-  z-index: -1;
-  height: 4rem;
-  -webkit-backdrop-filter: blur(12px) brightness(0.55) saturate(1.1);
-  backdrop-filter: blur(12px) brightness(0.55) saturate(1.1);
-  /* Un tocco della tavolozza del sito, non un grigio neutro: e' quel che
-     rende il vetro "di questo sito" e non un pannello generico -- e
-     alza anche un poco il contrasto sulle foto piu' chiare (la tinta e'
-     inclusa nei numeri verificati sopra). */
-  background: color-mix(in srgb, var(--mdv-bruno-900) 10%, transparent);
-  -webkit-mask-image: linear-gradient(
-    180deg,
-    transparent 0,
-    black 25%,
-    black 75%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    180deg,
-    transparent 0,
-    black 25%,
-    black 75%,
-    transparent 100%
-  );
-  pointer-events: none;
-  transition: opacity 400ms ease;
-}
-.barra--tinta::before {
-  opacity: 0;
-}
-
 .barra--tinta {
   height: var(--mdv-altezza-navbar-compatta);
   background: var(--mdv-bruno-900-velato);
@@ -333,11 +260,15 @@ export default {
 /* Il logo era un'immagine da 60x73 disegnata a grandezza naturale: su uno
    schermo a densita' doppia — cioe' su qualunque schermo di oggi — veniva
    ingrandita e si vedeva sfocata. Stessa grandezza a video, ma presa dal
-   file grande che era gia' in cartella. */
+   file grande che era gia' in cartella.
+   "drop-shadow" e' l'equivalente per le immagini di "text-shadow" sopra:
+   segue la sagoma reale del segno (e' trasparente intorno), non il
+   riquadro dell'immagine. */
 .barra__logo {
   height: 4.5rem;
   width: auto;
   display: block;
+  filter: drop-shadow(0 0 3px var(--mdv-velo-scuro));
   transition: height 400ms var(--mdv-curva-morbida);
 }
 /* Il marchio si stringe con la barra: restando grande la schiaccerebbe. */

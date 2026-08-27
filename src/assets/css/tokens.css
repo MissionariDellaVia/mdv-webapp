@@ -540,14 +540,37 @@
     color: var(--mdv-oro);
   }
   /* Stesso gesto, su fondo scuro: la barra e il cassetto stanno sul
-     bruno o sopra una fotografia, dove l'oro scuro non si legge. */
-  /* Piena, non 0,72 come le altre voci del sito e nemmeno 0,9 come qui
-     prima: sopra una fotografia un testo semitrasparente ci si stempera
-     dentro invece di starci sopra, ed e' il margine che serve per poter
-     tenere il vetro sotto molto piu' leggero — vedi .barra::before. */
+     bruno o sopra una fotografia, dove l'oro scuro non si legge.
+     Piena, non 0,72 come le altre voci del sito: sopra una fotografia
+     un testo semitrasparente ci si stempera dentro invece di starci
+     sopra.
+
+     28 agosto, terzo giro: dopo un velo colorato e poi un vetro
+     smerigliato -- prima a tutta barra, poi ristretto al solo testo --
+     restava sempre una forma, un rettangolo appoggiato sulla
+     fotografia. "Questa linea diritta non mi piace proprio": qui non
+     c'e' piu' nessun elemento di sfondo. L'ombra sta sui caratteri
+     stessi -- la strategia piu' comune per il testo sopra fotografie
+     imprevedibili (sottotitoli video, didascalie, testate di riviste)
+     proprio perche' non ha un bordo da nessuna parte: segue il
+     contorno di ogni lettera. La home la usa gia' sul titolo
+     dell'apertura (MdvVideoHeader.vue); qui e' lo stesso principio
+     dove serve di piu', su un testo molto piu' piccolo.
+
+     Due strati. Il primo, stretto (2px), fa da bordo netto e regge
+     quando sotto c'e' un dettaglio fine -- un ramo, un'onda. Il
+     secondo, largo (8px), fa da alone morbido e regge quando sotto
+     c'e' una zona ampia e chiara senza dettaglio -- un cielo -- dove
+     un bordo stretto da solo non basta perche' la luce lo circonda da
+     ogni lato. Stesso colore del titolo della home
+     (--mdv-velo-scuro): non un trattamento nuovo, lo stesso esteso a
+     un altro testo. */
   .mdv-navlink--chiaro {
     color: var(--mdv-voce-chiara);
     opacity: 1;
+    text-shadow:
+      0 0 2px var(--mdv-velo-scuro),
+      0 0 8px var(--mdv-velo-scuro);
   }
   .mdv-navlink--chiaro.mdv-navlink--attivo {
     color: var(--mdv-bianco);
