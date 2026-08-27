@@ -582,6 +582,43 @@
   .mdv-navlink--attivo::after {
     transform: scaleX(1);
   }
+
+  /* "Vocazione" e' un sito nel sito: la porta dovrebbe dirlo anche da
+     fuori, non solo una volta entrati. Rame e' gia' il colore di quella
+     sezione (vedi .voc-atmosfera qui sotto, dove le stesse tinte
+     tornano piu' accese) — riprenderlo qui, fuori dalla sezione, non
+     introduce un colore nuovo: anticipa quello che c'e' dietro la
+     porta.
+
+     La riga sotto e' permanente, non compare solo al passaggio del
+     mouse come le altre voci: e' quella che si nota senza bisogno di
+     toccare niente. E ci scorre sopra lo stesso riflesso della voce
+     accesa dentro la sezione -- stesso @keyframes voc-riflesso, non
+     un secondo effetto in piu' -- ma piu' lento, nove secondi contro
+     sei, perche' qui e' un invito, non un "sei arrivato". */
+  .barra__link--vocazione,
+  .menu__link--vocazione {
+    color: var(--mdv-rame-chiaro);
+  }
+  .barra__link--vocazione::after {
+    transform: scaleX(1);
+    background-color: var(--mdv-rame);
+    background-image: linear-gradient(
+      90deg,
+      transparent 38%,
+      color-mix(in oklab, var(--mdv-rame-acceso) 75%, transparent) 50%,
+      transparent 62%
+    );
+    background-size: 220% 100%;
+    background-repeat: no-repeat;
+    animation: voc-riflesso 9s var(--mdv-curva-morbida) infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .barra__link--vocazione::after {
+      background-image: none;
+      animation: none;
+    }
+  }
   .mdv-navlink:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 4px;
@@ -632,6 +669,14 @@
     }
     .mdv-navlink:hover::after {
       transform: scaleX(1);
+    }
+    /* Non verso il bianco delle altre voci: resta nella sua famiglia di
+       colore e si accende, come quando e' davvero attiva dentro la
+       sezione. Vale anche nel cassetto: stesso nome di classe, stessa
+       eccezione, un solo posto (qui) dove sta scritta. */
+    .barra__link--vocazione:hover,
+    .menu__link--vocazione:hover {
+      color: var(--mdv-rame-acceso);
     }
     .mdv-invito:hover {
       border-color: var(--mdv-oro);
