@@ -31,8 +31,7 @@
             <router-link
               v-else
               :class="['mdv-navlink', 'mdv-navlink--chiaro', 'barra__link',
-                       { 'mdv-navlink--attivo': voceAttiva($route.path, item.to),
-                         'barra__link--vocazione': item.to === '/vocazione' }]"
+                       { 'mdv-navlink--attivo': voceAttiva($route.path, item.to) }]"
               :to="item.to"
             >{{ item.title }}</router-link>
           </template>
@@ -103,12 +102,7 @@
                 <span class="fuori" aria-hidden="true">↗</span>
                 <span class="sr-only">(si apre in una nuova scheda)</span>
               </a>
-              <router-link
-                v-else
-                :class="['menu__link', { 'menu__link--vocazione': item.to === '/vocazione' }]"
-                :to="item.to"
-                @click="chiudi"
-              >
+              <router-link v-else class="menu__link" :to="item.to" @click="chiudi">
                 {{ item.title }}
               </router-link>
             </template>

@@ -582,54 +582,6 @@
   .mdv-navlink--attivo::after {
     transform: scaleX(1);
   }
-
-  /* "Vocazione" e' un sito nel sito: la porta dovrebbe dirlo anche da
-     fuori, non solo una volta entrati. Rame e' gia' il colore di quella
-     sezione (vedi .voc-atmosfera qui sotto, dove le stesse tinte
-     tornano piu' accese) — riprenderlo qui, fuori dalla sezione, non
-     introduce un colore nuovo: anticipa quello che c'e' dietro la
-     porta.
-
-     Tre tentativi sul colore. --mdv-rame-chiaro da solo era sgargiante;
-     --mdv-rame da solo era terroso, un marrone a se stante invece che
-     una voce della stessa famiglia delle altre. --mdv-rame-acceso,
-     preso com'e' senza mescolarlo, e' quello giusto: la sua luminanza
-     (0,62) sta a meta' strada fra --mdv-voce-chiara delle altre voci
-     (0,85) e --mdv-rame (0,18) — leggermente piu' scura delle altre,
-     non un colore diverso, ancora calda invece che scura.
-
-     E l'animazione, tolta insieme alla riga e richiesta di nuovo: non
-     torna come riga, ma come respiro. Un alone che si allarga e si
-     restringe molto lentamente, sugli stessi due strati di ombra che
-     tengono leggibile ogni voce della barra (vedi .mdv-navlink--chiaro
-     qui sopra) — quei due restano fissi in ogni istante
-     dell'animazione, cambia solo il terzo strato, il piu' esterno. */
-  .barra__link--vocazione,
-  .menu__link--vocazione {
-    color: var(--mdv-rame-acceso);
-  }
-  .barra__link--vocazione {
-    animation: voc-porta-respiro 5s ease-in-out infinite;
-  }
-  @keyframes voc-porta-respiro {
-    0%, 100% {
-      text-shadow:
-        0 0 2px var(--mdv-velo-scuro),
-        0 0 8px var(--mdv-velo-scuro),
-        0 0 3px color-mix(in oklab, var(--mdv-rame-acceso) 30%, transparent);
-    }
-    50% {
-      text-shadow:
-        0 0 2px var(--mdv-velo-scuro),
-        0 0 8px var(--mdv-velo-scuro),
-        0 0 11px color-mix(in oklab, var(--mdv-rame-acceso) 75%, transparent);
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .barra__link--vocazione {
-      animation: none;
-    }
-  }
   .mdv-navlink:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 4px;
