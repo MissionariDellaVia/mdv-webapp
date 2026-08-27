@@ -11,14 +11,28 @@
       <main class="apertura px-4 text-center">
         <!-- Lo stemma della comunita'. Il file si chiamava "hr.png" e la
              classe ".hr-img", nomi da linea orizzontale: l'avevo scambiato
-             per un divisore decorativo e tolto. -->
+             per un divisore decorativo e tolto.
+
+             "entra" era giusto quando l'apertura video era un riquadro di
+             45rem: stemma e titolo comparivano appena sotto, gia' dentro
+             lo schermo al primo disegno, e l'animazione di ingresso li
+             coglieva mentre arrivavano gli occhi. Ora che l'apertura e' a
+             tutto schermo (100dvh), stanno sempre oltre il bordo inferiore
+             al primo disegno: "entra" finiva di recitare mentre erano
+             ancora invisibili, e quando si scorreva fin li' si trovavano
+             gia' fermi, senza nessun movimento da vedere. "v-rivela" e'
+             la stessa direttiva che gia' usa MdvArticle qui sotto: aspetta
+             che l'elemento entri davvero nel campo visivo. -->
         <img
           src="../assets/img/emblema.png"
           alt="Missionari della Via"
-          class="emblema entra entra--2"
+          v-rivela
+          class="emblema"
         />
-        <h1 class="mdv-titolo-pagina my-6 entra entra--3">{{ chiSiamoPage.main.title }}</h1>
-        <p v-if="chiSiamoPage.main.caption" class="mdv-sottotitolo entra entra--4">
+        <h1 v-rivela class="mdv-titolo-pagina my-6" style="transition-delay: 140ms">
+          {{ chiSiamoPage.main.title }}
+        </h1>
+        <p v-if="chiSiamoPage.main.caption" v-rivela class="mdv-sottotitolo" style="transition-delay: 280ms">
           {{ chiSiamoPage.main.caption }}
         </p>
 
