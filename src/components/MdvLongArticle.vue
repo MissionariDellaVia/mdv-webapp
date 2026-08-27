@@ -58,6 +58,14 @@ export default {
   font-size: var(--mdv-testo-l);
   text-align: left;
 }
+/* Il carosello finiva appiccicato al primo paragrafo: i punti sotto le
+   immagini non hanno un margine loro (BaseCarosello lo lascia decidere
+   a chi lo usa, perche' altrove -- i sei passi, le testimonianze -- lo
+   spazio dopo lo dava gia' il contenitore). Qui non c'era, e il testo
+   partiva subito sotto i punti. */
+.approfondimento :deep(.carosello) {
+  margin-bottom: var(--mdv-spazio-5);
+}
 
 .approfondimento__foto {
   max-width: 100%;

@@ -245,7 +245,7 @@ export default {
   gap: var(--mdv-spazio-2);
   list-style: none;
   padding: 0;
-  margin: var(--mdv-spazio-2) 0 0 0;
+  margin: var(--mdv-spazio-1) 0 0 0;
 }
 .carosello__punto {
   width: 1.6rem;
