@@ -47,6 +47,8 @@
 </template>
 
 <script>
+import { inviaMessaggioContatti } from "@/services/mailApi.js";
+
 export default {
   name: "MdvForm",
   props: ['title', 'nameField', 'lastNameField', 'textField', 'buttonName' ],
@@ -81,34 +83,18 @@ export default {
       }
     },
     async submitForm() {
-      const formData = {
-        nome: this.name,
-        cognome: this.lastName,
-        mail: this.email,
-        message: this.textArea,
-        to: "missionaridellavia.lamezia@gmail.com"
-      };
-
-      const response = await fetch(
-          `https://vocazione.altervista.org/api/SendMail.php`,
-          {
-            method: 'POST',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
-          }
-      );
-      const responseData = await response.json();
-
-      if (!response.ok) {
-        console.log('Errore inserimento' + responseData.message)
-        this.showToast("errore nell'invio della richiesta!", false)
-      } else {
+      try {
+        await inviaMessaggioContatti({
+          nome: this.name,
+          cognome: this.lastName,
+          mail: this.email,
+          message: this.textArea,
+        });
         this.showToast("richiesta inviata", true)
+      } catch (errore) {
+        console.error('Errore invio modulo contatti:', errore)
+        this.showToast("errore nell'invio della richiesta!", false)
       }
-
     },
   }
 
